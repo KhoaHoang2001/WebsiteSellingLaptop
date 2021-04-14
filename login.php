@@ -2,8 +2,8 @@
     require('conn.php');
     require('include.php');
     $msg = "";
-    echo $_POST['xacnhan'];
-    if(isset($_POST['xacnhan'])){
+    echo $_POST['submit'];
+    if(isset($_POST['submit'])){
         $username = get_value($conn, $_POST['username']);
         $password = get_value($conn, $_POST['password']);
         $sql = "select * from nhanvien where username = '$username' and password = '$password';";
@@ -27,7 +27,7 @@
         <form method="post">
             <div class="">username: <input type="text" name="taikhoan"></div>
             <div class="">password: <input type="password" name="matkhau"></div>
-            <div class=""><button type="submit" name="xacnhan">login</button></div>
+            <div class=""><button type="submit" name="submit">login</button></div>
         </form>
         <p name="loginfaile" style="display: none;">Sai tai khoan hoac mat khau</p>
     </body>
