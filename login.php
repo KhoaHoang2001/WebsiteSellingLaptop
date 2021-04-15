@@ -5,6 +5,7 @@
 
     function check_user($row){ //kiểm tra quyền tài
         $maquyen = $row['maquyen'];
+        $_SESSION('user') = $row['taikhoan'];
         if($maquyen == 'NV'){
             header('location: /weblaptop/admin/index.php'); //sai dia chi thu muc
         }
@@ -15,15 +16,14 @@
             header('location: /weblaptop/admin/index.php');
         }
     }
+
     if(isset($_POST['submit'])){
         $taikhoan = $_POST['taikhoan'];
         $matkhau = md5($_POST['matkhau']);
-        $conn = Connect();
-        $sql = "select maquyen from nguoidung where taikhoan = '$taikhoan'";
+        $sql = "SELECT * FROM nguoidung WHERE taikhoan = '$taikhoan' AND WHERE = '$matkhau'";
         $res = check_db($sql);
-        if($res != null){
-            $row = $res->fetch_assoc();
-            // echo "<p>".$row['maquyen']."</p>";
+        if(mysqli_num_rows($res) > 0){
+            $row = mysqil_fetch_assoc($res);
             check_user($row);
         }
         else{

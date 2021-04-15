@@ -13,8 +13,13 @@
     }
 
     function Check_db($sql){
-        $conn = Connect();
-        $res = $conn->query($sql);
+        $res = mysqli_query($conn, $sql);
         return $res;
     }
+
+    function Get_Checkbox($arr){
+        
+        $sql = "SELECT * FROM SANPHAM " . ;
+    }
+
 ?>
