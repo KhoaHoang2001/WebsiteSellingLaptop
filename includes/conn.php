@@ -1,18 +1,15 @@
 <?php
-    //session_start();
-    function Connect(){
-        $conn = new mysqli(
-            "localhost",
-            "root",
-            "",
-            "weblaptop"
-        );
-        $conn->set_charset("utf8");
-        return $conn;
+    session_start();
+
+    $conn = mysqli_connect(
+        "localhost",
+        "root",
+        "",
+        "weblaptop"
+    );
+
+    if(mysqli_connect_errno()){
+        echo "Loi ket noi: " .mysqli_connect_error();
     }
-    
-    function Disconnect($conn)
-    {
-        $conn->close();
-    }
+
 ?>

@@ -26,6 +26,9 @@
             // echo "<p>".$row['maquyen']."</p>";
             check_user($row);
         }
+        else{
+            echo "sai tai khoan hoac mat khau";
+        }
     }
 ?>
 
