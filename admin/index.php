@@ -1,13 +1,6 @@
 <?php
-session_start();
 
-if (isset($_SESSION['usernamenv']) == '') {
-  echo "<script>window.open('login.php','_self')</script>";
-} else {
-  $usernanme = $_SESSION['usernamenv'];
-?>
-
-<?php include 'includes/db.php';
+<?php include 'include.php';
   ?>
 <!DOCTYPE html>
 <html>
@@ -64,56 +57,53 @@ if (isset($_SESSION['usernamenv']) == '') {
 
             <!-- -->
             <!--Profile Card-->
-            <?php
-        if (isset($_GET['action'])) {
-          $action = $_GET['action'];
-        } else {
-          $action = '';
-        }
+        //     <?php
+        // if (isset($_GET['action'])) {
+        //   $action = $_GET['action'];
+        // } else {
+        //   $action = '';
+        // }
 
-        switch ($action) {
-          case 'add_pro';
-            include 'includes/insert_product.php';
-            break;
+        // switch ($action) {
+        //   case 'add_pro';
+        //     include 'includes/insert_product.php';
+        //     break;
 
-          case 'view_pro';
-            include 'includes/view_products.php';
-            break;
+        //   case 'view_pro';
+        //     include 'includes/view_products.php';
+        //     break;
 
-          case 'edit_pro';
-            include 'includes/edit_product.php';
-            break;
+        //   case 'edit_pro';
+        //     include 'includes/edit_product.php';
+        //     break;
 
-          case 'add_cat';
-            include 'includes/insert_category.php';
-            break;
+        //   case 'add_cat';
+        //     include 'includes/insert_category.php';
+        //     break;
 
-          case 'view_cat';
-            include 'includes/view_categories.php';
-            break;
+        //   case 'view_cat';
+        //     include 'includes/view_categories.php';
+        //     break;
 
-          case 'edit_cat';
-            include 'includes/edit_category.php';
-            break;
+        //   case 'edit_cat';
+        //     include 'includes/edit_category.php';
+        //     break;
 
-          case 'view_users';
-            include 'includes/view_users.php';
-            break;
-          case 'view_nhanvien';
-            include 'includes/view_nhanvien.php';
-            break;
-          case 'add_nhanvien';
-            include 'includes/insert_nhanvien.php';
-            break;
-          case 'check_cart';
-            include 'includes/check_cart.php';
-            break;
-        }
+        //   case 'view_users';
+        //     include 'includes/view_users.php';
+        //     break;
+        //   case 'view_nhanvien';
+        //     include 'includes/view_nhanvien.php';
+        //     break;
+        //   case 'add_nhanvien';
+        //     include 'includes/insert_nhanvien.php';
+        //     break;
+        //   case 'check_cart';
+        //     include 'includes/check_cart.php';
+        //     break;
+        // }
 
-        ?>
-            <!-- -->
-
-
+        // ?>
         </div>
     </div>
 

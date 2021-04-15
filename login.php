@@ -3,19 +3,28 @@
     require('include.php');
     $msg = "";
 
-    function check_user($taikhoan){ //kiểm tra quyền tài 
-        
+    function check_user($row){ //kiểm tra quyền tài
+        $maquyen = $row['maquyen'];
+        if($maquyen == 'NV'){
+            header('location: /weblaptop/admin/index.php'); //sai dia chi thu muc
+        }
+        else if($maquyen == 'KH'){
+            header('location: /weblaptop/index.php');
+        }
+        else if($maquyen == 'admin'){
+            header('location: /weblaptop/admin/index.php');
+        }
     }
     if(isset($_POST['submit'])){
         $taikhoan = $_POST['taikhoan'];
-        $matkhau = $_POST['matkhau']; //chua md5
+        $matkhau = md5($_POST['matkhau']);
         $conn = Connect();
         $sql = "select maquyen from nguoidung where taikhoan = '$taikhoan'";
         $res = check_db($sql);
         if($res != null){
             $row = $res->fetch_assoc();
             // echo "<p>".$row['maquyen']."</p>";
-            
+            check_user($row);
         }
     }
 ?>
