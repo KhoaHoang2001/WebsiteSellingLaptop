@@ -1,6 +1,6 @@
 <?php
     //require('conn.php');
-    require('include.php');
+    require('includes/include.php');
     $msg = "";
 
     function check_user($row){ //kiểm tra quyền tài
