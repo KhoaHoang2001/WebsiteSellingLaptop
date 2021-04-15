@@ -1,17 +1,20 @@
 <?php
-    function pr($arr){
+    require('conn.php');
+
+    function Pr($arr){
         echo "<pre>";
         print_r($arr);
     }
 
-    function prx($arr){
+    function Prx($arr){
         echo "<pre>";
         print_r($arr);
         die();
     }
 
-    function get_value($conn, $str){
-        if($str != "")
-            return mysqli_real_escape_string($conn, $str);
+    function Check_db($sql){
+        $conn = Connect();
+        $res = $conn->query($sql);
+        return $res;
     }
 ?>

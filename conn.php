@@ -1,9 +1,18 @@
 <?php
-    session_start();
-    $conn = mysqli_connect(
-        "localhost",
-        "root",
-        "",
-        "weblaptop"
-    );
+    //session_start();
+    function Connect(){
+        $conn = new mysqli(
+            "localhost",
+            "root",
+            "",
+            "weblaptop"
+        );
+        $conn->set_charset("utf8");
+        return $conn;
+    }
+    
+    function Disconnect($conn)
+    {
+        $conn->close();
+    }
 ?>

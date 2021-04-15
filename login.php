@@ -1,22 +1,21 @@
 <?php
-    require('conn.php');
+    //require('conn.php');
     require('include.php');
     $msg = "";
-    echo $_POST['submit'];
+
+    function check_user($taikhoan){ //kiểm tra quyền tài 
+        
+    }
     if(isset($_POST['submit'])){
-        $username = get_value($conn, $_POST['username']);
-        $password = get_value($conn, $_POST['password']);
-        $sql = "select * from nhanvien where username = '$username' and password = '$password';";
-        $res = mysqli_query($conn, $sql);
-        $count = mysqli_num_rows($res);
-        if($count > 0){
-            $_SESSION['admin_login'] = 'yes';
-            $_SESSION['admin_username'] = $username;
-            header('location: /nienluan/index.php');
-            die();
-        }
-        else {
-            $msg = "sai tên tài khoản hoặc mật khẩu";
+        $taikhoan = $_POST['taikhoan'];
+        $matkhau = $_POST['matkhau']; //chua md5
+        $conn = Connect();
+        $sql = "select maquyen from nguoidung where taikhoan = '$taikhoan'";
+        $res = check_db($sql);
+        if($res != null){
+            $row = $res->fetch_assoc();
+            // echo "<p>".$row['maquyen']."</p>";
+            
         }
     }
 ?>
@@ -25,8 +24,8 @@
     <head></head>
     <body>
         <form method="post">
-            <div class="">username: <input type="text" name="taikhoan"></div>
-            <div class="">password: <input type="password" name="matkhau"></div>
+            <div class="">taikhoan: <input type="text" name="taikhoan"></div>
+            <div class="">matkhau: <input type="password" name="matkhau"></div>
             <div class=""><button type="submit" name="submit">login</button></div>
         </form>
         <p name="loginfaile" style="display: none;">Sai tai khoan hoac mat khau</p>
