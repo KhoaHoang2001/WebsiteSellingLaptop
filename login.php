@@ -1,6 +1,5 @@
 <?php
     require('includes/include.php');
-    require('includes/conn.php');
 
     function check_role($role){
         if($role == "NV"){
@@ -19,7 +18,7 @@
         $matkhau = Get_value($conn, $_POST["matkhau"]);
         $matkhau = md5($matkhau);
         $sql = "SELECT * FROM NGUOIDUNG WHERE taikhoan = '$taikhoan' AND matkhau = '$matkhau'";
-        $res = mysqli_query($conn, $sql);
+        $res = Check_db($sql);
         if(mysqli_num_rows($res) > 0){
             $row = mysqli_fetch_assoc($res);
             $_SESSION['taikhoan'] = $row['TAIKHOAN'];

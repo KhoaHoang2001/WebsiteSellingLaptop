@@ -3,33 +3,33 @@
 
     function View_Product_Category(){
         $sql = "SELECT * FROM sanpham where Masp = (select max(soluongdat) FROM monhang);";
-        $res = check_db($sql);
+        $res = Check_db($sql);
         if(mysqli_num_rows($res) > 0){
-            while ($row = mysqli_fetch_assoc($result)) {
-                $row['tesp'] = $tensp;
-                $row['gia'] = $gia;
-                $row['kichthuocmh'] = $kichthuocmh;
-                $row['vixuly'] = $vixuly;
-                $row['ram'] = $ram;
+            while ($row = mysqli_fetch_assoc($res)) {
+                $tensp = $row['TENSP'];
+                $gia = $row['GIA'];
+                $kichthuocmh = $row['KICHTHUOCMH'];
+                $vixuly = $row['VIXULY'];
+                $ram = $row['RAM'];
             }
         }
     }
 
     function View_Full_Product(){
+        // $conn = Connect();
         $sql = "SELECT * FROM sanpham LEFT JOIN giamgia on sanpham.MAGIAMGIA = giamgia.MAGIAMGIA";
-        $res = check_db($sql);
+        $res = Check_db($sql);
+        echo mysqli_num_rows($res);
         if(mysqli_num_rows($res) > 0){
             while ($row = mysqli_fetch_assoc($res)) {
-                $row['tesp'] = $tensp;
-                $row['gia'] = $gia; //gia goc
-                $row['phantram'] = $phantram; //phan tram giam gia ̣(co the null)
-                $row['kichthuocmh'] = $kichthuocmh;
-                $row['vixuly'] = $vixuly;
-                $row['ram'] = $ram;
+                $tensp = $row['TENSP'];
+                $gia = $row['GIA'];
+                $phantram = $row['PHANTRAM'];
+                $kichthuocmh = $row['KICHTHUOCMH'];
+                $vixuly = $row['VIXULY'];
+                $ram = $row['RAM'];
                 //show san pham ra manh hinh.
             }
         }
     }
-
-
 ?>
