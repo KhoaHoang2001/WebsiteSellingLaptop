@@ -1,33 +1,30 @@
 <?php
-    //require('conn.php');
     require('includes/include.php');
-    $msg = "";
+    require('includes/conn.php');
 
-    function check_user($row){ //kiểm tra quyền tài
-        $maquyen = $row['maquyen'];
-        $_SESSION('user') = $row['taikhoan'];
-        if($maquyen == 'NV'){
-            header('location: /weblaptop/admin/index.php'); //sai dia chi thu muc
+    function check_role($role){
+        if($role == "NV"){
+            header('location: /weblaptop/staff/index.php');
         }
-        else if($maquyen == 'KH'){
+        else if($role == "KH"){
             header('location: /weblaptop/index.php');
         }
-        else if($maquyen == 'admin'){
+        else if($role == "AD"){
             header('location: /weblaptop/admin/index.php');
         }
     }
 
     if(isset($_POST['submit'])){
-        $taikhoan = $_POST['taikhoan'];
-        $matkhau = md5($_POST['matkhau']);
-        $sql = "SELECT * FROM nguoidung WHERE taikhoan = '$taikhoan' AND WHERE = '$matkhau'";
-        $res = check_db($sql);
+        $taikhoan = Get_value($conn, $_POST["taikhoan"]);
+        $matkhau = Get_value($conn, $_POST["matkhau"]);
+        $matkhau = md5($matkhau);
+        $sql = "SELECT * FROM NGUOIDUNG WHERE taikhoan = '$taikhoan' AND matkhau = '$matkhau'";
+        $res = mysqli_query($conn, $sql);
         if(mysqli_num_rows($res) > 0){
-            $row = mysqil_fetch_assoc($res);
-            check_user($row);
-        }
-        else{
-            echo "sai tai khoan hoac mat khau";
+            $row = mysqli_fetch_assoc($res);
+            $_SESSION['taikhoan'] = $row['TAIKHOAN'];
+            $_SESSION['maquyen'] = $row['MAQUYEN'];
+            check_role($_SESSION['maquyen']);
         }
     }
 ?>

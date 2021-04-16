@@ -1,6 +1,6 @@
 <?php
 
-<?php include 'include.php';
+<?php include '../includes/include.php';
   ?>
 <!DOCTYPE html>
 <html>

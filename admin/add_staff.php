@@ -1,4 +1,4 @@
 <?php
-    require('includes/include.php');
+    require('../includes/include.php');
     
 ?>
