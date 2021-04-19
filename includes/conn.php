@@ -1,7 +1,7 @@
 <?php
     session_start();
 
-    function Connect(){
+    function Connect(){///okoko
         $conn = mysqli_connect(
             "localhost",
             "root",
