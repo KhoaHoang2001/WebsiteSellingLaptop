@@ -1,21 +1,9 @@
 <?php
-    require('includes/include.php');
-
-    function check_role($role){
-        if($role == "NV"){
-            header('location: /weblaptop/staff/index.php');
-        }
-        else if($role == "KH"){
-            header('location: /weblaptop/index.php');
-        }
-        else if($role == "AD"){
-            header('location: /weblaptop/admin/index.php');
-        }
-    }
+    require_once('includes/include.php');
 
     if(isset($_POST['submit'])){
-        $taikhoan = Get_value($conn, $_POST["taikhoan"]);
-        $matkhau = Get_value($conn, $_POST["matkhau"]);
+        $taikhoan = Get_value($_POST["taikhoan"]);
+        $matkhau = Get_value($_POST["matkhau"]);
         $matkhau = md5($matkhau);
         $sql = "SELECT * FROM NGUOIDUNG WHERE taikhoan = '$taikhoan' AND matkhau = '$matkhau'";
         $res = Check_db($sql);
@@ -23,7 +11,7 @@
             $row = mysqli_fetch_assoc($res);
             $_SESSION['taikhoan'] = $row['TAIKHOAN'];
             $_SESSION['maquyen'] = $row['MAQUYEN'];
-            check_role($_SESSION['maquyen']);
+            Check_role($_SESSION['maquyen']);
         }
     }
 ?>

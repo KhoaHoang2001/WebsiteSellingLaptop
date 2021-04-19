@@ -1,26 +1,17 @@
 <?php
     session_start();
-    
+
     function Connect(){
-        $con = mysqli_connect(
+        $conn = mysqli_connect(
             "localhost",
             "root",
             "",
             "weblaptop"
         );
-        mysqli_set_charset($con, "utf8");
-        return $con;
+        mysqli_set_charset($conn, "utf8");
+        return $conn;
     }
     
-    $conn = mysqli_connect(
-        "localhost",
-        "root",
-        "",
-        "weblaptop"
-    );
-    
-    mysqli_set_charset($conn, "utf8");
-
     if(mysqli_connect_errno()){
         echo "ket noi bi loi";
     }
