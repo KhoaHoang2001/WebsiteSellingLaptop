@@ -62,19 +62,19 @@
         mysqli_close($conn);
     }
 
-    function Update_Staff($taikhoan, $matkhau, $tennd, $gioitinh, $sdt, $diachi, $email, $ngaysinh){
-        if(Check_Staff($taikhoan)){
-            $conn = Connect();
-            $matkhau = md5($matkhau);
-            $sql = "UPDATE `nguoidung` SET `TENND` = '$tennd', `GIOITINH` = b'$gioitinh', `SDT` = '$sdt', `DIACHI` = '$diachi', `EMAIL` = '$email', `NGAYSINH` = '$ngaysinh' WHERE `nguoidung`.`TAIKHOAN` = '$taikhoan';";
-            mysqli_query($conn, $sql);
-            mysqli_close($conn);
-            echo "cap nhat tai khoan thanh cong";
-        }
-        else{
-            echo "tai khoan khong ton tai";
-        }
-    }
+    // function Update_Staff($taikhoan, $matkhau, $tennd, $gioitinh, $sdt, $diachi, $email, $ngaysinh){
+    //     if(Check_Staff($taikhoan)){
+    //         $conn = Connect();
+    //         $matkhau = md5($matkhau);
+    //         $sql = "UPDATE `nguoidung` SET `TENND` = '$tennd', `GIOITINH` = b'$gioitinh', `SDT` = '$sdt', `DIACHI` = '$diachi', `EMAIL` = '$email', `NGAYSINH` = '$ngaysinh' WHERE `nguoidung`.`TAIKHOAN` = '$taikhoan';";
+    //         mysqli_query($conn, $sql);
+    //         mysqli_close($conn);
+    //         echo "cap nhat tai khoan thanh cong";
+    //     }
+    //     else{
+    //         echo "tai khoan khong ton tai";
+    //     }
+    // }
 ?>
 
 <!DOCTYPE html>

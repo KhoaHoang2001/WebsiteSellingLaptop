@@ -1,5 +1,7 @@
 <?php
     require_once('includes/include.php');
+    require_once('admin/product.php');
+    require_once('admin/discount.php');
     Check_role_in_site($_SESSION['maquyen']);
 
     function View_Product_Sellest(){
@@ -7,11 +9,15 @@
         $res = Check_db($sql);
         if(mysqli_num_rows($res) > 0){
             while ($row = mysqli_fetch_assoc($res)) {
+                $masp = $row['MASP'];
                 $tensp = $row['TENSP'];
                 $gia = $row['GIA'];
+                $phantram = View_Discount($masp);
                 $kichthuocmh = $row['KICHTHUOCMH'];
                 $vixuly = $row['VIXULY'];
                 $ram = $row['RAM'];
+                $motasp = $row['MOTASP'];
+                $ngaysx = $row['NGAYSX'];
             }
         }
         else{
@@ -20,12 +26,14 @@
     }
 
     function View_Full_Product(){
-        $sql = "SELECT * FROM sanpham LEFT JOIN giamgia on sanpham.MAGIAMGIA = giamgia.MAGIAMGIA";
+        $sql = "SELECT * FROM sanpham";
         $res = Check_db($sql);
         if(mysqli_num_rows($res) > 0){
             while ($row = mysqli_fetch_assoc($res)) {
+                $masp = $row['MASP'];
                 $tensp = $row['TENSP'];
                 $gia = $row['GIA'];
+                $phantram = View_Discount($masp);
                 $phantram = $row['PHANTRAM'];
                 $kichthuocmh = $row['KICHTHUOCMH'];
                 $vixuly = $row['VIXULY'];
