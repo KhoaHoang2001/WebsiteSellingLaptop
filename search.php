@@ -1,13 +1,9 @@
 <?php 
     require_once('includes/include.php');
+    require_once('admin/product.php');
+    //Check_role_in_site($_SESSION['maquyen']);
 
-    function Img_product($masp){
-        $sql_img = "SELECT * FROM HINHANH WHERE MASP = '$masp';";
-        $res_img = Check_db($sql_img);
-        return $res_img;
-    }
-
-    function Product_search(){
+    function Product_Search(){
         if(isset($_GET['submit'])){
             $tensp = $_GET['tensp'];
             $sql = "SELECT * FROM SANPHAM WHERE TENSP LIKE '%$tensp%'";
