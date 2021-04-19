@@ -15,6 +15,7 @@
     function Check_db($sql){
         $conn = Connect();
         $res = mysqli_query($conn, $sql);
+        mysqli_close($conn);
         return $res;
     }
 
