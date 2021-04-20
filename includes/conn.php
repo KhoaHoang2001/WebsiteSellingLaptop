@@ -1,7 +1,7 @@
 <?php
     session_start();
 
-    function Connect(){//okiookokoko
+    function Connect(){
         $conn = mysqli_connect(
             "localhost",
             "root",
@@ -14,5 +14,6 @@
     
     if(mysqli_connect_errno()){
         echo "ket noi bi loi";
+    }else{
     }
 ?>

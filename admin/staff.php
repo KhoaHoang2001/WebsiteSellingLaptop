@@ -28,8 +28,7 @@
                 $sdt = $row['SDT'];
                 $diachi = $row['DIACHI'];
                 $email = $row['EMAIL'];
-                $ngaysinh = $row['NGAYSINH'];
-            }
+                $ngaysinh = $row['NGAYSINH'];          }
         }
         else{
             console.log("khong tim duoc nhan vien nao");
