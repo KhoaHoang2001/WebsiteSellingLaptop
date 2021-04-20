@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 20, 2021 at 05:14 AM
+-- Generation Time: Apr 20, 2021 at 05:36 AM
 -- Server version: 10.4.11-MariaDB
 -- PHP Version: 7.2.31
 
@@ -50,7 +50,7 @@ INSERT INTO `capquyen` (`MAQUYEN`, `TENQUYEN`, `MOTAQUYEN`) VALUES
 
 CREATE TABLE `donhang` (
   `MADH` int(11) NOT NULL,
-  `MAND` int(11) NOT NULL,
+  `TAIKHOAN` varchar(10) NOT NULL,
   `TRANGTHAI` varchar(15) CHARACTER SET utf8 NOT NULL,
   `NGAYDAT` date NOT NULL,
   `HTTHANHTOAN` tinyint(1) NOT NULL,
@@ -268,7 +268,7 @@ ALTER TABLE `capquyen`
 --
 ALTER TABLE `donhang`
   ADD PRIMARY KEY (`MADH`),
-  ADD KEY `donhang_ibfk_1` (`MAND`);
+  ADD KEY `donhang_ibfk_1` (`TAIKHOAN`);
 
 --
 -- Indexes for table `giamgia`
@@ -380,12 +380,6 @@ ALTER TABLE `sanpham`
 --
 -- Constraints for dumped tables
 --
-
---
--- Constraints for table `donhang`
---
-ALTER TABLE `donhang`
-  ADD CONSTRAINT `donhang_ibfk_1` FOREIGN KEY (`MAND`) REFERENCES `donhang` (`MADH`);
 
 --
 -- Constraints for table `hinhanh`
