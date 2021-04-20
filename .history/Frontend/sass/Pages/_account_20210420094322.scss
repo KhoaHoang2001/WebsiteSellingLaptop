@@ -1,0 +1,115 @@
+#account {
+  .container {
+    .row {
+      #account__left {
+        width: 20%;
+        ul {
+          list-style-type: none;
+          li {
+            margin-left: 10px;
+            a {
+              color: black;
+              display: block;
+              padding: 10px;
+              border: 1px solid black;
+              text-decoration: none;
+            }
+          }
+          .active {
+            background-color: rgb(255, 166, 0);
+          }
+        }
+      }
+      #account__right {
+        width: 70%;
+        margin: 0 auto;
+        #myAccount {
+          display: none;
+          #thongTinTaiKhoan {
+            display: flex;
+            justify-content: space-around;
+            form {
+            }
+            #account__img {
+              position: relative;
+              width: 200px;
+              height: 200px;
+              border-radius: 50%;
+              border: 1px solid black;
+              img {
+                width: 200px;
+                height: 200px;
+                border-radius: 50%;
+                padding: 5px;
+              }
+              i {
+                font-size: 25px;
+                color: white;
+                width: 200px;
+                height: 200px;
+                border-radius: 50%;
+                position: absolute;
+                top: 45%;
+                left: 45%;
+                display: none;
+              }
+              &:hover {
+                cursor: pointer;
+                i {
+                  display: block;
+                }
+              }
+            }
+          }
+        }
+        #trangThaiDonHang {
+          display: none;
+          #trangThaiDonHang_tblItem {
+            width: 100%;
+            #trangThaiDonHang_tblHead {
+              th {
+                width: 20%;
+              }
+            }
+            #trangThaiDonHang_tblBody {
+              tr {
+                text-decoration: none;
+                td{
+                    &:nth-child(1){
+                        display: flex;
+                        width: 50%;
+                        img{
+                            width: 100%;
+                        }
+                    }
+                    &:nth-child(2){
+                        width: 15%;
+                    }
+                    &:nth-child(3){
+                        
+                    }
+                    &:nth-child(4){
+                        
+                    }
+                    &:nth-child(5){
+                        
+                    }
+                }
+              }
+            }
+          }
+        }
+        #lichSuMuaHang {
+          display: none;
+        }
+        #doiMatKhau {
+          display: none;
+          form{
+            width: 50%;
+            margin: 50px auto;
+          }
+        }
+      }
+    }
+  }
+}
