@@ -21,7 +21,7 @@
             }
         }
         else{
-            console.log("khong tin duoc san pham ban chay nhat");
+            echo "khong tin duoc san pham ban chay nhat";
         }
     }
 
@@ -38,11 +38,11 @@
                 $kichthuocmh = $row['KICHTHUOCMH'];
                 $vixuly = $row['VIXULY'];
                 $ram = $row['RAM'];
-                //show san pham ra manh hinh.
+                //
             }
         }
         else{
-            console.log("khong tim duoc san pham nao");
+            echo "khong tim duoc san pham nao";
         }
     }
 ?>
