@@ -1,0 +1,47 @@
+.item {
+    .container {
+        .item-title {
+            padding-left: 15px;
+        }
+        .item-content {
+            padding: 15px 15px 0 15px;
+            border: 1px solid black;
+
+            .card-group{
+                padding-bottom: 30px;
+                .card{
+                    padding: 0;
+                    border: 1px solid black;
+                    border-radius: 5px;
+                    a{
+                        text-decoration: none;
+                        color: black;
+                        .card-header {
+                            padding: 0;
+                            img {
+                                width: 100%;
+                            }
+                        }
+                    }
+                    .card-footer{
+                        padding: 0;
+                        display: flex;
+                        justify-content: space-between;
+                    }
+                }
+            }
+            input{
+                margin: 15px auto;
+                border: 0px;
+                background-color: transparent;
+                text-transform: uppercase;
+            }
+            button{
+                margin: 15px auto;
+                background-color: transparent;
+                border: 0;
+                text-transform: uppercase;
+            }
+        }
+    }
+}
