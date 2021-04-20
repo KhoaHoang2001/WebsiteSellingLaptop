@@ -1,2 +1,2 @@
-thuan: backend xử lý sửa xóa sp.
+thuan: backend xử lý sửa xóa sp, đăng ký.
 
