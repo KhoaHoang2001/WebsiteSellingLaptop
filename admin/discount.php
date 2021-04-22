@@ -1,6 +1,6 @@
 <?php 
-    require_once('../includes/inlude.php');
-    require_once('../includes/conn.php');
+    require_once('./includes/inlude.php');
+    require_once('./includes/conn.php');
 
     function View_Discount_Of_Product($masp){
         $sql_discount = "SELECT * FROM giamgia WHERE MAGIAMGIA = (SELECT MAGIAMGIA FROM sanpham WHERE MASP = '$masp');";
@@ -37,8 +37,8 @@
         }
         else{
             echo "ma giam gia da ton tai";
+        }
     }
-
     //sua ma giam gia
     function Update_Discount(){
         if(Check_Discount($magiamgia)){
