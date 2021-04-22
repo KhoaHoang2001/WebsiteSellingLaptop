@@ -29,7 +29,7 @@
     //kiem tra quyen hien tai voi trang co trung khop voi quyen ko
     function Check_role_in_site($role){ 
         if($_SESSION['maquyen'] != $role){
-            exit();
+            header('location: ./index.php');
         }
     }
 
