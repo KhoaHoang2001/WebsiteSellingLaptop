@@ -39,7 +39,6 @@
             echo "ma giam gia da ton tai";
         }
     }
-
     //sua ma giam gia
     function Update_Discount($magiamgia, $tengiamgia, $phantram){
         if(Check_Discount($magiamgia)){
