@@ -1,6 +1,6 @@
 thuan: backend xử lý sửa xóa sp, 
         xem thông tin tài khoản, 
-        đổi mật khẩu.   //Đăng ký Ngân viết rồi
+        đổi mật khẩu.   //(done all)
 
 
 vinh: thống kê (done), 
