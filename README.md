@@ -1,6 +1,6 @@
 thuan: backend xử lý sửa xóa sp, 
         xem thông tin tài khoản, 
-        đổi mật khẩu.   //(done all)
+        đổi mật khẩu.   //(done all) and view full maloaisp, mansx.
 
 
 vinh: thống kê (done), 
