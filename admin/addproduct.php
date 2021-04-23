@@ -26,6 +26,16 @@
             echo ("ketnoithatbai");
         }
     }
+//themsp
+    function Check_Product(){
+        if(isset($_POST['checksp'])){
+            
+        }
+
+    }
+
+
+
 ?>
     
 <form action="" method="post">
