@@ -1,7 +1,4 @@
 <?php 
-    require_once('./includes/include.php');
-    require_once('./includes/conn.php');
-
     function View_All_Customer(){
         $sql = "SELECT * FROM NGUOIDUNG WHERE MAQUYEN = 'KH'";
         $res = Check_db($sql);
@@ -18,7 +15,7 @@
             }
         }
         else{
-            console.log("khong tim duoc khach hang nao");
+            echo "khong tim duoc khach hang nao";
         }
     }
 ?>
