@@ -28,25 +28,36 @@
                 $sdt = $row['SDT'];
                 $diachi = $row['DIACHI'];
                 $email = $row['EMAIL'];
-                $ngaysinh = $row['NGAYSINH'];          }
+                $ngaysinh = $row['NGAYSINH'];          
+            }
         }
         else{
-            console.log("khong tim duoc nhan vien nao");
+            echo "khong tim duoc nhan vien nao";
         }
     }
 
-    function Add_Staff($taikhoan, $matkhau, $tennd, $gioitinh, $sdt, $diachi, $email, $ngaysinh){
-        if(!Check_Staff($taikhoan)){
-            $conn = Connect();
-            $matkhau = md5($matkhau);
-            $sql = "INSERT INTO `nguoidung` (`TAIKHOAN`, `MAQUYEN`, `MATKHAU`, `TENND`, `GIOITINH`, `SDT`, `DIACHI`, `EMAIL`, `NGAYSINH`) 
-                    VALUES ('$taikhoan', 'NV', '$matkhau', '$tennd', $gioitinh, $sdt, $diachi, $email, $ngaysinh);";
-            mysqli_query($conn, $sql);
-            mysqli_close($conn);
-            echo "dang ky tai khoan thanh cong";
-        }
-        else{
-            echo "tai khoan da ton tai";
+    function Add_Staff(){
+        if(isset($_POST['Add_Staff'])){
+            $taikhoan = Get_value($_POST['taikhoan']);
+            $matkhau = Get_value(md5($_POST['matkhau']));
+            $tennd = Get_value($_POST['tennd']);
+            $gioitinh = $_POST['gioitinh'];
+            $sdt = $_POST['sdt'];
+            $diachi = Get_value($_POST['diachi']);
+            $email = Get_value($_POST['email']);
+            $ngaysinh = $_POST['ngaysinh'];
+            if(!Check_Staff($taikhoan)){
+                $conn = Connect();
+                $matkhau = md5($matkhau);
+                $sql = "INSERT INTO `nguoidung` (`TAIKHOAN`, `MAQUYEN`, `MATKHAU`, `TENND`, `GIOITINH`, `SDT`, `DIACHI`, `EMAIL`, `NGAYSINH`) 
+                        VALUES ('$taikhoan', 'NV', '$matkhau', '$tennd', $gioitinh, $sdt, $diachi, $email, $ngaysinh);";
+                mysqli_query($conn, $sql);
+                mysqli_close($conn);
+                echo "dang ky tai khoan thanh cong";
+            }
+            else{
+                echo "tai khoan da ton tai";
+            }
         }
     }
 
@@ -61,19 +72,6 @@
         mysqli_close($conn);
     }
 
-    // function Update_Staff($taikhoan, $matkhau, $tennd, $gioitinh, $sdt, $diachi, $email, $ngaysinh){
-    //     if(Check_Staff($taikhoan)){
-    //         $conn = Connect();
-    //         $matkhau = md5($matkhau);
-    //         $sql = "UPDATE `nguoidung` SET `TENND` = '$tennd', `GIOITINH` = b'$gioitinh', `SDT` = '$sdt', `DIACHI` = '$diachi', `EMAIL` = '$email', `NGAYSINH` = '$ngaysinh' WHERE `nguoidung`.`TAIKHOAN` = '$taikhoan';";
-    //         mysqli_query($conn, $sql);
-    //         mysqli_close($conn);
-    //         echo "cap nhat tai khoan thanh cong";
-    //     }
-    //     else{
-    //         echo "tai khoan khong ton tai";
-    //     }
-    // }
 ?>
 
 <!DOCTYPE html>
@@ -91,12 +89,5 @@
         Họ tên: <input type="text" name="tennd" id="tennd"><br>
         <button type="submit" name="submit" id="submit" value="add_staff">Thêm nhân viên</button>
     </form>
-    <?php 
-        if(isset($_POST('submit')){
-            Add_Staff($_POST['taikhoan'], $_POST['matkhau'], $_POST['tennd'], $_POST['gioitinh'], $_POST['sdt'], $_POST['diachi'], $_POST['email'], $_POST['ngaysinh']);
-        }
-        $dstaikhoan = ['vinh5'];
-        Delete_Staff($dstaikhoan);
-    ?>
 </body>
 </html>

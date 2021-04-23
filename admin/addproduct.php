@@ -1,37 +1,32 @@
 
 <?php
-    require_once('../includes/include.php');
+    require_once('./includes/include.php');
 
-function themsp(){
-if (isset($_POST['submit'])){
-    $masp = Get_value($_POST["masp"]);
-    $maloaisp = Get_value($_POST["maloaisp"]);
-    $mansx = Get_value($_POST["mansx"]);
-    $tensp = Get_value($_POST["tensp"]);
-    $motasp = Get_value($_POST["motasp"]);
-    $ram = Get_value($_POST["ram"]);
-    $vixuly = Get_value($_POST["vixuly"]);
-    $kichthuocmh = Get_value($_POST["kichthuocmh"]);
-    $gia = Get_value($_POST["gia"]);
-    $soluongcon = Get_value($_POST["soluongcon"]);
-    $ngaysx = Get_value($_POST["ngaysx"]);
+    function themsp(){
+        if (isset($_POST['submit'])){
+            $masp = Get_value($_POST["masp"]);
+            $maloaisp = Get_value($_POST["maloaisp"]);
+            $mansx = Get_value($_POST["mansx"]);
+            $tensp = Get_value($_POST["tensp"]);
+            $motasp = Get_value($_POST["motasp"]);
+            $ram = Get_value($_POST["ram"]);
+            $vixuly = Get_value($_POST["vixuly"]);
+            $kichthuocmh = Get_value($_POST["kichthuocmh"]);
+            $gia = Get_value($_POST["gia"]);
+            $soluongcon = Get_value($_POST["soluongcon"]);
+            $ngaysx = Get_value($_POST["ngaysx"]);
 
-    //Code xử lý, insert dữ liệu vào table
-    
-    $conn = Connect();
-    $sql = "INSERT INTO `sanpham` (`MASP`, `MALOAISP`, `MAGIAMGIA`, `MANSX`, `TENSP`, `MOTASP`, `RAM`, `VIXULY`, `KICHTHUOCMH`, `GIA`, `SOLUONGCON`, `NGAYSX`) VALUES ('$masp', '$maloaisp', null,'$mansx', '$tensp', '$motasp', '$ram', '$vixuly', '$kichthuocmh', '$gia', '$soluongcon', '$ngaysx');";       
-    mysqli_query($conn, $sql);
+            //Code xử lý, insert dữ liệu vào table
+            
+            $conn = Connect();
+            $sql = "INSERT INTO `sanpham` (`MASP`, `MALOAISP`, `MAGIAMGIA`, `MANSX`, `TENSP`, `MOTASP`, `RAM`, `VIXULY`, `KICHTHUOCMH`, `GIA`, `SOLUONGCON`, `NGAYSX`) VALUES ('$masp', '$maloaisp', null,'$mansx', '$tensp', '$motasp', '$ram', '$vixuly', '$kichthuocmh', '$gia', '$soluongcon', '$ngaysx');";       
+            mysqli_query($conn, $sql);
             mysqli_close($conn);
             echo "dang ky tai khoan thanh cong";
-    } else {
-        echo ("ketnoithatbai");
+        } else {
+            echo ("ketnoithatbai");
+        }
     }
-}if (isset($_POST['xoa'])){
-
-    View_Full_Product();}
-
-
-
 ?>
     
 <form action="" method="post">

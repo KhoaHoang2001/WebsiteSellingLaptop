@@ -1,6 +1,6 @@
 <?php 
-    require_once('../includes/inlude.php');
-    require_once('../includes/conn.php');
+    require_once('./includes/include.php');
+    require_once('./includes/conn.php');
 
     function View_Discount_Of_Product($masp){
         $sql_discount = "SELECT * FROM giamgia WHERE MAGIAMGIA = (SELECT MAGIAMGIA FROM sanpham WHERE MASP = '$masp');";
@@ -37,10 +37,11 @@
         }
         else{
             echo "ma giam gia da ton tai";
+        }
     }
 
     //sua ma giam gia
-    function Update_Discount(){
+    function Update_Discount($magiamgia, $tengiamgia, $phantram){
         if(Check_Discount($magiamgia)){
             $conn = Connect();
             $sql = "UPDATE GIAMGIA SET TENGIAMGIA = '$tengiamgia', PHANTRAM = '$phantram' WHERE `nguoidung`.`MAGIAMGIA` = '$magiamgia';";
@@ -69,7 +70,7 @@
         $sql = "SELECT * FROM GIAMGIA";
         $res = Check_db($sql);
         if(mysqli_num_rows($res) > 0){
-            while($row = mysqli_fetch_assoc()){
+            while($row = mysqli_fetch_assoc($res)){
                 $magiamgia = $row['MAGIAMGIA'];
                 $tengiamgia = $row['TENGIAMGIA'];
                 $phantram = $row['PHANTRAM'];

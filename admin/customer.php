@@ -1,6 +1,6 @@
 <?php 
-    require_once('../includes/include.php');
-    require_once('../includes/conn.php');
+    require_once('./includes/include.php');
+    require_once('./includes/conn.php');
 
     function View_All_Customer(){
         $sql = "SELECT * FROM NGUOIDUNG WHERE MAQUYEN = 'KH'";

@@ -1,6 +1,5 @@
 <?php
-
-<?php include './includes/include.php';
+    require_once('./includes/include.php');
   ?>
 <!DOCTYPE html>
 <html>
@@ -23,7 +22,8 @@
 
     <div class="sidenav">
         <div class="dropdown-btn">
-            <p>Nhân viên: <?php echo "$usernanme"; ?></p>
+            <p>Nhân viên: 
+            <!-- <?php echo "$usernanme"; ?></p> -->
         </div>
         <button class="dropdown-btn">Sản phẩm <i class="fa fa-caret-down"></i></button>
         <div class="dropdown-container">
