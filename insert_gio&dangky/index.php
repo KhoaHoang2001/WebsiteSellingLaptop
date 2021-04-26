@@ -35,7 +35,7 @@
             <div class="row header-navbar">
                 <nav class="navbar navbar-expand-lg navbar-light bg-light col-12">
                     <div class="container nav-left-right">
-                        <div class="left-nav d-flex col-md-6 col-sm-3">
+                        <div class="left-nav d-flex">
                             <a class="navbar-brand" href="./index.html">
                                 <img src="./image/logo-fix.png" alt="">
                             </a>
@@ -45,14 +45,14 @@
                                         <button class="btn btn-outline-secondary" type="button"><i class="fa fa-search"></i></button>
                                     </div>
                                     <input type="text" class="form-control" placeholder="" aria-label=""
-                                        aria-describedby="basic-addon1" style="border-radius: 0 5px 5px 0;">
+                                        aria-describedby="basic-addon1">
                                 </div>
                             </form>
                         </div>
                         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                                 <span class="navbar-toggler-icon"></span>
                         </button>
-                        <div class="collapse navbar-collapse header-navbar--content col-md-6 col-sm-9" id="navbarSupportedContent">
+                        <div class="collapse navbar-collapse header-navbar--content" id="navbarSupportedContent">
                             <div class="navbar-select">
                                     <ul class="navbar-nav me-auto mb-2 mb-lg-0 d-flex">
                                         <li class="nav-item">
@@ -148,9 +148,11 @@
                                     <p class="card-text">This is a wider card with supporting text below as a natural
                                         lead-in to
                                         additional content. This content is a little bit longer.</p>
-                                        
                                 </div>
-                                <span id="xemSP">Xem sản phẩm</span>
+                                <div class="card-footer">
+                                    <input type="button" value="Thêm vào giỏ hàng">
+                                    <button type="submit">Mua ngay</button>
+                                </div>
                             </a>
                         </div>
                     </div>
@@ -166,7 +168,10 @@
                                         lead-in to
                                         additional content. This content is a little bit longer.</p>
                                 </div>
-
+                                <div class="card-footer">
+                                    <input type="button" value="Thêm vào giỏ hàng">
+                                    <button type="submit">Mua ngay</button>
+                                </div>
                             </a>
                         </div>
                     </div>
@@ -182,7 +187,10 @@
                                         lead-in to
                                         additional content. This content is a little bit longer.</p>
                                 </div>
-
+                                <div class="card-footer">
+                                    <input type="button" value="Thêm vào giỏ hàng">
+                                    <button type="submit">Mua ngay</button>
+                                </div>
                             </a>
                         </div>
                     </div>
@@ -198,7 +206,10 @@
                                         lead-in to
                                         additional content. This content is a little bit longer.</p>
                                 </div>
-
+                                <div class="card-footer">
+                                    <input type="button" value="Thêm vào giỏ hàng">
+                                    <button type="submit">Mua ngay</button>
+                                </div>
                             </a>
                         </div>
                     </div>
@@ -214,7 +225,10 @@
                                         lead-in to
                                         additional content. This content is a little bit longer.</p>
                                 </div>
-
+                                <div class="card-footer">
+                                    <input type="button" value="Thêm vào giỏ hàng">
+                                    <button type="submit">Mua ngay</button>
+                                </div>
                             </a>
                         </div>
                     </div>
@@ -232,17 +246,21 @@
                 <div class="row">
                     <div class="card-group col-md-3 col-sm-6">
                         <div class="card">
-                            <a href='./view.html'>
+                            <?php $MASP=4;
+                            echo "<a href='../insert_gio&dangky/view.php?tenbien=$MASP'"?>
                                 <div class="card-header">
                                     <img src="./image/laptop.jpg" class="card-img-top" alt="">
                                 </div>
                                 <div class="card-body">
-                                    <h5 class="card-title">Card title</h5>
+                                    <h5 class="card-title">Card titleHHHHH</h5>
                                     <p class="card-text">This is a wider card with supporting text below as a natural
                                         lead-in to
                                         additional content. This content is a little bit longer.</p>
                                 </div>
-
+                                <div class="card-footer">
+                                    <input type="button" value="Thêm vào giỏ hàng">
+                                    <button type="submit">Mua ngay</button>
+                                </div>
                             </a>
                         </div>
                     </div>
@@ -258,7 +276,10 @@
                                         lead-in to
                                         additional content. This content is a little bit longer.</p>
                                 </div>
-
+                                <div class="card-footer">
+                                    <input type="button" value="Thêm vào giỏ hàng">
+                                    <button type="submit">Mua ngay</button>
+                                </div>
                             </a>
                         </div>
                     </div>
@@ -274,7 +295,10 @@
                                         lead-in to
                                         additional content. This content is a little bit longer.</p>
                                 </div>
-
+                                <div class="card-footer">
+                                    <input type="button" value="Thêm vào giỏ hàng">
+                                    <button type="submit">Mua ngay</button>
+                                </div>
                             </a>
                         </div>
                     </div>
@@ -290,7 +314,10 @@
                                         lead-in to
                                         additional content. This content is a little bit longer.</p>
                                 </div>
-
+                                <div class="card-footer">
+                                    <input type="button" value="Thêm vào giỏ hàng">
+                                    <button type="submit">Mua ngay</button>
+                                </div>
                             </a>
                         </div>
                     </div>
@@ -306,7 +333,10 @@
                                         lead-in to
                                         additional content. This content is a little bit longer.</p>
                                 </div>
-
+                                <div class="card-footer">
+                                    <input type="button" value="Thêm vào giỏ hàng">
+                                    <button type="submit">Mua ngay</button>
+                                </div>
                             </a>
                         </div>
                     </div>
@@ -334,7 +364,10 @@
                                         lead-in to
                                         additional content. This content is a little bit longer.</p>
                                 </div>
-
+                                <div class="card-footer">
+                                    <input type="button" value="Thêm vào giỏ hàng">
+                                    <button type="submit">Mua ngay</button>
+                                </div>
                             </a>
                         </div>
                     </div>
@@ -350,7 +383,10 @@
                                         lead-in to
                                         additional content. This content is a little bit longer.</p>
                                 </div>
-
+                                <div class="card-footer">
+                                    <input type="button" value="Thêm vào giỏ hàng">
+                                    <button type="submit">Mua ngay</button>
+                                </div>
                             </a>
                         </div>
                     </div>
@@ -366,7 +402,10 @@
                                         lead-in to
                                         additional content. This content is a little bit longer.</p>
                                 </div>
-
+                                <div class="card-footer">
+                                    <input type="button" value="Thêm vào giỏ hàng">
+                                    <button type="submit">Mua ngay</button>
+                                </div>
                             </a>
                         </div>
                     </div>
@@ -382,7 +421,10 @@
                                         lead-in to
                                         additional content. This content is a little bit longer.</p>
                                 </div>
-
+                                <div class="card-footer">
+                                    <input type="button" value="Thêm vào giỏ hàng">
+                                    <button type="submit">Mua ngay</button>
+                                </div>
                             </a>
                         </div>
                     </div>
@@ -398,7 +440,10 @@
                                         lead-in to
                                         additional content. This content is a little bit longer.</p>
                                 </div>
-
+                                <div class="card-footer">
+                                    <input type="button" value="Thêm vào giỏ hàng">
+                                    <button type="submit">Mua ngay</button>
+                                </div>
                             </a>
                         </div>
                     </div>

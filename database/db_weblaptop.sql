@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 20, 2021 at 05:36 AM
+-- Generation Time: Apr 22, 2021 at 01:25 PM
 -- Server version: 10.4.11-MariaDB
 -- PHP Version: 7.2.31
 
@@ -50,12 +50,12 @@ INSERT INTO `capquyen` (`MAQUYEN`, `TENQUYEN`, `MOTAQUYEN`) VALUES
 
 CREATE TABLE `donhang` (
   `MADH` int(11) NOT NULL,
-  `TAIKHOAN` varchar(10) NOT NULL,
+  `TAIKHOAN` varchar(30) NOT NULL,
   `TRANGTHAI` varchar(15) CHARACTER SET utf8 NOT NULL,
   `NGAYDAT` date NOT NULL,
   `HTTHANHTOAN` tinyint(1) NOT NULL,
   `DIACHINHAN` varchar(200) CHARACTER SET utf8 NOT NULL,
-  `TONGTIEN` varchar(20) NOT NULL
+  `TONGTIEN` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
@@ -172,7 +172,7 @@ CREATE TABLE `monhang` (
 --
 
 CREATE TABLE `nguoidung` (
-  `TAIKHOAN` varchar(10) NOT NULL,
+  `TAIKHOAN` varchar(30) NOT NULL,
   `MAQUYEN` varchar(10) NOT NULL,
   `MATKHAU` varchar(100) NOT NULL,
   `TENND` varchar(50) CHARACTER SET utf8 NOT NULL,
@@ -188,6 +188,7 @@ CREATE TABLE `nguoidung` (
 --
 
 INSERT INTO `nguoidung` (`TAIKHOAN`, `MAQUYEN`, `MATKHAU`, `TENND`, `GIOITINH`, `SDT`, `DIACHI`, `EMAIL`, `NGAYSINH`) VALUES
+('bichngan', 'KH', '202cb962ac59075b964b07152d234b70', 'ngan', NULL, NULL, NULL, NULL, NULL),
 ('ngân', 'KH', '202cb962ac59075b964b07152d234b70', 'vu bich ngan', NULL, NULL, NULL, NULL, NULL);
 
 -- --------------------------------------------------------
@@ -252,6 +253,18 @@ INSERT INTO `sanpham` (`MASP`, `MALOAISP`, `MAGIAMGIA`, `MANSX`, `TENSP`, `MOTAS
 (8, 3, NULL, 7, 'MateBook D 15', 'Trải nghiệm làm việc, giải trí mượt mà với laptop Huawei MateBook D 15 R5 (Boh-WAQ9R), cấu hình vượt trội, thiết kế mỏng nhẹ và màn hình tràn viền tuyệt hảo là những gì mà chiếc laptop doanh nhân cao cấp này đem đến. Huawei MateBook D 15 được thiết kế theo phong cách tối giản, toàn bộ phần vỏ và khung máy được làm từ kim loại nguyên khối với tông màu xám không gian sáng bóng, các cạnh được bo tròn mềm mại cho đối phương cảm giác huyền bí, sang trọng khi chiêm ngưỡng. Được chế tác bởi chất liệu kim loại mang lại cảm giác chắc chắn, bền bỉ, Huawei đảm bảo tính cơ động với độ dày chỉ 16.9 mm và trọng lượng chỉ 1.62 kg. ', 8, '	AMD Ryzen 5, 3500U, 2.10 GHz', '15.6 inch', 16490000, 11, '2020-08-10'),
 (9, 5, NULL, 8, 'GL65 Leopard 10SCXK', 'Chiếc laptop MSI GL65 Leopard 10SCXK i7(093VN) chắc chắn sẽ là sự lựa chọn thích hợp dành cho những game thủ với hiệu năng mượt mà với CPU Intel Core i7, NVIDIA GeForce GTX 1650 4GB.Ngay từ vẻ ngoài đã nói lên sự mạnh mẽ của chiếc laptop gaming này với gam màu đen nhám cá tính, những đường cắt độc đáo và logo màu đỏ nổi bật nằm trên mặt lưng kim loại rắn chắc. Bạn hoàn toàn có thể mở máy ra bằng một tay bởi bản lề linh hoạt, cho việc đóng mở máy vô cùng nhẹ nhàng.', 8, 'Intel Core i7 Comet Lake, 10750H, 2.60 GHz', '15.6 inch', 24990000, 4, '2020-01-19'),
 (10, 4, NULL, 9, 'MacBook Pro', 'Apple Macbook Pro M1 2020 (Z11C) được nâng cấp với bộ vi xử lý mới cực kỳ mạnh mẽ, con laptop này sẽ phục vụ tốt cho công việc của bạn, đặc biệt bên lĩnh vực đồ họa, kỹ thuật. Chip Apple M1 là một bộ vi xử lý mạnh mẽ, được ra mắt lần đầu tiên trên MAC. Đây là con chip với bộ xử lý 5 nm, tích hợp CPU 8 lõi với 4 lõi CPU tốc độ và và 4 lõi tiết kiệm năng lượng. Nhờ vậy, thời lượng pin của laptop được kéo dài đến tận 10 tiếng đồng hồ, giúp cho bạn thoải mái làm việc với một hiệu suất cực kỳ cao.', 16, 'Apple M1', '13.3 inch', 44990000, 3, '2020-03-16');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `sanphamgiohang`
+--
+
+CREATE TABLE `sanphamgiohang` (
+  `MASP` int(11) NOT NULL,
+  `TAIKHOAN` varchar(30) NOT NULL,
+  `SOLUONGGIO` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Indexes for dumped tables
@@ -332,6 +345,13 @@ ALTER TABLE `sanpham`
   ADD KEY `MANSX` (`MANSX`);
 
 --
+-- Indexes for table `sanphamgiohang`
+--
+ALTER TABLE `sanphamgiohang`
+  ADD KEY `MASP` (`MASP`),
+  ADD KEY `TAIKHOAN` (`TAIKHOAN`);
+
+--
 -- AUTO_INCREMENT for dumped tables
 --
 
@@ -401,6 +421,13 @@ ALTER TABLE `sanpham`
   ADD CONSTRAINT `sanpham_ibfk_1` FOREIGN KEY (`MAGIAMGIA`) REFERENCES `sanpham` (`MASP`),
   ADD CONSTRAINT `sanpham_ibfk_2` FOREIGN KEY (`MALOAISP`) REFERENCES `sanpham` (`MASP`),
   ADD CONSTRAINT `sanpham_ibfk_3` FOREIGN KEY (`MANSX`) REFERENCES `sanpham` (`MASP`);
+
+--
+-- Constraints for table `sanphamgiohang`
+--
+ALTER TABLE `sanphamgiohang`
+  ADD CONSTRAINT `sanphamgiohang_ibfk_2` FOREIGN KEY (`MASP`) REFERENCES `sanpham` (`MASP`),
+  ADD CONSTRAINT `sanphamgiohang_ibfk_3` FOREIGN KEY (`TAIKHOAN`) REFERENCES `nguoidung` (`TAIKHOAN`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
