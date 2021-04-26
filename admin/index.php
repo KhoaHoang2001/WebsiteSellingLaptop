@@ -36,17 +36,27 @@
 
     <div class="sidenav">
         <div class="dropdown-btn">
-            <p>Nhân viên: </p>
+            <p>Admin</p>
+        </div>
+        <button class="dropdown-btn">Loại sản phẩm<i class="fa fa-caret-down"></i></button>
+        <div class="dropdown-container">
+            <a href="index.php?action=add_cat">Thêm loại</a>
+            <a href="index.php?action=view_cat">Xem loại</a>
         </div>
         <button class="dropdown-btn">Sản phẩm <i class="fa fa-caret-down"></i></button>
         <div class="dropdown-container">
             <a href="index.php?action=add_product">Thêm sản phẩm</a>
             <a href="index.php?action=view_product">Xem sản phẩm</a>
         </div>
-        <button class="dropdown-btn">Nhóm sản phẩm<i class="fa fa-caret-down"></i></button>
+        <button class="dropdown-btn">Giảm giá <i class="fa fa-caret-down"></i></button>
         <div class="dropdown-container">
-            <a href="index.php?action=add_cat">Thêm nhóm</a>
-            <a href="index.php?action=view_cat">Xem nhóm</a>
+            <a href="index.php?action=add_discount">Thêm giảm giá</a>
+            <a href="index.php?action=view_discount">Xem giảm giá</a>
+        </div>
+        <button class="dropdown-btn">Nhà sản xuất <i class="fa fa-caret-down"></i></button>
+        <div class="dropdown-container">
+            <a href="index.php?action=add_producer">Thêm nsx</a>
+            <a href="index.php?action=view_producer">Xem nsx</a>
         </div>
         <button class="dropdown-btn">Tài khoản<i class="fa fa-caret-down"></i></button>
         <div class="dropdown-container">
@@ -105,21 +115,40 @@
           case 'view_staff';
             include './includes/view_staff.php';
             break;
+
           case 'view_customer';
             include './includes/view_customer.php';
             break;
+
           case 'add_staff';
             include './includes/add_staff.php';
             break;
+          
+          case 'view_discount';
+            include './includes/view_discount.php';
+            break;
+
+          case 'add_discount';
+            include './includes/add_discount.php';
+            break;
+
+          case 'update_discount';
+            include './includes/update_discount.php';
+            break;
+
+          case 'view_producer';
+            include './includes/view_producer.php';
+            break;
+  
+          case 'add_producer';
+            include './includes/add_producer.php';
+            break;
+
           case 'check_cart';
             include './includes/check_cart.php';
             break;
         }
-
-        ?>
-            <!-- -->
-
-
+          ?>
         </div>
     </div> -->
 

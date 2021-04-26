@@ -419,7 +419,12 @@ th {
     color: white;
 }
 
-
+.form_box input[type="button"] {
+    padding: 10px 15px;
+    background: rgba(28, 130, 199, 0.9);
+    border: 0.01px solid rgba(28, 130, 199, 0.8);
+    color: white;
+}
 /** Add Product Ends */
 
 
@@ -440,6 +445,13 @@ th {
 }
 
 .view_product_box input[type="submit"] {
+    padding: 10px 15px;
+    background: rgba(250, 32, 32, 0.9);
+    border: 0.01px solid rgba(250, 32, 32, 0.9);
+    color: white;
+}
+
+.view_product_box input[type="button"] {
     padding: 10px 15px;
     background: rgba(250, 32, 32, 0.9);
     border: 0.01px solid rgba(250, 32, 32, 0.9);

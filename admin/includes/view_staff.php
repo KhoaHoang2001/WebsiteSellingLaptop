@@ -1,3 +1,7 @@
+<?php 
+    require_once('./includes/include.php');
+    require_once('./includes/conn.php');
+?>
 <div class="view_product_box">
     <h2>Danh sách nhân viên</h2>
     <div class="border_bottom"></div>
@@ -46,16 +50,10 @@
             } // End while loop 
             ?>
         </table>
-
     </form>
-
 </div>
 
 <?php 
-    
-    require_once('./includes/include.php');
-    require_once('./includes/conn.php');
-
     function Check_Staff($taikhoan){
         if(isset($_POST['submit'])){
             $sql = "SELECT * FROM NGUOIDUNG WHERE taikhoan = '$taikhoan';";
@@ -76,7 +74,7 @@
         $res_del_staff = Check_db($sql_del_staff);
         if($res_del_staff){
             echo "<script>alert('Tài khoản được xóa thành công!')</script>";
-            // echo "<script>window.open('index.php?action=view_users','_self')</script>";
+            echo "<script>window.open('index.php?action=view_staff','_self')</script>";
         }
         else {
             echo "<script>alert('xóa tài khoản không thành công!')</script>";

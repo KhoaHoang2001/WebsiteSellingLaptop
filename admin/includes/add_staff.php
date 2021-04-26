@@ -8,40 +8,38 @@
                 document.getElementById('kiemtramk').innerHTML = 'Trùng khớp';
             } else {
                 document.getElementById('kiemtramk').style.color = 'red';
-                document.getElementById('kiemtramk').innerHTML = 'Không trùng khớp';44
+                document.getElementById('kiemtramk').innerHTML = 'Không trùng khớp';
             }
         }
 
         const check_number_phone = function () {
             let phone = document.getElementById('sdt').value;
             if(!isNaN(phone)){
-                document.getElementById('kiemtrasdt').style.color = 'green';
-                document.getElementById('kiemtrasdt').innerHTML = 'Chính xác';
+                document.getElementById('kiemtrasdt').innerHTML = '';
             } else {
                 document.getElementById('kiemtrasdt').style.color = 'red';
                 document.getElementById('kiemtrasdt').innerHTML = 'Phải là số';
             }
         }
 
-        const check_all = () => {
+        const Check_all = function () {
             let password = document.getElementById('matkhau').value;
             let confirm_password = document.getElementById('xacnhanmk').value;
             let phone = document.getElementById('sdt').value;
             if(password != confirm_password){
-                alert("Mật khẩu và xác nhận mật khẩu không giống nhau!");
+                alert("Mật khẩu và xác nhận mật khẩu bắt buộc phải giống nhau!");
+                return false;
             }
             else if(isNaN(phone)){
-                alert("Số điện thoại phải là số!");
-            }
-            else {
-
+                alert("Số điện thoại bắt buộc phải là số!");
+                return false;
             }
         }
     </script>
     <h2>Thêm tài khoản nhân viên</h2>
     <div class="border_bottom"></div>
     <!--/.border_bottom -->
-    <form action="" method="post" enctype="multipart/form-data">
+    <form onsubmit="return Check_all()" method="post" enctype="multipart/form-data">
     
         <table align="center" width="100%">
             <tr>
@@ -95,12 +93,10 @@
             <tr>
 
                 <td colspan="7" class="text-center"> 
-                    <button class="btn-submit" name="insert_post" id="insert_post" value="Thêm tài khoản">Thêm tài khoản</button>
+                    <input type="submit" class="btn-submit" name="insert_post" value="Thêm tài khoản">
                 </td>
-
             </tr>
         </table>
-
     </form>
 
 </div><!-- /.form_box -->
@@ -109,6 +105,7 @@
 
     require_once('./includes/include.php');
     require_once('./includes/conn.php');
+    unset($_POST['insert_post']);
 
     function Check_Staff($taikhoan){
         $sql = "SELECT * FROM NGUOIDUNG WHERE taikhoan = '$taikhoan';";
@@ -130,11 +127,16 @@ if (isset($_POST['insert_post'])) {
     $diachi = Get_value($_POST['diachi']);
     $email = Get_value($_POST['email']);
     $ngaysinh = $_POST['ngaysinh'];
+    $ngaysinh = "";
+    if ($ngaysinh == ""){
+        $ngaysinh = "null";
+    }
     if(!Check_Staff($taikhoan)){
         $conn = Connect();
         $matkhau = md5($matkhau);
         $sql = "INSERT INTO `nguoidung` (`TAIKHOAN`, `MAQUYEN`, `MATKHAU`, `TENND`, `GIOITINH`, `SDT`, `DIACHI`, `EMAIL`, `NGAYSINH`) 
-                VALUES ('$taikhoan', 'NV', '$matkhau', '$tennd', $gioitinh, $sdt, $diachi, $email, $ngaysinh);";
+                VALUES ('$taikhoan', 'NV', '$matkhau', '$tennd', $gioitinh, '$sdt', '$diachi', '$email', $ngaysinh);";
+        echo $sql;        
         mysqli_query($conn, $sql);
         mysqli_close($conn);
         echo "<script>alert(\"Đăng ký tài khoản thành công\");</script>";
