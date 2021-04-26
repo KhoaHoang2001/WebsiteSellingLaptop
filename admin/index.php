@@ -24,11 +24,11 @@
 <body>
     <div class="navigation-bar">
         <div class="logo">
-            <a href="/quanlybanhang/index.php"><img src="/quanlybanhang/images/logos/logo.jpg" alt="Cake"></a>
+            <!-- logo -->
         </div>
 
         <div class="name-cakes">
-            <h3>Tiệm bánh hoàng tử lớn</h3>
+            <h3>Web bán Laptop</h3>
         </div>
 
 
@@ -40,8 +40,8 @@
         </div>
         <button class="dropdown-btn">Sản phẩm <i class="fa fa-caret-down"></i></button>
         <div class="dropdown-container">
-            <a href="index.php?action=add_pro">Thêm sản phẩm</a>
-            <a href="index.php?action=view_pro">Xem sản phẩm</a>
+            <a href="index.php?action=add_product">Thêm sản phẩm</a>
+            <a href="index.php?action=view_product">Xem sản phẩm</a>
         </div>
         <button class="dropdown-btn">Nhóm sản phẩm<i class="fa fa-caret-down"></i></button>
         <div class="dropdown-container">
@@ -52,7 +52,7 @@
         <div class="dropdown-container">
             <a href="index.php?action=add_staff">Thêm nhân viên</a>
             <a href="index.php?action=view_staff">Danh sách nhân viên</a>
-            <a href="index.php?action=view_users">Danh sách người dùng</a>
+            <a href="index.php?action=view_customer">Danh sách khách hàng</a>
         </div>
         <button class="dropdown-btn">Đơn hàng<i class="fa fa-caret-down"></i></button>
         <div class="dropdown-container">
@@ -62,13 +62,13 @@
     </div> <!-- /.End sidenav -->
 
 
-    <!-- <div class="main">
+    <div class="main">
         <div class="page-wrapper">
             <div class="">
 
             </div>
 
-             -->
+            <!-- -->
             <!--Profile Card-->
             <?php
         if (isset($_GET['action'])) {
@@ -78,20 +78,20 @@
         }
 
         switch ($action) {
-          case 'add_pro';
-            include './includes/insert_product.php';
+          case 'add_product';
+            include './includes/add_product.php';
             break;
 
-          case 'view_pro';
+          case 'view_product';
             include './includes/view_products.php';
             break;
 
-          case 'edit_pro';
+          case 'edit_product';
             include './includes/edit_product.php';
             break;
 
           case 'add_cat';
-            include './includes/insert_category.php';
+            include './includes/add_category.php';
             break;
 
           case 'view_cat';
@@ -102,14 +102,14 @@
             include './includes/edit_category.php';
             break;
 
-          case 'view_users';
-            include './includes/view_users.php';
-            break;
           case 'view_staff';
             include './includes/view_staff.php';
             break;
+          case 'view_customer';
+            include './includes/view_customer.php';
+            break;
           case 'add_staff';
-            include './includes/insert_staff.php';
+            include './includes/add_staff.php';
             break;
           case 'check_cart';
             include './includes/check_cart.php';

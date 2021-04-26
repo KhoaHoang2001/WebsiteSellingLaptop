@@ -6,7 +6,6 @@
         return $res_img;
     }
 
-
     function Check_Product($masp){
         if(isset($_POST['checksp'])){
             $sql = "SELECT * FROM SANPHAM WHERE MASP = '$masp';";
@@ -85,7 +84,4 @@
         }
 
     }
-     
-   
-        
 ?>
