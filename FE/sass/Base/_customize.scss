@@ -1,0 +1,9 @@
+button{
+    padding: 10px;
+    &:hover{
+        background-color: $color-black-light;
+    }
+    &:focus {
+        outline:none !important;
+      }
+}
