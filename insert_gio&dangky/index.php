@@ -246,12 +246,13 @@
                 <div class="row">
                     <div class="card-group col-md-3 col-sm-6">
                         <div class="card">
-                            <a href='./view.html'>
+                            <?php $MASP=4;
+                            echo "<a href='../insert_gio&dangky/view.php?tenbien=$MASP'"?>
                                 <div class="card-header">
                                     <img src="./image/laptop.jpg" class="card-img-top" alt="">
                                 </div>
                                 <div class="card-body">
-                                    <h5 class="card-title">Card title</h5>
+                                    <h5 class="card-title">Card titleHHHHH</h5>
                                     <p class="card-text">This is a wider card with supporting text below as a natural
                                         lead-in to
                                         additional content. This content is a little bit longer.</p>

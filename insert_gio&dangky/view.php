@@ -1,4 +1,10 @@
 <!DOCTYPE html>
+<?php 
+    session_start();
+    $_SESSION['TAIKHOAN']='bichngan';
+    $MASP=$_GET['tenbien'];
+    echo $MASP." GHHHH";
+?>
 <html lang="en">
 
 <head>
@@ -103,8 +109,8 @@
                 </div>
                 <div class="col-md-4">
                     <form action="">
-                        <input type="submit"  value="Thêm vào giỏ hàng">
-                        <button>Mua hàng</button>
+                        <input type='submit' value='Thêm vào giỏ hàng'>
+                       <?php echo" <button><a href='them.php?mas=$MASP'>Mua hàng</a></button>"?>
                     </form>
                 </div>
             </div>
