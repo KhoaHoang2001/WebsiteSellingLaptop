@@ -1,11 +1,6 @@
-<<<<<<< HEAD
-
-
 
 <?php include './includes/include.php';
   ?>
-=======
->>>>>>> 8a2ccf0c8519db2b211480c41cf1e817a5bb1236
 <?php
 // session_start();
     include_once('./includes/include.php');
@@ -48,8 +43,8 @@
         </div>
         <button class="dropdown-btn">Loại sản phẩm<i class="fa fa-caret-down"></i></button>
         <div class="dropdown-container">
-            <a href="index.php?action=add_cat">Thêm loại</a>
-            <a href="index.php?action=view_cat">Xem loại</a>
+            <a href="index.php?action=add_category">Thêm loại sản phẩm</a>
+            <a href="index.php?action=view_category">Xem loại sản phẩm</a>
         </div>
         <button class="dropdown-btn">Sản phẩm <i class="fa fa-caret-down"></i></button>
         <div class="dropdown-container">
