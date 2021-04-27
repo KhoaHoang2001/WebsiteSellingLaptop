@@ -1,23 +1,17 @@
 <?php 
+    require_once('include.php');
+    require_once('conn.php');
 
-    function Img_product($masp){
-        $sql_img = "SELECT * FROM HINHANH WHERE MASP = '$masp';";
-        $res_img = Check_db($sql_img);
-        return $res_img;
-    }
-
-    function Check_Product($masp){
-        if(isset($_POST['checksp'])){
-            $sql = "SELECT * FROM SANPHAM WHERE MASP = '$masp';";
-            $res = Check_db($sql); 
-            if(mysqli_num_rows($res)>0){
-                return true;
-            }
-            else{
-                return false;
-            }
+    function View_Discount_Of_Product($masp){
+        $sql_discount = "SELECT * FROM giamgia WHERE MAGIAMGIA = (SELECT MAGIAMGIA FROM sanpham WHERE MASP = '$masp');";
+        $res_discount = Check_db($sql_discount);
+        if(mysqli_num_rows($res_discount) > 0){
+            $row_discount = mysqli_fetch_assoc($res_discount);
+            return $row_discount['PHANTRAM'];
         }
-
+        else{
+            return 100;
+        }
     }
 
     function View_Product_Sellest(){
@@ -58,30 +52,6 @@
         }
         else{
             echo "khong tim duoc san pham nao";
-        }
-    }
-    
-    function View_full_loai_Of_Product($masp){
-        $sql_loai = "SELECT * FROM SANPHAM WHERE MALOAISP = (SELECT MALOAISP FROM SANPHAM WHERE MASP = '$masp')";
-        $res_loai = Check_db($sql_loai);
-        if(mysqli_num_rows($res_loai) > 0){
-            while($row_loai = mysqli_fetch_assoc($res_loai)){
-                $maloaisp = $row_loai['maloaisp'];
-            }
-        } else{
-            echo "khong co loai nao";
-        }
-    }
-    
-    function View_full_MaNSX_Of_Product($masp){
-        $sql_NSX = "SELECT * FROM SANPHAM WHERE MANSX = (SELECT MANSX FROM SANPHAM WHERE MASP = '$masp')";
-        $res_NSX = Check_db($sql_NSX);
-        if(mysqli_num_rows($res_NSX) > 0){
-            while($row_NSX = mysqli_fetch_assoc($res_NSX)){
-                $maNSX = $row_NSX['maNSX'];
-            }
-        } else{
-            echo "khong co NSX nao";
         }
     }
 

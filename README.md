@@ -13,7 +13,7 @@ Ngân:
     + tự chỉnh sửa tài khoản
 
 Thắng:
-    + full giao diện (done) -admin
+    + full giao diện người dùng (done)
     + ràng buộc đăng nhập, đăng ký frontend (done)
     + lọc trang index
 
@@ -21,5 +21,8 @@ Vinh:
     + giao diện admin (done)
     + giảm giá (done)
     + nhân viên, xem tt KH (done)
+    + giảm giá (done)
     + doanh thu
     + đăng nhập backend (done)
+    + thiết kế database (done)
+    + Tìm kiếm backend (done)
