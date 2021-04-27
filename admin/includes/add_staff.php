@@ -92,7 +92,7 @@
             </tr>
             <tr>
 
-                <td colspan="7" class="text-center"> 
+                <td colspan="9" class="text-center"> 
                     <input type="submit" class="btn-submit" name="insert_post" value="Thêm tài khoản">
                 </td>
             </tr>

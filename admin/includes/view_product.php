@@ -82,6 +82,5 @@
         } else{
             echo "khong co NSX nao";
         }
-
     }
 ?>

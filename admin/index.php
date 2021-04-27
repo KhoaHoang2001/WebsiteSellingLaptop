@@ -1,12 +1,6 @@
-
-
-
-<?php include './includes/include.php';
-  ?>
-=======
 <?php
 // session_start();
-    include_once('./includes/include.php')
+    include_once('./includes/include.php');
 // if (isset($_SESSION['usernamenv']) == '') {
 //   echo "<script>window.open('login.php','_self')</script>";
 // } else {
@@ -15,7 +9,6 @@
 
 <!DOCTYPE html>
 <html>
-
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" href="styles/resetcss.css" media="all">
@@ -104,7 +97,7 @@
             break;
 
           case 'edit_product';
-            include './includes/edit_product.php';
+            include './includes/update_product.php';
             break;
 
           case 'add_cat';
@@ -112,7 +105,7 @@
             break;
 
           case 'view_cat';
-            include './includes/view_categories.php';
+            include './includes/view_category.php';
             break;
 
           case 'edit_cat';
@@ -151,8 +144,12 @@
             include './includes/add_producer.php';
             break;
 
+          case 'add_producer';
+            include './includes/delete_producer.php';
+            break;
+
           case 'check_cart';
-            include './includes/check_cart.php';
+            include './includes/check_.php';
             break;
         }
           ?>

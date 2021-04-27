@@ -4,9 +4,6 @@
     $magiamgia = $_GET['discount_id'];
     $update_discount = Check_db("SELECT * from GIAMGIA where magiamgia ='$magiamgia'");
     $fetch_update = mysqli_fetch_array($update_discount);
-    foreach ($fetch_update as $key => $value) {
-        echo $key . "|" . $value . "<br>";
-    }
     $tengiamgia = $fetch_update['TENGIAMGIA'];
     $phantram = $fetch_update['PHANTRAM'];
 ?>
