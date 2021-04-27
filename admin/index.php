@@ -1,11 +1,14 @@
+<<<<<<< HEAD
 
 
 
 <?php include './includes/include.php';
   ?>
+=======
+>>>>>>> 8a2ccf0c8519db2b211480c41cf1e817a5bb1236
 <?php
 // session_start();
-    include_once('./includes/include.php')
+    include_once('./includes/include.php');
 // if (isset($_SESSION['usernamenv']) == '') {
 //   echo "<script>window.open('login.php','_self')</script>";
 // } else {
@@ -14,7 +17,6 @@
 
 <!DOCTYPE html>
 <html>
-
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" href="styles/resetcss.css" media="all">
@@ -99,23 +101,23 @@
             break;
 
           case 'view_product';
-            include './includes/view_products.php';
+            include './includes/view_product.php';
             break;
 
-          case 'edit_product';
-            include './includes/edit_product.php';
+          case 'update_product';
+            include './includes/update_product.php';
             break;
 
-          case 'add_cat';
+          case 'add_category';
             include './includes/add_category.php';
             break;
 
-          case 'view_cat';
-            include './includes/view_categories.php';
+          case 'view_category';
+            include './includes/view_category.php';
             break;
 
-          case 'edit_cat';
-            include './includes/edit_category.php';
+          case 'update_category';
+            include './includes/update_category.php';
             break;
 
           case 'view_staff';
@@ -128,6 +130,10 @@
 
           case 'add_staff';
             include './includes/add_staff.php';
+            break;
+
+          case 'delete_staff';
+            include './includes/delete_staff.php';
             break;
           
           case 'view_discount';
@@ -148,6 +154,10 @@
   
           case 'add_producer';
             include './includes/add_producer.php';
+            break;
+
+          case 'add_producer';
+            include './includes/delete_producer.php';
             break;
 
           case 'check_cart';

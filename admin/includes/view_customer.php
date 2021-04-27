@@ -1,3 +1,7 @@
+<?php 
+    require_once('./includes/include.php');
+    require_once('./includes/conn.php');
+?>
 <div class="view_product_box">
     <h2>Danh sách nhân viên</h2>
     <div class="border_bottom"></div>
@@ -52,10 +56,6 @@
 </div>
 
 <?php 
-    
-    require_once('./includes/include.php');
-    require_once('./includes/conn.php');
-
     if(isset($_GET['delete_customer'])){
         $taikhoan = $_GET['delete_customer'];
         $sql_del_cus = "DELETE FROM NGUOIDUNG WHERE taikhoan = '$taikhoan';";
@@ -63,7 +63,7 @@
         $res_del_cus = Check_db($sql_del_cus);
         if($res_del_cus){
             echo "<script>alert('Tài khoản được xóa thành công!')</script>";
-            // echo "<script>window.open('index.php?action=view_users','_self')</script>";
+            echo "<script>window.open('index.php?action=view_customer','_self')</script>";
         }
         else {
             echo "<script>alert('xóa tài khoản không thành công!')</script>";

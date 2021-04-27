@@ -1,20 +1,28 @@
-thuan: backend xử lý sửa xóa sp, 
-        xem thông tin tài khoản, 
-        đổi mật khẩu.   //(done all) and view full maloaisp, mansx.
+Thuận: 
+    + sp
+    + đổi mật khẩu
+    + nsx
+    + loaisp
+    + thiết kế database (done)
 
+Ngân:
+    + nhập database (done)
+    + đăng ký backend (done)
+    + giỏ
+    + viết báo cáo
+    + tự chỉnh sửa tài khoản
 
-vinh: thống kê (done), 
-    ràng buộc chưa đăng nhập không thể thêm giỏ hàng (done),
-    xem danh sách nhân viên, khách hàng (done),
-    đăng suất (done)
+Thắng:
+    + full giao diện người dùng (done)
+    + ràng buộc đăng nhập, đăng ký frontend (done)
+    + lọc trang index
 
-
-ngan: thêm, sửa, xóa giỏ hàng
-
----------------------------------------------------------
-Trước mắt là vậy đi ai muốn đổi gì hay thêm bớt gì thì ghi vào rồi push lên.
-viết không cần cầu kỳ, chạy dc là dc dù hàm chỉ dài vài dòng, cần thì mình update sau.
----------------------------------------------------------
-
-
-
+Vinh:
+    + giao diện admin (done)
+    + giảm giá (done)
+    + nhân viên, xem tt KH (done)
+    + giảm giá (done)
+    + doanh thu
+    + đăng nhập backend (done)
+    + thiết kế database (done)
+    + Tìm kiếm backend (done)
