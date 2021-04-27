@@ -1,3 +1,8 @@
+<?php
+    require_once('./includes/include.php');
+    require_once('./includes/conn.php');
+    unset($_POST['insert_post']);
+?>
 <div class="form_box">
     <script>
         const check_password = function () {
@@ -103,9 +108,7 @@
 
 <?php
 
-    require_once('./includes/include.php');
-    require_once('./includes/conn.php');
-    unset($_POST['insert_post']);
+
 
     function Check_Staff($taikhoan){
         $sql = "SELECT * FROM NGUOIDUNG WHERE taikhoan = '$taikhoan';";
