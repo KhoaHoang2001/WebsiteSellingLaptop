@@ -49,17 +49,27 @@
             </tr>
             <tr>
                 <td valign="top"><b>Mã loại sản phẩm:</b></td>
-               <td> <select id="maloaisp" name="maloaisp"></select></td>
+                <td>
+                    <select id="maloaisp" name="maloaisp">
+                        <option value="loaisp">loaisp</option>
+                    </select>
+                </td>
             </tr>
 
             <tr>
                 <td valign="top"><b>Mã giảm giá: </b></td>
-                <td><input type="text" name="magiamgia" id="magiamgia" required/></td>
+                <td>
+                    <select id="magiamgia" name="magiamgia">
+                        <option value="giamgia">giamgia</option>
+                    </select> 
+                </td>
             </tr>
             <tr>
                 <td valign="top"><b>Mã nhà sản xuất: </b></td>
                 <td>
-                    <select id="mansx" name="mansx"></select> 
+                    <select id="mansx" name="mansx">
+                        <option value="masnx">nha nsx</option>
+                    </select> 
                 </td>
             </tr>
             <tr>

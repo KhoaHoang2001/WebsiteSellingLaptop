@@ -93,23 +93,23 @@
             break;
 
           case 'view_product';
-            include './includes/view_products.php';
+            include './includes/view_product.php';
             break;
 
-          case 'edit_product';
+          case 'update_product';
             include './includes/update_product.php';
             break;
 
-          case 'add_cat';
+          case 'add_category';
             include './includes/add_category.php';
             break;
 
-          case 'view_cat';
+          case 'view_category';
             include './includes/view_category.php';
             break;
 
-          case 'edit_cat';
-            include './includes/edit_category.php';
+          case 'update_category';
+            include './includes/update_category.php';
             break;
 
           case 'view_staff';
@@ -122,6 +122,10 @@
 
           case 'add_staff';
             include './includes/add_staff.php';
+            break;
+
+          case 'delete_staff';
+            include './includes/delete_staff.php';
             break;
           
           case 'view_discount';
@@ -149,7 +153,7 @@
             break;
 
           case 'check_cart';
-            include './includes/check_.php';
+            include './includes/check_cart.php';
             break;
         }
           ?>
