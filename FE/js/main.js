@@ -29,23 +29,23 @@ function DangKy() {
   //   if (KiemTraDauVaoRong("gioiTinh", gioiTinh) == true) {
   //     loi++;
   //   }
-  if (KiemTraDauVaoRong("Email", email) == true) {
-    loi++;
+
+  if (validate.KiemTraRong(email) == true) {
+
   } else {
-    if (validate.KiemTraEmail(email)) {
-      document.getElementById("Email").style.borderColor = "green";
-    } else {
-      document.getElementById("Email").style.borderColor = "red";
+    if (validate.KiemTraEmail(email) == false) {
+      document.getElementById("Email").value = "";
+      document.getElementById("Email").placeholder = "Sai định dạng";
       loi++;
     }
   }
-  if (KiemTraDauVaoRong("SDT", sdt) == true) {
-    loi++;
+
+  if (validate.KiemTraRong(sdt) == true) {
+
   } else {
-    if (validate.KiemTraSoDT(sdt)) {
-      document.getElementById("SDT").style.borderColor = "green";
-    } else {
-      document.getElementById("SDT").style.borderColor = "red";
+    if (validate.KiemTraSoDT(sdt) == false) {
+      document.getElementById("SDT").value = "";
+      document.getElementById("SDT").placeholder = "Sai định dạng";
       loi++;
     }
   }

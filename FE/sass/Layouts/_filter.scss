@@ -10,6 +10,18 @@
                     cursor: pointer;
                 }
             }
+            #filter-search{
+                margin-top: 10px;
+                display: flex;
+                list-style-type: none;
+                li{
+                    width: 100px;
+                    text-align: left;
+                    select{
+                        padding: 0 20px;
+                    }
+                }
+            }
         }
     }
 }

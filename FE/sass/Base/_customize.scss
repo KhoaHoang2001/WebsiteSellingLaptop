@@ -1,9 +1,13 @@
-button{
-    padding: 10px;
-    &:hover{
-        background-color: $color-black-light;
-    }
-    &:focus {
-        outline:none !important;
-      }
+button {
+  padding: 10px;
+  border-radius: 5px;
+  &:hover {
+    background-color: $color-black-light;
+  }
+  &:focus {
+    outline: none !important;
+  }
+}
+input {
+  border-radius: 5px;
 }
