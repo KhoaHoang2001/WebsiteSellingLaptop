@@ -60,6 +60,7 @@
             echo "khong tim duoc san pham nao";
         }
     }
+    
     function View_full_loai_Of_Product($masp){
         $sql_loai = "SELECT * FROM SANPHAM WHERE MALOAISP = (SELECT MALOAISP FROM SANPHAM WHERE MASP = '$masp')";
         $res_loai = Check_db($sql_loai);
@@ -70,8 +71,8 @@
         } else{
             echo "khong co loai nao";
         }
-
     }
+    
     function View_full_MaNSX_Of_Product($masp){
         $sql_NSX = "SELECT * FROM SANPHAM WHERE MANSX = (SELECT MANSX FROM SANPHAM WHERE MASP = '$masp')";
         $res_NSX = Check_db($sql_NSX);
@@ -82,6 +83,6 @@
         } else{
             echo "khong co NSX nao";
         }
-
     }
+
 ?>

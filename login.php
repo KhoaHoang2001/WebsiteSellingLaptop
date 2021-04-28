@@ -1,27 +1,13 @@
 <?php
     require_once('./includes/include.php');
-
-    if(isset($_POST['dangnhap'])){
-        $taikhoan = Get_value($_POST["taikhoan"]);
-        $matkhau = Get_value($_POST["matkhau"]);
-        $matkhau = md5($matkhau);
-        $sql = "SELECT * FROM NGUOIDUNG WHERE taikhoan = '$taikhoan' AND matkhau = '$matkhau'";
-        $res = Check_db($sql);
-        if(mysqli_num_rows($res) > 0){
-            $row = mysqli_fetch_assoc($res);
-            $_SESSION['taikhoan'] = $row['TAIKHOAN'];
-            $_SESSION['maquyen'] = $row['MAQUYEN'];
-            Check_role($_SESSION['maquyen']);
-        }
-    }
+    require_once('./includes/conn.php');
 ?>
-
 <!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>CT250</title>
+    <title>Đăng nhập - Web bán laptop</title>
 
     <!-- BS4 CSS -->
     <link
@@ -42,10 +28,6 @@
       href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700&display=swap"
       rel="stylesheet"
     />
-
-    <!-- OWL CAROUSEL -->
-    <link rel="stylesheet" href="./css/owl.carousel.min.css" />
-    <link rel="stylesheet" href="./css/owl.theme.default.min.css" />
 
     <!-- CSS -->
     <link rel="stylesheet" href="./css/main.css" />
@@ -140,7 +122,7 @@
               </th>
               <td style="width: 10px;"></td>
               <td>
-                <input type="text" name="taikhoan" />
+                <input type="text" name="taikhoan" id="taikhoan" />
               </td>
             </tr>
             <tr style="height: 10px;">
@@ -154,7 +136,7 @@
               </th>
               <td></td>
               <td>
-                <input type="password" name="matkhau" />
+                <input type="password" name="matkhau" id="matkhau" />
               </td>
             </tr>
             <tr style="height: 10px;">
@@ -164,7 +146,8 @@
             </tr>
             <tr>
               <td style="padding-left: 20px">
-                <button type="submit" name="dangnhap" style="padding: 5px 10px;">Đăng nhập</button>
+                <!-- <button type="submit" style="padding: 5px 10px;" >Đăng nhập</button> -->
+                <input type="submit" style="padding: 5px 10px;" name="submit_login" value="Đăng nhập">
               </td>
               <td></td>
               <td>
@@ -229,5 +212,23 @@
         <p>copyright</p>
       </div>
     </footer>
+    <script src="./js/validation.js"></script>
+    <script src="./js/main.js"></script>
   </body>
 </html>
+
+<?php 
+  if(isset($_POST['submit_login'])){
+    $taikhoan = Get_value($_POST["taikhoan"]);
+    $matkhau = Get_value($_POST["matkhau"]);
+    $matkhau = md5($matkhau);
+    $sql = "SELECT * FROM NGUOIDUNG WHERE taikhoan = '$taikhoan' AND matkhau = '$matkhau'";
+    $res = Check_db($sql);
+    if(mysqli_num_rows($res) > 0){
+        $row = mysqli_fetch_assoc($res);
+        $_SESSION['taikhoan'] = $row['TAIKHOAN'];
+        $_SESSION['maquyen'] = $row['MAQUYEN'];
+        Check_role($_SESSION['maquyen']);
+    }
+}
+?>

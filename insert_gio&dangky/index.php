@@ -1,6 +1,6 @@
 <!DOCTYPE html>
-<html lang="en">
 
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -246,8 +246,7 @@
                 <div class="row">
                     <div class="card-group col-md-3 col-sm-6">
                         <div class="card">
-                            <?php $MASP=4;
-                            echo "<a href='../insert_gio&dangky/view.php?tenbien=$MASP'"?>
+                        <a href="./view.html">
                                 <div class="card-header">
                                     <img src="./image/laptop.jpg" class="card-img-top" alt="">
                                 </div>
@@ -266,7 +265,9 @@
                     </div>
                     <div class="card-group col-md-3 col-sm-6">
                         <div class="card">
-                            <a href="./view.html">
+                            
+                            <?php $MASP=4;
+                            echo "<a href='../insert_gio&dangky/view.php?tenbien=$MASP'"?>
                                 <div class="card-header">
                                     <img src="./image/laptop.jpg" class="card-img-top" alt="">
                                 </div>

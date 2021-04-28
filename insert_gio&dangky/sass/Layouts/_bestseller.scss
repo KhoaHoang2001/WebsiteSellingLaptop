@@ -1,0 +1,10 @@
+.bestseller{
+    padding:$pd-3 + 2 0 ;
+    .bestseller{
+        width: 90%;
+        margin: auto;
+        h2{
+            font-size:$fs-3 + 2 ;
+        }
+    }
+}

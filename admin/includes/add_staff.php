@@ -1,3 +1,8 @@
+<?php
+    require_once('./includes/include.php');
+    require_once('./includes/conn.php');
+    unset($_POST['insert_post']);
+?>
 <div class="form_box">
     <script>
         const check_password = function () {
@@ -92,7 +97,7 @@
             </tr>
             <tr>
 
-                <td colspan="7" class="text-center"> 
+                <td colspan="9" class="text-center"> 
                     <input type="submit" class="btn-submit" name="insert_post" value="Thêm tài khoản">
                 </td>
             </tr>
@@ -103,9 +108,12 @@
 
 <?php
 
+<<<<<<< HEAD
+
+=======
     require_once('./includes/include.php');
     require_once('./includes/conn.php');
-    unset($_POST['insert_post']);
+>>>>>>> 8a2ccf0c8519db2b211480c41cf1e817a5bb1236
 
     function Check_Staff($taikhoan){
         $sql = "SELECT * FROM NGUOIDUNG WHERE taikhoan = '$taikhoan';";

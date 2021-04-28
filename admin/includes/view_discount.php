@@ -3,7 +3,7 @@
     require_once('./includes/conn.php');
 ?>
 <div class="view_product_box">
-    <h2>Danh sách nhân viên</h2>
+    <h2>Danh sách mã nhân viên</h2>
     <div class="border_bottom"></div>
     <form action="" method="post" enctype="multipart/form-data">
         <div class="search_bar">
@@ -57,4 +57,18 @@
             return 100;
         }
     }
+
+    if(isset($_GET['discount_id'])){
+        $magiamgia = $_GET['discount_id'];
+        $sql_del_discount = "DELETE FROM GIAMGIA WHERE magiamgia = '$magiamgia'";
+        $res_del_discount = Chec_db($sql_del_discount);
+        if($res_del_discount){
+            echo "<script>alert(\"Xóa mã giảm giá thành công\")</script>";
+            echo "<script>window.open('index.php?action=view_staff','_self')</script>";
+        }
+        else {
+            echo "<script>alert('xóa tài khoản không thành công!')</script>";
+        }
+    }
+
 ?>
