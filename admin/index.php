@@ -70,6 +70,7 @@
         <button class="dropdown-btn">Đơn hàng<i class="fa fa-caret-down"></i></button>
         <div class="dropdown-container">
             <a href="index.php?action=check_cart">Duyệt đơn hàng</a>
+            <a href="index.php?action=test">themhinh</a>
         </div>
         <button class="dropdown-btn "><a href="logout.php">Đăng xuất</a></button>
     </div> <!-- /.End sidenav -->
@@ -167,6 +168,11 @@
           case 'update_producer';
             include './includes/update_producer.php';
             break;
+            
+              
+          case 'test';
+          include './includes/test.php';
+          break;
         }
           ?>
         </div>

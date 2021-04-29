@@ -51,7 +51,15 @@
                 <td valign="top"><b>Mã loại sản phẩm:</b></td>
                 <td>
                     <select id="maloaisp" name="maloaisp">
-                        <option value="loaisp">loaisp</option>
+                        <option value="loaisp">chọn loại</option>
+                        <?php
+                        $sql_all_cat = "SELECT * FROM  LOAISP";
+                        $res_all_cat = Check_db($sql_all_cat);
+                        while ($row = mysqli_fetch_assoc($res_all_cat)) {
+                        $maloaisp = $row['MALOAISP'];
+                        echo "<option>$maloaisp</option>";    
+                        }       
+                        ?>
                     </select>
                 </td>
             </tr>
@@ -60,7 +68,15 @@
                 <td valign="top"><b>Mã giảm giá: </b></td>
                 <td>
                     <select id="magiamgia" name="magiamgia">
-                        <option value="giamgia">giamgia</option>
+                        <option value="giamgia">chọn mã giảm giá </option>
+                        <?php 
+                            $sql_all_discount = "SELECT * FROM GIAMGIA";
+                            $res_all_discount = Check_db($sql_all_discount);
+                            while ($row = mysqli_fetch_array($res_all_discount)) {
+                            $magiamgia = $row['MAGIAMGIA'];
+                            echo "<option>$magiamgia</option>";
+                            }
+                        ?>
                     </select> 
                 </td>
             </tr>
@@ -68,7 +84,16 @@
                 <td valign="top"><b>Mã nhà sản xuất: </b></td>
                 <td>
                     <select id="mansx" name="mansx">
-                        <option value="masnx">nha nsx</option>
+                        <option value="masnx"> chọn nhà sản xuất </option>
+                        <?php
+                            $sql_all_nsx = "SELECT * FROM NHASANXUAT";
+                            $res_all_nsx = Check_db($sql_all_nsx);
+                            while ($row = mysqli_fetch_array($res_all_nsx)) {
+                            $mansx = $row['MANSX'];
+                            echo "<option>$mansx<option>";
+                            }
+                        
+                        ?>
                     </select> 
                 </td>
             </tr>
@@ -110,20 +135,37 @@
                 <td valign="top"><b>Ngày sản xuất:</b></td>
                 <td><input type="date" name="ngaysx" id="ngaysx"></td>
             </tr>
+
+            <tr>
+                <td><b>Hình ảnh: </b></td>
+                <td><input type="file" name="Hinh" require /></td>
+            </tr>
+                            
             <tr>
 
-                <td colspan="12" class="text-center"> 
-                    <input type="submit" class="btn-submit" name="insert_post" value="Thêm Sản Phẩm">
+                <td colspan="13" class="text-center"> 
+                    <input type="submit" class="btn-submit" name="themsanpham" value="Thêm Sản Phẩm">
                 </td>
             </tr>
+            
         </table>
     </form>
 
 </div>
 <?php
 
-    function Add_Product(){
-        if (isset($_POST['submit'])){
+
+    function Check_product($masp){
+        $sql = "SELECT * FROM SANPHAM WHERE masp = '$masp';";
+        $res = Check_db($sql);
+        if(mysqli_num_rows($res) > 0){
+            return true;
+        }
+        else{
+            return false;
+        }
+    }
+        if (isset($_POST['themsanpham'])){
             $masp = Get_value($_POST["masp"]);
             $maloaisp = Get_value($_POST["maloaisp"]);
             $mansx = Get_value($_POST["mansx"]);
@@ -135,14 +177,23 @@
             $gia = Get_value($_POST["gia"]);
             $soluongcon = Get_value($_POST["soluongcon"]);
             $ngaysx = Get_value($_POST["ngaysx"]);
-            //thieu ham check masp
+            $Hinh  = $_FILES['Hinh']['name'];
+            $product_image_tmp = $_FILES['Hinh']['tmp_name'];
+            move_uploaded_file($product_image_tmp, "product_images/$Hinh");
+            if(!Check_product($masp)){
+            $sql = "INSERT INTO `sanpham` (`MASP`, `MALOAISP`, `MAGIAMGIA`, `MANSX`, `TENSP`, `MOTASP`, `RAM`, `VIXULY`, `KICHTHUOCMH`, `GIA`, `SOLUONGCON`, `NGAYSX`) 
+            VALUES ('$masp', '$maloaisp', '$magiamgia','$mansx', '$tensp', '$motasp', '$ram', '$vixuly', '$kichthuocmh', '$gia', '$soluongcon', '$ngaysx');";       
+            $sql_hinh = "INSERT INTO HINHANH (masp, link) VALUES ('$masp', '$Hinh');";
             $conn = Connect();
-            $sql = "INSERT INTO `sanpham` (`MASP`, `MALOAISP`, `MAGIAMGIA`, `MANSX`, `TENSP`, `MOTASP`, `RAM`, `VIXULY`, `KICHTHUOCMH`, `GIA`, `SOLUONGCON`, `NGAYSX`) VALUES ('$masp', '$maloaisp', null,'$mansx', '$tensp', '$motasp', '$ram', '$vixuly', '$kichthuocmh', '$gia', '$soluongcon', '$ngaysx');";       
             mysqli_query($conn, $sql);
-            mysqli_close($conn);
-            echo "dang ky tai khoan thanh cong";
+            $themhinh =  mysqli_query($conn,$sql_hinh);
+            mysqli_close($conn);}
+        if($themhinh){
+            echo "<script>alert(\"Thêm sản phẩm thành công\");</script>";        
         } else {
-            echo ("ketnoithatbai");
+            echo "<script>alert(\"Thêm sản phẩm thất bại\");</script>"; 
+
         }
-    }
+        }
+    
 ?>
