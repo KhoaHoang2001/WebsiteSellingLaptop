@@ -53,7 +53,6 @@
 <?php
     require_once('./includes/include.php');
     require_once('./includes/conn.php');
-    unset($_POST['insert_discount']);
     
     function Check_Discount($magiamgia){
         $sql = "SELECT * FROM GIAMGIA WHERE magiamgia = '$magiamgia'";

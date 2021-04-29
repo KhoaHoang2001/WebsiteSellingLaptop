@@ -58,13 +58,13 @@
         }
     }
 
-    if(isset($_GET['discount_id'])){
-        $magiamgia = $_GET['discount_id'];
+    if(isset($_GET['delete_discount'])){
+        $magiamgia = $_GET['delete_discount'];
         $sql_del_discount = "DELETE FROM GIAMGIA WHERE magiamgia = '$magiamgia'";
-        $res_del_discount = Chec_db($sql_del_discount);
+        $res_del_discount = Check_db($sql_del_discount);
         if($res_del_discount){
             echo "<script>alert(\"Xóa mã giảm giá thành công\")</script>";
-            echo "<script>window.open('index.php?action=view_staff','_self')</script>";
+            echo "<script>window.open('index.php?action=view_discount','_self')</script>";
         }
         else {
             echo "<script>alert('xóa tài khoản không thành công!')</script>";
