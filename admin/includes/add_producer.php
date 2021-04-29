@@ -1,79 +1,63 @@
 
+<?php
+    require_once('./includes/include.php');
+    require_once('./includes/conn.php');
+
+?>
+
 <div class="form_box">
     <script>
         
-        }
+        
     </script>
-    <h2>Thêm Sản phẩm</h2>
+    <h2>Thêm Nhà Sản Xuất</h2>
     <div class="border_bottom"></div>
     <!--/.border_bottom -->
-    <form onsubmit="return Check_all()" method="post" enctype="multipart/form-data">
+    <form method="post" enctype="multipart/form-data">
     
         <table align="center" width="100%">
             <tr>
-                <td valign="top"><b>Mã sản phẩm:</b></td>
-                <td><input type="text" name="masp" id="masp"  required /></td>
+                <td valign="top"><b>Mã nhà sản xuất:</b></td>
+                <td><input type="text" name="mansx" id="mansx"  required/></td>
             </tr>
             <tr>
-                <td valign="top"><b>Mã loại sản phẩm:</b></td>
-               <td> <select id="maloaisp" name="maloaisp"></select></td>
-            </tr>
-
-            <tr>
-                <td valign="top"><b>Mã giảm giá: </b></td>
-                <td><input type="text" name="magiamgia" id="magiamgia" required/></td>
-            </tr>
-            <tr>
-                <td valign="top"><b>Mã nhà sản xuất: </b></td>
-                <td>
-                    <select id="mansx" name="mansx"></select> 
-                </td>
-            </tr>
-            <tr>
-                <td valign="top"><b>Tên sản phẩm:</b></td>
-                <td><input type="text" name="tensp" id="tensx" size = 60 required/>
-                </td>
-            </tr>
-            <tr>
-                <td valign="top"><b>Mô tả sản phẩm: </b></td>
-                <td><input type="text" name="motasp" id="motasp" size = 60 required/></td>
-            </tr>
-
-            <tr>
-                <td valign="top"><b>Ram:</b></td>
-                <td>
-                    <input type="text" name="ram" id="ram" required/>
-                </td>
-            </tr>
-
-            <tr>
-                <td valign="top"><b>Vi xử lý:</b></td>
-                <td><input type="text" name="vixuly" id="vixuly" required/></td>
-            </tr>
-            <tr>
-                <td valign="top"><b>Kích thước màn hình:</b></td>
-                <td><input type="text" name="kichthuocmh" id="kichthuocmh"></td>
-            </tr>
-
-            <tr>
-                <td valign="top"><b>Giá:</b></td>
-                <td><input type="text" name="gia" id="gia"></td>
-            </tr>
-            <tr>
-                <td valign="top"><b>Số lượng còn:</b></td>
-                <td><input type="text" name="soluongcon" id="soluongcon"></td>
-            </tr>
-            <tr>
-                <td valign="top"><b>Ngày sản xuất:</b></td>
-                <td><input type="date" name="ngaysx" id="ngaysx"></td>
+                <td valign="top"><b>Tên nhà sản xuất:</b></td>
+               <td> <input type="text" name="tennsx" id="tennsx" required/></td>
             </tr>
             <tr>
 
-                <td colspan="12" class="text-center"> 
-                    <input type="submit" class="btn-submit" name="insert_post" value="Thêm Sản Phẩm">
+                <td colspan="2" class="text-center"> 
+                    <input type="submit" class="btn-submit" name="themnsx" value="Thêm nhà sản xuất">
                 </td>
             </tr>
         </table>
     </form>
 
 </div>
+<?php
+    function check_Mansx($mansx){
+        $sql = "SELECT * FROM nhasanxuat WHERE mansx ='$mansx';";
+        $res = Check_db($sql);
+        if(mysqli_num_rows($res) > 0){
+            return true;
+        }
+        else{
+            return false;
+        }
+    }
+    if (isset($_POST['themnsx'])){
+            $mansx = Get_value($_POST["mansx"]);
+            $tennsx = Get_value($_POST["tennsx"]);
+            
+            if(!check_Mansx($mansx)){
+            $conn = Connect();
+            $sql = "INSERT INTO `nhasanxuat` (`mansx`, `tennsx`) VALUES ('$mansx', '$tennsx');" ;
+            mysqli_query($conn, $sql);
+            mysqli_close($conn);
+                echo "<script>alert(\"Thêm nhà sản xuất thành công\");</script>";
+            }else{
+                echo "<script>alert(\"Nhà sản xuất đã tồn tại\");</script>";
+            }
+        }
+
+            ?>

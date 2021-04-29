@@ -3,7 +3,6 @@
     session_start();
     $_SESSION['TAIKHOAN']='bichngan';
     $MASP=$_GET['tenbien'];
-    echo $MASP." GHHHH";
 ?>
 <html lang="en">
 
@@ -11,6 +10,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CT250</title>
+
 
     <!-- BS4 CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"

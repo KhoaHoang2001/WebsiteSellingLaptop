@@ -3,7 +3,7 @@
     require_once('./includes/conn.php');
 ?>
 <div class="view_product_box">
-    <h2>Danh sách nhân viên</h2>
+    <h2>Danh sách mã nhân viên</h2>
     <div class="border_bottom"></div>
     <form action="" method="post" enctype="multipart/form-data">
         <div class="search_bar">

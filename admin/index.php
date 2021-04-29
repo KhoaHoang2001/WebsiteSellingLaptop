@@ -1,3 +1,6 @@
+
+<?php include './includes/include.php';
+  ?>
 <?php
 // session_start();
     include_once('./includes/include.php');
@@ -40,8 +43,8 @@
         </div>
         <button class="dropdown-btn">Loại sản phẩm<i class="fa fa-caret-down"></i></button>
         <div class="dropdown-container">
-            <a href="index.php?action=add_cat">Thêm loại</a>
-            <a href="index.php?action=view_cat">Xem loại</a>
+            <a href="index.php?action=add_category">Thêm loại sản phẩm</a>
+            <a href="index.php?action=view_category">Xem loại sản phẩm</a>
         </div>
         <button class="dropdown-btn">Sản phẩm <i class="fa fa-caret-down"></i></button>
         <div class="dropdown-container">
@@ -55,8 +58,8 @@
         </div>
         <button class="dropdown-btn">Nhà sản xuất <i class="fa fa-caret-down"></i></button>
         <div class="dropdown-container">
-            <a href="index.php?action=add_producer">Thêm nsx</a>
-            <a href="index.php?action=view_producer">Xem nsx</a>
+            <a href="index.php?action=add_producer">Thêm nhà sản xuất</a>
+            <a href="index.php?action=view_producer">Xem nhà sản xuất</a>
         </div>
         <button class="dropdown-btn">Tài khoản<i class="fa fa-caret-down"></i></button>
         <div class="dropdown-container">
@@ -154,6 +157,15 @@
 
           case 'check_cart';
             include './includes/check_cart.php';
+            break;
+
+          case 'delete_producer';
+            include './includes/delete_producer.php';
+            break;
+
+              
+          case 'update_producer';
+            include './includes/update_producer.php';
             break;
         }
           ?>

@@ -32,6 +32,7 @@ a:hover {
 
 button {
   padding: 10px;
+  border-radius: 5px;
 }
 
 button:hover {
@@ -40,6 +41,10 @@ button:hover {
 
 button:focus {
   outline: none !important;
+}
+
+input {
+  border-radius: 5px;
 }
 
 header {
@@ -97,6 +102,21 @@ header .container .header-navbar .nav-left-right .header-navbar--content .navbar
   width: 100px;
   height: 100%;
   cursor: pointer;
+}
+
+.filter .container .row #filter-search {
+  margin-top: 10px;
+  display: flex;
+  list-style-type: none;
+}
+
+.filter .container .row #filter-search li {
+  width: 100px;
+  text-align: left;
+}
+
+.filter .container .row #filter-search li select {
+  padding: 0 20px;
 }
 
 .item .container .item-title {
@@ -425,16 +445,16 @@ footer .bottom p {
   margin: 50px auto;
 }
 
-.agileinfo_main_grid_left_grid h3 {
+#payment .container #payment-title {
   font-size: 1.3em;
-  color: #fff;
+  color: #212121;
 }
 
-.agileinfo_main_grid_left_grid ul {
+#payment .container #checkout-center #parentHorizontalTab ul {
   margin-top: 1.5em;
 }
 
-.agileinfo_main_grid_left_grid ul li {
+#payment .container #checkout-center #parentHorizontalTab ul li {
   display: inline-block;
   color: #fff;
   font-weight: bold;
@@ -442,65 +462,47 @@ footer .bottom p {
   vertical-align: top;
 }
 
-.agileinfo_main_grid_left_grid ul li span {
+#payment .container #checkout-center #parentHorizontalTab ul li span {
   display: block;
-  font-size: .5em;
+  font-size: 0.5em;
   color: #999;
 }
 
-.agileinfo_main_grid_left_grid ul li:first-child {
+#payment .container #checkout-center #parentHorizontalTab ul li:first-child {
   width: 70%;
   border-right: 1px solid #999;
 }
 
-.agileinfo_main_grid_left_grid ul li:last-child {
+#payment .container #checkout-center #parentHorizontalTab ul li:last-child {
   padding-left: 1em;
   text-align: right;
 }
 
-.agile_amount {
-  padding: 1em 2em;
-  background: #f71926;
+#payment .container #checkout-center #parentHorizontalTab span {
+  margin-left: 1em;
 }
 
-.agile_amount h3 {
-  font-size: 1.3em;
-  color: #fff;
-}
-
-.agile_amount h4 {
-  font-size: 2em;
-  color: #fff;
-  font-weight: bold;
-}
-
-.agile_amount p {
-  font-size: 1em;
-  color: #1adeed;
-  line-height: 1.8em;
-}
-
-img.pp-img {
-  width: 65%;
-}
-
-.tab-grid p {
-  color: #8B8B8B;
+#payment .container #checkout-center #parentHorizontalTab .tab-grid p {
+  color: #8b8b8b;
   font-size: 0.95em;
   line-height: 1.8em;
   font-weight: 400;
   margin: 10px 0;
 }
 
+#payment .container #checkout-center #parentHorizontalTab .tab-grid .pp-img {
+  width: 65%;
+}
+
 a.btn.btn-primary {
   background-color: #3a5795;
-  font-family: 'Open Sans', sans-serif;
+  font-family: "Open Sans", sans-serif;
   color: #fff;
   border: none;
 }
 
 .vertical_post h5 {
-  color: #F45C5D;
+  color: #f45c5d;
   font-size: 20px;
   margin: 0 0 18px 0;
   letter-spacing: 1px;
@@ -551,7 +553,7 @@ input[type="checkbox"] {
   border: none;
   width: 100%;
   background: none;
-  border: 1px solid #E6E4E4;
+  border: 1px solid #e6e4e4;
   color: #999;
   outline: none;
   font-size: 16px;
@@ -573,14 +575,10 @@ select.form-control.option-w3ls {
   text-align: left;
 }
 
-.checkout-center-basket span {
-  margin-left: 1em;
-}
-
 .vertical_post form input[type="submit"],
 .number-paymk input[type="submit"] {
   background: #0879c9;
-  color: #FFFFFF;
+  color: #ffffff;
   text-align: center;
   padding: 11px 19px;
   border: none;
@@ -599,7 +597,7 @@ select.form-control.option-w3ls {
 
 .vertical_post form input[type="submit"]:hover,
 .number-paymk input[type="submit"]:hover {
-  background: #F45C5D;
+  background: #f45c5d;
   transition: 0.5s all;
   -webkit-transition: 0.5s all;
   -moz-transition: 0.5s all;

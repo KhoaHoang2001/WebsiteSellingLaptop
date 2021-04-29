@@ -55,5 +55,13 @@
         $conn->close();
     }
 
-    
+    function view_sp_gio($sql){
+        include('connectDB.php');
+        if($conn->query($sql)==true){
+            //hien thi ds sp trong gio
+        }else{
+            echo "error: ".$sql."<br>".$conn->error;
+        }
+        $conn->close();
+    }
 ?>
