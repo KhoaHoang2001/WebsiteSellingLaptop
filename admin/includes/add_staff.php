@@ -1,7 +1,6 @@
 <?php
     require_once('./includes/include.php');
     require_once('./includes/conn.php');
-    unset($_POST['insert_post']);
 ?>
 <div class="form_box">
     <script>
@@ -107,13 +106,6 @@
 </div><!-- /.form_box -->
 
 <?php
-
-<<<<<<< HEAD
-
-=======
-    require_once('./includes/include.php');
-    require_once('./includes/conn.php');
->>>>>>> 8a2ccf0c8519db2b211480c41cf1e817a5bb1236
 
     function Check_Staff($taikhoan){
         $sql = "SELECT * FROM NGUOIDUNG WHERE taikhoan = '$taikhoan';";
