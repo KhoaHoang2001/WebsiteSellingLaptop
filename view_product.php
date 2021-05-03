@@ -28,6 +28,7 @@ if ($gia - $gia * $phantram / 100 != $gia) {
 ?>
 <html lang="en">
 
+<<<<<<< HEAD
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -100,6 +101,13 @@ if ($gia - $gia * $phantram / 100 != $gia) {
             </div>
         </div>
     </header>
+=======
+<?php include('./includes/head.php') ?>
+
+<body>
+    <!-- header -->
+    <?php include('./includes/header.php') ?>
+>>>>>>> 2aa4f9bd15deb8a9710ecd98103ef2ddf9765288
     <!-- url link -->
     <section class="url">
         <div class="container">
@@ -156,8 +164,15 @@ if ($gia - $gia * $phantram / 100 != $gia) {
                 </div>
                 <div class="col-md-4">
                     <form action="">
+<<<<<<< HEAD
                         <?php echo "<a href='cart.php?masp=" . $MASP . "'>Thêm vào giỏ hàng</a>
                         <a href='cart.php?masp=$MASP'>Mua hàng</a>" ?>
+=======
+                        <?php echo"<a href='cart.php?masp=".$MASP."'>Thêm vào giỏ hàng</a>
+                        <a href='cart.php?masp=$MASP'>Mua hàng</a>"?>
+                        <button style="padding: 0;"><a href="http://localhost/weblaptop/cart/view.php?tenbien=SP02" style="display: block; padding: 10px;">Thêm vào giỏ hàng</a></button>
+                        <button>Mua hàng</button>
+>>>>>>> 2aa4f9bd15deb8a9710ecd98103ef2ddf9765288
                     </form>
                 </div>
             </div>
@@ -181,160 +196,12 @@ if ($gia - $gia * $phantram / 100 != $gia) {
             </div>
         </div>
     </section>
-    <section class="item">
-        <div class="container">
-            <div class="row item-title">
-                <h2>Sản phẩm mới</h2>
-            </div>
-            <div class="row item-content">
-                <div class="row">
-                    <div class="card-group col-md-3 col-sm-6">
-                        <div class="card">
-                            <a href="./view.html">
-                                <div class="card-header">
-                                    <img src="./image/laptop.jpg" class="card-img-top" alt="">
-                                </div>
-                                <div class="card-body">
-                                    <h5 class="card-title">Card title</h5>
-                                    <p class="card-text">This is a wider card with supporting text below as a natural
-                                        lead-in to
-                                        additional content. This content is a little bit longer.</p>
-                                </div>
-                                <div class="card-footer">
-                                    <input type="button" value="Thêm vào giỏ hàng">
-                                    <button type="submit">Mua ngay</button>
-                                </div>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="card-group col-md-3 col-sm-6">
-                        <div class="card">
-                            <a href="./view.html">
-                                <div class="card-header">
-                                    <img src="./image/laptop.jpg" class="card-img-top" alt="">
-                                </div>
-                                <div class="card-body">
-                                    <h5 class="card-title">Card title</h5>
-                                    <p class="card-text">This is a wider card with supporting text below as a natural
-                                        lead-in to
-                                        additional content. This content is a little bit longer.</p>
-                                </div>
-                                <div class="card-footer">
-                                    <input type="button" value="Thêm vào giỏ hàng">
-                                    <button type="submit">Mua ngay</button>
-                                </div>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="card-group col-md-3 col-sm-6">
-                        <div class="card">
-                            <a href="./view.html">
-                                <div class="card-header">
-                                    <img src="./image/laptop.jpg" class="card-img-top" alt="">
-                                </div>
-                                <div class="card-body">
-                                    <h5 class="card-title">Card title</h5>
-                                    <p class="card-text">This is a wider card with supporting text below as a natural
-                                        lead-in to
-                                        additional content. This content is a little bit longer.</p>
-                                </div>
-                                <div class="card-footer">
-                                    <input type="button" value="Thêm vào giỏ hàng">
-                                    <button type="submit">Mua ngay</button>
-                                </div>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="card-group col-md-3 col-sm-6">
-                        <div class="card">
-                            <a href="./view.html">
-                                <div class="card-header">
-                                    <img src="./image/laptop.jpg" class="card-img-top" alt="">
-                                </div>
-                                <div class="card-body">
-                                    <h5 class="card-title">Card title</h5>
-                                    <p class="card-text">This is a wider card with supporting text below as a natural
-                                        lead-in to
-                                        additional content. This content is a little bit longer.</p>
-                                </div>
-                                <div class="card-footer">
-                                    <input type="button" value="Thêm vào giỏ hàng">
-                                    <button type="submit">Mua ngay</button>
-                                </div>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="card-group col-md-3 col-sm-6">
-                        <div class="card">
-                            <a href="./view.html">
-                                <div class="card-header">
-                                    <img src="./image/laptop.jpg" class="card-img-top" alt="">
-                                </div>
-                                <div class="card-body">
-                                    <h5 class="card-title">Card title</h5>
-                                    <p class="card-text">This is a wider card with supporting text below as a natural
-                                        lead-in to
-                                        additional content. This content is a little bit longer.</p>
-                                </div>
-                                <div class="card-footer">
-                                    <input type="button" value="Thêm vào giỏ hàng">
-                                    <button type="submit">Mua ngay</button>
-                                </div>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+    <?php include('./includes/item.php') ?>
+
     <!-- footer -->
-    <footer>
-        <div class="container">
-            <div class="row">
-                <div class="col-md-3">
-                    <ul>
-                        <li>Lorem ipsum dolor sit amet.</li>
-                        <li>Lorem ipsum dolor sit amet.</li>
-                        <li>Lorem ipsum dolor sit amet.</li>
-                        <li>Lorem ipsum dolor sit amet.</li>
-                        <li>Lorem ipsum dolor sit amet.</li>
-                    </ul>
-                </div>
-                <div class="col-md-3">
-                    <ul>
-                        <li>Lorem ipsum dolor sit amet.</li>
-                        <li>Lorem ipsum dolor sit amet.</li>
-                        <li>Lorem ipsum dolor sit amet.</li>
-                        <li>Lorem ipsum dolor sit amet.</li>
-                        <li>Lorem ipsum dolor sit amet.</li>
-                    </ul>
-                </div>
-                <div class="col-md-3">
-                    <ul>
-                        <li>Lorem ipsum dolor sit amet.</li>
-                        <li>Lorem ipsum dolor sit amet.</li>
-                        <li>Lorem ipsum dolor sit amet.</li>
-                        <li>Lorem ipsum dolor sit amet.</li>
-                        <li>Lorem ipsum dolor sit amet.</li>
-                    </ul>
-                </div>
-                <div class="col-md-3">
-                    <ul>
-                        <li>Lorem ipsum dolor sit amet.</li>
-                        <li>Lorem ipsum dolor sit amet.</li>
-                        <li>Lorem ipsum dolor sit amet.</li>
-                        <li>Lorem ipsum dolor sit amet.</li>
-                        <li>Lorem ipsum dolor sit amet.</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-        <hr>
-        <div class="bottom">
-            <p>copyright</p>
-        </div>
-    </footer>
+    <?php include('./includes/footer.php') ?>
     <!-- script -->
+<<<<<<< HEAD
     <!-- jquery  -->
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
 
@@ -346,4 +213,7 @@ if ($gia - $gia * $phantram / 100 != $gia) {
 
     <!-- MAIN JS -->
     <script src="./js/main.js"></script>
+=======
+    <?php include('./includes/script.php') ?>
+>>>>>>> 2aa4f9bd15deb8a9710ecd98103ef2ddf9765288
 </body>

@@ -33,7 +33,7 @@
         <table align="center" width="100%">
             <tr>
                 <td><b>Mật khẩu cũ:</b></td>
-                <td><input type="password" name="matkhaucu" disabled/></td>
+                <td><input type="password" name="matkhaucu" required/></td>
             </tr>
             <tr>
                 <td><b>Mật khẩu mới:</b></td>
@@ -88,5 +88,4 @@
             echo "<script>alert('Mật khẩu cũ không trùng khớp')</script>";
         }
     }
-
 ?>
