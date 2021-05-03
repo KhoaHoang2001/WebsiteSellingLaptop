@@ -1,5 +1,10 @@
 <!DOCTYPE html>
-
+<?php
+    require_once('../includes/include.php');
+    require_once('../includes/conn.php');
+    require_once('../includes/product.php');
+    require_once('./tsx_SP_gio.php');
+?>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -244,103 +249,7 @@
             </div>
             <div class="row bestseller-content item-content">
                 <div class="row">
-                    <div class="card-group col-md-3 col-sm-6">
-                        <div class="card">
-                        <a href="./view.html">
-                                <div class="card-header">
-                                    <img src="./image/laptop.jpg" class="card-img-top" alt="">
-                                </div>
-                                <div class="card-body">
-                                    <h5 class="card-title">Card titleHHHHH</h5>
-                                    <p class="card-text">This is a wider card with supporting text below as a natural
-                                        lead-in to
-                                        additional content. This content is a little bit longer.</p>
-                                </div>
-                                <div class="card-footer">
-                                    <input type="button" value="Thêm vào giỏ hàng">
-                                    <button type="submit">Mua ngay</button>
-                                </div>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="card-group col-md-3 col-sm-6">
-                        <div class="card">
-                            
-                            <?php $MASP=4;
-                            echo "<a href='../insert_gio&dangky/view.php?tenbien=$MASP'"?>
-                                <div class="card-header">
-                                    <img src="./image/laptop.jpg" class="card-img-top" alt="">
-                                </div>
-                                <div class="card-body">
-                                    <h5 class="card-title">Card title</h5>
-                                    <p class="card-text">This is a wider card with supporting text below as a natural
-                                        lead-in to
-                                        additional content. This content is a little bit longer.</p>
-                                </div>
-                                <div class="card-footer">
-                                    <input type="button" value="Thêm vào giỏ hàng">
-                                    <button type="submit">Mua ngay</button>
-                                </div>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="card-group col-md-3 col-sm-6">
-                        <div class="card">
-                            <a href="./view.html">
-                                <div class="card-header">
-                                    <img src="./image/laptop.jpg" class="card-img-top" alt="">
-                                </div>
-                                <div class="card-body">
-                                    <h5 class="card-title">Card title</h5>
-                                    <p class="card-text">This is a wider card with supporting text below as a natural
-                                        lead-in to
-                                        additional content. This content is a little bit longer.</p>
-                                </div>
-                                <div class="card-footer">
-                                    <input type="button" value="Thêm vào giỏ hàng">
-                                    <button type="submit">Mua ngay</button>
-                                </div>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="card-group col-md-3 col-sm-6">
-                        <div class="card">
-                            <a href="./view.html">
-                                <div class="card-header">
-                                    <img src="./image/laptop.jpg" class="card-img-top" alt="">
-                                </div>
-                                <div class="card-body">
-                                    <h5 class="card-title">Card title</h5>
-                                    <p class="card-text">This is a wider card with supporting text below as a natural
-                                        lead-in to
-                                        additional content. This content is a little bit longer.</p>
-                                </div>
-                                <div class="card-footer">
-                                    <input type="button" value="Thêm vào giỏ hàng">
-                                    <button type="submit">Mua ngay</button>
-                                </div>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="card-group col-md-3 col-sm-6">
-                        <div class="card">
-                            <a href="./view.html">
-                                <div class="card-header">
-                                    <img src="./image/laptop.jpg" class="card-img-top" alt="">
-                                </div>
-                                <div class="card-body">
-                                    <h5 class="card-title">Card title</h5>
-                                    <p class="card-text">This is a wider card with supporting text below as a natural
-                                        lead-in to
-                                        additional content. This content is a little bit longer.</p>
-                                </div>
-                                <div class="card-footer">
-                                    <input type="button" value="Thêm vào giỏ hàng">
-                                    <button type="submit">Mua ngay</button>
-                                </div>
-                            </a>
-                        </div>
-                    </div>
+                    <?php View_Product_Sellest() ?> 
                 </div>
             </div>
         </div>
@@ -353,101 +262,7 @@
             </div>
             <div class="row sales-content item-content">
                 <div class="row">
-                    <div class="card-group col-md-3 col-sm-6">
-                        <div class="card">
-                            <a href="./view.html">
-                                <div class="card-header">
-                                    <img src="./image/laptop.jpg" class="card-img-top" alt="">
-                                </div>
-                                <div class="card-body">
-                                    <h5 class="card-title">Card title</h5>
-                                    <p class="card-text">This is a wider card with supporting text below as a natural
-                                        lead-in to
-                                        additional content. This content is a little bit longer.</p>
-                                </div>
-                                <div class="card-footer">
-                                    <input type="button" value="Thêm vào giỏ hàng">
-                                    <button type="submit">Mua ngay</button>
-                                </div>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="card-group col-md-3 col-sm-6">
-                        <div class="card">
-                            <a href="./view.html">
-                                <div class="card-header">
-                                    <img src="./image/laptop.jpg" class="card-img-top" alt="">
-                                </div>
-                                <div class="card-body">
-                                    <h5 class="card-title">Card title</h5>
-                                    <p class="card-text">This is a wider card with supporting text below as a natural
-                                        lead-in to
-                                        additional content. This content is a little bit longer.</p>
-                                </div>
-                                <div class="card-footer">
-                                    <input type="button" value="Thêm vào giỏ hàng">
-                                    <button type="submit">Mua ngay</button>
-                                </div>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="card-group col-md-3 col-sm-6">
-                        <div class="card">
-                            <a href="./view.html">
-                                <div class="card-header">
-                                    <img src="./image/laptop.jpg" class="card-img-top" alt="">
-                                </div>
-                                <div class="card-body">
-                                    <h5 class="card-title">Card title</h5>
-                                    <p class="card-text">This is a wider card with supporting text below as a natural
-                                        lead-in to
-                                        additional content. This content is a little bit longer.</p>
-                                </div>
-                                <div class="card-footer">
-                                    <input type="button" value="Thêm vào giỏ hàng">
-                                    <button type="submit">Mua ngay</button>
-                                </div>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="card-group col-md-3 col-sm-6">
-                        <div class="card">
-                            <a href="./view.html">
-                                <div class="card-header">
-                                    <img src="./image/laptop.jpg" class="card-img-top" alt="">
-                                </div>
-                                <div class="card-body">
-                                    <h5 class="card-title">Card title</h5>
-                                    <p class="card-text">This is a wider card with supporting text below as a natural
-                                        lead-in to
-                                        additional content. This content is a little bit longer.</p>
-                                </div>
-                                <div class="card-footer">
-                                    <input type="button" value="Thêm vào giỏ hàng">
-                                    <button type="submit">Mua ngay</button>
-                                </div>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="card-group col-md-3 col-sm-6">
-                        <div class="card">
-                            <a href="./view.html">
-                                <div class="card-header">
-                                    <img src="./image/laptop.jpg" class="card-img-top" alt="">
-                                </div>
-                                <div class="card-body">
-                                    <h5 class="card-title">Card title</h5>
-                                    <p class="card-text">This is a wider card with supporting text below as a natural
-                                        lead-in to
-                                        additional content. This content is a little bit longer.</p>
-                                </div>
-                                <div class="card-footer">
-                                    <input type="button" value="Thêm vào giỏ hàng">
-                                    <button type="submit">Mua ngay</button>
-                                </div>
-                            </a>
-                        </div>
-                    </div>
+                    <?php View_Product_Discount()?>
                 </div>
             </div>
         </div>
@@ -540,3 +355,4 @@
     <script src="./js/main.js"></script>
 </body>
 </html>
+

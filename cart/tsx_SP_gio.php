@@ -13,7 +13,7 @@
     function update($sql_update){
         include('connectDB.php');
         if($conn->query($sql_update)!=true){
-            echo "error: ".$sql."<br>".$conn->error;
+            echo "error: ".$sql_update."<br>".$conn->error;
         }
         $conn->close();
     }
@@ -23,7 +23,7 @@
         $row_SPGH=test("SELECT*FROM sanphamgiohang WHERE TAIKHOAN='$TAIKHOAN' AND MASP='$MASP'");
         if($row_SPGH!=null){
             $SOLUONGGIO=$row_SPGH['SOLUONGGIO']+1;
-            update("UPDATE sanphamgiohang SET SOLUONGGIO='$SOLUONGGIO' WHERE TAIKHOAN='$TAIKHOAN' AND MASP='$MASP");
+            update("UPDATE sanphamgiohang SET SOLUONGGIO='$SOLUONGGIO' WHERE TAIKHOAN='$TAIKHOAN' AND MASP='$MASP'");
         }else{
             include('connectDB.php');
             $sql="INSERT INTO sanphamgiohang VALUES('$MASP','$TAIKHOAN','1')";
@@ -63,5 +63,11 @@
             echo "error: ".$sql."<br>".$conn->error;
         }
         $conn->close();
+    }
+
+    function currency_format($number, $suffix = 'đ') {
+        if (!empty($number)) {
+            return number_format($number, 0, ',', '.') . "{$suffix}";
+        }
     }
 ?>

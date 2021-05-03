@@ -1,8 +1,12 @@
 <!DOCTYPE html>
 <?php 
-    session_start();
+    
     $_SESSION['TAIKHOAN']='bichngan';
     $MASP=$_GET['tenbien'];
+    require_once('../includes/include.php');
+    require_once('../includes/conn.php');
+    require_once('../includes/product.php');
+    require_once('./tsx_SP_gio.php');
 ?>
 <html lang="en">
 
@@ -95,70 +99,51 @@
         </div>
     </section>
     <!-- about item -->
+    <?php 
+        $sql = "SELECT * FROM sanpham where MASP='$MASP'";
+        $res = Check_db($sql);
+        if(mysqli_num_rows($res) > 0){
+            while ($row = mysqli_fetch_assoc($res)) {
+                $masp = $row['MASP'];
+                $tensp = $row['TENSP'];
+                $gia = $row['GIA'];
+                $phantram = View_Discount_Of_Product($masp);
+                $kichthuocmh = $row['KICHTHUOCMH'];
+                $vixuly = $row['VIXULY'];
+                $ram = $row['RAM'];
+                $motasp = $row['MOTASP'];
+                $ngaysx = $row['NGAYSX'];
+                $giam=$gia*(100-$phantram)/100;
+            }
+        }
+    ?>
     <section class="about_item">
         <div class="container">
             <div class="row about_item-title">
-                <h2>Lorem ipsum dolor sit amet.</h2>
+            <?php echo" <h2>".$tensp."</h2>"?>
             </div>
             <div class="row about_item-intro">
                 <div class="col-md-4">
                     <img src="./image/laptop.jpg" alt="">
                 </div>
                 <div class="col-md-4">
-                    Giá
+                    Giá<?php echo currency_format($gia,' đ');
+                    if($phantram!=0){
+                        echo "
+                        <p class='card-text'>".currency_format($giam,'đ')." ".currency_format($gia,'đ')." -".$phantram."%</p>";
+                    }
+                    ?>
                 </div>
                 <div class="col-md-4">
                     <form action="">
-                        <input type='submit' value='Thêm vào giỏ hàng'>
-                       <?php echo" <button><a href='them.php?mas=$MASP'>Mua hàng</a></button>"?>
+                        <?php echo"<a href='them.php?mas=".$MASP."'>Thêm vào giỏ hàng</a>
+                        <a href='them.php?mas=$MASP'>Mua hàng</a>"?>
                     </form>
                 </div>
             </div>
             <div class="row about_item-info">
                 <div class="col-md-8">
-                    <p>
-                        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Repellendus illum ipsa quod nisi,
-                        blanditiis accusantium delectus labore magnam, maxime voluptates eius! Provident deleniti a
-                        voluptatem pariatur accusantium, explicabo sit maxime rem laboriosam ut, cum, facere rerum
-                        libero consectetur dolores itaque. Magnam eaque repudiandae consectetur ipsum. Aut corrupti
-                        ullam alias voluptatem provident, consectetur facilis animi non quisquam omnis ratione dolore
-                        eos molestias iste explicabo. Corporis adipisci asperiores reprehenderit nesciunt
-                        exercitationem? Ut minus, sit eius officia ex, temporibus, odit amet reiciendis nihil hic nisi
-                        vitae veritatis tempore ducimus officiis. Facere, molestiae. Odit quasi eveniet perspiciatis
-                        iusto aspernatur, dolor vel ea est doloremque minus. Commodi eaque dolorem doloremque molestias
-                        laborum error aspernatur, quia sit sunt fugiat in deleniti facilis voluptatibus minus odio iusto
-                        reiciendis dolor dignissimos cupiditate adipisci impedit! Ipsum nihil iusto, porro distinctio et
-                        aperiam fugiat ad possimus velit voluptatibus iure. Saepe alias neque eaque. Laboriosam quo unde
-                        praesentium mollitia adipisci veniam, neque culpa. Accusamus illum itaque, inventore quaerat
-                        consequatur fugit? Tempore expedita, quas dolorem debitis exercitationem doloremque quaerat,
-                        suscipit error neque fuga asperiores minima consequuntur harum enim cum veritatis sequi corrupti
-                        praesentium, veniam fugit! Obcaecati similique consectetur natus modi mollitia nulla eveniet aut
-                        corrupti veniam, quaerat aliquam neque asperiores vero eius voluptate facere sunt aspernatur
-                        quam! Sint quasi doloremque eius. Similique, ratione adipisci. Asperiores enim veniam provident
-                        voluptas repellendus? Ipsa, natus cum. Veritatis, quod atque! Reiciendis obcaecati a quas
-                        similique? Minus natus nobis eius fugiat quas atque facere eveniet architecto ut. Cupiditate
-                        officiis deleniti adipisci sit. Consectetur soluta recusandae quasi? Vel dolor ea excepturi!
-                        Repellat facilis excepturi est aliquam cumque quas delectus quasi totam recusandae itaque eaque
-                        similique autem natus in assumenda tenetur, fugiat consequuntur aperiam, corporis vero voluptas
-                        quia consequatur? Suscipit reiciendis id voluptatem fugit tenetur necessitatibus vero libero
-                        illum harum, eaque maxime cum sapiente distinctio consequatur aliquid non rerum hic? Id
-                        molestias, vitae enim veritatis sunt, modi officia, alias quam maiores nisi incidunt sequi optio
-                        ipsam consequuntur quaerat magni quos voluptate dolore delectus provident at veniam ex adipisci
-                        quae? Ut debitis esse minus. Beatae aspernatur perferendis veritatis neque dicta nihil dolorum
-                        explicabo fugiat quod eaque, pariatur asperiores esse. Eligendi dolorum praesentium neque
-                        tempore voluptas id provident, doloribus est deserunt ipsa nisi molestias minus! Minus ipsam,
-                        aut deserunt impedit cupiditate a magni, distinctio similique qui dolores quaerat. Quod quas aut
-                        error, possimus rem minus animi quo molestiae sit nemo numquam vitae laudantium rerum, placeat
-                        consectetur officia minima repellat quis qui a. Non nihil saepe, beatae molestias fugit quasi
-                        facilis blanditiis soluta eos, id autem obcaecati, temporibus quidem fuga error minima nostrum
-                        sunt quam optio ipsa nesciunt ducimus! Velit minus adipisci iste soluta tenetur numquam! Tenetur
-                        similique itaque et hic veritatis enim nihil minus repellat. Provident libero unde eum fugit vel
-                        natus nostrum! Architecto quae cumque, cum nihil blanditiis fuga, saepe aliquam deleniti earum
-                        distinctio nisi ducimus, quia numquam modi assumenda laboriosam laudantium consequuntur deserunt
-                        eos omnis sapiente recusandae! Veniam ea asperiores quisquam iusto eligendi praesentium fugit
-                        impedit blanditiis cumque nam totam iste et, unde libero debitis dolorum, necessitatibus quos!
-                        Quidem.
-                    </p>
+                    <p><?php echo $motasp?></p>
                 </div>
                 <div class="col-md-4">
                     <h2>Thông số kỹ thuật</h2>
