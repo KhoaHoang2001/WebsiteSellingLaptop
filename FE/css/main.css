@@ -41,10 +41,16 @@ button:hover {
 
 button:focus {
   outline: none !important;
+  box-shadow: none !important;
 }
 
 input {
   border-radius: 5px;
+}
+
+input:focus {
+  outline: none !important;
+  box-shadow: none !important;
 }
 
 header {
@@ -57,6 +63,8 @@ header .container .header-banner img {
 
 header .container .header-navbar {
   z-index: 3;
+  position: relative;
+  top: 0;
 }
 
 header .container .header-navbar .nav-left-right .left-nav form {
@@ -291,11 +299,15 @@ footer .bottom p {
 }
 
 .cartItem .container #tblItem #tblBody tr td:nth-child(4) input {
-  width: 10px;
+  width: 5px;
 }
 
 .cartItem .container #tblItem #tblBody tr td:nth-child(5) {
   color: orangered;
+}
+
+.cartItem .container #tblItem #tblFooter {
+  text-align: left;
 }
 
 #account .container .row #account__left {
@@ -472,10 +484,6 @@ footer .bottom p {
 
 #payment .container #checkout-center #parentHorizontalTab ul li:hover {
   cursor: pointer;
-}
-
-#payment .container #checkout-center #parentHorizontalTab span {
-  margin-left: 1em;
 }
 
 #payment .container #checkout-center #parentHorizontalTab #card-creditOrDebit {

@@ -16,9 +16,6 @@
     <!-- FONT GOOGLE -->
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700&display=swap" rel="stylesheet">
 
-    <!-- OWL CAROUSEL -->
-    <link rel="stylesheet" href="./css/owl.carousel.min.css">
-    <link rel="stylesheet" href="./css/owl.theme.default.min.css">
 
     <!-- CSS -->
     <link rel="stylesheet" href="./css/main.css">
@@ -56,19 +53,19 @@
                             <div class="navbar-select">
                                     <ul class="navbar-nav">
                                         <li class="nav-item">
-                                            <a class="nav-link active" aria-current="page" href="#laptop">Laptop</a>
+                                            <a class="nav-link active" aria-current="page" href="./index.html#laptop">Laptop</a>
                                         </li>
                                         <li class="nav-item">
-                                            <a class="nav-link" href="#sales">Sales</a>
+                                            <a class="nav-link" href="./index.html#sales">Giảm giá</a>
                                         </li>
                                         <li class="nav-item">
-                                            <a class="nav-link" href="#bestseller">Bestseller</a>
+                                            <a class="nav-link" href="./index.html#bestseller">Bán chạy</a>
                                         </li>
                                         <li class="nav-item">
-                                            <a class="nav-link" href="./cart.html">Cart</a>
+                                            <a class="nav-link" href="./cart.html">Giỏ hàng</a>
                                         </li>
                                         <li class="nav-item">
-                                            <a class="nav-link" href="./login.html">Login</a>
+                                            <a class="nav-link" href="./login.html">Tài khoản</a>
                                         </li>
                                     </ul>
                             </div>
@@ -509,32 +506,11 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
         integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
         crossorigin="anonymous"></script>
-
-    <!-- OWL JS     -->
-    <script src="./js/owl.carousel.min.js"></script>
-    <script>
-        $('.courses__carousel').owlCarousel({
-            loop: true,
-            margin: 15,
-            nav: true,
-            dots: false,
-            responsive: {
-                0: {
-                    items: 1
-                },
-                600: {
-                    items: 3
-                },
-                1000: {
-                    items: 4
-                }
-            }
-        });
-    </script>
-
     <!-- back to top -->
     <script>
         var mybutton = document.getElementById("myBtn");
+        var headerNav = document.getElementsByTagName('header');
+        console.log(headerNav);
          window.onscroll = function() {scrollFunction()};
         function scrollFunction() {
           if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {

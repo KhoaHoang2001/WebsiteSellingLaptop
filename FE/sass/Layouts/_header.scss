@@ -8,6 +8,8 @@ header {
     }
     .header-navbar {
       z-index: 3;
+      position: relative;
+      top: 0;
       .nav-left-right {
         .left-nav {
           form {
