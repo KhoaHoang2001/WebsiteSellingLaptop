@@ -1,3 +1,9 @@
+<?php
+    require_once('./includes/include.php');
+    require_once('./includes/conn.php');
+    $taikhoan = $_SESSION['taikhoan'];
+?>
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -96,9 +102,9 @@
               <li id="TTDH" onclick="activeTTDH()">
                 <a href="#">Trạng thái đơn hàng</a>
               </li>
-              <!-- <li id="LSMH" onclick="activeLSMH()">
+              <li id="LSMH" onclick="activeLSMH()">
                 <a href="#">Lịch sử mua hàng</a>
-              </li> -->
+              </li>
               <li id="DMK" onclick="activeDMK()">
                 <a href="#">Đổi mật khẩu</a>
               </li>
@@ -108,7 +114,7 @@
           <div id="account__right">
             <div id="myAccount">
               <div id="thongTinTaiKhoan">
-                <form action="">
+                <form action="" method="POST">
                   <table>
                     <tr>
                       <th>
@@ -164,7 +170,7 @@
                     <tr>
                       <td></td>
                       <td>
-                        <button type="submit">Cập nhật</button>
+                        <button type="submit" name="capnhat_tt">Cập nhật</button>
                       </td>
                     </tr>
                   </table>
@@ -179,17 +185,14 @@
               <table id="trangThaiDonHang_tblItem" class="table">
                 <thead id="trangThaiDonHang_tblHead">
                   <tr>
-                    <th>Mã đơn hàng</th>
                     <th>Hình Ảnh Sản Phẩm</th>
                     <th>Tên Sản Phẩm</th>
                     <th>Số lượng</th>
                     <th>Số Tiền</th>
-                    <th>Trạng thái</th>
                   </tr>
                 </thead>
                 <tbody id="trangThaiDonHang_tblBody">
                   <tr>
-                    <td>A01</td>
                     <td>
                       <a href="#" class="trangThaiDonHang_product">
                         <img src="./image/laptop.jpg" alt="" />
@@ -205,12 +208,11 @@
                       <span>1</span>
                     </td>
                     <td>5.000.000VND</td>
-                    <td>Đang giao...</td>
                   </tr>
                 </tbody>
               </table>
             </div>
-            <!-- <div id="lichSuMuaHang">
+            <div id="lichSuMuaHang">
               <div class="lichSuMuaHang">
                 <table id="tblItem" class="table">
                   <thead id="tblHead">
@@ -246,7 +248,7 @@
                   </tbody>
                 </table>
               </div>
-            </div> -->
+            </div>
             <div id="doiMatKhau">
               <form action="" id="formDoiMatKhau">
                 <table id="tblDoiMatKhau">
@@ -298,7 +300,7 @@
                     <td></td>
                     <td style="width: 10px"></td>
                     <td>
-                      <button type="submit">Đổi mật khẩu</button>
+                      <input type="submit" value="Đổi mật khẩu" />
                     </td>
                   </tr>
                 </table>
@@ -401,13 +403,13 @@
         $("#lichSuMuaHang").css("display","none");
         $("#doiMatKhau").css("display","none");
       }
-      // function activeLSMH() {
-      //   $("#LSMH").addClass("active");
-      //   $("#myAccount").css("display","none");
-      //   $("#trangThaiDonHang").css("display","none");
-      //   $("#lichSuMuaHang").css("display","block");
-      //   $("#doiMatKhau").css("display","none");
-      // }
+      function activeLSMH() {
+        $("#LSMH").addClass("active");
+        $("#myAccount").css("display","none");
+        $("#trangThaiDonHang").css("display","none");
+        $("#lichSuMuaHang").css("display","block");
+        $("#doiMatKhau").css("display","none");
+      }
       function activeDMK() {
         $("#DMK").addClass("active");
         $("#myAccount").css("display","none");

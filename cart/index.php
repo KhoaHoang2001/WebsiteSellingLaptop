@@ -249,7 +249,7 @@
             </div>
             <div class="row bestseller-content item-content">
                 <div class="row">
-                    <?php View_Product_Sellest() ?> 
+                    <?php View_Product_Sellest() ?>
                 </div>
             </div>
         </div>

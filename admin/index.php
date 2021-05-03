@@ -69,7 +69,7 @@
         </div>
         <button class="dropdown-btn">Đơn hàng<i class="fa fa-caret-down"></i></button>
         <div class="dropdown-container">
-            <a href="index.php?action=check_cart">Duyệt đơn hàng</a>
+            <a href="index.php?action=check_order">Duyệt đơn hàng</a>
             <a href="index.php?action=test">themhinh</a>
         </div>
         <button class="dropdown-btn "><a href="logout.php">Đăng xuất</a></button>
@@ -172,6 +172,14 @@
               
           case 'test';
           include './includes/test.php';
+          break;
+
+          case 'check_order';
+          include './includes/check_order.php';
+          break;
+
+          case 'view_order';
+          include './includes/view_order.php';
           break;
         }
           ?>

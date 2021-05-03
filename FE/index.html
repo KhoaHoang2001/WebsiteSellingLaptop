@@ -16,9 +16,6 @@
     <!-- FONT GOOGLE -->
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700&display=swap" rel="stylesheet">
 
-    <!-- OWL CAROUSEL -->
-    <link rel="stylesheet" href="./css/owl.carousel.min.css">
-    <link rel="stylesheet" href="./css/owl.theme.default.min.css">
 
     <!-- CSS -->
     <link rel="stylesheet" href="./css/main.css">
@@ -54,21 +51,21 @@
                         </button>
                         <div class="collapse navbar-collapse header-navbar--content col-md-6 col-sm-9" id="navbarSupportedContent">
                             <div class="navbar-select">
-                                    <ul class="navbar-nav me-auto mb-2 mb-lg-0 d-flex">
+                                    <ul class="navbar-nav">
                                         <li class="nav-item">
-                                            <a class="nav-link active" aria-current="page" href="#laptop">Laptop</a>
+                                            <a class="nav-link active" aria-current="page" href="./index.html#laptop">Laptop</a>
                                         </li>
                                         <li class="nav-item">
-                                            <a class="nav-link" href="#sales">Sales</a>
+                                            <a class="nav-link" href="./index.html#sales">Giảm giá</a>
                                         </li>
                                         <li class="nav-item">
-                                            <a class="nav-link" href="#bestseller">Bestseller</a>
+                                            <a class="nav-link" href="./index.html#bestseller">Bán chạy</a>
                                         </li>
                                         <li class="nav-item">
-                                            <a class="nav-link" href="./cart.html">Cart</a>
+                                            <a class="nav-link" href="./cart.html">Giỏ hàng</a>
                                         </li>
                                         <li class="nav-item">
-                                            <a class="nav-link" href="./login.html">Login</a>
+                                            <a class="nav-link" href="./login.html">Tài khoản</a>
                                         </li>
                                     </ul>
                             </div>
@@ -77,6 +74,7 @@
                 </nav>
             </div>
         </div>
+        <button onclick="topFunction()" id="myBtn" title="Go to top"><i class="fa fa-angle-double-up"></i></button>
     </header>
     <!-- banner -->
     <section class="carousel">
@@ -128,44 +126,28 @@
                 </div>
             </div>
             <div class="row">
-                <ul id="filter-search">
-                    <li>
-                        <select name="RAM" id="RAM">
-                            <option value="RAM">RAM</option>
-                            <option value="2">2</option>
-                            <option value="3">3</option>
-                            <option value="4">4</option>
-                            <option value="5">5</option>
-                        </select>
-                    </li>
-                    <li>
-                        <select name="CPU" id="CPU">
-                            <option value="CPU">CPU</option>
-                            <option value="2">2</option>
-                            <option value="3">3</option>
-                            <option value="4">4</option>
-                            <option value="5">5</option>
-                        </select>
-                    </li>
-                    <li>
-                        <select name="MH" id="MH">
-                            <option value="MH">MH</option>
-                            <option value="2">2</option>
-                            <option value="3">3</option>
-                            <option value="4">4</option>
-                            <option value="5">5</option>
-                        </select>
-                    </li>
-                    <li>
-                        <select name="Price" id="Price">
-                            <option value="Price">Gia</option>
-                            <option value="2">2</option>
-                            <option value="3">3</option>
-                            <option value="4">4</option>
-                            <option value="5">5</option>
-                        </select>
-                    </li>
-                </ul>
+                <div class="dropdown">
+                    <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                      Dropdown link
+                    </a>
+                  
+                    <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                      <a class="dropdown-item" href="#">Action</a>
+                      <a class="dropdown-item" href="#">Another action</a>
+                      <a class="dropdown-item" href="#">Something else here</a>
+                    </div>
+                  </div>
+                  <div class="dropdown">
+                    <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                      Dropdown link
+                    </a>
+                  
+                    <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                      <a class="dropdown-item" href="#">Action</a>
+                      <a class="dropdown-item" href="#">Another action</a>
+                      <a class="dropdown-item" href="#">Something else here</a>
+                    </div>
+                  </div>
             </div>
         </div>
     </section>
@@ -185,9 +167,10 @@
                                 </div>
                                 <div class="card-body">
                                     <h5 class="card-title">Card title</h5>
-                                    <p class="card-text">This is a wider card with supporting text below as a natural
-                                        lead-in to
-                                        additional content. This content is a little bit longer.</p>
+                                    <p class="card-text">
+                                        <s><span>1999999</span></s>
+                                        <span>1888888</span>
+                                    </p>
                                         
                                 </div>
                                 <span id="xemSP">Xem sản phẩm</span>
@@ -263,7 +246,7 @@
         </div>
     </section>
     <!-- bestseller  -->
-    <section id="bestseller" class="bestseller item">
+    <section id="bestseller" class="bestseller">
         <div class="container">
             <div class="row bestseller-title item-title">
                 <h2>Sản phẩm bán chạy</h2>
@@ -354,8 +337,8 @@
             </div>
         </div>
     </section>
-    <!-- bestseller  -->
-    <section id="sales" class="sales item">
+    <!-- sales  -->
+    <section id="sales" class="sales">
         <div class="container">
             <div class="row sales-title item-title">
                 <h2>Sản phẩm giảm giá</h2>
@@ -508,28 +491,24 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
         integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
         crossorigin="anonymous"></script>
-
-    <!-- OWL JS     -->
-    <script src="./js/owl.carousel.min.js"></script>
+    <!-- back to top -->
     <script>
-        $('.courses__carousel').owlCarousel({
-            loop: true,
-            margin: 15,
-            nav: true,
-            dots: false,
-            responsive: {
-                0: {
-                    items: 1
-                },
-                600: {
-                    items: 3
-                },
-                1000: {
-                    items: 4
-                }
-            }
-        });
-    </script>
+        var mybutton = document.getElementById("myBtn");
+        var headerNav = document.getElementsByTagName('header');
+        console.log(headerNav);
+         window.onscroll = function() {scrollFunction()};
+        function scrollFunction() {
+          if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
+            mybutton.style.display = "block";
+          } else {
+            mybutton.style.display = "none";
+          }
+        }
+        function topFunction() {
+          document.body.scrollTop = 0;
+          document.documentElement.scrollTop = 0;
+        }
+</script>
     <!-- MAIN JS -->
     <script src="./js/main.js"></script>
 </body>

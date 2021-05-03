@@ -7,13 +7,10 @@
             #tblHead {
                 tr {
                     width: 100%;
-                    th {
-                    }
                 }
             }
             #tblBody {
                 tr{
-                    
                     td{
                          
                         &:nth-child(1){
@@ -22,24 +19,22 @@
                                 height: 150px;
                             }
                         }
-                        &:nth-child(2){
-
-                        }
                         &:nth-child(3){
                             color: orangered;
                         }
                         &:nth-child(4){
                             input{
-                                width: 10px;
+                                width: 5px;
                             }
                         }
                         &:nth-child(5){
                             color: orangered;
                         }
-                        &:nth-child(6){
-                        }
                     }
                 }
+            }
+            #tblFooter{
+                text-align: left;
             }
         }
     }

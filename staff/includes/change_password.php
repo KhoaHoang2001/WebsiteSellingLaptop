@@ -33,7 +33,7 @@
         <table align="center" width="100%">
             <tr>
                 <td><b>Mật khẩu cũ:</b></td>
-                <td><input type="password" name="matkhaucu" disabled/></td>
+                <td><input type="password" name="matkhaucu" required/></td>
             </tr>
             <tr>
                 <td><b>Mật khẩu mới:</b></td>
@@ -57,19 +57,35 @@
 </div>
 
 <?php 
-    if (isset($_POST['change_pass'])) {
-        $matkhau = Get_value($_POST['matkhau']);
-        $matkhau = md5($matkhau);
-        $taikhoan = $_SESSION['taikhoan'];
-        $sql_change_pass = 'UPDATE NGUOIDUNG SET MATKHAU = '$matkhau' WHERE `nguoidung`.`TAIKHOAN` = '$taikhoan';';
-        $res_change_pass = Check_db($sql_change_pass);
-        if($res_change_pass){
-            echo "<script>alert('Đổi mật khẩu thành công!')</script>";
-            echo "<script>window.open(window.location.href,'_self')</script>";
+    function Check_pass($taikhoan, $matkhau){
+        $sql_check_pass = "SELECT * FROM NGUOIDUNG WHERE taikhoan = '$taikhoan' AND matkhau = '$matkhau'";
+        $res_check_pass = $Check_db($sql_check_pass);
+        if(mysqli_num_rows($res_check_pass) > 0){
+            return true;
         }
         else {
-            echo "<script>alert('Đổi mật khẩu thất bại!')</script>";
+            return false;
         }
     }
-
+    
+    if (isset($_POST['change_pass'])) {
+        $matkhaucu = $_POST['matkhaucu'];
+        $taikhoan = $_SESSION['taikhoan'];
+        if(Check_pass($taikhoan, $matkhau)){
+            $matkhau = Get_value($_POST['matkhau']);
+            $matkhau = md5($matkhau);
+            $sql_change_pass = "UPDATE NGUOIDUNG SET MATKHAU = '$matkhau' WHERE `nguoidung`.`TAIKHOAN` = '$taikhoan';";
+            $res_change_pass = Check_db($sql_change_pass);
+            if($res_change_pass){
+                echo "<script>alert('Đổi mật khẩu thành công!')</script>";
+                echo "<script>window.open(window.location.href,'_self')</script>";
+            }
+            else {
+                echo "<script>alert('Đổi mật khẩu thất bại!')</script>";
+            }
+        }
+        else {
+            echo "<script>alert('Mật khẩu cũ không trùng khớp')</script>";
+        }
+    }
 ?>

@@ -31,7 +31,6 @@ function DangKy() {
   //   }
 
   if (validate.KiemTraRong(email) == true) {
-
   } else {
     if (validate.KiemTraEmail(email) == false) {
       document.getElementById("Email").value = "";
@@ -41,7 +40,6 @@ function DangKy() {
   }
 
   if (validate.KiemTraRong(sdt) == true) {
-
   } else {
     if (validate.KiemTraSoDT(sdt) == false) {
       document.getElementById("SDT").value = "";
@@ -77,3 +75,5 @@ function KiemTraDauVaoRong(ID, value) {
     return false;
   }
 }
+
+
