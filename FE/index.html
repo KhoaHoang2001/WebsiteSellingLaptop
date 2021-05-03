@@ -74,7 +74,7 @@
                 </nav>
             </div>
         </div>
-        <button onclick="topFunction()" id="myBtn" title="Go to top">Top</button>
+        <button onclick="topFunction()" id="myBtn" title="Go to top"><i class="fa fa-angle-double-up"></i></button>
     </header>
     <!-- banner -->
     <section class="carousel">
@@ -126,44 +126,28 @@
                 </div>
             </div>
             <div class="row">
-                <ul id="filter-search">
-                    <li>
-                        <select name="RAM" id="RAM">
-                            <option value="RAM">RAM</option>
-                            <option value="2">2</option>
-                            <option value="3">3</option>
-                            <option value="4">4</option>
-                            <option value="5">5</option>
-                        </select>
-                    </li>
-                    <li>
-                        <select name="CPU" id="CPU">
-                            <option value="CPU">CPU</option>
-                            <option value="2">2</option>
-                            <option value="3">3</option>
-                            <option value="4">4</option>
-                            <option value="5">5</option>
-                        </select>
-                    </li>
-                    <li>
-                        <select name="MH" id="MH">
-                            <option value="MH">MH</option>
-                            <option value="2">2</option>
-                            <option value="3">3</option>
-                            <option value="4">4</option>
-                            <option value="5">5</option>
-                        </select>
-                    </li>
-                    <li>
-                        <select name="Price" id="Price">
-                            <option value="Price">Gia</option>
-                            <option value="2">2</option>
-                            <option value="3">3</option>
-                            <option value="4">4</option>
-                            <option value="5">5</option>
-                        </select>
-                    </li>
-                </ul>
+                <div class="dropdown">
+                    <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                      Dropdown link
+                    </a>
+                  
+                    <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                      <a class="dropdown-item" href="#">Action</a>
+                      <a class="dropdown-item" href="#">Another action</a>
+                      <a class="dropdown-item" href="#">Something else here</a>
+                    </div>
+                  </div>
+                  <div class="dropdown">
+                    <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                      Dropdown link
+                    </a>
+                  
+                    <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                      <a class="dropdown-item" href="#">Action</a>
+                      <a class="dropdown-item" href="#">Another action</a>
+                      <a class="dropdown-item" href="#">Something else here</a>
+                    </div>
+                  </div>
             </div>
         </div>
     </section>
@@ -183,9 +167,10 @@
                                 </div>
                                 <div class="card-body">
                                     <h5 class="card-title">Card title</h5>
-                                    <p class="card-text">This is a wider card with supporting text below as a natural
-                                        lead-in to
-                                        additional content. This content is a little bit longer.</p>
+                                    <p class="card-text">
+                                        <s><span>1999999</span></s>
+                                        <span>1888888</span>
+                                    </p>
                                         
                                 </div>
                                 <span id="xemSP">Xem sản phẩm</span>
@@ -261,7 +246,7 @@
         </div>
     </section>
     <!-- bestseller  -->
-    <section id="bestseller" class="bestseller item">
+    <section id="bestseller" class="bestseller">
         <div class="container">
             <div class="row bestseller-title item-title">
                 <h2>Sản phẩm bán chạy</h2>
@@ -352,8 +337,8 @@
             </div>
         </div>
     </section>
-    <!-- bestseller  -->
-    <section id="sales" class="sales item">
+    <!-- sales  -->
+    <section id="sales" class="sales">
         <div class="container">
             <div class="row sales-title item-title">
                 <h2>Sản phẩm giảm giá</h2>

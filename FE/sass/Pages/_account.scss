@@ -68,21 +68,38 @@
             width: 100%;
             #trangThaiDonHang_tblHead {
               th {
-                width: 20%;
+                &:nth-child(1) {
+                  width: 15%;
+                }
+                &:nth-child(2) {
+                  width: 30%;
+                }
+                &:nth-child(3) {
+                  width: 25%;
+                }
+                &:nth-child(3) {
+                  width: 10%;
+                }
+                &:nth-child(4) {
+                  width: 10%;
+                }
+                &:nth-child(5) {
+                  width: 10%;
+                }
               }
             }
             #trangThaiDonHang_tblBody {
               tr {
                 text-decoration: none;
                 td {
-                  &:nth-child(1) {
+                  &:nth-child(2) {
                     display: flex;
                     width: 50%;
                     img {
                       width: 100%;
                     }
                   }
-                  &:nth-child(2) {
+                  &:nth-child(3) {
                     width: 15%;
                   }
                   &:nth-child(3) {

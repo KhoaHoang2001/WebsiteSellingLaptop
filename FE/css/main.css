@@ -121,62 +121,55 @@ header #myBtn {
   cursor: pointer;
 }
 
-.filter .container .row #filter-search {
-  margin-top: 10px;
-  display: flex;
-  list-style-type: none;
+.filter .container .row .dropdown {
+  margin-right: 20px;
 }
 
-.filter .container .row #filter-search li {
-  width: 100px;
-  text-align: left;
+.filter .container .row .dropdown a {
+  padding: 10px;
 }
 
-.filter .container .row #filter-search li select {
-  padding: 0 20px;
-}
-
-.item .container .item-title {
+.item .container .item-title, .bestseller .container .item-title, .sales .container .item-title {
   padding-left: 15px;
 }
 
-.item .container .item-content {
+.item .container .item-content, .bestseller .container .item-content, .sales .container .item-content {
   padding: 15px 15px 0 15px;
   border: 1px solid black;
 }
 
-.item .container .item-content .card-group {
+.item .container .item-content .card-group, .bestseller .container .item-content .card-group, .sales .container .item-content .card-group {
   padding-bottom: 30px;
 }
 
-.item .container .item-content .card-group .card {
+.item .container .item-content .card-group .card, .bestseller .container .item-content .card-group .card, .sales .container .item-content .card-group .card {
   padding: 0;
   border: 1px solid black;
   border-radius: 5px;
 }
 
-.item .container .item-content .card-group .card a {
+.item .container .item-content .card-group .card a, .bestseller .container .item-content .card-group .card a, .sales .container .item-content .card-group .card a {
   text-decoration: none;
   color: black;
 }
 
-.item .container .item-content .card-group .card a .card-header {
+.item .container .item-content .card-group .card a .card-header, .bestseller .container .item-content .card-group .card a .card-header, .sales .container .item-content .card-group .card a .card-header {
   padding: 0;
 }
 
-.item .container .item-content .card-group .card a .card-header img {
+.item .container .item-content .card-group .card a .card-header img, .bestseller .container .item-content .card-group .card a .card-header img, .sales .container .item-content .card-group .card a .card-header img {
   width: 100%;
 }
 
-.item .container .item-content .card-group .card:hover #xemSP {
+.item .container .item-content .card-group .card:hover #xemSP, .bestseller .container .item-content .card-group .card:hover #xemSP, .sales .container .item-content .card-group .card:hover #xemSP {
   display: block;
 }
 
-.item .container .item-content .card-group .card:hover .card-body {
+.item .container .item-content .card-group .card:hover .card-body, .bestseller .container .item-content .card-group .card:hover .card-body, .sales .container .item-content .card-group .card:hover .card-body {
   opacity: 0.5;
 }
 
-.item .container .item-content .card-group .card #xemSP {
+.item .container .item-content .card-group .card #xemSP, .bestseller .container .item-content .card-group .card #xemSP, .sales .container .item-content .card-group .card #xemSP {
   display: none;
   position: absolute;
   bottom: 20%;
@@ -189,14 +182,14 @@ header #myBtn {
   z-index: 2;
 }
 
-.item .container .item-content input {
+.item .container .item-content input, .bestseller .container .item-content input, .sales .container .item-content input {
   margin: 15px auto;
   border: 0px;
   background-color: transparent;
   text-transform: uppercase;
 }
 
-.item .container .item-content button {
+.item .container .item-content button, .bestseller .container .item-content button, .sales .container .item-content button {
   margin: 15px auto;
   background-color: transparent;
   border: 0;
@@ -391,24 +384,44 @@ footer .bottom p {
   width: 100%;
 }
 
-#account .container .row #account__right #trangThaiDonHang #trangThaiDonHang_tblItem #trangThaiDonHang_tblHead th {
-  width: 20%;
+#account .container .row #account__right #trangThaiDonHang #trangThaiDonHang_tblItem #trangThaiDonHang_tblHead th:nth-child(1) {
+  width: 15%;
+}
+
+#account .container .row #account__right #trangThaiDonHang #trangThaiDonHang_tblItem #trangThaiDonHang_tblHead th:nth-child(2) {
+  width: 30%;
+}
+
+#account .container .row #account__right #trangThaiDonHang #trangThaiDonHang_tblItem #trangThaiDonHang_tblHead th:nth-child(3) {
+  width: 25%;
+}
+
+#account .container .row #account__right #trangThaiDonHang #trangThaiDonHang_tblItem #trangThaiDonHang_tblHead th:nth-child(3) {
+  width: 10%;
+}
+
+#account .container .row #account__right #trangThaiDonHang #trangThaiDonHang_tblItem #trangThaiDonHang_tblHead th:nth-child(4) {
+  width: 10%;
+}
+
+#account .container .row #account__right #trangThaiDonHang #trangThaiDonHang_tblItem #trangThaiDonHang_tblHead th:nth-child(5) {
+  width: 10%;
 }
 
 #account .container .row #account__right #trangThaiDonHang #trangThaiDonHang_tblItem #trangThaiDonHang_tblBody tr {
   text-decoration: none;
 }
 
-#account .container .row #account__right #trangThaiDonHang #trangThaiDonHang_tblItem #trangThaiDonHang_tblBody tr td:nth-child(1) {
+#account .container .row #account__right #trangThaiDonHang #trangThaiDonHang_tblItem #trangThaiDonHang_tblBody tr td:nth-child(2) {
   display: flex;
   width: 50%;
 }
 
-#account .container .row #account__right #trangThaiDonHang #trangThaiDonHang_tblItem #trangThaiDonHang_tblBody tr td:nth-child(1) img {
+#account .container .row #account__right #trangThaiDonHang #trangThaiDonHang_tblItem #trangThaiDonHang_tblBody tr td:nth-child(2) img {
   width: 100%;
 }
 
-#account .container .row #account__right #trangThaiDonHang #trangThaiDonHang_tblItem #trangThaiDonHang_tblBody tr td:nth-child(2) {
+#account .container .row #account__right #trangThaiDonHang #trangThaiDonHang_tblItem #trangThaiDonHang_tblBody tr td:nth-child(3) {
   width: 15%;
 }
 
