@@ -8,7 +8,6 @@ header {
     }
     .header-navbar {
       z-index: 3;
-      //them chuc nang sroll thi ontop
       .nav-left-right {
         .left-nav {
           form {
@@ -17,22 +16,31 @@ header {
             display: inline-block;
           }
         }
-        .header-navbar--content{
-            .navbar-select{
-              width: 100%;
-              ul{
-                display: flex;
-                padding-left: 100px;
-                padding-left: 0;
-                  li{
-                    padding-left: 10px;
-                    margin-right: 10px;
-                  }
-                
+        .header-navbar--content {
+          .navbar-select {
+            width: 100%;
+            ul {
+              display: flex;
+              justify-content: space-around;
+              li {
+                padding-left: 10px;
+                margin-right: 10px;
               }
             }
+          }
         }
       }
     }
+  }
+  #myBtn {
+    display: none;
+    position: fixed;
+    bottom: 20px;
+    right: 30px;
+    z-index: 99;
+    font-size: 18px;
+    border: none;
+    outline: none;
+    cursor: pointer;
   }
 }
