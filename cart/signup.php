@@ -112,7 +112,7 @@
           <h2 style="text-align: center; margin-bottom: 50px">
             Đăng ký tài khoản
           </h2>
-          <form method="POST" action="XLdangky.php" onsubmit="return DangKy()">
+          <form method="POST" action="" onsubmit="return DangKy()">
             <table style="padding: 10px; text-align: left">
               <tr>
                 <th style="width: 40%">Họ và tên:</th>
@@ -338,5 +338,38 @@
     <!-- MAIN JS -->
     <script type="text/javascript" src="./js/Validation.js"></script>
     <script type="text/javascript" src="./js/main.js"></script>
+    <?php
+require_once('../includes/conn.php');
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    $TAIKHOAN = $_POST["TAIKHOAN"];
+    $MATKHAU = $_POST["MATKHAU"];
+    $TENND = ($_POST["TENND"]);
+    $NHAPLAIMK = ($_POST["NHAPLAIMK"]);
+    $GIOITINH=($_POST['GIOITINH']);
+    $EMAIL=$_POST['EMAIL'];
+    $SDT=$_POST['SDT'];
+    echo $GIOITINH."".$EMAIL."".$SDT;
+            $conn = Connect();
+            $sql1="SELECT * FROM nguoidung WHERE TAIKHOAN='$TAIKHOAN'";
+            $request=$conn->query($sql1);
+
+            if(mysqli_num_rows($request)>0){
+              echo "<script>alert('tai khoan da ton tai!')</script>";
+                header('lOCATION: signup.php');
+                
+            }else{
+                $MATKHAU=md5($MATKHAU);
+                $sql="INSERT INTO nguoidung(TAIKHOAN,MAQUYEN,MATKHAU,TENND,GIOITINH,SDT,EMAIL) VALUE ('$TAIKHOAN','KH','$MATKHAU','$TENND','$GIOITINH','$SDT','$EMAIL')";
+                IF($conn->query($sql)==true){
+                    header('Location: ./login.html');//link toi site dang nhap
+                }else{
+                    echo "error: ".$sql."<br>".$conn->error;
+                }
+            }
+            $conn->close();
+    }
+  
+
+?>
   </body>
 </html>

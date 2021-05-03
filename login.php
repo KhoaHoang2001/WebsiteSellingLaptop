@@ -135,7 +135,7 @@
                 <td>
                   <button style="padding: 5px 10px">
                     <a
-                      href="./signup.html"
+                      href="./signup.php"
                       style="text-decoration: none; color: black"
                       >Đăng ký</a
                     >

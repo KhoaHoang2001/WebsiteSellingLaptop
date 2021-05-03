@@ -131,7 +131,7 @@
                         ?>
                             <div class='card-group col-md-3 col-sm-6'>
                                 <div class='card'>
-                                    <a href='./view.html'>
+                                    <a href='./view_product.php'>
                                         <div class='card-header'>
                                             <img src='./image/laptop.jpg' class='card-img-top' alt=''>
                                         </div>
