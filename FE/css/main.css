@@ -59,13 +59,10 @@ header .container .header-navbar {
   z-index: 3;
 }
 
-header .container .header-navbar .nav-left-right {
-  justify-content: space-between;
-}
-
 header .container .header-navbar .nav-left-right .left-nav form {
   padding: 10px;
-  width: 90%;
+  width: 60%;
+  display: inline-block;
 }
 
 header .container .header-navbar .nav-left-right .header-navbar--content .navbar-select {
@@ -75,6 +72,7 @@ header .container .header-navbar .nav-left-right .header-navbar--content .navbar
 header .container .header-navbar .nav-left-right .header-navbar--content .navbar-select ul {
   display: flex;
   padding-left: 100px;
+  padding-left: 0;
 }
 
 header .container .header-navbar .nav-left-right .header-navbar--content .navbar-select ul li {
@@ -244,6 +242,10 @@ footer {
   margin-top: 20px;
 }
 
+footer ul li {
+  list-style-type: none;
+}
+
 footer .bottom {
   width: 80%;
   margin: 0 auto;
@@ -278,20 +280,11 @@ footer .bottom p {
 }
 
 .cartItem .container #tblItem #tblBody tr td:nth-child(4) input {
-  width: 50px;
+  width: 10px;
 }
 
 .cartItem .container #tblItem #tblBody tr td:nth-child(5) {
   color: orangered;
-}
-
-.cartItem .container #tblItem #tblBody::before, .cartItem .container #tblItem #tblBody::after {
-  /* This doesn't work because of border-collapse */
-  line-height: 20px;
-  content: ".";
-  color: transparent;
-  /* bacground color */
-  display: block;
 }
 
 #account .container .row #account__left {
@@ -319,12 +312,12 @@ footer .bottom p {
 }
 
 #account .container .row #account__right {
-  width: 70%;
+  width: 75%;
   margin: 0 auto;
 }
 
 #account .container .row #account__right #myAccount {
-  display: none;
+  display: block;
 }
 
 #account .container .row #account__right #myAccount #thongTinTaiKhoan {
@@ -397,7 +390,7 @@ footer .bottom p {
 }
 
 #account .container .row #account__right #lichSuMuaHang {
-  display: block;
+  display: none;
 }
 
 #account .container .row #account__right #lichSuMuaHang #tblItem {
@@ -415,25 +408,12 @@ footer .bottom p {
   height: 150px;
 }
 
-#account .container .row #account__right #lichSuMuaHang #tblItem #tblBody tr td:nth-child(3) {
+#account .container .row #account__right #lichSuMuaHang #tblItem #tblBody tr td:nth-child(4) {
   color: orangered;
 }
 
-#account .container .row #account__right #lichSuMuaHang #tblItem #tblBody tr td:nth-child(4) input {
-  width: 50px;
-}
-
-#account .container .row #account__right #lichSuMuaHang #tblItem #tblBody tr td:nth-child(5) {
+#account .container .row #account__right #lichSuMuaHang #tblItem #tblBody tr td:nth-child(6) {
   color: orangered;
-}
-
-#account .container .row #account__right #lichSuMuaHang #tblItem #tblBody::before, #account .container .row #account__right #lichSuMuaHang #tblItem #tblBody::after {
-  /* This doesn't work because of border-collapse */
-  line-height: 20px;
-  content: ".";
-  color: transparent;
-  /* bacground color */
-  display: block;
 }
 
 #account .container .row #account__right #doiMatKhau {
@@ -452,14 +432,16 @@ footer .bottom p {
 
 #payment .container #checkout-center #parentHorizontalTab ul {
   margin-top: 1.5em;
+  display: flex;
 }
 
 #payment .container #checkout-center #parentHorizontalTab ul li {
   display: inline-block;
-  color: #fff;
+  color: #000;
   font-weight: bold;
   font-size: 2em;
   vertical-align: top;
+  text-align: center;
 }
 
 #payment .container #checkout-center #parentHorizontalTab ul li span {
@@ -469,20 +451,31 @@ footer .bottom p {
 }
 
 #payment .container #checkout-center #parentHorizontalTab ul li:first-child {
-  width: 70%;
+  width: 50%;
   border-right: 1px solid #999;
 }
 
 #payment .container #checkout-center #parentHorizontalTab ul li:last-child {
-  padding-left: 1em;
-  text-align: right;
+  width: 50%;
+}
+
+#payment .container #checkout-center #parentHorizontalTab ul li:hover {
+  cursor: pointer;
 }
 
 #payment .container #checkout-center #parentHorizontalTab span {
   margin-left: 1em;
 }
 
-#payment .container #checkout-center #parentHorizontalTab .tab-grid p {
+#payment .container #checkout-center #parentHorizontalTab #card-creditOrDebit {
+  display: block;
+}
+
+#payment .container #checkout-center #parentHorizontalTab #payment-paypal-form {
+  display: none;
+}
+
+#payment .container #checkout-center #parentHorizontalTab #payment-paypal-form p {
   color: #8b8b8b;
   font-size: 0.95em;
   line-height: 1.8em;
@@ -490,93 +483,11 @@ footer .bottom p {
   margin: 10px 0;
 }
 
-#payment .container #checkout-center #parentHorizontalTab .tab-grid .pp-img {
+#payment .container #checkout-center #parentHorizontalTab #payment-paypal-form .pp-img {
   width: 65%;
 }
 
-a.btn.btn-primary {
-  background-color: #3a5795;
-  font-family: "Open Sans", sans-serif;
-  color: #fff;
-  border: none;
-}
-
-.vertical_post h5 {
-  color: #f45c5d;
-  font-size: 20px;
-  margin: 0 0 18px 0;
-  letter-spacing: 1px;
-  font-weight: 600;
-}
-
-label.anim {
-  letter-spacing: 1px;
-}
-
-.swit-radio label {
-  font-size: 16px;
-  color: #696969;
-  padding: 0;
-  font-weight: 100;
-  margin-bottom: 12px;
-}
-
-input[type="radio"],
-input[type="checkbox"] {
-  margin: 4px 4px 0 0;
-}
-
-.swit-radio {
-  margin-bottom: 25px;
-}
-
-.radio_one:first-child {
-  margin-left: 0;
-  margin: 0;
-}
-
-.radio_one {
-  padding-left: 22px;
-  line-height: 28px;
-  color: #404040;
-  cursor: pointer;
-}
-
-.radio_one {
-  position: relative;
-  display: inline-block;
-  margin-left: 15px;
-}
-
-.section_room_pay select {
-  padding: 6px 10px;
-  border: none;
-  width: 100%;
-  background: none;
-  border: 1px solid #e6e4e4;
-  color: #999;
-  outline: none;
-  font-size: 16px;
-  margin-bottom: 0;
-  background-size: 4% !important;
-  cursor: pointer;
-}
-
-select.form-control.option-w3ls {
-  width: 100%;
-  padding: 1em 1em 1em 1em;
-  font-size: 0.8em;
-  margin: 0.5em 0;
-  outline: none;
-  color: #212121;
-  border: none;
-  border: 1px solid #ccc;
-  letter-spacing: 1px;
-  text-align: left;
-}
-
-.vertical_post form input[type="submit"],
-.number-paymk input[type="submit"] {
+#payment .container #checkout-center #parentHorizontalTab #payment-paypal-form .number-paymk input[type="submit"] {
   background: #0879c9;
   color: #ffffff;
   text-align: center;
@@ -595,8 +506,7 @@ select.form-control.option-w3ls {
   -ms-transition: 0.5s all;
 }
 
-.vertical_post form input[type="submit"]:hover,
-.number-paymk input[type="submit"]:hover {
+#payment .container #checkout-center #parentHorizontalTab #payment-paypal-form .number-paymk input[type="submit"]:hover {
   background: #f45c5d;
   transition: 0.5s all;
   -webkit-transition: 0.5s all;
@@ -605,7 +515,14 @@ select.form-control.option-w3ls {
   -ms-transition: 0.5s all;
 }
 
-.form-control {
+#payment .container #checkout-center #parentHorizontalTab #payment-paypal-form .number-paymk input[type="submit"] .btn-primary {
+  background-color: #3a5795;
+  font-family: "Open Sans", sans-serif;
+  color: #fff;
+  border: none;
+}
+
+#payment .container #checkout-center .form-control {
   border-radius: 0;
 }
 /*# sourceMappingURL=main.css.map */

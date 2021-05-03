@@ -10,11 +10,11 @@ header {
       z-index: 3;
       //them chuc nang sroll thi ontop
       .nav-left-right {
-        justify-content: space-between;
         .left-nav {
           form {
             padding: 10px;
-            width: 90%;
+            width: 60%;
+            display: inline-block;
           }
         }
         .header-navbar--content{
@@ -23,6 +23,7 @@ header {
               ul{
                 display: flex;
                 padding-left: 100px;
+                padding-left: 0;
                   li{
                     padding-left: 10px;
                     margin-right: 10px;

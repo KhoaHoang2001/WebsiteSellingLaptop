@@ -21,10 +21,10 @@
         }
       }
       #account__right {
-        width: 70%;
+        width: 75%;
         margin: 0 auto;
         #myAccount {
-          display: none;
+          display: block;
           #thongTinTaiKhoan {
             display: flex;
             justify-content: space-around;
@@ -97,7 +97,7 @@
           }
         }
         #lichSuMuaHang {
-          display: block;
+          display: none;
           #tblItem {
             width: 100%;
             text-align: center;
@@ -121,27 +121,19 @@
                   &:nth-child(2) {
                   }
                   &:nth-child(3) {
-                    color: orangered;
+                    
                   }
                   &:nth-child(4) {
-                    input {
-                      width: 50px;
-                    }
-                  }
-                  &:nth-child(5) {
                     color: orangered;
                   }
+                  &:nth-child(5) {
+                    
+                  }
                   &:nth-child(6) {
+                    color: orangered;
                   }
                 }
               }
-              &::before, &::after {
-                /* This doesn't work because of border-collapse */
-                line-height:20px;
-                content:".";
-                color:transparent; /* bacground color */
-                display:block;
-            }
             }
           }
         }
