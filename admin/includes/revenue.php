@@ -1,6 +1,9 @@
 <?php 
-    include_once('./includes/include.php');
+    require_once('./includes/include.php');
+    require_once('./includes/conn.php');
+?>
 
+<?php
     function View_Full_Revenue(){
         $sql = "SELECT * FROM DONHANG";
         $res = Check_db($sql);

@@ -2,10 +2,10 @@
     require_once('./includes/include.php');
     require_once('./includes/conn.php');
     $magiamgia = $_GET['discount_id'];
-    $update_discount = Check_db("SELECT * from GIAMGIA where magiamgia ='$magiamgia'");
-    $fetch_update = mysqli_fetch_array($update_discount);
-    $tengiamgia = $fetch_update['TENGIAMGIA'];
-    $phantram = $fetch_update['PHANTRAM'];
+    $update_discount = Check_db("SELECT * from GIAMGIA where magiamgia ='$magiamgia';");
+    $row = mysqli_fetch_array($update_discount);
+    $tengiamgia = $row['TENGIAMGIA'];
+    $phantram = $row['PHANTRAM'];
 ?>
 <div class="form_box">
     <script>
@@ -19,7 +19,7 @@
             }
         }
 
-        const Check_all = () => {
+        const Check_all = function() {
             let percent = document.getElementById('phantram').value;
             if(isNaN(percent)){
                 alert("Phần trăm bắt buộc phải là số!");
@@ -42,7 +42,10 @@
             </tr>
             <tr>
                 <td><b>Phần trăm: </b></td>
-                <td><input type="text" name="phantram" value="<?php echo $phantram;?>" onkeyup="Check_percent()" required /></td>
+                <td>
+                    <input type="text" name="phantram" id="phantram" value="<?php echo $phantram;?>" onkeyup="Check_percent()" required />
+                    <span id="kiemtraphtram"></span>
+                </td>
             </tr>
             <tr>
                 <td colspan="3" class="text-center"><input class="btn btn-primary btn-submit" type="submit"
@@ -54,11 +57,16 @@
 
 <?php 
     if(isset($_POST['update_discount'])){
-        $sql_update_discount = "UPDATE GIAMGIA SET TENGIAMGIA = '$tengiamgia', PHANTRAM = '$phantram' WHERE `nguoidung`.`MAGIAMGIA` = '$magiamgia';";
+        $tengiamgia = Get_value($_POST['tengiamgia']);
+        $phantram = Get_value($_POST['phantram']);
+        $sql_update_discount = "UPDATE GIAMGIA SET TENGIAMGIA = '$tengiamgia', PHANTRAM = $phantram WHERE `MAGIAMGIA` = '$magiamgia';";
         $res_update_discount = Check_db($sql_update_discount);
         if($res_update_discount){
             echo "<script>alert('Giảm giá đã được chỉnh sửa thành công!')</script>";
             echo "<script>window.open(window.location.href,'_self')</script>";
+        }
+        else{
+            echo "<script>alert('Giảm giá đã được chỉnh sửa thất bại!')</script>";
         }
     }
 ?>
