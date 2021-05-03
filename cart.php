@@ -13,13 +13,6 @@
             return 0;
         }
     }
-
-    function xoa_SP_gio($MASP){
-        $sql="DELETE FROM sanphamgiohang WHERE MASP='$MASP'";
-        if($res = Check_db($sql)){
-            header('Location: ');
-        }
-    }
 ?>
 
 <!DOCTYPE html>
@@ -70,16 +63,18 @@
                     <?php 
                         $sql_cart = "SELECT * FROM SANPHAMGIOHANG, SANPHAM WHERE SANPHAMGIOHANG.MASP = SANPHAM.MASP and taikhoan = '$taikhoan'";
                         $res_cart = Check_db($sql_cart);
-                        while ($row = mysqli_fetch_assoc($res_cart)) {
-                            $masp = $row['MASP'];
-                            $tensp = $row['TENSP'];
-                            $gia = $row['GIA'];
-                            $phantram = View_Discount_Of_Product($masp);
-                            if($gia - $gia*$phantram/100 < $gia){
-                                $gia = $gia - $gia*$phantram/100;
-                            }
-                            $soluonggio = $row['SOLUONGGIO'];
-                    
+                        $temp = 0;
+                        if(mysqli_num_rows($res_cart)){
+                            while ($row = mysqli_fetch_assoc($res_cart)) {
+                                $masp = $row['MASP'];
+                                $tensp = $row['TENSP'];
+                                $gia = $row['GIA'];
+                                $phantram = View_Discount_Of_Product($masp);
+                                if($gia - $gia*$phantram/100 < $gia){
+                                    $gia = $gia - $gia*$phantram/100;
+                                }
+                                $soluonggio = $row['SOLUONGGIO'];
+                                $temp++;
                     ?>
                     <form method="POST">
                     <tr>
@@ -95,26 +90,34 @@
                         </td>
                         <td><?php echo $gia ?></td>
                         <td>
-                           
                             <input type="number" class="" name="soluonggio" aria-label="" value='<?php echo $soluonggio ?>' size="5" min="1">
-                            
                         </td>
                         <td>
-                            <?php echo $gia*$soluonggio ?>
+                            <?php echo $gia*$soluonggio;
+                            ?>
                         </td>
                         <td>
                             <a href="xoa.php?masp=<?php echo $masp ?>" style="padding: 10px;"><i class="fa fa-trash-alt"></i></a>
-                            <button type="submit" style="padding: 0; background-color: transparent; border: 0px solid transparent;">
-                            <a href="cart.php?masp=<?php echo $masp?>&soluonggio=<?php echo $soluonggio?>" style="padding: 10px;">
-                            <i class="fa fa-retweet"></i>
-                        </a>
-                        </button>
+                            <input type="submit" name="<?php echo $masp?>" value="luu">
                         </td>
                     </tr>
                     </form>
 
                     <?php 
-                        } //end loop
+                        }
+                        if(isset($_POST[$masp])){
+                            $soluonggio = $_POST['soluonggio'];
+                            $sql = "UPDATE sanphamgiohang SET SOLUONGGIO='$soluonggio' WHERE TAIKHOAN='$taikhoan' AND MASP='$masp'";
+                            if($res = Check_db($sql)){
+                                echo "<script>alert('Cập nhật thành công!') </script>";
+                                echo "<script>window.open('cart.php','_self')</script>";
+                    
+                            }
+                            else{
+                                echo "<script>alert('sua gio hang that bai')</script>";
+                            }
+                        }
+                    } //end loop
                     ?>
                 </tbody>
                 <tfoot id="tblFooter">
@@ -223,11 +226,3 @@
     <!-- MAIN JS -->
     <!-- <script src="./js/main.js"></script> -->
 </body>
-
-<?php 
-    if(isset($_POST['update_cart'])){
-        $SOLUONGGIO = $_POST['soluonggio'];
-        $sql = "UPDATE sanphamgiohang SET SOLUONGGIO='$SOLUONGGIO' WHERE TAIKHOAN='$taikhoan' AND MASP='$masp'";
-    }
-
-?>
