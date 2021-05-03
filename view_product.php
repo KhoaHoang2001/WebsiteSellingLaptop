@@ -1,15 +1,39 @@
 <!DOCTYPE html>
-<?php
-    require_once('../includes/include.php');
-    require_once('../includes/conn.php');
-    require_once('../includes/product.php');
-    require_once('./tsx_SP_gio.php');
+<?php 
+    $_SESSION['TAIKHOAN']='bichngan';
+    $MASP=$_GET['masp'];
+    require_once('./includes/include.php');
+    require_once('./includes/conn.php');
+    require_once('./includes/product.php');
+    // require_once('.cart/tsx_SP_gio.php');
+
+    $sql = "SELECT * FROM sanpham where MASP='$MASP'";
+    $res = Check_db($sql);
+    $row = mysqli_fetch_assoc($res);
+    $mansx = $row['MANSX'];
+    $masp = $row['MASP'];
+    $tensp = $row['TENSP'];
+    $gia = $row['GIA'];
+    $phantram = View_Discount_Of_Product($masp);
+    $kichthuocmh = $row['KICHTHUOCMH'];
+    $vixuly = $row['VIXULY'];
+    $ram = $row['RAM'];
+    $motasp = $row['MOTASP'];
+    $ngaysx = $row['NGAYSX'];
+    if($gia - $gia*$phantram/100 != $gia){
+        $giamoi = $gia - $gia*$phantram/100;
+    }
+    else {
+        $giamoi = "";
+    }
 ?>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CT250</title>
+
 
     <!-- BS4 CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
@@ -47,7 +71,7 @@
                             <form class="">
                                 <div class="input-group navbar-search">
                                     <div class="input-group-prepend">
-                                        <button class="btn btn-outline-secondary" type="button"><i class="fa fa-search"></i></button>
+                                        <button class="btn btn-outline-secondary" type="button">Button</button>
                                     </div>
                                     <input type="text" class="form-control" placeholder="" aria-label=""
                                         aria-describedby="basic-addon1">
@@ -83,58 +107,80 @@
             </div>
         </div>
     </header>
-    <!-- banner -->
-    <section class="carousel">
+    <!-- url link -->
+    <section class="url">
         <div class="container">
-            <div id="carouselExampleSlidesOnly" class="carousel slide" data-ride="carousel">
+            <div class="row">
+                <a href="./index.html">Trang chủ ></a>
+                
+                <a href="#" name="TenNSX">&nbsp;<?php echo $mansx ?>></a>
+                
+                <a href="#" name="TenLoaiSP">&nbsp;<?php echo $tensp ?></a>
+            </div>
+        </div>
+    </section>
+    <!-- about item -->
+    
+    <section class="about_item">
+        <div class="container">
+            <div class="row about_item-title">
+            <?php echo" <h2>".$tensp."</h2>"?>
+            </div>
+            <div class="row about_item-intro">
+                <div class="col-md-4">
+                <section class="carousel">
+                    <!-- them mui ten -->
+        <div class="container">
+        <div id="carouselExampleSlidesOnly" class="carousel slide" data-ride="carousel">
                 <div class="carousel-inner" role="listbox">
                     <div class="carousel-item active">
-                        <img src="./image/Slide-Galaxy-Buds-Live-2.jpg" class="d-block w-100" alt="...">
+                        <img src="./FE/image/Slide-Galaxy-Buds-Live-2.jpg" class="d-block w-100" alt="...">
                     </div>
                     <div class="carousel-item">
-                        <img src="./image/Slide-Mi-11-5G-1.jpg" class="d-block w-100" alt="...">
+                        <img src="./FE/image/Slide-Mi-11-5G-1.jpg" class="d-block w-100" alt="...">
                     </div>
                     <div class="carousel-item">
-                        <img src="./image/Slide-oppo-reno5.jpg" class="d-block w-100" alt="...">
+                        <img src="./FE/image/Slide-Galaxy-Buds-Live-2.jpg" class="d-block w-100" alt="...">
                     </div>
                 </div>
             </div>
     </section>
-    <!-- filter -->
-    <section id="laptop" class="filter">
-        <div class="container">
-            <div class="row">
-                <div class="card">
-                    <img src="./image/MacBook44-b_27.png" alt="">
                 </div>
-                <div class="card">
-                    <img src="./image/Acer44-b_25.jpg" alt="">
+                <div class="col-md-4">
+                    Giá <?php
+                    if($phantram!=0){
+                        echo "
+                        <p class='card-text'>".$gia." ".$giamoi." -".$phantram."%</p>";
+                    }
+                    ?>
                 </div>
-                <div class="card">
-                    <img src="./image/Asus44-b_1.png" alt="">
+                <div class="col-md-4">
+                    <form action="">
+                        <?php echo"<a href='cart.php?masp=".$MASP."'>Thêm vào giỏ hàng</a>
+                        <a href='cart.php?masp=$MASP'>Mua hàng</a>"?>
+                    </form>
                 </div>
-                <div class="card">
-                    <img src="./image/Dell44-b_2.jpg" alt="">
+            </div>
+            <div class="row about_item-info">
+                <div class="col-md-8">
+                    <p><?php echo $motasp ?></p>
                 </div>
-                <div class="card">
-                    <img src="./image/HP44-b_27.jpg" alt="">
-                </div>
-                <div class="card">
-                    <img src="./image/Huawei44-b_7.jpg" alt="">
-                </div>
-                <div class="card">
-                    <img src="./image/Lenovo44-b_35.png" alt="">
-                </div>
-                <div class="card">
-                    <img src="./image/LG44-b_32.jpg" alt="">
-                </div>
-                <div class="card">
-                    <img src="./image/MSI44-b_17.png" alt="">
+                <div class="col-md-4">
+                    <h2>Thông số kỹ thuật</h2>
+                    <ul>
+                        <hr>
+                        <li><?php echo $ram ?> GB</li>
+                        <hr>
+                        <li><?php echo $vixuly ?></li>
+                        <hr>
+                        <li><?php echo $kichthuocmh ?></li>
+                        <hr>
+                        <li>nsx <?php echo $ngaysx ?></li>
+                    </ul>
                 </div>
             </div>
         </div>
     </section>
-    <!-- New Item -->
     <section class="item">
         <div class="container">
             <div class="row item-title">
@@ -241,32 +287,6 @@
             </div>
         </div>
     </section>
-    <!-- bestseller  -->
-    <section id="bestseller" class="bestseller item">
-        <div class="container">
-            <div class="row bestseller-title item-title">
-                <h2>Sản phẩm bán chạy</h2>
-            </div>
-            <div class="row bestseller-content item-content">
-                <div class="row">
-                    <?php View_Product_Sellest() ?>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!-- bestseller  -->
-    <section id="sales" class="sales item">
-        <div class="container">
-            <div class="row sales-title item-title">
-                <h2>Sản phẩm giảm giá</h2>
-            </div>
-            <div class="row sales-content item-content">
-                <div class="row">
-                    <?php View_Product_Discount()?>
-                </div>
-            </div>
-        </div>
-    </section>
     <!-- footer -->
     <footer>
         <div class="container">
@@ -336,7 +356,7 @@
         $('.courses__carousel').owlCarousel({
             loop: true,
             margin: 15,
-            nav: true,
+            nav: false,
             dots: false,
             responsive: {
                 0: {
@@ -354,5 +374,3 @@
     <!-- MAIN JS -->
     <script src="./js/main.js"></script>
 </body>
-</html>
-

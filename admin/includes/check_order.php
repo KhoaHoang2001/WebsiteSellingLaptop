@@ -4,6 +4,9 @@
 ?>
 
 <div class="view_product_box">
+    <script>
+    
+    </script>
     <h2>Duyệt đơn hàng</h2>
     <div class="border_bottom"></div>
     <form action="" method="post" enctype="multipart/form-data">
@@ -19,6 +22,8 @@
                     <th>Ngày đặt</th>
                     <th>Hình thức thanh toán</th>
                     <th>Địa chỉ nhận</th>
+                    <th>Tổng tiền</th>
+                    <th>Chi tiết</th>
                     <th class="text-center">Duyệt</th>
                 </tr>
             </thead>
@@ -29,6 +34,7 @@
                     $madh = $row['MADH'];
                     $taikhoan = $row['TAIKHOAN'];
                     $ngaydat = $row['NGAYDAT'];
+                    $trangthai = $row['TRANGTHAI'];
                     $htthanhtoan = $row['HTTHANHTOAN'];
                     $diachinhan = $row['DIACHINHAN'];
                     $tongtien = $row['TONGTIEN'];
@@ -45,8 +51,8 @@
                     <td><a class="btn btn-danger btn-submit btn-sm" 
                             href="index.php?action=view_order&order_detail=<?php echo $madh; ?>">Xem chi tiết</a></td>
                     <!-- KHI CLICK VAO DOI MAU BUTTON -->
-                    <td class="text-center"><a class="btn btn-primary btn-submit btn-sm"
-                        href="">Xác nhận</a></td>
+                    <td class="text-center"><a class="btn btn-primary btn-submit btn-sm" id="Xacnhan"
+                    onclick="Disable_button_confirm()" href="">Xác nhận</a></td>
                 </tr>
             </tbody>
             <?php
