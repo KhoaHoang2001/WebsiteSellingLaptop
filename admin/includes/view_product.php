@@ -66,9 +66,9 @@
                     <td><img src="/weblaptop/admin/product_images/<?php echo $row['LINK']; ?>" width="70"
                             height="50" />
                     <td class="text-center"><a class="btn btn-danger btn-submit btn-sm"
-                            href="index.php?action=view_category&delete_category=<?php echo $tenloaisp; ?>">Sửa</a></td>
+                            href="index.php?action=update_product&product_id=<?php echo $masp; ?>">Sửa</a></td>
                     <td class="text-center"><a class="btn btn-danger btn-submit btn-sm"
-                            href="index.php?action=view_category&delete_category=<?php echo $tenloaisp; ?>">Xóa</a></td>
+                            href="index.php?action=view_product&delete_product=<?php echo $masp; ?>">Xóa</a></td>
                 </tr>
             </tbody>
             <?php
@@ -80,16 +80,17 @@
 
 </div>
 <?php
-if(isset($_GET['delete_category'])){
-    $mansx = $_GET['delete_category'];
-    $sql_del_category = "DELETE FROM LOAISP WHERE maloaisp = '$maloaisp';";
-    $res_del_category = Check_db($sql_del_category);
-    if($res_del_category){
-        echo "<script>alert('xóa loại sản phẩm thành công!')</script>";
+if(isset($_GET['delete_product'])){
+    $masp = $_GET['delete_product'];
+    $sql_del_product = "DELETE FROM SANPHAM WHERE masp = '$masp';";
+    $sql_del_img = "DELETE FROM HINHANH WHERE masp = 'masp';";
+    $res_del_product = Check_db($sql_del_product);
+    if($res_del_product){
+        echo "<script>alert('xóa sản phẩm thành công!')</script>";
         echo "<script>window.open('index.php?action=view_category','_self')</script>";
     }
     else {
-        echo "<script>alert('xóa loại sản phẩm thất bại!')</script>";
+        echo "<script>alert('xóa  sản phẩm thất bại!')</script>";
     }
     
 }
