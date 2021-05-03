@@ -61,7 +61,7 @@
                             <div class="navbar-select">
                                     <ul class="navbar-nav me-auto mb-2 mb-lg-0 d-flex">
                                         <li class="nav-item">
-                                            <a class="nav-link active" aria-current="page" href="#laptop">Laptop</a>
+                                            <a class="nav-link active" aria-current="page" href="index.php">Laptop</a>
                                         </li>
                                         <li class="nav-item">
                                             <a class="nav-link" href="#sales">Sales</a>
@@ -70,7 +70,7 @@
                                             <a class="nav-link" href="#bestseller">Bestseller</a>
                                         </li>
                                         <li class="nav-item">
-                                            <a class="nav-link" href="./cart.html">Cart</a>
+                                            <a class="nav-link" href="./cart.php">Cart</a>
                                         </li>
                                         <li class="nav-item">
                                             <a class="nav-link" href="./login.html">Login</a>
