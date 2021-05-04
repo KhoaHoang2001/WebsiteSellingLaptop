@@ -12,20 +12,15 @@
         <table width="100%">
             <thead>
                 <tr>
-                    <th class="text-center">Mã sản phẩm:</th>
-                    <th>Mã loại sản phẩm:</th>
-                    <th>Mã giảm giá:</th>
-                    <th>Mã nhà sản xuất:</th>
-                    <th>Tên sản phẩm:</th>
-                    <th>Mô tả sản phẩm:</th>
-                    <th>Ram:</th>
-                    <th>Vi xử lý:</th>
-                    <th>Kích thước màn hình:</th>
-                    <th>Giá:</th>
-                    <th>Số lượng còn:</th>
-                    <th>Ngày sản xuất:</th>
-                    <th>Ảnh</th>
-                    <th class="text-center">Sửa</th>
+                    <th class="text-center">Mã sản phẩm</th>
+                    <th>Mã loại sản phẩm</th>
+                    <th>Mã giảm giá</th>
+                    <th>Mã nhà sản xuất</th>
+                    <th>Tên sản phẩm</th>
+                    <th>Giá</th>
+                    <th>Số lượng còn</th>
+                    <th>Ngày sản xuất</th>
+                    <th class="text-center">xem</th>
                     <th class="text-center">Xóa</th>
                 </tr>
             </thead>
@@ -56,17 +51,11 @@
                     <td><?php echo $magiamgia; ?></td>
                     <td><?php echo $mansx; ?></td>
                     <td><?php echo $tensp; ?></td>
-                    <td><?php echo $motasp; ?></td>
-                    <td><?php echo $ram; ?></td>
-                    <td><?php echo $vixuly; ?></td>
-                    <td><?php echo $kichthuocmh; ?></td>
                     <td><?php echo $gia; ?></td>
                     <td><?php echo $soluongcon; ?></td>
                     <td><?php echo $ngaysx; ?></td>
-                    <td><img src="/weblaptop/admin/product_images/<?php echo $row['LINK']; ?>" width="70"
-                            height="50" />
                     <td class="text-center"><a class="btn btn-danger btn-submit btn-sm"
-                            href="index.php?action=update_product&product_id=<?php echo $masp; ?>">Sửa</a></td>
+                            href="index.php?action=update_product&product_id=<?php echo $masp; ?>">xem</a></td>
                     <td class="text-center"><a class="btn btn-danger btn-submit btn-sm"
                             href="index.php?action=view_product&delete_product=<?php echo $masp; ?>">Xóa</a></td>
                 </tr>
