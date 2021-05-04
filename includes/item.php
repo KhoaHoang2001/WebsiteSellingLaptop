@@ -4,8 +4,7 @@
                 <h2>Sản phẩm mới</h2>
             </div>
             <div class="row item-content">
-                <div class="row">
-
+                <div class="row" style="padding: 15px">
                         <?php 
                             $sql_all_product = "SELECT * FROM sanpham";
                             $res_all_product = Check_db($sql_all_product);
