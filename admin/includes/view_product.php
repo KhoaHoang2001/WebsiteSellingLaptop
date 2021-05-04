@@ -82,14 +82,15 @@
 <?php
 if(isset($_GET['delete_product'])){
     $masp = $_GET['delete_product'];
+    echo $masp;
+    $sql_del_img = "DELETE FROM HINHANH WHERE masp = '$masp';";
+    $delete = Check_db($sql_del_img);
+    if($delete){
     $sql_del_product = "DELETE FROM SANPHAM WHERE masp = '$masp';";
-    $sql_del_img = "DELETE FROM HINHANH WHERE masp = 'masp';";
-    $res_del_product = Check_db($sql_del_product);
-    if($res_del_product){
-        echo "<script>alert('xóa sản phẩm thành công!')</script>";
-        echo "<script>window.open('index.php?action=view_category','_self')</script>";
-    }
-    else {
+    Check_db($sql_del_product);
+    echo "<script>alert('xóa sản phẩm thành công!')</script>";
+    echo "<script>window.open('index.php?action=view_product','_self')</script>";
+    }else {
         echo "<script>alert('xóa  sản phẩm thất bại!')</script>";
     }
     

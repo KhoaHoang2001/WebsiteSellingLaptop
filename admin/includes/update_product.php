@@ -17,7 +17,6 @@
     $ngaysx = $fetch_update['NGAYSX'];
     $update_product = Check_db("SELECT * from hinhanh where masp='$masp'");
     $fetch_update = mysqli_fetch_array($update_product);
-    $hinh = $fetch_update['LINK'];
 ?>
 <div class="form_box">
     <script>
@@ -68,7 +67,7 @@
                 <td valign="top"><b>Mã giảm giá:<?php echo $magiamgia?>  </b></td>
                 <td>
                     <select id="magiamgia" name="magiamgia">
-                        <option value="giamgia"></option>
+                        <option value=''></option>
                         <?php 
                             $sql_all_discount = "SELECT * FROM GIAMGIA";
                             $res_all_discount = Check_db($sql_all_discount);
@@ -136,12 +135,11 @@
                 <td valign="top"><b>Ngày sản xuất:</b></td>
                 <td><input type="date" name="ngaysx" id="ngaysx" value="<?php echo $ngaysx ?>"></td>
             </tr>
-
             <tr>
                 <td><b>Hình ảnh: </b></td>
-                <td><input type="file" name="Hinh" require /><img src="/weblaptop/admin/product_images/<?php echo $hinh; ?>" width="70"
-                            height="50" /></td>
+                <td><input type="file" name="files[]"  multiple require /></td>
             </tr>
+
             <tr>
                 <td colspan="13" class="text-center"><input class="btn btn-primary btn-submit" type="submit"
                         name="update_product" value="Lưu" /></td>
@@ -163,24 +161,49 @@
             $gia_update = Get_value($_POST["gia"]);
             $soluongcon_update = Get_value($_POST["soluongcon"]);
             $ngaysx_update = Get_value($_POST["ngaysx"]);
-            $Hinh_update  = $_FILES['Hinh']['name'];
+            // $Hinh_update  = $_FILES['Hinh']['name'];
+            // $conn = Connect();
+            // $sql_hinh= "UPDATE HINHANH SET LINK = '$Hinh_update' where masp = '$masp'";
+            // echo $sql;
+            // mysqli_query($conn, $sql_hinh);
+            // mysqli_close($conn);
+            
+            $sql_deletehinh = "DELETE FROM HINHANH WHERE masp = '$masp';";
             $conn = Connect();
-            $sql_hinh= "UPDATE HINHANH SET LINK = '$Hinh_update' where masp = '$masp'";
-            echo $sql;
-            mysqli_query($conn, $sql_hinh);
+            $deletehinh= mysqli_query($conn, $sql_deletehinh);
             mysqli_close($conn);
+            $uploads_dir = '/uploads';
+            foreach ($_FILES["files"]["error"] as $key => $error) {
+                if ($error == UPLOAD_ERR_OK) {
+                    $tmp_name = $_FILES["files"]["tmp_name"][$key];
+                    $name = basename($_FILES["files"]["name"][$key]);
+                    move_uploaded_file($tmp_name, "product_images/$name");
+                    $sql=  "INSERT INTO HINHANH (masp, link) VALUES ('$masp', '$name');";
+                    $conn = Connect();
+                    mysqli_query($conn, $sql);
+                    mysqli_close($conn);
+                }
+            }
+            if($magiamgia_update==''){
+                $sql = " UPDATE SANPHAM SET  MALOAISP = '$maloaisp_update',MAGIAMGIA =NULL, MANSX = '$mansx_update', TENSP = '$tensp_update', MOTASP = '$motasp_update', RAM ='$ram_update', VIXULY = '$vixuly_update', KICHTHUOCMH = '$kichthuocmh_update', GIA= '$gia_update', SOLUONGCON ='$soluongcon_update', NGAYSX = '$ngaysx_update'WHERE MASP = '$masp'";
+                echo $sql;
+                $conn = Connect();
+                $ngon= mysqli_query($conn, $sql);
+                mysqli_close($conn);
+            }else{
             $conn = Connect();
             $sql = " UPDATE SANPHAM SET  MALOAISP = '$maloaisp_update', MAGIAMGIA = '$magiamgia_update', MANSX = '$mansx_update', TENSP = '$tensp_update', MOTASP = '$motasp_update', RAM ='$ram_update', VIXULY = '$vixuly_update', KICHTHUOCMH = '$kichthuocmh_update', GIA= '$gia_update', SOLUONGCON ='$soluongcon_update', NGAYSX = '$ngaysx_update'WHERE MASP = '$masp'";
             echo $sql;
             $ngon= mysqli_query($conn, $sql);
-            mysqli_close($conn);
+            mysqli_close($conn);}
             if($ngon){
                 echo "<script>alert('Sản phẩm đã được chỉnh sửa thành công!')</script>";
                 echo "<script>window.open(window.location.href,'_self')</script>";
-            }
-            echo "<script>alert('!!!')</script>";
-        }
+            }else{
+            echo "<script>alert('!!!')</script>";}
+        
 
     
-    
+    }
+
 ?>

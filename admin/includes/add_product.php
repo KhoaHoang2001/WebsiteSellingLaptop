@@ -68,13 +68,13 @@
                 <td valign="top"><b>Mã giảm giá: </b></td>
                 <td>
                     <select id="magiamgia" name="magiamgia">
-                        <option value="giamgia">chọn mã giảm giá </option>
+                        <option value='null'>Không </option>
                         <?php 
                             $sql_all_discount = "SELECT * FROM GIAMGIA";
                             $res_all_discount = Check_db($sql_all_discount);
                             while ($row = mysqli_fetch_array($res_all_discount)) {
                             $magiamgia = $row['MAGIAMGIA'];
-                            echo "<option>$magiamgia</option>";
+                            echo "<option value= '$magiamgia' >$magiamgia</option>";
                             }
                         ?>
                     </select> 
@@ -138,7 +138,7 @@
 
             <tr>
                 <td><b>Hình ảnh: </b></td>
-                <td><input type="file" name="Hinh" require /></td>
+                <td><input type="file" name="files[]"  multiple require /></td>
             </tr>
                             
             <tr>
@@ -168,6 +168,7 @@
         if (isset($_POST['themsanpham'])){
             $masp = Get_value($_POST["masp"]);
             $maloaisp = Get_value($_POST["maloaisp"]);
+            $magiamgia = Get_value($_POST["magiamgia"]);
             $mansx = Get_value($_POST["mansx"]);
             $tensp = Get_value($_POST["tensp"]);
             $motasp = Get_value($_POST["motasp"]);
@@ -177,23 +178,40 @@
             $gia = Get_value($_POST["gia"]);
             $soluongcon = Get_value($_POST["soluongcon"]);
             $ngaysx = Get_value($_POST["ngaysx"]);
-            $Hinh  = $_FILES['Hinh']['name'];
-            $product_image_tmp = $_FILES['Hinh']['tmp_name'];
-            move_uploaded_file($product_image_tmp, "product_images/$Hinh");
+           // $Hinh  = $_FILES['Hinh']['name'];
+           // $product_image_tmp = $_FILES['Hinh']['tmp_name'];
+           // move_uploaded_file($product_image_tmp, "product_images/$Hinh");
+
+       
             if(!Check_product($masp)){
+                if($magiamgia==''){
+                    $sql = "INSERT INTO `sanpham` (`MASP`, `MALOAISP`, `MANSX`, `TENSP`, `MOTASP`, `RAM`, `VIXULY`, `KICHTHUOCMH`, `GIA`, `SOLUONGCON`, `NGAYSX`) 
+                    VALUES ('$masp', '$maloaisp','$mansx', '$tensp', '$motasp', '$ram', '$vixuly', '$kichthuocmh', '$gia', '$soluongcon', '$ngaysx');";                     
+            }else{
             $sql = "INSERT INTO `sanpham` (`MASP`, `MALOAISP`, `MAGIAMGIA`, `MANSX`, `TENSP`, `MOTASP`, `RAM`, `VIXULY`, `KICHTHUOCMH`, `GIA`, `SOLUONGCON`, `NGAYSX`) 
             VALUES ('$masp', '$maloaisp', '$magiamgia','$mansx', '$tensp', '$motasp', '$ram', '$vixuly', '$kichthuocmh', '$gia', '$soluongcon', '$ngaysx');";       
-            $sql_hinh = "INSERT INTO HINHANH (masp, link) VALUES ('$masp', '$Hinh');";
+                }
+                echo $sql;
             $conn = Connect();
             mysqli_query($conn, $sql);
-            $themhinh =  mysqli_query($conn,$sql_hinh);
-            mysqli_close($conn);}
+            mysqli_close($conn);
+        }
+                $uploads_dir = '/uploads';
+                foreach ($_FILES["files"]["error"] as $key => $error) {
+                    if ($error == UPLOAD_ERR_OK) {
+                    $tmp_name = $_FILES["files"]["tmp_name"][$key];
+                    $name = basename($_FILES["files"]["name"][$key]);
+                    move_uploaded_file($tmp_name, "product_images/$name");
+                    $sql_hinh = "INSERT INTO HINHANH (masp, link) VALUES ('$masp', '$name');";
+                    $conn = Connect();
+                   $themhinh= mysqli_query($conn, $sql_hinh);
+                    mysqli_close($conn);}
         if($themhinh){
-            echo "<script>alert(\"Thêm sản phẩm thành công\");</script>";        
+            echo "<script>alert(\"<?php echo $sql_hinh ?>\");</script>";      
         } else {
-            echo "<script>alert(\"Thêm sản phẩm thất bại\");</script>"; 
+            echo "<script>alert(\"echo $magiamgia\");</script>"; 
 
         }
-        }
-    
+    }   
+}
 ?>

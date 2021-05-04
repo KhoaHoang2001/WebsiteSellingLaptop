@@ -1,43 +1,74 @@
 
-<div class="container">
-    <div class="row">
-        <div class="col-md-12">
-            <h3 class="text-primary">Đổi mật khẩu</h3>
-            <form method="POST" onsubmit="return false;" id="formChangePass">
-                <div class="form-group">
-                    <label for="user_signin">Mật khẩu cũ</label>
-                    <input type="password" class="form-control" id="old_pass">
-                </div>
-                <div class="form-group">
-                    <label for="user_signin">Mật khẩu mới</label>
-                    <input type="password" class="form-control" id="new_pass">
-                </div>
-                <div class="form-group">
-                    <label for="user_signin">Nhập lại mật khẩu mới</label>
-                    <input type="password" class="form-control" id="re_new_pass">
-                </div>
-                <a href="index.php" class="btn btn-default">
-                    <span class="glyphicon glyphicon-arrow-left"></span> Trở về
-                </a>
-                <button class="btn btn-primary" id="submit_change_pass">
-                    <span class="glyphicon glyphicon-ok"></span> Thay đổi
-                </button>
-                <br><br>
-                <div class="alert alert-danger hidden"></div>
-            </form>
+              <form action="" id="formDoiMatKhau">
+                <table id="tblDoiMatKhau">
+                  <tr>
+                    <th>
+                      <label for="matKhauCu">Mật khẩu cũ:</label>
+                    </th>
+                    <td style="width: 10px"></td>
+                    <td>
+                      <input type="password" name="" id="" />
+                    </td>
+                  </tr>
+                  <tr style="height: 10px">
+                    <th></th>
+                    <td style="width: 10px"></td>
+                    <td></td>
+                  </tr>
+                  <tr>
+                    <th>
+                      <label for="matKhauMoi">Mật khẩu mới:</label>
+                    </th>
+                    <td style="width: 10px"></td>
+                    <td>
+                      <input type="password" name="" id="" />
+                    </td>
+                  </tr>
+                  <tr style="height: 10px">
+                    <th></th>
+                    <td style="width: 10px"></td>
+                    <td></td>
+                  </tr>
+                  <tr>
+                    <th>
+                      <label for="confirmMatKhauMoi"
+                        >Nhập lại mật khẩu mới:</label
+                      >
+                    </th>
+                    <td style="width: 10px"></td>
+                    <td>
+                      <input type="password" name="" id="" />
+                    </td>
+                  </tr>
+                  <tr style="height: 10px">
+                    <th></th>
+                    <td style="width: 10px"></td>
+                    <td></td>
+                  </tr>
+                  <tr>
+                    <td></td>
+                    <td style="width: 10px"></td>
+                    <td>
+                      <input type="submit" name="doimatkhau" value="Đổi mật khẩu"  />
+                    </td>
+                  </tr>
+                </table>
+              </form>
+            </div>
+          </div>
         </div>
-    </div>
-</div>
+      </div>
 
 <?php
     require_once('./includes/include.php');
-     function Change_Pw(){
+     function Change_Pw($taikhoan){
         if (isset(($_POST['doimatkhau']))){
-            $taikhoan = Get_value($_POST['taikhoan']);
             $matkhaucu = Get_value($_POST['matkhaucu']);
             $matkhaumoi = Get_value($_POST['matkhaumoi']);
+            $rematkhaumoi = Get_value($_POST['rematkhaumoi']);
             $matkhaucu = md5($matkhaucu);
             $matkhaumoi = md5($matkhaumoi);
+            $rematkhaumoi = md5($rematkhaumoi);
             $sql = "SELECT * FROM NGUOIDUNG WHERE taikhoan = '$taikhoan' AND matkhau = '$matkhaucu'";
             $res = Check_db($sql);
             if(mysqli_num_rows($res) > 0){
