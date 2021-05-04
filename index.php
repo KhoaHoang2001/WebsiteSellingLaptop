@@ -109,15 +109,16 @@
                 <h2>Sản phẩm bán chạy</h2>
             </div>
             <div class="row bestseller-content item-content">
-                <div class="col-12">
+                <div class="row">
                     <?php 
-                        $sql = "SELECT *,SUM(SOLUONGDAT)FROM sanpham,monhang where sanpham.MASP=monhang.MASP GROUP BY monhang.MASP 
-                        ORDER BY SUM(SOLUONGDAT) DESC LIMIT 4";
+                        $sql = "SELECT *,SUM(SOLUONGDAT), LINK FROM sanpham,monhang,hinhanh where sanpham.MASP=monhang.MASP 
+                        AND hinhanh.MASP=monhang.MASP GROUP BY monhang.MASP ORDER BY SUM(SOLUONGDAT) DESC LIMIT 4";
                         $res = Check_db($sql);
                         while ($row = mysqli_fetch_assoc($res)) {
                             $masp = $row['MASP'];
                                 $tensp = $row['TENSP'];
                                 $gia = $row['GIA'];
+                                $hinh=$row['LINK'];
                                 $phantram = View_Discount_Of_Product($masp);
                                 if($gia - $gia*$phantram/100 != $gia){
                                     $giamoi = $gia - $gia*$phantram/100;
@@ -133,7 +134,7 @@
                                 <div class='card'>
                                     <a href='./view_product.php'>
                                         <div class='card-header'>
-                                            <img src='./image/laptop.jpg' class='card-img-top' alt=''>
+                                            <img src='./admin/product_images/<?php echo $hinh ?>' class='card-img-top' alt=''>
                                         </div>
                                         <div class='card-body'>
                                             <h4 class='card-title'><?php echo $tensp ?></h4>
@@ -162,12 +163,13 @@
             <div class="row sales-content item-content">
                 <div class="row">
                 <?php 
-                        $sql = "SELECT * FROM sanpham where MAGIAMGIA IS NOT NULL";
+                        $sql = "SELECT * ,LINK FROM sanpham,hinhanh where sanpham.MASP=hinhanh.MASP and MAGIAMGIA IS NOT NULL";
                         $res = Check_db($sql);
                         while ($row = mysqli_fetch_assoc($res)) {
                             $masp = $row['MASP'];
                                 $tensp = $row['TENSP'];
                                 $gia = $row['GIA'];
+                                $hinh=$row['LINK'];
                                 $phantram = View_Discount_Of_Product($masp);
                                 if($gia - $gia*$phantram/100 != $gia){
                                     $giamoi = $gia - $gia*$phantram/100;
@@ -183,7 +185,7 @@
                                 <div class='card'>
                                     <a href='./view.html'>
                                         <div class='card-header'>
-                                            <img src='./image/laptop.jpg' class='card-img-top' alt=''>
+                                            <img src='./admin/product_images/<?php echo $hinh ?>' class='card-img-top' alt=''>
                                         </div>
                                         <div class='card-body'>
                                             <h4 class='card-title'><?php echo $tensp ?></h4>
