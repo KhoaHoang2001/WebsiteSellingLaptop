@@ -15,7 +15,7 @@ require_once('./includes/conn.php');
     <div class="container">
       <div class="login-form-center" align="center">
         <h2>Đăng nhập</h2>
-        <form action="" method="">
+        <form action="" method="POST">
           <table>
             <tr>
               <th>
@@ -54,7 +54,7 @@ require_once('./includes/conn.php');
               <td></td>
               <td>
                 <button style="padding: 5px 10px">
-                  <a href="./signup.html" style="text-decoration: none; color: black">Đăng ký</a>
+                  <a href="./signup.php" style="text-decoration: none; color: black">Đăng ký</a>
                 </button>
               </td>
             </tr>
@@ -114,11 +114,13 @@ require_once('./includes/conn.php');
 
 
 <?php
+echo "hjhjhj";
 if (isset($_POST['submit_login'])) {
   $taikhoan = Get_value($_POST["taikhoan"]);
   $matkhau = Get_value($_POST["matkhau"]);
   $matkhau = md5($matkhau);
   $sql = "SELECT * FROM NGUOIDUNG WHERE taikhoan = '$taikhoan' AND matkhau = '$matkhau'";
+  echo $sql;
   $res = Check_db($sql);
   if (mysqli_num_rows($res) > 0) {
     $row = mysqli_fetch_assoc($res);

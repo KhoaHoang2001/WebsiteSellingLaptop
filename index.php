@@ -31,31 +31,31 @@
         <div class="container">
             <div class="row">
                 <div class="card">
-                    <img src="./image/MacBook44-b_27.png" alt="">
+                    <a href="#"><img src="./image/MacBook44-b_27.png" alt=""></a>
                 </div>
                 <div class="card">
-                    <img src="./image/Acer44-b_25.jpg" alt="">
+                    <a href="#"><img src="./image/Acer44-b_25.jpg" alt=""></a>
                 </div>
                 <div class="card">
-                    <img src="./image/Asus44-b_1.png" alt="">
+                    <a href="#"><img src="./image/Asus44-b_1.png" alt=""></a>
                 </div>
                 <div class="card">
-                    <img src="./image/Dell44-b_2.jpg" alt="">
+                    <a href="#"><img src="./image/Dell44-b_2.jpg" alt=""></a>
                 </div>
                 <div class="card">
-                    <img src="./image/HP44-b_27.jpg" alt="">
+                    <a href="#"><img src="./image/HP44-b_27.jpg" alt=""></a>
                 </div>
                 <div class="card">
-                    <img src="./image/Huawei44-b_7.jpg" alt="">
+                    <a href="#"><img src="./image/Huawei44-b_7.jpg" alt=""></a>
                 </div>
                 <div class="card">
-                    <img src="./image/Lenovo44-b_35.png" alt="">
+                    <a href="#"><img src="./image/Lenovo44-b_35.png" alt=""></a>
                 </div>
                 <div class="card">
-                    <img src="./image/LG44-b_32.jpg" alt="">
+                    <a href="#"><img src="./image/LG44-b_32.jpg" alt=""></a>
                 </div>
                 <div class="card">
-                    <img src="./image/MSI44-b_17.png" alt="">
+                    <a href="#"><img src="./image/MSI44-b_17.png" alt=""></a>
                 </div>
             </div>
             <div class="row">
@@ -181,7 +181,7 @@
             </div>
         </div>
     </section>
-    <!-- bestseller  -->
+    <!-- sales  -->
     <section id="sales" class="sales">
         <div class="container">
             <div class="row sales-title item-title">

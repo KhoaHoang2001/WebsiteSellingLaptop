@@ -1,6 +1,20 @@
 <!DOCTYPE html>
+
+
 <?php
-$_SESSION['TAIKHOAN'] = 'bichngan';
+if($_SERVER["REQUEST_METHOD"] == "POST" ){
+    session_start();
+    if(isset( $_SESSION['TAIKHOAN'])){
+        // $MASP=$_GET['masp'];
+        include('./cart/tsx_SP_gio.php');
+        themSP_gio($MASP);
+        header('Location: view.php?tenbien='.$MASP);
+    }else header('Location: login.php');
+   
+}
+    
+?>
+<?php
 $MASP = $_GET['masp'];
 require_once('./includes/include.php');
 require_once('./includes/conn.php');
@@ -28,8 +42,8 @@ if ($gia - $gia * $phantram / 100 != $gia) {
 ?>
 <html lang="en">
 
-
 <?php include('./includes/head.php') ?>
+
 
 <body>
     <!-- header -->
@@ -89,10 +103,9 @@ if ($gia - $gia * $phantram / 100 != $gia) {
                         ?>
                 </div>
                 <div class="col-md-4">
-                    <form action="">
-                        <button style="padding: 0;"><a href="http://localhost/weblaptop/cart/view.php?tenbien=SP02" style="display: block; padding: 10px;">Thêm vào giỏ hàng</a></button>
+                    <form action="" method="POST">
+                        <button style="padding: 0;"><a style="display: block; padding: 10px;">Thêm vào giỏ hàng</a></button>
                         <button>Mua hàng</button>
-
                     </form>
                 </div>
             </div>
@@ -104,13 +117,13 @@ if ($gia - $gia * $phantram / 100 != $gia) {
                     <h2>Thông số kỹ thuật</h2>
                     <ul>
                         <hr>
-                        <li><?php echo $ram ?> GB</li>
+                        <li>RAM: <?php echo $ram ?> GB</li>
                         <hr>
-                        <li><?php echo $vixuly ?></li>
+                        <li>Vi xử lý: <?php echo $vixuly ?></li>
                         <hr>
-                        <li><?php echo $kichthuocmh ?></li>
+                        <li>Kích thước màn hình: <?php echo $kichthuocmh ?></li>
                         <hr>
-                        <li>nsx <?php echo $ngaysx ?></li>
+                        <li>Ngày sản xuất: <?php echo $ngaysx ?></li>
                     </ul>
                 </div>
             </div>

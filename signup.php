@@ -199,7 +199,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 $MATKHAU=md5($MATKHAU);
                 $sql="INSERT INTO nguoidung(TAIKHOAN,MAQUYEN,MATKHAU,TENND,GIOITINH,SDT,EMAIL) VALUE ('$TAIKHOAN','KH','$MATKHAU','$TENND','$GIOITINH','$SDT','$EMAIL')";
                 IF($conn->query($sql)==true){
-                    header('Location: ./login.html');//link toi site dang nhap
+                    header('Location: ./login.php');//link toi site dang nhap
                 }else{
                     echo "error: ".$sql."<br>".$conn->error;
                 }
