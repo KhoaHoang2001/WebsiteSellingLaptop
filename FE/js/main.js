@@ -49,7 +49,10 @@ function DangKy() {
   }
 
   if (loi != 0) {
-    console.log("them thanh cong");
+    return false;
+  }
+  else{
+    return true;
   }
 }
 

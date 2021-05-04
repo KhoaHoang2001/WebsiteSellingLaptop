@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CT250</title>
-
+<!-- update -->
     <!-- BS4 CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
         integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
@@ -74,7 +74,7 @@
                 </nav>
             </div>
         </div>
-        <button onclick="topFunction()" id="myBtn" title="Go to top">Top</button>
+        <button onclick="topFunction()" id="myBtn" title="Go to top"><i class="fa fa-angle-double-up"></i></button>
     </header>
     <!-- banner -->
     <section class="carousel">
@@ -98,72 +98,86 @@
         <div class="container">
             <div class="row">
                 <div class="card">
-                    <img src="./image/MacBook44-b_27.png" alt="">
+                    <a href="#"><img src="./image/MacBook44-b_27.png" alt=""></a>
                 </div>
                 <div class="card">
-                    <img src="./image/Acer44-b_25.jpg" alt="">
+                    <a href="#"><img src="./image/Acer44-b_25.jpg" alt=""></a>
                 </div>
                 <div class="card">
-                    <img src="./image/Asus44-b_1.png" alt="">
+                    <a href="#"><img src="./image/Asus44-b_1.png" alt=""></a>
                 </div>
                 <div class="card">
-                    <img src="./image/Dell44-b_2.jpg" alt="">
+                    <a href="#"><img src="./image/Dell44-b_2.jpg" alt=""></a>
                 </div>
                 <div class="card">
-                    <img src="./image/HP44-b_27.jpg" alt="">
+                    <a href="#"><img src="./image/HP44-b_27.jpg" alt=""></a>
                 </div>
                 <div class="card">
-                    <img src="./image/Huawei44-b_7.jpg" alt="">
+                    <a href="#"><img src="./image/Huawei44-b_7.jpg" alt=""></a>
                 </div>
                 <div class="card">
-                    <img src="./image/Lenovo44-b_35.png" alt="">
+                    <a href="#"><img src="./image/Lenovo44-b_35.png" alt=""></a>
                 </div>
                 <div class="card">
-                    <img src="./image/LG44-b_32.jpg" alt="">
+                    <a href="#"><img src="./image/LG44-b_32.jpg" alt=""></a>
                 </div>
                 <div class="card">
-                    <img src="./image/MSI44-b_17.png" alt="">
+                    <a href="#"><img src="./image/MSI44-b_17.png" alt=""></a>
                 </div>
             </div>
             <div class="row">
-                <ul id="filter-search">
-                    <li>
-                        <select name="RAM" id="RAM">
-                            <option value="RAM">RAM</option>
-                            <option value="2">2</option>
-                            <option value="3">3</option>
-                            <option value="4">4</option>
-                            <option value="5">5</option>
-                        </select>
-                    </li>
-                    <li>
-                        <select name="CPU" id="CPU">
-                            <option value="CPU">CPU</option>
-                            <option value="2">2</option>
-                            <option value="3">3</option>
-                            <option value="4">4</option>
-                            <option value="5">5</option>
-                        </select>
-                    </li>
-                    <li>
-                        <select name="MH" id="MH">
-                            <option value="MH">MH</option>
-                            <option value="2">2</option>
-                            <option value="3">3</option>
-                            <option value="4">4</option>
-                            <option value="5">5</option>
-                        </select>
-                    </li>
-                    <li>
-                        <select name="Price" id="Price">
-                            <option value="Price">Gia</option>
-                            <option value="2">2</option>
-                            <option value="3">3</option>
-                            <option value="4">4</option>
-                            <option value="5">5</option>
-                        </select>
-                    </li>
-                </ul>
+                <div class="dropdown">
+                    <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                      RAM
+                    </a>
+                  
+                    <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                      <a class="dropdown-item" href="#">1GB</a>
+                      <a class="dropdown-item" href="#">2GB</a>
+                      <a class="dropdown-item" href="#">4GB</a>
+                      <a class="dropdown-item" href="#">8GB</a>
+                      <a class="dropdown-item" href="#">16GB</a>
+                      <a class="dropdown-item" href="#">32GB</a>
+                    </div>
+                  </div>
+                  <div class="dropdown">
+                    <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                      Vi xử lý
+                    </a>
+                  
+                    <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                      <a class="dropdown-item" href="#">i3</a>
+                      <a class="dropdown-item" href="#">i5</a>
+                      <a class="dropdown-item" href="#">i7</a>
+                      <a class="dropdown-item" href="#">i9</a>
+                    </div>
+                  </div>
+                  <div class="dropdown">
+                    <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                      Màn hình
+                    </a>
+                  
+                    <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                      <a class="dropdown-item" href="#"> Nhỏ hơn 13 inch</a>
+                      <a class="dropdown-item" href="#">13 inch</a>
+                      <a class="dropdown-item" href="#">14 inch</a>
+                      <a class="dropdown-item" href="#">15 inch</a>
+                      <a class="dropdown-item" href="#"> Lớn hơn 15 inch</a>
+                    </div>
+                  </div>
+                  <div class="dropdown">
+                    <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                      Giá
+                    </a>
+                  
+                    <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                      <a class="dropdown-item" href="#">Dưới 10 triệu</a>
+                      <a class="dropdown-item" href="#">Từ 10 triệu đến 15 triệu</a>
+                      <a class="dropdown-item" href="#">Từ 15 triệu đến 20 triệu</a>
+                      <a class="dropdown-item" href="#">Từ 20 triệu đến 25 triệu</a>
+                      <a class="dropdown-item" href="#">Hơn 20 triệu</a>
+                    </div>
+                  </div>
             </div>
         </div>
     </section>
@@ -176,21 +190,27 @@
             <div class="row item-content">
                 <div class="row">
                     <div class="card-group col-md-3 col-sm-6">
+                        <a href="./view.html"></a>
                         <div class="card">
-                            <a href="./view.html">
+                            
                                 <div class="card-header">
                                     <img src="./image/laptop.jpg" class="card-img-top" alt="">
                                 </div>
                                 <div class="card-body">
-                                    <h5 class="card-title">Card title</h5>
-                                    <p class="card-text">This is a wider card with supporting text below as a natural
-                                        lead-in to
-                                        additional content. This content is a little bit longer.</p>
-                                        
+                                    <h5 class="card-title">Card title</h5>                                       
                                 </div>
                                 <span id="xemSP">Xem sản phẩm</span>
-                            </a>
+                                <div class="card-footer">
+                                    <div class="d-flex justify-content-around">
+                                        <s>
+                                            <span>5.000.000</span>
+                                        </s>
+                                        <span style="color: red;">4.999.999</span>
+                                    </div>
+                                </div>
+                            
                         </div>
+                    </a>
                     </div>
                     <div class="card-group col-md-3 col-sm-6">
                         <div class="card">
@@ -261,7 +281,7 @@
         </div>
     </section>
     <!-- bestseller  -->
-    <section id="bestseller" class="bestseller item">
+    <section id="bestseller" class="bestseller">
         <div class="container">
             <div class="row bestseller-title item-title">
                 <h2>Sản phẩm bán chạy</h2>
@@ -352,8 +372,8 @@
             </div>
         </div>
     </section>
-    <!-- bestseller  -->
-    <section id="sales" class="sales item">
+    <!-- sales  -->
+    <section id="sales" class="sales">
         <div class="container">
             <div class="row sales-title item-title">
                 <h2>Sản phẩm giảm giá</h2>

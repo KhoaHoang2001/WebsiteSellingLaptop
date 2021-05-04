@@ -16,7 +16,6 @@ Thắng:
     + full giao diện người dùng (done)
     + ràng buộc đăng nhập, đăng ký frontend (done)
     + lọc trang index
-
 Vinh:
     + giao diện admin (done)
     + giảm giá (done)

@@ -53,9 +53,9 @@ CREATE TABLE `donhang` (
   `TAIKHOAN` varchar(30) NOT NULL,
   `TRANGTHAI` varchar(15) CHARACTER SET utf8 NOT NULL,
   `NGAYDAT` date NOT NULL,
-  `HTTHANHTOAN` tinyint(1) NOT NULL,
+  `HTTHANHTOAN` varchar(20) NOT NULL,
   `DIACHINHAN` varchar(200) CHARACTER SET utf8 NOT NULL,
-  `TONGTIEN` int(11) NOT NULL
+  `TONGTIEN` varchar(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------

@@ -6,7 +6,7 @@
             "localhost",
             "root",
             "",
-            "weblaptop"
+            "db_weblaptop"
         );
         mysqli_set_charset($conn, "utf8");
         return $conn;

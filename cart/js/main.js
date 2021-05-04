@@ -29,7 +29,7 @@ function DangKy() {
   //   if (KiemTraDauVaoRong("gioiTinh", gioiTinh) == true) {
   //     loi++;
   //   }
-  if (KiemTraDauVaoRong("Email", email) == true) {
+  /*if (KiemTraDauVaoRong("Email", email) == true) {
     loi++;
   } else {
     if (validate.KiemTraEmail(email)) {
@@ -49,10 +49,10 @@ function DangKy() {
       loi++;
     }
   }
-
-  if (loi != 0) {
-    console.log("them thanh cong");
-  }
+*/
+  if (loi !=0) {
+    return false;
+  }else return true;
 }
 
 function DangNhap() {
@@ -77,3 +77,12 @@ function KiemTraDauVaoRong(ID, value) {
     return false;
   }
 }
+
+function sua_soluong(gia){
+  var soluong;
+  soluong=document.getElementById('soluong').value;
+  document.getElementById('tien').innerHTML=soluong*gia;
+ // document.getElementById('demo').innerHTML=currency_formatt(soluong*gia);
+  
+}
+
