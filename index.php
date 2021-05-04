@@ -169,7 +169,7 @@
             </div>
         </div>
     </section>
-    <!-- bestseller  -->
+    <!-- sales  -->
     <section id="sales" class="sales">
         <div class="container">
             <div class="row sales-title item-title">
