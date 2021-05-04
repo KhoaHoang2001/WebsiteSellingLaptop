@@ -4,8 +4,7 @@
                 <h2>Sản phẩm mới</h2>
             </div>
             <div class="row item-content">
-                <div class="row">
-
+                <div class="row" style="padding: 15px">
                         <?php 
                             $sql_all_product = "SELECT * ,LINK FROM sanpham,hinhanh where sanpham.MASP=hinhanh.MASP";
                             $res_all_product = Check_db($sql_all_product);
@@ -34,8 +33,16 @@
                                     <div class='card-body'>
                                         <h4 class='card-title'><?php echo $tensp ?></h4>
                                         <p class='card-text'>
-                                            <span><?php echo $gia?></span>
-                                            <span><?php echo $giamoi?></span>
+                                        <?php 
+                                                    if($giamoi==""){
+                                                      echo " <span>". $gia."</span>";
+                                                    }else{
+                                                        echo "<s>
+                                                        <span>". $gia."</span>
+                                                    </s>
+                                                    <span>".$giamoi."</span>";
+                                                    }
+                                                ?>
                                         </p>
                                     </div>
                                     <span id='xemSP'>Xem sản phẩm</span>

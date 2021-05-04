@@ -59,44 +59,58 @@
                 </div>
             </div>
             <div class="row">
-                <ul id="filter-search">
-                    <li>
-                        <select name="RAM" id="RAM">
-                            <option value="RAM">RAM</option>
-                            <option value="2">2</option>
-                            <option value="3">3</option>
-                            <option value="4">4</option>
-                            <option value="5">5</option>
-                        </select>
-                    </li>
-                    <li>
-                        <select name="CPU" id="CPU">
-                            <option value="CPU">CPU</option>
-                            <option value="2">2</option>
-                            <option value="3">3</option>
-                            <option value="4">4</option>
-                            <option value="5">5</option>
-                        </select>
-                    </li>
-                    <li>
-                        <select name="MH" id="MH">
-                            <option value="MH">MH</option>
-                            <option value="2">2</option>
-                            <option value="3">3</option>
-                            <option value="4">4</option>
-                            <option value="5">5</option>
-                        </select>
-                    </li>
-                    <li>
-                        <select name="Price" id="Price">
-                            <option value="Price">Gia</option>
-                            <option value="2">2</option>
-                            <option value="3">3</option>
-                            <option value="4">4</option>
-                            <option value="5">5</option>
-                        </select>
-                    </li>
-                </ul>
+                <div class="dropdown">
+                    <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                      RAM
+                    </a>
+                  
+                    <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                      <a class="dropdown-item" href="#">1GB</a>
+                      <a class="dropdown-item" href="#">2GB</a>
+                      <a class="dropdown-item" href="#">4GB</a>
+                      <a class="dropdown-item" href="#">8GB</a>
+                      <a class="dropdown-item" href="#">16GB</a>
+                      <a class="dropdown-item" href="#">32GB</a>
+                    </div>
+                  </div>
+                  <div class="dropdown">
+                    <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                      Vi xử lý
+                    </a>
+                  
+                    <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                      <a class="dropdown-item" href="#">i3</a>
+                      <a class="dropdown-item" href="#">i5</a>
+                      <a class="dropdown-item" href="#">i7</a>
+                      <a class="dropdown-item" href="#">i9</a>
+                    </div>
+                  </div>
+                  <div class="dropdown">
+                    <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                      Màn hình
+                    </a>
+                  
+                    <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                      <a class="dropdown-item" href="#"> Nhỏ hơn 13 inch</a>
+                      <a class="dropdown-item" href="#">13 inch</a>
+                      <a class="dropdown-item" href="#">14 inch</a>
+                      <a class="dropdown-item" href="#">15 inch</a>
+                      <a class="dropdown-item" href="#"> Lớn hơn 15 inch</a>
+                    </div>
+                  </div>
+                  <div class="dropdown">
+                    <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                      Giá
+                    </a>
+                  
+                    <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                      <a class="dropdown-item" href="#">Dưới 10 triệu</a>
+                      <a class="dropdown-item" href="#">Từ 10 triệu đến 15 triệu</a>
+                      <a class="dropdown-item" href="#">Từ 15 triệu đến 20 triệu</a>
+                      <a class="dropdown-item" href="#">Từ 20 triệu đến 25 triệu</a>
+                      <a class="dropdown-item" href="#">Hơn 20 triệu</a>
+                    </div>
+                  </div>
             </div>
         </div>
     </section>
@@ -109,7 +123,11 @@
                 <h2>Sản phẩm bán chạy</h2>
             </div>
             <div class="row bestseller-content item-content">
+
+                <!-- <div class="row"> -->
+
                 <div class="row">
+
                     <?php 
                         $sql = "SELECT *,SUM(SOLUONGDAT), LINK FROM sanpham,monhang,hinhanh where sanpham.MASP=monhang.MASP 
                         AND hinhanh.MASP=monhang.MASP GROUP BY monhang.MASP ORDER BY SUM(SOLUONGDAT) DESC LIMIT 4";
@@ -139,8 +157,17 @@
                                         <div class='card-body'>
                                             <h4 class='card-title'><?php echo $tensp ?></h4>
                                             <p class='card-text'>
-                                                <span><?php echo $gia?></span>
-                                                <span><?php echo $giamoi?></span>
+                                                <?php 
+                                                    if($giamoi==""){
+                                                      echo " <span>". $gia."</span>";
+                                                    }else{
+                                                        echo "<s>
+                                                        <span>". $gia."</span>
+                                                    </s>
+                                                    <span>".$giamoi."</span>";
+                                                    }
+                                                ?>
+                                                
                                             </p>
                                         </div>
                                         <span id='xemSP'>Xem sản phẩm</span>
@@ -190,8 +217,16 @@
                                         <div class='card-body'>
                                             <h4 class='card-title'><?php echo $tensp ?></h4>
                                             <p class='card-text'>
-                                                <span><?php echo $gia?></span>
-                                                <span><?php echo $giamoi?></span>
+                                            <?php 
+                                                    if($giamoi==""){
+                                                      echo " <span>". $gia."</span>";
+                                                    }else{
+                                                        echo "<s>
+                                                        <span>". $gia."</span>
+                                                    </s>
+                                                    <span>".$giamoi."</span>";
+                                                    }
+                                                ?>
                                             </p>
                                         </div>
                                         <span id='xemSP'>Xem sản phẩm</span>
