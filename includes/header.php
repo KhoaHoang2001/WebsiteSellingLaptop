@@ -27,7 +27,7 @@
                             <div class="navbar-select">
                                     <ul class="navbar-nav">
                                         <li class="nav-item">
-                                            <a class="nav-link active" aria-current="page" href="./index.php#laptop">Laptop</a>
+                                            <a class="nav-link active" aria-current="page" href="./index.html#laptop">Laptop</a>
                                         </li>
                                         <li class="nav-item">
                                             <a class="nav-link" href="./index.html#sales">Giảm giá</a>
@@ -36,10 +36,10 @@
                                             <a class="nav-link" href="./index.html#bestseller">Bán chạy</a>
                                         </li>
                                         <li class="nav-item">
-                                            <a class="nav-link" href="./cart.php">Giỏ hàng</a>
+                                            <a class="nav-link" href="./cart.html">Giỏ hàng</a>
                                         </li>
                                         <li class="nav-item">
-                                            <a class="nav-link" href="./login.php">Tài khoản</a>
+                                            <a class="nav-link" href="./login.html">Tài khoản</a>
                                         </li>
                                     </ul>
                             </div>
@@ -48,5 +48,5 @@
                 </nav>
             </div>
         </div>
-        <button onclick="topFunction()" id="myBtn" title="Go to top">Top</button>
+        <button onclick="topFunction()" id="myBtn" title="Go to top"><i class="fa fa-angle-double-up"></i></button>
     </header>

@@ -30,9 +30,14 @@ if ($gia - $gia * $phantram / 100 != $gia) {
 
 <?php include('./includes/head.php') ?>
 
+
 <body>
     <!-- header -->
     <?php include('./includes/header.php') ?>
+<<<<<<< HEAD
+=======
+
+>>>>>>> f5dc9804fa3c0d042311db4862fae2b9f9a5feb0
     <!-- url link -->
     <section class="url">
         <div class="container">
@@ -104,13 +109,13 @@ if ($gia - $gia * $phantram / 100 != $gia) {
                     <h2>Thông số kỹ thuật</h2>
                     <ul>
                         <hr>
-                        <li><?php echo $ram ?> GB</li>
+                        <li>RAM: <?php echo $ram ?> GB</li>
                         <hr>
-                        <li><?php echo $vixuly ?></li>
+                        <li>Vi xử lý: <?php echo $vixuly ?></li>
                         <hr>
-                        <li><?php echo $kichthuocmh ?></li>
+                        <li>Kích thước màn hình: <?php echo $kichthuocmh ?></li>
                         <hr>
-                        <li>nsx <?php echo $ngaysx ?></li>
+                        <li>Ngày sản xuất: <?php echo $ngaysx ?></li>
                     </ul>
                 </div>
             </div>
@@ -122,4 +127,8 @@ if ($gia - $gia * $phantram / 100 != $gia) {
     <?php include('./includes/footer.php') ?>
     <!-- script -->
     <?php include('./includes/script.php') ?>
+<<<<<<< HEAD
+=======
+
+>>>>>>> f5dc9804fa3c0d042311db4862fae2b9f9a5feb0
 </body>

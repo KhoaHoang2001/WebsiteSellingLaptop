@@ -115,10 +115,14 @@ header #myBtn {
   text-align: center;
 }
 
-.filter .container .row .card img {
+.filter .container .row .card a {
   width: 100px;
+  height: 25px;
+}
+
+.filter .container .row .card a img {
+  width: 100%;
   height: 100%;
-  cursor: pointer;
 }
 
 .filter .container .row .dropdown {
@@ -129,47 +133,47 @@ header #myBtn {
   padding: 10px;
 }
 
-.item .container .item-title, .bestseller .container .item-title, .sales .container .item-title {
+.item .container .item-title, #bestseller .container .item-title, .sales .container .item-title {
   padding-left: 15px;
 }
 
-.item .container .item-content, .bestseller .container .item-content, .sales .container .item-content {
+.item .container .item-content, #bestseller .container .item-content, .sales .container .item-content {
   padding: 15px 15px 0 15px;
   border: 1px solid black;
 }
 
-.item .container .item-content .card-group, .bestseller .container .item-content .card-group, .sales .container .item-content .card-group {
+.item .container .item-content .card-group, #bestseller .container .item-content .card-group, .sales .container .item-content .card-group {
   padding-bottom: 30px;
 }
 
-.item .container .item-content .card-group .card, .bestseller .container .item-content .card-group .card, .sales .container .item-content .card-group .card {
+.item .container .item-content .card-group .card, #bestseller .container .item-content .card-group .card, .sales .container .item-content .card-group .card {
   padding: 0;
   border: 1px solid black;
   border-radius: 5px;
 }
 
-.item .container .item-content .card-group .card a, .bestseller .container .item-content .card-group .card a, .sales .container .item-content .card-group .card a {
+.item .container .item-content .card-group .card a, #bestseller .container .item-content .card-group .card a, .sales .container .item-content .card-group .card a {
   text-decoration: none;
   color: black;
 }
 
-.item .container .item-content .card-group .card a .card-header, .bestseller .container .item-content .card-group .card a .card-header, .sales .container .item-content .card-group .card a .card-header {
+.item .container .item-content .card-group .card a .card-header, #bestseller .container .item-content .card-group .card a .card-header, .sales .container .item-content .card-group .card a .card-header {
   padding: 0;
 }
 
-.item .container .item-content .card-group .card a .card-header img, .bestseller .container .item-content .card-group .card a .card-header img, .sales .container .item-content .card-group .card a .card-header img {
+.item .container .item-content .card-group .card a .card-header img, #bestseller .container .item-content .card-group .card a .card-header img, .sales .container .item-content .card-group .card a .card-header img {
   width: 100%;
 }
 
-.item .container .item-content .card-group .card:hover #xemSP, .bestseller .container .item-content .card-group .card:hover #xemSP, .sales .container .item-content .card-group .card:hover #xemSP {
+.item .container .item-content .card-group .card:hover #xemSP, #bestseller .container .item-content .card-group .card:hover #xemSP, .sales .container .item-content .card-group .card:hover #xemSP {
   display: block;
 }
 
-.item .container .item-content .card-group .card:hover .card-body, .bestseller .container .item-content .card-group .card:hover .card-body, .sales .container .item-content .card-group .card:hover .card-body {
+.item .container .item-content .card-group .card:hover .card-body, #bestseller .container .item-content .card-group .card:hover .card-body, .sales .container .item-content .card-group .card:hover .card-body {
   opacity: 0.5;
 }
 
-.item .container .item-content .card-group .card #xemSP, .bestseller .container .item-content .card-group .card #xemSP, .sales .container .item-content .card-group .card #xemSP {
+.item .container .item-content .card-group .card #xemSP, #bestseller .container .item-content .card-group .card #xemSP, .sales .container .item-content .card-group .card #xemSP {
   display: none;
   position: absolute;
   bottom: 20%;
@@ -182,30 +186,30 @@ header #myBtn {
   z-index: 2;
 }
 
-.item .container .item-content input, .bestseller .container .item-content input, .sales .container .item-content input {
+.item .container .item-content input, #bestseller .container .item-content input, .sales .container .item-content input {
   margin: 15px auto;
   border: 0px;
   background-color: transparent;
   text-transform: uppercase;
 }
 
-.item .container .item-content button, .bestseller .container .item-content button, .sales .container .item-content button {
+.item .container .item-content button, #bestseller .container .item-content button, .sales .container .item-content button {
   margin: 15px auto;
   background-color: transparent;
   border: 0;
   text-transform: uppercase;
 }
 
-.bestseller {
+#bestseller {
   padding: 22px 0;
 }
 
-.bestseller .bestseller {
+#bestseller .bestseller {
   width: 90%;
   margin: auto;
 }
 
-.bestseller .bestseller h2 {
+#bestseller .bestseller h2 {
   font-size: 20px;
 }
 

@@ -31,72 +31,86 @@
         <div class="container">
             <div class="row">
                 <div class="card">
-                    <img src="./image/MacBook44-b_27.png" alt="">
+                    <a href="#"><img src="./image/MacBook44-b_27.png" alt=""></a>
                 </div>
                 <div class="card">
-                    <img src="./image/Acer44-b_25.jpg" alt="">
+                    <a href="#"><img src="./image/Acer44-b_25.jpg" alt=""></a>
                 </div>
                 <div class="card">
-                    <img src="./image/Asus44-b_1.png" alt="">
+                    <a href="#"><img src="./image/Asus44-b_1.png" alt=""></a>
                 </div>
                 <div class="card">
-                    <img src="./image/Dell44-b_2.jpg" alt="">
+                    <a href="#"><img src="./image/Dell44-b_2.jpg" alt=""></a>
                 </div>
                 <div class="card">
-                    <img src="./image/HP44-b_27.jpg" alt="">
+                    <a href="#"><img src="./image/HP44-b_27.jpg" alt=""></a>
                 </div>
                 <div class="card">
-                    <img src="./image/Huawei44-b_7.jpg" alt="">
+                    <a href="#"><img src="./image/Huawei44-b_7.jpg" alt=""></a>
                 </div>
                 <div class="card">
-                    <img src="./image/Lenovo44-b_35.png" alt="">
+                    <a href="#"><img src="./image/Lenovo44-b_35.png" alt=""></a>
                 </div>
                 <div class="card">
-                    <img src="./image/LG44-b_32.jpg" alt="">
+                    <a href="#"><img src="./image/LG44-b_32.jpg" alt=""></a>
                 </div>
                 <div class="card">
-                    <img src="./image/MSI44-b_17.png" alt="">
+                    <a href="#"><img src="./image/MSI44-b_17.png" alt=""></a>
                 </div>
             </div>
             <div class="row">
-                <ul id="filter-search">
-                    <li>
-                        <select name="RAM" id="RAM">
-                            <option value="RAM">RAM</option>
-                            <option value="2">2</option>
-                            <option value="3">3</option>
-                            <option value="4">4</option>
-                            <option value="5">5</option>
-                        </select>
-                    </li>
-                    <li>
-                        <select name="CPU" id="CPU">
-                            <option value="CPU">CPU</option>
-                            <option value="2">2</option>
-                            <option value="3">3</option>
-                            <option value="4">4</option>
-                            <option value="5">5</option>
-                        </select>
-                    </li>
-                    <li>
-                        <select name="MH" id="MH">
-                            <option value="MH">MH</option>
-                            <option value="2">2</option>
-                            <option value="3">3</option>
-                            <option value="4">4</option>
-                            <option value="5">5</option>
-                        </select>
-                    </li>
-                    <li>
-                        <select name="Price" id="Price">
-                            <option value="Price">Gia</option>
-                            <option value="2">2</option>
-                            <option value="3">3</option>
-                            <option value="4">4</option>
-                            <option value="5">5</option>
-                        </select>
-                    </li>
-                </ul>
+                <div class="dropdown">
+                    <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                      RAM
+                    </a>
+                  
+                    <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                      <a class="dropdown-item" href="#">1GB</a>
+                      <a class="dropdown-item" href="#">2GB</a>
+                      <a class="dropdown-item" href="#">4GB</a>
+                      <a class="dropdown-item" href="#">8GB</a>
+                      <a class="dropdown-item" href="#">16GB</a>
+                      <a class="dropdown-item" href="#">32GB</a>
+                    </div>
+                  </div>
+                  <div class="dropdown">
+                    <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                      Vi xử lý
+                    </a>
+                  
+                    <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                      <a class="dropdown-item" href="#">i3</a>
+                      <a class="dropdown-item" href="#">i5</a>
+                      <a class="dropdown-item" href="#">i7</a>
+                      <a class="dropdown-item" href="#">i9</a>
+                    </div>
+                  </div>
+                  <div class="dropdown">
+                    <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                      Màn hình
+                    </a>
+                  
+                    <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                      <a class="dropdown-item" href="#"> Nhỏ hơn 13 inch</a>
+                      <a class="dropdown-item" href="#">13 inch</a>
+                      <a class="dropdown-item" href="#">14 inch</a>
+                      <a class="dropdown-item" href="#">15 inch</a>
+                      <a class="dropdown-item" href="#"> Lớn hơn 15 inch</a>
+                    </div>
+                  </div>
+                  <div class="dropdown">
+                    <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                      Giá
+                    </a>
+                  
+                    <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                      <a class="dropdown-item" href="#">Dưới 10 triệu</a>
+                      <a class="dropdown-item" href="#">Từ 10 triệu đến 15 triệu</a>
+                      <a class="dropdown-item" href="#">Từ 15 triệu đến 20 triệu</a>
+                      <a class="dropdown-item" href="#">Từ 20 triệu đến 25 triệu</a>
+                      <a class="dropdown-item" href="#">Hơn 20 triệu</a>
+                    </div>
+                  </div>
             </div>
         </div>
     </section>
@@ -138,7 +152,9 @@
                                         <div class='card-body'>
                                             <h4 class='card-title'><?php echo $tensp ?></h4>
                                             <p class='card-text'>
-                                                <span><?php echo $gia?></span>
+                                                <s>
+                                                    <span><?php echo $gia?></span>
+                                                </s>
                                                 <span><?php echo $giamoi?></span>
                                             </p>
                                         </div>
@@ -153,7 +169,7 @@
             </div>
         </div>
     </section>
-    <!-- bestseller  -->
+    <!-- sales  -->
     <section id="sales" class="sales">
         <div class="container">
             <div class="row sales-title item-title">
