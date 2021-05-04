@@ -1,12 +1,13 @@
 <?php
-    require_once('./includes/include.php');
-    require_once('./includes/conn.php');
+require_once('./includes/include.php');
+require_once('./includes/conn.php');
 ?>
 
 <!DOCTYPE html>
 <html lang="en">
-    <?php include('./includes/head.php') ?>
-    <body>
+<?php include('./includes/head.php') ?>
+
+<body>
     <!-- header -->
     <?php include('./includes/header.php') ?>
     <!-- banner -->
@@ -61,56 +62,56 @@
             <div class="row">
                 <div class="dropdown">
                     <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                      RAM
+                        RAM
                     </a>
-                  
+
                     <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                      <a class="dropdown-item" href="#">1GB</a>
-                      <a class="dropdown-item" href="#">2GB</a>
-                      <a class="dropdown-item" href="#">4GB</a>
-                      <a class="dropdown-item" href="#">8GB</a>
-                      <a class="dropdown-item" href="#">16GB</a>
-                      <a class="dropdown-item" href="#">32GB</a>
+                        <a class="dropdown-item" href="#">1GB</a>
+                        <a class="dropdown-item" href="#">2GB</a>
+                        <a class="dropdown-item" href="#">4GB</a>
+                        <a class="dropdown-item" href="#">8GB</a>
+                        <a class="dropdown-item" href="#">16GB</a>
+                        <a class="dropdown-item" href="#">32GB</a>
                     </div>
-                  </div>
-                  <div class="dropdown">
+                </div>
+                <div class="dropdown">
                     <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                      Vi xử lý
+                        Vi xử lý
                     </a>
-                  
+
                     <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                      <a class="dropdown-item" href="#">i3</a>
-                      <a class="dropdown-item" href="#">i5</a>
-                      <a class="dropdown-item" href="#">i7</a>
-                      <a class="dropdown-item" href="#">i9</a>
+                        <a class="dropdown-item" href="#">i3</a>
+                        <a class="dropdown-item" href="#">i5</a>
+                        <a class="dropdown-item" href="#">i7</a>
+                        <a class="dropdown-item" href="#">i9</a>
                     </div>
-                  </div>
-                  <div class="dropdown">
+                </div>
+                <div class="dropdown">
                     <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                      Màn hình
+                        Màn hình
                     </a>
-                  
+
                     <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                      <a class="dropdown-item" href="#"> Nhỏ hơn 13 inch</a>
-                      <a class="dropdown-item" href="#">13 inch</a>
-                      <a class="dropdown-item" href="#">14 inch</a>
-                      <a class="dropdown-item" href="#">15 inch</a>
-                      <a class="dropdown-item" href="#"> Lớn hơn 15 inch</a>
+                        <a class="dropdown-item" href="#"> Nhỏ hơn 13 inch</a>
+                        <a class="dropdown-item" href="#">13 inch</a>
+                        <a class="dropdown-item" href="#">14 inch</a>
+                        <a class="dropdown-item" href="#">15 inch</a>
+                        <a class="dropdown-item" href="#"> Lớn hơn 15 inch</a>
                     </div>
-                  </div>
-                  <div class="dropdown">
+                </div>
+                <div class="dropdown">
                     <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                      Giá
+                        Giá
                     </a>
-                  
+
                     <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                      <a class="dropdown-item" href="#">Dưới 10 triệu</a>
-                      <a class="dropdown-item" href="#">Từ 10 triệu đến 15 triệu</a>
-                      <a class="dropdown-item" href="#">Từ 15 triệu đến 20 triệu</a>
-                      <a class="dropdown-item" href="#">Từ 20 triệu đến 25 triệu</a>
-                      <a class="dropdown-item" href="#">Hơn 20 triệu</a>
+                        <a class="dropdown-item" href="#">Dưới 10 triệu</a>
+                        <a class="dropdown-item" href="#">Từ 10 triệu đến 15 triệu</a>
+                        <a class="dropdown-item" href="#">Từ 15 triệu đến 20 triệu</a>
+                        <a class="dropdown-item" href="#">Từ 20 triệu đến 25 triệu</a>
+                        <a class="dropdown-item" href="#">Hơn 20 triệu</a>
                     </div>
-                  </div>
+                </div>
             </div>
         </div>
     </section>
@@ -123,6 +124,7 @@
                 <h2>Sản phẩm bán chạy</h2>
             </div>
             <div class="row bestseller-content item-content">
+<<<<<<< HEAD
 
                 <!-- <div class="row"> -->
 
@@ -169,14 +171,51 @@
                                                 ?>
                                                 
                                             </p>
-                                        </div>
-                                        <span id='xemSP'>Xem sản phẩm</span>
-                                    </a>
-                                </div>
-                            </div>
-                        <?php
+=======
+                <div class="col-12" style="padding: 0">
+                    <?php
+                    $sql = "SELECT *,SUM(SOLUONGDAT)FROM sanpham,monhang where sanpham.MASP=monhang.MASP GROUP BY monhang.MASP 
+                        ORDER BY SUM(SOLUONGDAT) DESC LIMIT 4";
+                    $res = Check_db($sql);
+                    while ($row = mysqli_fetch_assoc($res)) {
+                        $masp = $row['MASP'];
+                        $tensp = $row['TENSP'];
+                        $gia = $row['GIA'];
+                        $phantram = View_Discount_Of_Product($masp);
+                        if ($gia - $gia * $phantram / 100 != $gia) {
+                            $giamoi = $gia - $gia * $phantram / 100;
+                        } else {
+                            $giamoi = "";
                         }
-                        ?>
+                        $kichthuocmh = $row['KICHTHUOCMH'];
+                        $vixuly = $row['VIXULY'];
+                        $ram = $row['RAM'];
+                    ?>
+                        <div class='card-group col-md-3 col-sm-6'>
+                            <div class='card'>
+                                <a href='./view_product.php'>
+                                    <div class='card-header'>
+                                        <img src='./image/laptop.jpg' class='card-img-top' alt=''>
+                                    </div>
+                                    <div class='card-body'>
+                                        <h4 class='card-title'><?php echo $tensp ?></h4>
+                                    </div>
+                                    <span id='xemSP'>Xem sản phẩm</span>
+                                    <div class="card-footer">
+                                        <div class='d-flex justify-content-around'>
+                                            <s>
+                                                <span><?php echo $gia ?></span>
+                                            </s>
+                                            <span><?php echo $giamoi ?></span>
+>>>>>>> 5fdb6c89b6899825b4fd33abba8fae577daeaa78
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                    <?php
+                    }
+                    ?>
                 </div>
             </div>
         </div>
@@ -188,6 +227,7 @@
                 <h2>Sản phẩm giảm giá</h2>
             </div>
             <div class="row sales-content item-content">
+<<<<<<< HEAD
                 <div class="row">
                 <?php 
                         $sql = "SELECT * ,LINK FROM sanpham,hinhanh where sanpham.MASP=hinhanh.MASP and MAGIAMGIA IS NOT NULL";
@@ -231,11 +271,48 @@
                                         </div>
                                         <span id='xemSP'>Xem sản phẩm</span>
                                     </a>
-                                </div>
-                            </div>
-                        <?php
+=======
+                <div class="col-12" style="padding: 0px;">
+                    <?php
+                    $sql = "SELECT * FROM sanpham where MAGIAMGIA IS NOT NULL";
+                    $res = Check_db($sql);
+                    while ($row = mysqli_fetch_assoc($res)) {
+                        $masp = $row['MASP'];
+                        $tensp = $row['TENSP'];
+                        $gia = $row['GIA'];
+                        $phantram = View_Discount_Of_Product($masp);
+                        if ($gia - $gia * $phantram / 100 != $gia) {
+                            $giamoi = $gia - $gia * $phantram / 100;
+                        } else {
+                            $giamoi = "";
                         }
-                        ?>
+                        $kichthuocmh = $row['KICHTHUOCMH'];
+                        $vixuly = $row['VIXULY'];
+                        $ram = $row['RAM'];
+                    ?>
+                        <div class='card-group col-md-3 col-sm-6'>
+                            <a href='./view.html'>
+                                <div class='card'>
+                                    <div class='card-header'>
+                                        <img src='./image/laptop.jpg' class='card-img-top' alt=''>
+                                    </div>
+                                    <div class='card-body'>
+                                        <h4 class='card-title'><?php echo $tensp ?></h4>
+                                    </div>
+                                    <span id='xemSP'>Xem sản phẩm</span>
+                                    <div class='card-body'>
+                                        <div class="d-flex justify-content-around">
+                                            <span><?php echo $gia ?></span>
+                                            <span><?php echo $giamoi ?></span>
+                                        </div>
+                                    </div>
+>>>>>>> 5fdb6c89b6899825b4fd33abba8fae577daeaa78
+                                </div>
+                            </a>
+                        </div>
+                    <?php
+                    }
+                    ?>
                 </div>
             </div>
         </div>
@@ -245,21 +322,22 @@
     <!-- script -->
     <?php include('./includes/script.php') ?>
     <!-- jquery  -->
-    
+
 </body>
+
 </html>
 
-<?php 
-    function View_Discount_Of_Product($masp){
-        $sql_discount = "SELECT * FROM giamgia WHERE MAGIAMGIA = (SELECT MAGIAMGIA FROM sanpham WHERE MASP = '$masp');";
-        $res_discount = Check_db($sql_discount);
-        if(mysqli_num_rows($res_discount) > 0){
-            $row_discount = mysqli_fetch_assoc($res_discount);
-            return $row_discount['PHANTRAM'];
-        }
-        else{
-            return;
-        }
+<?php
+function View_Discount_Of_Product($masp)
+{
+    $sql_discount = "SELECT * FROM giamgia WHERE MAGIAMGIA = (SELECT MAGIAMGIA FROM sanpham WHERE MASP = '$masp');";
+    $res_discount = Check_db($sql_discount);
+    if (mysqli_num_rows($res_discount) > 0) {
+        $row_discount = mysqli_fetch_assoc($res_discount);
+        return $row_discount['PHANTRAM'];
+    } else {
+        return;
+    }
 }
 
 ?>
