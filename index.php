@@ -123,7 +123,7 @@
                 <h2>Sản phẩm bán chạy</h2>
             </div>
             <div class="row bestseller-content item-content">
-                <div class="col-12">
+                <div class="col-12" style="padding: 0">
                     <?php 
                         $sql = "SELECT *,SUM(SOLUONGDAT)FROM sanpham,monhang where sanpham.MASP=monhang.MASP GROUP BY monhang.MASP 
                         ORDER BY SUM(SOLUONGDAT) DESC LIMIT 4";
@@ -145,7 +145,7 @@
                         ?>
                             <div class='card-group col-md-3 col-sm-6'>
                                 <div class='card'>
-                                    <a href='./view.html'>
+                                    <a href='./view_product.php'>
                                         <div class='card-header'>
                                             <img src='./image/laptop.jpg' class='card-img-top' alt=''>
                                         </div>
@@ -176,7 +176,7 @@
                 <h2>Sản phẩm giảm giá</h2>
             </div>
             <div class="row sales-content item-content">
-                <div class="row">
+                <div class="col-12" style="padding: 0px;">
                 <?php 
                         $sql = "SELECT * FROM sanpham where MAGIAMGIA IS NOT NULL";
                         $res = Check_db($sql);

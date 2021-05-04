@@ -2,6 +2,22 @@
     require_once('./includes/include.php');
     require_once('./includes/conn.php');
     $taikhoan = $_SESSION['taikhoan'];
+      if ($_SERVER["REQUEST_METHOD"] == "POST") {
+          $TENND = ($_POST["tennd"]);
+          $GIOITINH=($_POST['gioiTinh']);
+          $EMAIL=$_POST['email'];
+          $SDT=$_POST['sdt'];
+          $DIACHI=$_POST['diaChi'];
+         // echo $GIOITINH."".$EMAIL."".$SDT;
+          $conn = Connect();
+          $sql1="UPDATE nguoidung SET TENND='$TENND',GIOITINH='$GIOITINH', EMAIL='$EMAIL',SDT='$SDT',DIACHI='$DIACHI' WHERE TAIKHOAN='$taikhoan'";
+          if($conn->query($sql1)){
+          }else{
+            echo "error: ".$sql1."<br>".$conn->error;
+          }
+          $conn->close();
+        }
+    
 ?>
 
 <!DOCTYPE html>
@@ -114,22 +130,27 @@
           <div id="account__right">
             <div id="myAccount">
               <div id="thongTinTaiKhoan">
+              <?php 
+                        $sql_account = "SELECT * FROM nguoidung where taikhoan = '$taikhoan'";
+                        $res_account = Check_db($sql_account);
+                        $temp = 0;
+                        if(mysqli_num_rows($res_account)){
+                            while ($row = mysqli_fetch_assoc($res_account)) {
+                                $tennd = $row['TENND'];
+                                $gioitinh = $row['GIOITINH'];
+                                $sdt = $row['SDT'];
+                                $email = $row['EMAIL'];
+                                $diachi = $row['DIACHI'];
+                                
+                ?>
                 <form action="" method="POST">
                   <table>
                     <tr>
                       <th>
-                        <label for="firstName">Tên</label>
+                        <label for="firstName">Họ tên</label>
                       </th>
                       <td>
-                        <input type="text" name="firstName" id="userFistName" />
-                      </td>
-                    </tr>
-                    <tr>
-                      <th>
-                        <label for="lastName">Họ</label>
-                      </th>
-                      <td>
-                        <input type="text" name="lastName" id="userLastName" />
+                        <input type="text" name="tennd" id="userFistName" value="<?php echo $tennd?>"/>
                       </td>
                     </tr>
                     <tr>
@@ -137,10 +158,15 @@
                         <label for="lastName">Giới tính</label>
                       </th>
                       <td>
-                        <input type="radio" name="gioiTinh" id="" />
+                        <input type="radio" name="gioiTinh" id='nam'value="Nam" >
                         <label for="gioiTinh">Nam</label>
-                        <input type="radio" name="gioiTinh" id="" />
+                        <input type="radio" name="gioiTinh" id="nu" value="Nữ">
                         <label for="gioiTinh">Nữ</label>
+                        <?php if($gioitinh=='Nữ'){?>
+                        <script>document.getElementById('nu').checked=true;</script>
+                        <?php } if($gioitinh=='Nam'){?>
+                        <script>document.getElementById('nam').checked=true;</script>
+                        <?php }?>
                       </td>
                     </tr>
                     <tr>
@@ -148,7 +174,7 @@
                         <label for="email">Email</label>
                       </th>
                       <td>
-                        <input type="email" name="email" id="userEmail" />
+                        <input type="email" name="email" id="userEmail" value="<?php echo $email?>"/>
                       </td>
                     </tr>
                     <tr>
@@ -156,7 +182,7 @@
                         <label for="sdt">Số điện thoại</label>
                       </th>
                       <td>
-                        <input type="tel" name="sdt" id="" />
+                        <input type="tel" name="sdt" id="" value="<?php echo $sdt?>" />
                       </td>
                     </tr>
                     <tr>
@@ -164,7 +190,7 @@
                         <label for="diaChi">Địa chỉ</label>
                       </th>
                       <td>
-                        <input type="text" name="diaChi" id="" />
+                        <input type="text" name="diaChi" id="" value="<?php echo $diachi?>"/>
                       </td>
                     </tr>
                     <tr>
@@ -175,6 +201,7 @@
                     </tr>
                   </table>
                 </form>
+                <?php } }?>
                 <div id="account__img">
                   <img src="./image/laptop.jpg" alt="" />
                   <i class="fa fa-camera"></i>
@@ -420,5 +447,6 @@
     </script>
     <!-- MAIN JS -->
     <!-- <script src="./js/main.js"></script> -->
+    
   </body>
 </html>

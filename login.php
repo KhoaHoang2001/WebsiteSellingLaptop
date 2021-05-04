@@ -75,6 +75,7 @@ require_once('./includes/conn.php');
       </div>
     </div>
   </header>
+<<<<<<< HEAD
   <!-- login form -->
   <section class="login-form">
     <div class="container">
@@ -125,6 +126,67 @@ require_once('./includes/conn.php');
             </tr>
           </table>
         </form>
+=======
+    <!-- login form -->
+    <section class="login-form">
+      <div class="container">
+        <div class="login-form-center" align="center">
+          <h2>Đăng nhập</h2>
+          <form action="" method="" >
+            <table>
+              <tr>
+                <th>
+                  <label for="Login">Tên đăng nhập:</label>
+                </th>
+                <td style="width: 10px"></td>
+                <td>
+                  <input type="text" name="tenDangNhap" id="tenDangNhap" />
+                </td>
+              </tr>
+              <tr style="height: 10px">
+                <td></td>
+                <td></td>
+                <td></td>
+              </tr>
+              <tr>
+                <th>
+                  <label for="pwd">Mật khẩu:</label>
+                </th>
+                <td></td>
+                <td>
+                  <input type="password" name="matKhau" id="matKhau" />
+                </td>
+              </tr>
+              <tr style="height: 10px">
+                <td></td>
+                <td></td>
+                <td></td>
+              </tr>
+              <tr>
+                <td style="padding-left: 20px">
+                  <button
+                    type="button"
+                    style="padding: 5px 10px"
+                    onclick="DangNhap()"
+                  >
+                    Đăng nhập
+                  </button>
+                </td>
+                <td></td>
+                <td>
+                  <button style="padding: 5px 10px">
+                    <a
+                      href="./signup.php"
+                      style="text-decoration: none; color: black"
+                      >Đăng ký</a
+                    >
+                  </button>
+                </td>
+              </tr>
+            </table>
+          </form>
+        </div>
+>>>>>>> fb5a4cb15254ff253accaeaaf123ea10aa6b5a37
       </div>
     </div>
   </section>
