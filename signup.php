@@ -138,6 +138,7 @@
           </table>
         </form>
       </div>
+<<<<<<< HEAD
     </div>
   </section>
   <!-- footer -->
@@ -152,6 +153,22 @@
   <?php
   require_once('./includes/conn.php');
   if ($_SERVER["REQUEST_METHOD"] == "POST") {
+=======
+    </section>
+    <!-- footer -->
+    <?php include('./includes/footer.php') ?>
+    <!-- script -->
+    <?php include('./includes/script.php') ?>
+    <!-- jquery  -->
+    <!-- MAIN JS -->
+    <!-- MAIN JS -->
+    <script type="text/javascript" src="./FE/js/validation.js"></script>
+    <script type="text/javascript" src="./FE/js/main.js"></script>
+    
+    <?php
+require_once('./includes/conn.php');
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+>>>>>>> 8391f04f19c48e30aa29f026634124fe9e168192
     $TAIKHOAN = $_POST["TAIKHOAN"];
     $MATKHAU = $_POST["MATKHAU"];
     $TENND = ($_POST["TENND"]);

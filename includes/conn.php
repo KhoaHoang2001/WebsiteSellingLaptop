@@ -1,12 +1,12 @@
 <?php
-    //session_start();
+    session_start();
 
     function Connect(){
         $conn = mysqli_connect(
             "localhost",
             "root",
             "",
-            "db_weblaptop"
+            "weblaptop"
         );
         mysqli_set_charset($conn, "utf8");
         return $conn;
