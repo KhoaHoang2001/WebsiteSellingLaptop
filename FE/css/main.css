@@ -133,7 +133,7 @@ header #myBtn {
   padding: 10px;
 }
 
-.item .container .item-title, #bestseller .container .item-title, .sales .container .item-title {
+.item .container .item-title, #bestseller .container .item-title, .sales .container .item-title, .item .container #bestseller .bestseller .bestseller-title, #bestseller .container .bestseller .bestseller-title, #bestseller .bestseller .container .bestseller-title, .sales .container #bestseller .bestseller .bestseller-title, .item .container .sales .sales-title, #bestseller .container .sales .sales-title, .sales #bestseller .container .sales-title, .sales .container .sales-title {
   padding-left: 15px;
 }
 

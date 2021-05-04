@@ -173,8 +173,9 @@
     <?php include('./includes/script.php') ?>
     <!-- jquery  -->
     <!-- MAIN JS -->
-    <script src="./FE/js/validation.js"></script>
-    <script src="./FE/js/main.js"></script>
+    <!-- MAIN JS -->
+    <script type="text/javascript" src="./FE/js/validation.js"></script>
+    <script type="text/javascript" src="./FE/js/main.js"></script>
     
     <?php
 require_once('./includes/conn.php');
