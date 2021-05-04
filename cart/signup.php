@@ -182,6 +182,7 @@
                     type="radio"
                     name="GIOITINH"
                     value="Nam"
+                    checked
                   />
                   <label for="nam">Nam</label>
                   <input

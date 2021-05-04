@@ -23,7 +23,7 @@ require_once('./includes/conn.php');
               </th>
               <td style="width: 10px"></td>
               <td>
-                <input type="text" name="tenDangNhap" id="tenDangNhap" />
+                <input type="text" name="taikhoan" id="tenDangNhap" />
               </td>
             </tr>
             <tr style="height: 10px">
@@ -37,7 +37,7 @@ require_once('./includes/conn.php');
               </th>
               <td></td>
               <td>
-                <input type="password" name="matKhau" id="matKhau" />
+                <input type="password" name="matkhau" id="matKhau" />
               </td>
             </tr>
             <tr style="height: 10px">
@@ -47,7 +47,7 @@ require_once('./includes/conn.php');
             </tr>
             <tr>
               <td style="padding-left: 20px">
-                <button type="button" style="padding: 5px 10px" onclick="DangNhap()">
+                <button type="button" style="padding: 5px 10px" onclick="DangNhap()" name="submit_login">
                   Đăng nhập
                 </button>
               </td>
@@ -116,6 +116,7 @@ require_once('./includes/conn.php');
 <?php
 echo "hjhjhj";
 if (isset($_POST['submit_login'])) {
+  echo "jjjjjjjj";
   $taikhoan = Get_value($_POST["taikhoan"]);
   $matkhau = Get_value($_POST["matkhau"]);
   $matkhau = md5($matkhau);
