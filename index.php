@@ -103,7 +103,6 @@ require_once('./includes/conn.php');
                     <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         Giá
                     </a>
-
                     <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
                         <a class="dropdown-item" href="#">Dưới 10 triệu</a>
                         <a class="dropdown-item" href="#">Từ 10 triệu đến 15 triệu</a>
@@ -124,7 +123,6 @@ require_once('./includes/conn.php');
                 <h2>Sản phẩm bán chạy</h2>
             </div>
             <div class="row bestseller-content item-content">
-<<<<<<< HEAD
 
                 <!-- <div class="row"> -->
 
@@ -171,43 +169,6 @@ require_once('./includes/conn.php');
                                                 ?>
                                                 
                                             </p>
-=======
-                <div class="col-12" style="padding: 0">
-                    <?php
-                    $sql = "SELECT *,SUM(SOLUONGDAT)FROM sanpham,monhang where sanpham.MASP=monhang.MASP GROUP BY monhang.MASP 
-                        ORDER BY SUM(SOLUONGDAT) DESC LIMIT 4";
-                    $res = Check_db($sql);
-                    while ($row = mysqli_fetch_assoc($res)) {
-                        $masp = $row['MASP'];
-                        $tensp = $row['TENSP'];
-                        $gia = $row['GIA'];
-                        $phantram = View_Discount_Of_Product($masp);
-                        if ($gia - $gia * $phantram / 100 != $gia) {
-                            $giamoi = $gia - $gia * $phantram / 100;
-                        } else {
-                            $giamoi = "";
-                        }
-                        $kichthuocmh = $row['KICHTHUOCMH'];
-                        $vixuly = $row['VIXULY'];
-                        $ram = $row['RAM'];
-                    ?>
-                        <div class='card-group col-md-3 col-sm-6'>
-                            <div class='card'>
-                                <a href='./view_product.php'>
-                                    <div class='card-header'>
-                                        <img src='./image/laptop.jpg' class='card-img-top' alt=''>
-                                    </div>
-                                    <div class='card-body'>
-                                        <h4 class='card-title'><?php echo $tensp ?></h4>
-                                    </div>
-                                    <span id='xemSP'>Xem sản phẩm</span>
-                                    <div class="card-footer">
-                                        <div class='d-flex justify-content-around'>
-                                            <s>
-                                                <span><?php echo $gia ?></span>
-                                            </s>
-                                            <span><?php echo $giamoi ?></span>
->>>>>>> 8391f04f19c48e30aa29f026634124fe9e168192
                                         </div>
                                     </div>
                                 </a>
@@ -271,42 +232,6 @@ require_once('./includes/conn.php');
                                         </div>
                                         <span id='xemSP'>Xem sản phẩm</span>
                                     </a>
-=======
-                <div class="col-12" style="padding: 0px;">
-                    <?php
-                    $sql = "SELECT * FROM sanpham where MAGIAMGIA IS NOT NULL";
-                    $res = Check_db($sql);
-                    while ($row = mysqli_fetch_assoc($res)) {
-                        $masp = $row['MASP'];
-                        $tensp = $row['TENSP'];
-                        $gia = $row['GIA'];
-                        $phantram = View_Discount_Of_Product($masp);
-                        if ($gia - $gia * $phantram / 100 != $gia) {
-                            $giamoi = $gia - $gia * $phantram / 100;
-                        } else {
-                            $giamoi = "";
-                        }
-                        $kichthuocmh = $row['KICHTHUOCMH'];
-                        $vixuly = $row['VIXULY'];
-                        $ram = $row['RAM'];
-                    ?>
-                        <div class='card-group col-md-3 col-sm-6'>
-                            <a href='./view.html'>
-                                <div class='card'>
-                                    <div class='card-header'>
-                                        <img src='./image/laptop.jpg' class='card-img-top' alt=''>
-                                    </div>
-                                    <div class='card-body'>
-                                        <h4 class='card-title'><?php echo $tensp ?></h4>
-                                    </div>
-                                    <span id='xemSP'>Xem sản phẩm</span>
-                                    <div class='card-body'>
-                                        <div class="d-flex justify-content-around">
-                                            <span><?php echo $gia ?></span>
-                                            <span><?php echo $giamoi ?></span>
-                                        </div>
-                                    </div>
->>>>>>> 8391f04f19c48e30aa29f026634124fe9e168192
                                 </div>
                             </a>
                         </div>
