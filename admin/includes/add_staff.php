@@ -92,7 +92,7 @@
             </tr>
             <tr>
                 <td valign="top"><b>Ngày sinh:</b></td>
-                <td><input type="date" name="ngaysinh" id="ngaysinh"></td>
+                <td><input type="date" name="ngaysinh" id="ngaysinh" required></td>
             </tr>
             <tr>
 
@@ -127,19 +127,18 @@ if (isset($_POST['insert_post'])) {
     $diachi = Get_value($_POST['diachi']);
     $email = Get_value($_POST['email']);
     $ngaysinh = $_POST['ngaysinh'];
-    $ngaysinh = "";
-    if ($ngaysinh == ""){
-        $ngaysinh = "null";
-    }
     if(!Check_Staff($taikhoan)){
-        $conn = Connect();
         $matkhau = md5($matkhau);
         $sql = "INSERT INTO `nguoidung` (`TAIKHOAN`, `MAQUYEN`, `MATKHAU`, `TENND`, `GIOITINH`, `SDT`, `DIACHI`, `EMAIL`, `NGAYSINH`) 
-                VALUES ('$taikhoan', 'NV', '$matkhau', '$tennd', $gioitinh, '$sdt', '$diachi', '$email', $ngaysinh);";
-        echo $sql;        
-        mysqli_query($conn, $sql);
-        mysqli_close($conn);
-        echo "<script>alert(\"Đăng ký tài khoản thành công\");</script>";
+                VALUES ('$taikhoan', 'NV', '$matkhau', '$tennd', $gioitinh, '$sdt', '$diachi', '$email', '$ngaysinh');";
+        $res = Check_db($sql);
+        if($res){
+            echo "<script>alert(\"Đăng ký tài khoản thành công\");</script>";
+        }
+        else{
+            echo "<script>alert(\"Đăng ký tài khoản thất bại\");</script>";
+        }
+        
     }
     else{
         echo "<script>alert(\"Tài khoản đã tồn tại\");</script>";

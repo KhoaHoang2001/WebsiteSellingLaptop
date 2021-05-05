@@ -34,10 +34,6 @@ if ($gia - $gia * $phantram / 100 != $gia) {
 <body>
     <!-- header -->
     <?php include('./includes/header.php') ?>
-<<<<<<< HEAD
-=======
-
->>>>>>> f5dc9804fa3c0d042311db4862fae2b9f9a5feb0
     <!-- url link -->
     <section class="url">
         <div class="container">
@@ -127,8 +123,4 @@ if ($gia - $gia * $phantram / 100 != $gia) {
     <?php include('./includes/footer.php') ?>
     <!-- script -->
     <?php include('./includes/script.php') ?>
-<<<<<<< HEAD
-=======
-
->>>>>>> f5dc9804fa3c0d042311db4862fae2b9f9a5feb0
 </body>

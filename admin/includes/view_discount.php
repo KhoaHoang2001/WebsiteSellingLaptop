@@ -3,7 +3,7 @@
     require_once('./includes/conn.php');
 ?>
 <div class="view_product_box">
-    <h2>Danh sách mã nhân viên</h2>
+    <h2>Giảm giá</h2>
     <div class="border_bottom"></div>
     <form action="" method="post" enctype="multipart/form-data">
         <div class="search_bar">
@@ -67,7 +67,7 @@
             echo "<script>window.open('index.php?action=view_discount','_self')</script>";
         }
         else {
-            echo "<script>alert('xóa tài khoản không thành công!')</script>";
+            echo "<script>alert('xóa giảm giá không thành công!')</script>";
         }
     }
 
