@@ -36,10 +36,10 @@
                                             <a class="nav-link" href="./index.html#bestseller">Bán chạy</a>
                                         </li>
                                         <li class="nav-item">
-                                            <a class="nav-link" href="./cart.html">Giỏ hàng</a>
+                                            <a class="nav-link" href="./cart.php">Giỏ hàng</a>
                                         </li>
                                         <li class="nav-item">
-                                            <a class="nav-link" href="./login.html">Tài khoản</a>
+                                            <a class="nav-link" href="./login.php">Tài khoản</a>
                                         </li>
                                     </ul>
                             </div>

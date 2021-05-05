@@ -49,10 +49,10 @@ function DangKy() {
   }
 
   if (loi != 0) {
-    return true;
+    return false;
   }
   else{
-    return false;
+    return true;
   }
 }
 

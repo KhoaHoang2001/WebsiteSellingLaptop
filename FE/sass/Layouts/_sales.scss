@@ -1,3 +1,6 @@
 .sales{
     @extend .item;
+    .sales-title{
+        @extend .item-title;
+    }
 }

@@ -43,7 +43,6 @@
     <form onsubmit="return Check_all()" method="post" enctype="multipart/form-data">
     
         <table align="center" width="100%">
-
         <tr>
                 <td valign="top"><b>Mã sản phẩm:</b></td>
                 <td><input type="text" name="masp" id="masp"  required /></td>
@@ -51,12 +50,15 @@
 
             <tr>
                 <td><b>Hình ảnh: </b></td>
-                <td><input type="file" name="Hinh" require /></td>
+                <form action="" method="post" enctype="multipart/form-data">
+                <input type="file" name="files[]" multiple >
+                <input type="submit" name="submit" value="UPLOAD">
+</form>
             </tr>
                             
             <tr>
 
-                <td colspan="2" class="text-center"> 
+                <td colspan="1" class="text-center"> 
                     <input type="submit" class="btn-submit" name="themsanpham" value="Thêm Sản Phẩm">
                 </td>
             </tr>
@@ -66,21 +68,23 @@
 </div>
 <?php
     if (isset($_POST['themsanpham'])) {
-        $masp = Get_value($_POST["masp"]);
-        $Hinh  = $_FILES['Hinh']['name'];
-    $product_image_tmp = $_FILES['Hinh']['tmp_name'];
-    move_uploaded_file($product_image_tmp, "product_images/$Hinh");
-    $themhinh = "INSERT INTO HINHANH (masp, link) VALUES ('$masp', '$Hinh');";
-    $conn = Connect();
-    $ok = mysqli_query($conn,$themhinh);
-    mysqli_close($conn);
-    if($ok){
-        echo "<script>alert('ok')</script>";
-
-    }else{
-        echo "<script>alert('f!')</script>";
-
+        $uploads_dir = '/uploads';
+        foreach ($_FILES["files"]["error"] as $key => $error) {
+            if ($error == UPLOAD_ERR_OK) {
+            $tmp_name = $_FILES["files"]["tmp_name"][$key];
+            $name = basename($_FILES["files"]["name"][$key]);
+            move_uploaded_file($tmp_name, "product_images/$name");
     }
-
+    echo "<script>alert(\"<?php echo $name ?>\");</script>";      
+    // $sql_hinh = "INSERT INTO HINHANH (masp, link) VALUES ('MT100', '$name');";
+    // $conn = Connect();
+    // mysqli_query($conn, $sql_hinh);
+    // mysqli_close($conn);
+    // if($sql_hinh){
+    //     echo "<script>alert(\"Thêm sản phẩm thành công\");</script>"; 
+    // }else{
+    //     "<script>alert(\"buồn\");</script>";
+    // }
 }
-?>
+
+       }?>

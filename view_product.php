@@ -1,6 +1,20 @@
 <!DOCTYPE html>
+
+
 <?php
-$_SESSION['TAIKHOAN'] = 'bichngan';
+if($_SERVER["REQUEST_METHOD"] == "POST" ){
+    session_start();
+    if(isset( $_SESSION['TAIKHOAN'])){
+        // $MASP=$_GET['masp'];
+        include('./cart/tsx_SP_gio.php');
+        themSP_gio($MASP);
+        header('Location: view.php?tenbien='.$MASP);
+    }else header('Location: login.php');
+   
+}
+    
+?>
+<?php
 $MASP = $_GET['masp'];
 require_once('./includes/include.php');
 require_once('./includes/conn.php');
@@ -34,6 +48,16 @@ if ($gia - $gia * $phantram / 100 != $gia) {
 <body>
     <!-- header -->
     <?php include('./includes/header.php') ?>
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
+
+>>>>>>> f5dc9804fa3c0d042311db4862fae2b9f9a5feb0
+>>>>>>> 5fdb6c89b6899825b4fd33abba8fae577daeaa78
+>>>>>>> 158f10e790754ffa218d808ac58e07dde1f36547
     <!-- url link -->
     <section class="url">
         <div class="container">
@@ -89,10 +113,15 @@ if ($gia - $gia * $phantram / 100 != $gia) {
                         ?>
                 </div>
                 <div class="col-md-4">
+<<<<<<< HEAD
+                    <form action="" method="POST">
+                        <button style="padding: 0;"><a style="display: block; padding: 10px;">Thêm vào giỏ hàng</a></button>
+=======
                     <form action="">
                         <?php echo"<a href='cart.php?masp=".$masp."'>Thêm vào giỏ hàng</a>
                         <a href='cart.php?masp=$masp'>Mua hàng</a>"?>
                         <button style="padding: 0;"><a href="http://localhost/weblaptop/cart/view.php?tenbien='<?php echo $masp ?>'" style="display: block; padding: 10px;">Thêm vào giỏ hàng</a></button>
+>>>>>>> 5fdb6c89b6899825b4fd33abba8fae577daeaa78
                         <button>Mua hàng</button>
                     </form>
                 </div>
@@ -122,5 +151,6 @@ if ($gia - $gia * $phantram / 100 != $gia) {
     <!-- footer -->
     <?php include('./includes/footer.php') ?>
     <!-- script -->
+
     <?php include('./includes/script.php') ?>
 </body>
