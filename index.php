@@ -119,15 +119,12 @@ require_once('./includes/conn.php');
     <!-- bestseller  -->
     <section id="bestseller" class="bestseller">
         <div class="container">
-            <div class="row bestseller-title item-title">
+            <div class="row bestseller-title">
                 <h2>Sản phẩm bán chạy</h2>
             </div>
-            <div class="row bestseller-content item-content">
-
+            <div class="row bestseller-content">
                 <!-- <div class="row"> -->
-
                 <div class="row">
-
                     <?php 
                         $sql = "SELECT *,SUM(SOLUONGDAT), LINK FROM sanpham,monhang,hinhanh where sanpham.MASP=monhang.MASP 
                         AND hinhanh.MASP=monhang.MASP GROUP BY monhang.MASP ORDER BY SUM(SOLUONGDAT) DESC LIMIT 4";
@@ -164,7 +161,7 @@ require_once('./includes/conn.php');
                                                         echo "<s>
                                                         <span>". $gia."</span>
                                                     </s>
-                                                    <span>".$giamoi."</span>";
+                                                    <span style='color: red'>".$giamoi."</span>";
                                                     }
                                                 ?>
                                                 
@@ -184,10 +181,10 @@ require_once('./includes/conn.php');
     <!-- sales  -->
     <section id="sales" class="sales">
         <div class="container">
-            <div class="row sales-title item-title">
+            <div class="row sales-title">
                 <h2>Sản phẩm giảm giá</h2>
             </div>
-            <div class="row sales-content item-content">
+            <div class="row sales-content">
                 <div class="row">
                 <?php 
                         $sql = "SELECT * ,LINK FROM sanpham,hinhanh where sanpham.MASP=hinhanh.MASP and MAGIAMGIA IS NOT NULL";
@@ -224,7 +221,7 @@ require_once('./includes/conn.php');
                                                         echo "<s>
                                                         <span>". $gia."</span>
                                                     </s>
-                                                    <span>".$giamoi."</span>";
+                                                    <span style='color: red'>".$giamoi."</span>";
                                                     }
                                                 ?>
                                             </p>

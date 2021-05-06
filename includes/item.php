@@ -37,10 +37,10 @@
                                     if ($giamoi == "") {
                                         echo " <span>" . $gia . "</span>";
                                     } else {
-                                        echo "<s>
+                                        echo "      <s>
                                                         <span>" . $gia . "</span>
                                                     </s>
-                                                    <span>" . $giamoi . "</span>";
+                                                    <span style='color: red;'>" . $giamoi . "</span>";
                                     }
                                     ?>
                                 </div>

@@ -9,7 +9,7 @@
 
   <section class="signup">
     <div class="container">
-      <div class="signupCenter" style="width: 40%; margin: 0 auto">
+      <div class="signupCenter" align="center">
         <h2 style="text-align: center; margin-bottom: 50px">
           Đăng ký tài khoản
         </h2>

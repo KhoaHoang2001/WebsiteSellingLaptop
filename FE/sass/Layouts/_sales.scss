@@ -3,4 +3,7 @@
     .sales-title{
         @extend .item-title;
     }
+    .sales-content{
+        @extend .item-content;
+    }
 }
