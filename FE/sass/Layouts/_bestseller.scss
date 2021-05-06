@@ -1,11 +1,8 @@
-#bestseller{
-    @extend .item;
-    .bestseller{
-        .bestseller-title{
-            @extend .item-title;
-        }
-        .bestseller-content{
-            @extend .item-content;
-        }
-    }
+#bestseller {
+  .bestseller-title {
+    @extend .item-title;
+  }
+  .bestseller-content {
+    @extend .item-content;
+  }
 }

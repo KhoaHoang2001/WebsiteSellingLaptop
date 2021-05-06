@@ -1,4 +1,4 @@
-header {
+#header {
   margin-bottom: 25px;
   .container {
     .header-banner {
@@ -10,9 +10,9 @@ header {
       z-index: 5;
       position: relative;
       top: 0;
-      
       .nav-left-right {
         .header-navbar--content {
+          justify-content: space-evenly;
           .navbar-select {
             width: 100%;
             ul {
@@ -28,11 +28,6 @@ header {
               width: 60%;
               display: inline-block;
             }
-          }
-          .container-fluid{
-            display: flex;
-            justify-content: space-around;
-            width: 500px;
           }
         }
       }
@@ -50,4 +45,3 @@ header {
     cursor: pointer;
   }
 }
-

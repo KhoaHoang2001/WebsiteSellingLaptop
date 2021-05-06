@@ -24,7 +24,7 @@
 
 <body>
     <!-- header -->
-    <header>
+    <header id="header">
         <div class="container">
             <div class="row header-banner">
                 <img src="./image/banner_TOP.png" alt="">
@@ -32,10 +32,13 @@
             <div class="row header-navbar">
                 <nav class="navbar navbar-expand-lg navbar-light bg-light col-12">
                     <div class="container nav-left-right">
-                        <div class="left-nav">
-                            <a class="navbar-brand" href="./index.html">
-                                <img src="./image/logo-fix.png" alt="">
-                            </a>
+                        <a class="navbar-brand" href="./index.html">
+                            <img src="./image/logo-fix.png" alt="">
+                        </a>
+                        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                                <span class="navbar-toggler-icon"></span>
+                        </button>
+                        <div class="collapse navbar-collapse header-navbar--content col-md-10" id="navbarSupportedContent">
                             <form class="">
                                 <div class="input-group navbar-search">
                                     <div class="input-group-prepend">
@@ -45,11 +48,6 @@
                                         aria-describedby="basic-addon1" style="border-radius: 0 5px 5px 0;">
                                 </div>
                             </form>
-                        </div>
-                        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                                <span class="navbar-toggler-icon"></span>
-                        </button>
-                        <div class="collapse navbar-collapse header-navbar--content col-md-6 col-sm-9" id="navbarSupportedContent">
                             <div class="navbar-select">
                                     <ul class="navbar-nav">
                                         <li class="nav-item">
@@ -284,7 +282,7 @@
             <div class="row bestseller-title">
                 <h2>Sản phẩm bán chạy</h2>
             </div>
-            <div class="row bestseller-content item-content">
+            <div class="row bestseller-content">
                 <div class="row">
                     <div class="card-group col-md-3 col-sm-6">
                         <div class="card">
@@ -373,10 +371,10 @@
     <!-- sales  -->
     <section id="sales" class="sales">
         <div class="container">
-            <div class="row sales-title item-title">
+            <div class="row sales-title">
                 <h2>Sản phẩm giảm giá</h2>
             </div>
-            <div class="row sales-content item-content">
+            <div class="row sales-content">
                 <div class="row">
                     <div class="card-group col-md-3 col-sm-6">
                         <div class="card">

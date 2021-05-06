@@ -30,4 +30,5 @@
         }
 </script>
     <!-- MAIN JS -->
-    <script src="./js/main.js"></script>
+    <script src="./FE/js/validation.js"></script>
+    <script src="./FE/js/main.js"></script>

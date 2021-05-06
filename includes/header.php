@@ -1,4 +1,4 @@
-<header>
+<header id="header">
     <div class="container">
         <div class="row header-banner">
             <img src="./FE/image/banner_TOP.png" alt="">
