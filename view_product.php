@@ -48,16 +48,6 @@ if ($gia - $gia * $phantram / 100 != $gia) {
 <body>
     <!-- header -->
     <?php include('./includes/header.php') ?>
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-=======
-
->>>>>>> f5dc9804fa3c0d042311db4862fae2b9f9a5feb0
->>>>>>> 5fdb6c89b6899825b4fd33abba8fae577daeaa78
->>>>>>> 158f10e790754ffa218d808ac58e07dde1f36547
     <!-- url link -->
     <section class="url">
         <div class="container">
@@ -71,7 +61,6 @@ if ($gia - $gia * $phantram / 100 != $gia) {
         </div>
     </section>
     <!-- about item -->
-
     <section class="about_item">
         <div class="container">
             <div class="row about_item-title">
@@ -84,13 +73,13 @@ if ($gia - $gia * $phantram / 100 != $gia) {
                         <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
                         <div class="carousel-inner">
                             <div class="carousel-item active">
-                                <img src="./image/Slide-Galaxy-Buds-Live-2.jpg" class="d-block w-100" alt="...">
+                                <img src="./FE/image/Slide-Galaxy-Buds-Live-2.jpg" class="d-block w-100" alt="...">
                             </div>
                             <div class="carousel-item">
-                                <img src="./image/Slide-Mi-11-5G-1.jpg" class="d-block w-100" alt="...">
+                                <img src="./FE/image/Slide-Mi-11-5G-1.jpg" class="d-block w-100" alt="...">
                             </div>
                             <div class="carousel-item">
-                                <img src="./image/Slide-oppo-reno5.jpg" class="d-block w-100" alt="...">
+                                <img src="./FE/image/Slide-oppo-reno5.jpg" class="d-block w-100" alt="...">
                             </div>
                         </div>
                         <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
@@ -113,15 +102,8 @@ if ($gia - $gia * $phantram / 100 != $gia) {
                         ?>
                 </div>
                 <div class="col-md-4">
-<<<<<<< HEAD
                     <form action="" method="POST">
                         <button style="padding: 0;"><a style="display: block; padding: 10px;">Thêm vào giỏ hàng</a></button>
-=======
-                    <form action="">
-                        <?php echo"<a href='cart.php?masp=".$masp."'>Thêm vào giỏ hàng</a>
-                        <a href='cart.php?masp=$masp'>Mua hàng</a>"?>
-                        <button style="padding: 0;"><a href="http://localhost/weblaptop/cart/view.php?tenbien='<?php echo $masp ?>'" style="display: block; padding: 10px;">Thêm vào giỏ hàng</a></button>
->>>>>>> 5fdb6c89b6899825b4fd33abba8fae577daeaa78
                         <button>Mua hàng</button>
                     </form>
                 </div>

@@ -16,13 +16,13 @@ require_once('./includes/conn.php');
             <div id="carouselExampleSlidesOnly" class="carousel slide" data-ride="carousel">
                 <div class="carousel-inner" role="listbox">
                     <div class="carousel-item active">
-                        <img src="./image/Slide-Galaxy-Buds-Live-2.jpg" class="d-block w-100" alt="...">
+                        <img src="./FE/image/Slide-Galaxy-Buds-Live-2.jpg" class="d-block w-100" alt="...">
                     </div>
                     <div class="carousel-item">
-                        <img src="./image/Slide-Mi-11-5G-1.jpg" class="d-block w-100" alt="...">
+                        <img src="./FE/image/Slide-Mi-11-5G-1.jpg" class="d-block w-100" alt="...">
                     </div>
                     <div class="carousel-item">
-                        <img src="./image/Slide-oppo-reno5.jpg" class="d-block w-100" alt="...">
+                        <img src="./FE/image/Slide-oppo-reno5.jpg" class="d-block w-100" alt="...">
                     </div>
                 </div>
             </div>
@@ -32,31 +32,31 @@ require_once('./includes/conn.php');
         <div class="container">
             <div class="row">
                 <div class="card">
-                    <a href="#"><img src="./image/MacBook44-b_27.png" alt=""></a>
+                    <a href="#"><img src="./FE/image/MacBook44-b_27.png" alt=""></a>
                 </div>
                 <div class="card">
-                    <a href="#"><img src="./image/Acer44-b_25.jpg" alt=""></a>
+                    <a href="#"><img src="./FE/image/Acer44-b_25.jpg" alt=""></a>
                 </div>
                 <div class="card">
-                    <a href="#"><img src="./image/Asus44-b_1.png" alt=""></a>
+                    <a href="#"><img src="./FE/image/Asus44-b_1.png" alt=""></a>
                 </div>
                 <div class="card">
-                    <a href="#"><img src="./image/Dell44-b_2.jpg" alt=""></a>
+                    <a href="#"><img src="./FE/image/Dell44-b_2.jpg" alt=""></a>
                 </div>
                 <div class="card">
-                    <a href="#"><img src="./image/HP44-b_27.jpg" alt=""></a>
+                    <a href="#"><img src="./FE/image/HP44-b_27.jpg" alt=""></a>
                 </div>
                 <div class="card">
-                    <a href="#"><img src="./image/Huawei44-b_7.jpg" alt=""></a>
+                    <a href="#"><img src="./FE/image/Huawei44-b_7.jpg" alt=""></a>
                 </div>
                 <div class="card">
-                    <a href="#"><img src="./image/Lenovo44-b_35.png" alt=""></a>
+                    <a href="#"><img src="./FE/image/Lenovo44-b_35.png" alt=""></a>
                 </div>
                 <div class="card">
-                    <a href="#"><img src="./image/LG44-b_32.jpg" alt=""></a>
+                    <a href="#"><img src="./FE/image/LG44-b_32.jpg" alt=""></a>
                 </div>
                 <div class="card">
-                    <a href="#"><img src="./image/MSI44-b_17.png" alt=""></a>
+                    <a href="#"><img src="./FE/image/MSI44-b_17.png" alt=""></a>
                 </div>
             </div>
             <div class="row">
@@ -188,7 +188,6 @@ require_once('./includes/conn.php');
                 <h2>Sản phẩm giảm giá</h2>
             </div>
             <div class="row sales-content item-content">
-<<<<<<< HEAD
                 <div class="row">
                 <?php 
                         $sql = "SELECT * ,LINK FROM sanpham,hinhanh where sanpham.MASP=hinhanh.MASP and MAGIAMGIA IS NOT NULL";

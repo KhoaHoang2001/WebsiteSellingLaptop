@@ -16,6 +16,7 @@
           a {
             text-decoration: none;
             color: black;
+            display: block;
             .card-header {
               padding: 0;
               img {
@@ -42,6 +43,14 @@
             border: 1px solid transparent;
             border-radius: 3px;
             z-index: 2;
+          }
+        }
+        .card-laptop-item{
+          margin: 0;
+          padding: 0;
+          a{
+            display: block;
+            height: 100%;
           }
         }
       }

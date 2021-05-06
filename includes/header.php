@@ -1,14 +1,14 @@
 <header>
         <div class="container">
             <div class="row header-banner">
-                <img src="./image/banner_TOP.png" alt="">
+                <img src="./FE/image/banner_TOP.png" alt="">
             </div>
             <div class="row header-navbar">
                 <nav class="navbar navbar-expand-lg navbar-light bg-light col-12">
-                    <div class="container nav-left-right">
+                    <div class="container nav-left-right col-12">
                         <div class="left-nav">
                             <a class="navbar-brand" href="./index.html">
-                                <img src="./image/logo-fix.png" alt="">
+                                <img src="./FE/image/logo-fix.png" alt="">
                             </a>
                             <form class="">
                                 <div class="input-group navbar-search">
@@ -30,10 +30,10 @@
                                             <a class="nav-link active" aria-current="page" href="./index.html#laptop">Laptop</a>
                                         </li>
                                         <li class="nav-item">
-                                            <a class="nav-link" href="./index.html#sales">Giảm giá</a>
+                                            <a class="nav-link" href="./index.php#sales">Giảm giá</a>
                                         </li>
                                         <li class="nav-item">
-                                            <a class="nav-link" href="./index.html#bestseller">Bán chạy</a>
+                                            <a class="nav-link" href="./index.php#bestseller">Bán chạy</a>
                                         </li>
                                         <li class="nav-item">
                                             <a class="nav-link" href="./cart.php">Giỏ hàng</a>

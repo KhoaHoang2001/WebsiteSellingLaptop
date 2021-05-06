@@ -155,6 +155,7 @@ header #myBtn {
 .item .container .item-content .card-group .card a, #bestseller .container .item-content .card-group .card a, .sales .container .item-content .card-group .card a {
   text-decoration: none;
   color: black;
+  display: block;
 }
 
 .item .container .item-content .card-group .card a .card-header, #bestseller .container .item-content .card-group .card a .card-header, .sales .container .item-content .card-group .card a .card-header {
@@ -184,6 +185,16 @@ header #myBtn {
   border: 1px solid transparent;
   border-radius: 3px;
   z-index: 2;
+}
+
+.item .container .item-content .card-group .card-laptop-item, #bestseller .container .item-content .card-group .card-laptop-item, .sales .container .item-content .card-group .card-laptop-item {
+  margin: 0;
+  padding: 0;
+}
+
+.item .container .item-content .card-group .card-laptop-item a, #bestseller .container .item-content .card-group .card-laptop-item a, .sales .container .item-content .card-group .card-laptop-item a {
+  display: block;
+  height: 100%;
 }
 
 .item .container .item-content input, #bestseller .container .item-content input, .sales .container .item-content input {
