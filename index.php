@@ -2,11 +2,9 @@
 require_once('./includes/include.php');
 require_once('./includes/conn.php');
 ?>
-
 <!DOCTYPE html>
 <html lang="en">
 <?php include('./includes/head.php') ?>
-
 <body>
     <!-- header -->
     <?php include('./includes/header.php') ?>
@@ -237,9 +235,7 @@ require_once('./includes/conn.php');
     <!-- script -->
     <?php include('./includes/script.php') ?>
 </body>
-
 </html>
-
 <?php
 function View_Discount_Of_Product($masp)
 {
@@ -252,5 +248,4 @@ function View_Discount_Of_Product($masp)
         return;
     }
 }
-
 ?>

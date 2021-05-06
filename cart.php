@@ -20,7 +20,6 @@
 
 <?php include('./includes/head.php') ?>
 
-
 <body>
     <!-- header -->
     <?php include('./includes/header.php') ?>
@@ -111,7 +110,7 @@
                     <tr>
                         <td colspan="5"></td>
                         <td>
-                            <button><a href="./payment.html">MUA NGAY</a></button>
+                            <button><a href="./payment.php">MUA NGAY</a></button>
                         </td>
                     </tr>
                 </tfoot>
