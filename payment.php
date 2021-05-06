@@ -7,7 +7,7 @@
    <?php include('./includes/header.php')?>
     <!-- payment page-->
     <section id="payment" class="privacy">
-      <div class="container py-xl-4 py-lg-2">
+      <div class="container">
         <!-- tittle heading -->
         <h2 id="payment-title" class="text-center">
           <span>P</span>ayment

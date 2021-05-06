@@ -1,7 +1,6 @@
 <?php 
     require_once('./includes/include.php');
     $taikhoan = 'vinh';
-
     function View_Discount_Of_Product($masp){
         $sql_discount = "SELECT * FROM giamgia WHERE MAGIAMGIA = (SELECT MAGIAMGIA FROM sanpham WHERE MASP = '$masp');";
         $res_discount = Check_db($sql_discount);
@@ -17,9 +16,7 @@
 
 <!DOCTYPE html>
 <html lang="en">
-
 <?php include('./includes/head.php') ?>
-
 <body>
     <!-- header -->
     <?php include('./includes/header.php') ?>
@@ -119,8 +116,6 @@
     </section>
     <!-- footer -->
     <?php include('./includes/footer.php') ?>
-
     <!-- script -->
     <?php include('./includes/script.php') ?>
-
 </body>
