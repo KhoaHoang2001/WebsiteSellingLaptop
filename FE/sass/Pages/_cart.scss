@@ -1,7 +1,6 @@
 .cartItem {
     .container {
         #tblItem {
-            width: 100%;
             text-align: center;
             border-spacing: 10px;
             #tblHead {
@@ -35,6 +34,46 @@
             }
             #tblFooter{
                 text-align: left;
+            }
+        }
+    }
+    @media screen and (max-width: 500px) {
+        .container {
+            #tblItem {
+                text-align: center;
+                border-spacing: 2px;
+                #tblHead {
+                    tr {
+                        width: 100%;
+                    }
+                }
+                #tblBody {
+                    tr{
+                        td{
+                             
+                            &:nth-child(1){
+                                img {
+                                    width: 50px;
+                                    height: 50px;
+                                }
+                            }
+                            &:nth-child(3){
+                                color: orangered;
+                            }
+                            &:nth-child(4){
+                                input{
+                                    width: 3px;
+                                }
+                            }
+                            &:nth-child(5){
+                                color: orangered;
+                            }
+                        }
+                    }
+                }
+                #tblFooter{
+                    text-align: left;
+                }
             }
         }
     }

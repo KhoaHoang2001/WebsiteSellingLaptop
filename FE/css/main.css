@@ -30,6 +30,12 @@ a:hover {
   text-decoration: none;
 }
 
+@media screen and (max-width: 500px) {
+  body {
+    font-size: 10px;
+  }
+}
+
 button {
   padding: 10px;
   border-radius: 5px;
@@ -62,15 +68,9 @@ header .container .header-banner img {
 }
 
 header .container .header-navbar {
-  z-index: 3;
+  z-index: 5;
   position: relative;
   top: 0;
-}
-
-header .container .header-navbar .nav-left-right .left-nav form {
-  padding: 10px;
-  width: 60%;
-  display: inline-block;
 }
 
 header .container .header-navbar .nav-left-right .header-navbar--content .navbar-select {
@@ -85,6 +85,18 @@ header .container .header-navbar .nav-left-right .header-navbar--content .navbar
 header .container .header-navbar .nav-left-right .header-navbar--content .navbar-select ul li {
   padding-left: 10px;
   margin-right: 10px;
+}
+
+header .container .header-navbar .nav-left-right .header-navbar--content .navbar-select form {
+  padding: 10px;
+  width: 60%;
+  display: inline-block;
+}
+
+header .container .header-navbar .nav-left-right .header-navbar--content .container-fluid {
+  display: flex;
+  justify-content: space-around;
+  width: 500px;
 }
 
 header #myBtn {
@@ -288,7 +300,6 @@ footer .bottom p {
 }
 
 .cartItem .container #tblItem {
-  width: 100%;
   text-align: center;
   border-spacing: 10px;
 }
@@ -316,6 +327,32 @@ footer .bottom p {
 
 .cartItem .container #tblItem #tblFooter {
   text-align: left;
+}
+
+@media screen and (max-width: 500px) {
+  .cartItem .container #tblItem {
+    text-align: center;
+    border-spacing: 2px;
+  }
+  .cartItem .container #tblItem #tblHead tr {
+    width: 100%;
+  }
+  .cartItem .container #tblItem #tblBody tr td:nth-child(1) img {
+    width: 50px;
+    height: 50px;
+  }
+  .cartItem .container #tblItem #tblBody tr td:nth-child(3) {
+    color: orangered;
+  }
+  .cartItem .container #tblItem #tblBody tr td:nth-child(4) input {
+    width: 3px;
+  }
+  .cartItem .container #tblItem #tblBody tr td:nth-child(5) {
+    color: orangered;
+  }
+  .cartItem .container #tblItem #tblFooter {
+    text-align: left;
+  }
 }
 
 #account .container .row #account__left {
