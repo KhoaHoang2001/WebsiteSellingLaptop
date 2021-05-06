@@ -51,7 +51,6 @@
                 } //end loop
                 ?>
             </div>
-            </a>
         </div>
     </div>
 </section>

@@ -143,48 +143,49 @@ input:focus {
   padding: 10px;
 }
 
-.item-title, #bestseller .bestseller-title, .sales .sales-title {
+.item .item-title, .item .bestseller .bestseller-title, .bestseller .item .bestseller-title, .item .bestseller .sales .sales-title, .bestseller .sales .item .sales-title, .item .sales .bestseller .sales-title, .sales .bestseller .item .sales-title {
   padding-left: 15px;
+  color: red;
 }
 
-.item-content, #bestseller .bestseller-content, .sales .sales-content {
+.item .item-content, .item .bestseller .bestseller-content, .bestseller .item .bestseller-content, .item .bestseller .sales .sales-content, .bestseller .sales .item .sales-content, .item .sales .bestseller .sales-content, .sales .bestseller .item .sales-content {
   padding: 15px 15px 0 15px;
   border: 1px solid black;
 }
 
-.item-content .card-group, #bestseller .bestseller-content .card-group, .sales .sales-content .card-group {
+.item .item-content .card-group, .item .bestseller .bestseller-content .card-group, .bestseller .item .bestseller-content .card-group, .item .bestseller .sales .sales-content .card-group, .bestseller .sales .item .sales-content .card-group, .item .sales .bestseller .sales-content .card-group, .sales .bestseller .item .sales-content .card-group {
   padding-bottom: 30px;
 }
 
-.item-content .card-group .card, #bestseller .bestseller-content .card-group .card, .sales .sales-content .card-group .card {
+.item .item-content .card-group .card, .item .bestseller .bestseller-content .card-group .card, .bestseller .item .bestseller-content .card-group .card, .item .bestseller .sales .sales-content .card-group .card, .bestseller .sales .item .sales-content .card-group .card, .item .sales .bestseller .sales-content .card-group .card, .sales .bestseller .item .sales-content .card-group .card {
   padding: 0;
   border: 1px solid black;
   border-radius: 5px;
 }
 
-.item-content .card-group .card a, #bestseller .bestseller-content .card-group .card a, .sales .sales-content .card-group .card a {
+.item .item-content .card-group .card a, .item .bestseller .bestseller-content .card-group .card a, .bestseller .item .bestseller-content .card-group .card a, .item .bestseller .sales .sales-content .card-group .card a, .bestseller .sales .item .sales-content .card-group .card a, .item .sales .bestseller .sales-content .card-group .card a, .sales .bestseller .item .sales-content .card-group .card a {
   text-decoration: none;
   color: black;
   display: block;
 }
 
-.item-content .card-group .card a .card-header, #bestseller .bestseller-content .card-group .card a .card-header, .sales .sales-content .card-group .card a .card-header {
+.item .item-content .card-group .card a .card-header, .item .bestseller .bestseller-content .card-group .card a .card-header, .bestseller .item .bestseller-content .card-group .card a .card-header, .item .bestseller .sales .sales-content .card-group .card a .card-header, .bestseller .sales .item .sales-content .card-group .card a .card-header, .item .sales .bestseller .sales-content .card-group .card a .card-header, .sales .bestseller .item .sales-content .card-group .card a .card-header {
   padding: 0;
 }
 
-.item-content .card-group .card a .card-header img, #bestseller .bestseller-content .card-group .card a .card-header img, .sales .sales-content .card-group .card a .card-header img {
+.item .item-content .card-group .card a .card-header img, .item .bestseller .bestseller-content .card-group .card a .card-header img, .bestseller .item .bestseller-content .card-group .card a .card-header img, .item .bestseller .sales .sales-content .card-group .card a .card-header img, .bestseller .sales .item .sales-content .card-group .card a .card-header img, .item .sales .bestseller .sales-content .card-group .card a .card-header img, .sales .bestseller .item .sales-content .card-group .card a .card-header img {
   width: 100%;
 }
 
-.item-content .card-group .card:hover #xemSP, #bestseller .bestseller-content .card-group .card:hover #xemSP, .sales .sales-content .card-group .card:hover #xemSP {
+.item .item-content .card-group .card:hover #xemSP, .item .bestseller .bestseller-content .card-group .card:hover #xemSP, .bestseller .item .bestseller-content .card-group .card:hover #xemSP, .item .bestseller .sales .sales-content .card-group .card:hover #xemSP, .bestseller .sales .item .sales-content .card-group .card:hover #xemSP, .item .sales .bestseller .sales-content .card-group .card:hover #xemSP, .sales .bestseller .item .sales-content .card-group .card:hover #xemSP {
   display: block;
 }
 
-.item-content .card-group .card:hover .card-body, #bestseller .bestseller-content .card-group .card:hover .card-body, .sales .sales-content .card-group .card:hover .card-body {
+.item .item-content .card-group .card:hover .card-body, .item .bestseller .bestseller-content .card-group .card:hover .card-body, .bestseller .item .bestseller-content .card-group .card:hover .card-body, .item .bestseller .sales .sales-content .card-group .card:hover .card-body, .bestseller .sales .item .sales-content .card-group .card:hover .card-body, .item .sales .bestseller .sales-content .card-group .card:hover .card-body, .sales .bestseller .item .sales-content .card-group .card:hover .card-body {
   opacity: 0.5;
 }
 
-.item-content .card-group .card #xemSP, #bestseller .bestseller-content .card-group .card #xemSP, .sales .sales-content .card-group .card #xemSP {
+.item .item-content .card-group .card #xemSP, .item .bestseller .bestseller-content .card-group .card #xemSP, .bestseller .item .bestseller-content .card-group .card #xemSP, .item .bestseller .sales .sales-content .card-group .card #xemSP, .bestseller .sales .item .sales-content .card-group .card #xemSP, .item .sales .bestseller .sales-content .card-group .card #xemSP, .sales .bestseller .item .sales-content .card-group .card #xemSP {
   display: none;
   position: absolute;
   bottom: 20%;
@@ -197,12 +198,12 @@ input:focus {
   z-index: 2;
 }
 
-.item-content .card-group .card-laptop-item, #bestseller .bestseller-content .card-group .card-laptop-item, .sales .sales-content .card-group .card-laptop-item {
+.item .item-content .card-group .card-laptop-item, .item .bestseller .bestseller-content .card-group .card-laptop-item, .bestseller .item .bestseller-content .card-group .card-laptop-item, .item .bestseller .sales .sales-content .card-group .card-laptop-item, .bestseller .sales .item .sales-content .card-group .card-laptop-item, .item .sales .bestseller .sales-content .card-group .card-laptop-item, .sales .bestseller .item .sales-content .card-group .card-laptop-item {
   margin: 0;
   padding: 0;
 }
 
-.item-content .card-group .card-laptop-item a, #bestseller .bestseller-content .card-group .card-laptop-item a, .sales .sales-content .card-group .card-laptop-item a {
+.item .item-content .card-group .card-laptop-item a, .item .bestseller .bestseller-content .card-group .card-laptop-item a, .bestseller .item .bestseller-content .card-group .card-laptop-item a, .item .bestseller .sales .sales-content .card-group .card-laptop-item a, .bestseller .sales .item .sales-content .card-group .card-laptop-item a, .item .sales .bestseller .sales-content .card-group .card-laptop-item a, .sales .bestseller .item .sales-content .card-group .card-laptop-item a {
   display: block;
   height: 100%;
 }

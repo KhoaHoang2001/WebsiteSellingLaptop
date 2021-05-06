@@ -1,8 +1,10 @@
 .item {
-  &-title {
+  
+  .item-title {
     padding-left: 15px;
+    color: red;
   }
-  &-content {
+  .item-content {
     padding: 15px 15px 0 15px;
     border: 1px solid black;
 
