@@ -145,7 +145,6 @@ input:focus {
 
 .item .item-title, .item .bestseller .bestseller-title, .bestseller .item .bestseller-title, .item .bestseller .sales .sales-title, .bestseller .sales .item .sales-title, .item .sales .bestseller .sales-title, .sales .bestseller .item .sales-title {
   padding-left: 15px;
-  color: red;
 }
 
 .item .item-content, .item .bestseller .bestseller-content, .bestseller .item .bestseller-content, .item .bestseller .sales .sales-content, .bestseller .sales .item .sales-content, .item .sales .bestseller .sales-content, .sales .bestseller .item .sales-content {
