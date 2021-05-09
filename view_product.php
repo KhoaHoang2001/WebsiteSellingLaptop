@@ -104,7 +104,6 @@ if ($gia - $gia * $phantram / 100 != $gia) {
                 <div class="col-md-4">
                     <form action="" method="POST">
                         <button style="padding: 0;"><a style="display: block; padding: 10px;">Thêm vào giỏ hàng</a></button>
-                        <button>Mua hàng</button>
                     </form>
                 </div>
             </div>

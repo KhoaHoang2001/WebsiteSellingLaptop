@@ -1,15 +1,15 @@
 #header {
   margin-bottom: 25px;
   .container {
+    
     .header-banner {
+      position: relative;
       img {
         width: 100%;
       }
     }
     .header-navbar {
-      z-index: 5;
       position: relative;
-      top: 0;
       .nav-left-right {
         .header-navbar--content {
           justify-content: space-evenly;
