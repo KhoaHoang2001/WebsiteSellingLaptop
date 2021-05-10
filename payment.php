@@ -1,6 +1,8 @@
 <?php
 require_once('./includes/include.php');
 require_once('./includes/conn.php');
+require_once('./includes/product.php');
+
 // $taikhoan = $_SESSION['taikhoan'];
 $taikhoan = 'Test';
 
@@ -34,6 +36,7 @@ if (mysqli_num_rows($res_account)) {
 
         <section class="cartItem">
           <div class="container">
+            <form action="charge.php" method="POST">
             <table id="tblItem" class="table">
               <thead id="tblHead">
                 <tr>
@@ -106,7 +109,8 @@ if (mysqli_num_rows($res_account)) {
                   <th style="text-align: center;">
                     <span>Tổng tiền:</span>
                   </th>
-                  <td id="tongTien" name="TongTien"></td>
+                  <!-- tong tien don hang-->
+                  <td id="tongTien" name="TongTien"><?php $tongtien ?></td> 
                 </tr>
                 <tr>
                   <td colspan="2" style="padding: 0;">
@@ -155,17 +159,19 @@ if (mysqli_num_rows($res_account)) {
                     Hình thức thanh toán:
                   </th>
                   <td style="text-align: center;">
-                    <input type="checkbox" name="" id="">
-                    <label for="">Offline</label>
+                    <form action="">
+                      <script id="scriptStripe" src="https://checkout.stripe.com/checkout.js" class="stripe-button" data-key="<?php echo $stripe['publishable_key']; ?>" data-description="Thanh toán" data-locale="auto"></script>
+                    </form>
                   </td>
                   <td style="text-align: center;">
-                    <button>
-                      <a href="./payment.php">MUA NGAY</a>
+                    <button id="codPayment">
+                      <a href="./payment.php">Cash on delivery</a>
                     </button>
-                </td>
+                  </td>
                 </tr>
               </tfoot>
             </table>
+            </form>
           </div>
         </section>
 

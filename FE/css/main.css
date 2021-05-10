@@ -490,12 +490,16 @@ footer .bottom p {
   height: 150px;
 }
 
+.cartItem .container #tblItem #tblBody tr td:nth-child(2) {
+  width: 25%;
+}
+
 .cartItem .container #tblItem #tblBody tr td:nth-child(3) {
   color: orangered;
 }
 
 .cartItem .container #tblItem #tblBody tr td:nth-child(4) input {
-  width: 5px;
+  width: 30%;
 }
 
 .cartItem .container #tblItem #tblBody tr td:nth-child(5) {
@@ -784,5 +788,19 @@ footer .bottom p {
 
 #payment .container #checkout-center .form-control {
   border-radius: 0;
+}
+
+#payment .container #codPayment {
+  position: relative;
+  padding: 0 1rem;
+  height: 30px;
+  line-height: 30px;
+  background: #1275ff;
+  border: 0px solid transparent;
+}
+
+#payment .container #codPayment a {
+  color: white;
+  font-weight: 600;
 }
 /*# sourceMappingURL=main.css.map */

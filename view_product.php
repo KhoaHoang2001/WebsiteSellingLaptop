@@ -2,17 +2,16 @@
 
 
 <?php
-if($_SERVER["REQUEST_METHOD"] == "POST" ){
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
     session_start();
-    if(isset( $_SESSION['taikhoan'])){
-        $MASP=$_GET['masp'];
+    if (isset($_SESSION['taikhoan'])) {
+        $MASP = $_GET['masp'];
         include('./cart/tsx_SP_gio.php');
         themSP_gio($MASP);
-        header('Location: view.php?tenbien='.$MASP);
-    }else header('Location: login.php');
-   
+        header('Location: view.php?tenbien=' . $MASP);
+    } else header('Location: login.php');
 }
-    
+
 ?>
 <?php
 $MASP = $_GET['masp'];
@@ -70,27 +69,27 @@ if ($gia - $gia * $phantram / 100 != $gia) {
                 <div class="col-md-4">
                     <section class="carousel">
                         <div class="container">
-                        <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
-                        <div class="carousel-inner">
-                            <div class="carousel-item active">
-                                <img src="./FE/image/Slide-Galaxy-Buds-Live-2.jpg" class="d-block w-100" alt="...">
+                            <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+                                <div class="carousel-inner">
+                                    <div class="carousel-item active">
+                                        <img src="./FE/image/Slide-Galaxy-Buds-Live-2.jpg" class="d-block w-100" alt="...">
+                                    </div>
+                                    <div class="carousel-item">
+                                        <img src="./FE/image/Slide-Mi-11-5G-1.jpg" class="d-block w-100" alt="...">
+                                    </div>
+                                    <div class="carousel-item">
+                                        <img src="./FE/image/Slide-oppo-reno5.jpg" class="d-block w-100" alt="...">
+                                    </div>
+                                </div>
+                                <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+                                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                    <span class="sr-only">Previous</span>
+                                </a>
+                                <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+                                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                    <span class="sr-only">Next</span>
+                                </a>
                             </div>
-                            <div class="carousel-item">
-                                <img src="./FE/image/Slide-Mi-11-5G-1.jpg" class="d-block w-100" alt="...">
-                            </div>
-                            <div class="carousel-item">
-                                <img src="./FE/image/Slide-oppo-reno5.jpg" class="d-block w-100" alt="...">
-                            </div>
-                        </div>
-                        <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
-                          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                          <span class="sr-only">Previous</span>
-                        </a>
-                        <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
-                          <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                          <span class="sr-only">Next</span>
-                        </a>
-                      </div>
                     </section>
                 </div>
                 <div class="col-md-4">
