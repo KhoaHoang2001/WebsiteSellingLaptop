@@ -15,24 +15,48 @@
         return $thongtin;
     }
 
+    function Del_Cart($taikhoan){
+        $sql = "DELETE FROM SANPHAMGIOHANG WHERE taikhoan = '$taikhoan'";
+        $res = Check_db($sql);
+    }
+
+    function Get_Cart($taikhoan){
+        $sql = "SELECT MASP, SOLUONGGIO FROM SANPHAMGIOHANG WHERE taikhoan = '$taikhoan'";
+        $res = Check_db($sql);
+        return $res;
+    }
+
+    function Add_Product($madh, $monhang){
+        while ($row = mysqli_fetch_assoc($monhang)) {
+            $masp = $row['MASP'];
+            $soluong = $row['SOLUONGGIO'];
+            $sql = "INSERT INTO `donhang` (`MADH`, `MASP`, `SOLUONGDAT`)
+                    VALUES (`$madh`, `$masp`, `$soluong`)";
+            $res = Check_db($sql);
+            if(!$res){
+                break;
+            }
+        }
+    }
+    
     function Create_Order(){
         if(isset($_POST['dathang'])){
             $thongtin = Get_Info_Account($_SESSION['taikhoan']);
             $madh = uniqid();
+            $taikhoan = $_SESSION['taikhoan'];
             $diachi = $thongtin['diachi'];
             $taikhoan = $_SESSION['taikhoan'];
             $trangthai = 'Chưa xác nhận';
-            
-            $sql_create_order = 'INSERT INTO DONHANG ';
+            $ngaydat = date("Y-m-d");
+            $htthanhtoan = 'Offline';
+            $sql_create_order = "INSERT INTO `donhang` (`MADH`, `TAIKHOAN`, `TRANGTHAI`, `NGAYDAT`, `HTTHANHTOAN`, `DIACHINHAN`, `TONGTIEN`) 
+                                VALUES ('$madh', '$taikhoan', '$trangthai', '$ngaydat', '$htthanhtoan', '$diachi', '$tongtien');";
+            $res_create_order = Check_db($sql_create_order);
+            if($res_create_order){
+                $monhang = Get_Cart($taikhoan);
+                Add_Product($madh, $monhang);
+                Del_Cart($taikhoan);
+            }
         }
-    }
-
-    function Add_Product(){
-        
-    }
-
-    function Del_Cart($madh){
-        $sql = "DELETE FROM MONHANG WHERE madh = '$madh'";
-        $res = Check_db($sql);
     }
 ?>

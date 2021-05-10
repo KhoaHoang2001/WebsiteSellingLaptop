@@ -47,10 +47,7 @@ require_once('./includes/conn.php');
             </tr>
             <tr>
               <td style="padding-left: 20px">
-                <!-- <button type="button" style="padding: 5px 10px" name="submit_login">
-                  Đăng nhập
-                </button> -->
-                <input type="submit" value="Đăng nhập" name="submit_login">
+                <input type="submit" style="padding: 5px 10px" value="Đăng nhập" name="submit_login">
               </td>
               <td></td>
               <td>
@@ -73,14 +70,11 @@ require_once('./includes/conn.php');
 
 
 <?php
-echo "hjhjhj";
 if (isset($_POST['submit_login'])) {
-  echo "jjjjjjjj";
   $taikhoan = Get_value($_POST["taikhoan"]);
   $matkhau = Get_value($_POST["matkhau"]);
   $matkhau = md5($matkhau);
   $sql = "SELECT * FROM NGUOIDUNG WHERE taikhoan = '$taikhoan' AND matkhau = '$matkhau'";
-  echo $sql;
   $res = Check_db($sql);
   if (mysqli_num_rows($res) > 0) {
     $row = mysqli_fetch_assoc($res);
@@ -96,7 +90,7 @@ if (isset($_POST['submit_login'])) {
       case "AD":
           echo "<script>window.open('./admin/index.php','_self')</script>";
           break;
-  }
+    }
   }
 }
 ?>

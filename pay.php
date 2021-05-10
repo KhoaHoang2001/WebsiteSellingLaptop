@@ -1,6 +1,6 @@
 <?php 
-    require_once('./config.php'); 
-    // require_once('./includes.php');
+    require_once('./includes/config.php'); 
+    require_once('./includes/include.php');
 ?>
 
 <!DOCTYPE html>
@@ -16,8 +16,9 @@
             <input id="tongtien" type="text" name="tongtien">
             <script id="scriptStripe" src="https://checkout.stripe.com/checkout.js" class="stripe-button"
                     data-key="<?php echo $stripe['publishable_key']; ?>"
-                    data-description="Thanh toan"
-                    data-locale="auto"></script>
+                    data-description="Thanh toán VISA"
+                    data-locale="auto">
+            </script>
         </form>
     </body>
 </html>
