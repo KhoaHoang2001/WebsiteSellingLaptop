@@ -1,0 +1,57 @@
+.item {
+  .item-title {
+    padding-left: 15px;
+  }
+  .item-content {
+    padding: 15px 15px 0 15px;
+    border: 1px solid black;
+
+    .card-group {
+      padding-bottom: 30px;
+      .card {
+        padding: 0;
+        border: 1px solid black;
+        border-radius: 5px;
+        a {
+          text-decoration: none;
+          color: black;
+          display: block;
+          .card-header {
+            padding: 0;
+            img {
+              width: 100%;
+            }
+          }
+        }
+        &:hover {
+          #xemSP {
+            display: block;
+          }
+          .card-body {
+            opacity: 0.5;
+          }
+        }
+        #xemSP {
+          display: none;
+          position: absolute;
+          bottom: 20%;
+          left: 15%;
+          font-size: $fs-3 + 5px;
+          background-color: $color-blue-0;
+          padding: 5px;
+          border: 1px solid transparent;
+          border-radius: 3px;
+          z-index: 2;
+        }
+      }
+      .card-laptop-item {
+        margin: 0;
+        padding: 0;
+        a {
+          display: block;
+          height: 100%;
+        }
+      }
+    }
+  }
+}

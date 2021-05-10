@@ -1,0 +1,9 @@
+.sales{
+  .sales-title {
+    @extend .bestseller-title;
+  }
+  .sales-content {
+      
+    @extend .bestseller-content;
+  }
+}

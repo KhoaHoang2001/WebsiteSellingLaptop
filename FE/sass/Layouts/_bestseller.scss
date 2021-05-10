@@ -1,0 +1,8 @@
+.bestseller {
+  .bestseller-title {
+    @extend .item-title;
+  }
+  .bestseller-content {
+    @extend .item-content;
+  }
+}
