@@ -209,6 +209,15 @@ input:focus {
   height: 100%;
 }
 
+.item .item-content .card-group .card-laptop-item a .card-header img, .item .bestseller .bestseller-content .card-group .card-laptop-item a .card-header img, .bestseller .item .bestseller-content .card-group .card-laptop-item a .card-header img, .item .bestseller .sales .sales-content .card-group .card-laptop-item a .card-header img, .bestseller .sales .item .sales-content .card-group .card-laptop-item a .card-header img, .item .sales .bestseller .sales-content .card-group .card-laptop-item a .card-header img, .sales .bestseller .item .sales-content .card-group .card-laptop-item a .card-header img {
+  width: 100%;
+  height: 10rem;
+}
+
+.item .item-content .card-group .card-laptop-item a .card-body, .item .bestseller .bestseller-content .card-group .card-laptop-item a .card-body, .bestseller .item .bestseller-content .card-group .card-laptop-item a .card-body, .item .bestseller .sales .sales-content .card-group .card-laptop-item a .card-body, .bestseller .sales .item .sales-content .card-group .card-laptop-item a .card-body, .item .sales .bestseller .sales-content .card-group .card-laptop-item a .card-body, .sales .bestseller .item .sales-content .card-group .card-laptop-item a .card-body {
+  height: 35%;
+}
+
 .contact .container .contact-title h2 {
   padding: 25px 0 0 15px;
 }

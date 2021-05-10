@@ -10,15 +10,15 @@
       <div class="container">
         <!-- tittle heading -->
         <h2 id="payment-title" class="text-center">
-          <span>P</span>ayment
+          <b><span>T</span>hanh toán</b>
         </h2>
         <!-- //tittle heading -->
         <div id="checkout-center">
           <!--Horizontal Tab-->
           <div id="parentHorizontalTab">
             <ul class="resp-tabs-list hor_1" id="myDIV">
-              <li id="payment-card">Credit/Debit</li>
-              <li id="payment-paypal">Paypal Account</li>
+              <!-- <li id="payment-card">Credit/Debit</li> -->
+              <!-- <li id="payment-paypal">Paypal Account</li> -->
             </ul>
             <div class="resp-tabs-container hor_1">
               <div id="card-creditOrDebit">
@@ -32,12 +32,12 @@
                     <div class="credit-card-wrapper">
                       <div class="first-row form-group">
                         <div class="controls">
-                          <label class="control-label">Name on Card</label>
+                          <label class="control-label">Tên chủ thẻ</label>
                           <input
                             class="billing-address-name form-control"
                             type="text"
                             name="name"
-                            placeholder="John Smith"
+                            placeholder="Nguyễn Văn A"
                           />
                         </div>
                         <div class="w3_agileits_card_number_grids my-3">
