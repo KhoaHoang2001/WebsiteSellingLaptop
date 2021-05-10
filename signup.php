@@ -159,7 +159,7 @@
     $GIOITINH = ($_POST['GIOITINH']);
     $EMAIL = $_POST['EMAIL'];
     $SDT = $_POST['SDT'];
-    echo $GIOITINH . "" . $EMAIL . "" . $SDT;
+   // echo $GIOITINH . "" . $EMAIL . "" . $SDT;
     $conn = Connect();
     $sql1 = "SELECT * FROM nguoidung WHERE TAIKHOAN='$TAIKHOAN'";
     $request = $conn->query($sql1);

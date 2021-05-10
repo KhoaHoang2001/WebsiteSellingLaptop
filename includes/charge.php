@@ -3,9 +3,8 @@
 
   $token  = $_POST['stripeToken'];
   $email  = $_POST['stripeEmail'];
-  $tongtien = $_POST['tongtien'];
-  $taikhoan = $_SESSION['taikhoan'];
-  $ngaydat = date("Y-m-d");
+  $amount = $_POST['amount'];
+  $maHD = $_POST['maHD'];
 
   $customer = \Stripe\Customer::create([
       'email' => $email,
@@ -14,9 +13,10 @@
 
   $charge = \Stripe\Charge::create([
       'customer' => $customer->id,
-      'amount'   => $tongtien,
+      'amount'   => $amount,
       'currency' => 'usd',
       "metadata" => ["order_id" => $maHD]
   ]);
 
+  echo '<h1>Successfully charged $50.00!</h1>';
 ?>

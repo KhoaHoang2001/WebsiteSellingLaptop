@@ -36,7 +36,15 @@
                                     <a class="nav-link" href="./cart.php">Giỏ hàng</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" href="./login.php">Tài khoản</a>
+                                    <?php
+                                        if(isset($_SESSION['taikhoan'])){
+                                            echo "<a class=\"nav-link\" href=\"./account.php\">Tài khoản</a>";
+                                        }
+                                        else{
+                                            echo "<a class=\"nav-link\" href=\"./login.php\">Tài khoản</a>";
+                                        }
+                                    ?>
+                                    
                                 </li>
                             </ul>
                         </div>
