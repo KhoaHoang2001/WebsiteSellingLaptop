@@ -181,7 +181,7 @@ require_once('./includes/conn.php');
         </div>
     </section>
     <!-- sales  -->
-    <section class="sales">
+    <section id="sales" class="sales">
         <div class="container">
             <div class="row sales-title">
                 <h2>Sản phẩm giảm giá</h2>
