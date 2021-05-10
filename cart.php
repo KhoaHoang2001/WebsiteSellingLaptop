@@ -1,5 +1,5 @@
 <?php 
-
+session_start();
 if(isset($_SESSION['taikhoan'])){
     require_once('./includes/include.php');
    $taikhoan=$_SESSION['taikhoan'];
@@ -39,11 +39,12 @@ if(isset($_SESSION['taikhoan'])){
                 </thead>
                 <tbody id="tblBody">
                     <?php 
-                        $sql_cart = "SELECT * FROM SANPHAMGIOHANG, SANPHAM WHERE SANPHAMGIOHANG.MASP = SANPHAM.MASP and taikhoan = '$taikhoan'";
+                        $sql_cart = "SELECT *,LINK FROM HINHANH,SANPHAMGIOHANG, SANPHAM WHERE SANPHAMGIOHANG.MASP = SANPHAM.MASP AND SANPHAMGIOHANG.MASP=HINHANH.MASP and taikhoan = '$taikhoan'";
                         $res_cart = Check_db($sql_cart);
                         $temp = 0;
                         if(mysqli_num_rows($res_cart)){
                             while ($row = mysqli_fetch_assoc($res_cart)) {
+                                $hinh=$row['LINK'];
                                 $masp = $row['MASP'];
                                 $tensp = $row['TENSP'];
                                 $gia = $row['GIA'];
@@ -58,7 +59,7 @@ if(isset($_SESSION['taikhoan'])){
                     <tr>
                         <td>
                             <a href="#" class="cartItem__product">
-                                <img src="./image/laptop.jpg" alt="">
+                                <img src="./admin/product_images/<?php echo $hinh ?>" alt="">
                             </a>
                         </td>
                         <td>
