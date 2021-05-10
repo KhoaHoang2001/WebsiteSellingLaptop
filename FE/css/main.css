@@ -63,14 +63,16 @@ input:focus {
   margin-bottom: 25px;
 }
 
+#header .container .header-banner {
+  position: relative;
+}
+
 #header .container .header-banner img {
   width: 100%;
 }
 
 #header .container .header-navbar {
-  z-index: 5;
   position: relative;
-  top: 0;
 }
 
 #header .container .header-navbar .nav-left-right .header-navbar--content {

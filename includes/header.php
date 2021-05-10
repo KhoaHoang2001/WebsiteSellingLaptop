@@ -24,7 +24,7 @@
                         <div class="navbar-select">
                             <ul class="navbar-nav">
                                 <li class="nav-item">
-                                    <a class="nav-link active" aria-current="page" href="./index.html#laptop">Laptop</a>
+                                    <a class="nav-link active" aria-current="page" href="./index.php#laptop">Laptop</a>
                                 </li>
                                 <li class="nav-item">
                                     <a class="nav-link" href="./index.php#sales">Giảm giá</a>
