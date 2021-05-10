@@ -59,7 +59,7 @@
 <?php 
     function Check_pass($taikhoan, $matkhau){
         $sql_check_pass = "SELECT * FROM NGUOIDUNG WHERE taikhoan = '$taikhoan' AND matkhau = '$matkhau'";
-        $res_check_pass = $Check_db($sql_check_pass);
+        $res_check_pass = Check_db($sql_check_pass);
         if(mysqli_num_rows($res_check_pass) > 0){
             return true;
         }

@@ -1,6 +1,22 @@
+<<<<<<< HEAD
+<?php
+require_once('./includes/include.php');
+$taikhoan = 'Test';
+function View_Discount_Of_Product($masp)
+{
+    $sql_discount = "SELECT * FROM giamgia WHERE MAGIAMGIA = (SELECT MAGIAMGIA FROM sanpham WHERE MASP = '$masp');";
+    $res_discount = Check_db($sql_discount);
+    if (mysqli_num_rows($res_discount) > 0) {
+        $row_discount = mysqli_fetch_assoc($res_discount);
+        return $row_discount['PHANTRAM'];
+    } else {
+        return 0;
+=======
 <?php 
+
+if(isset($_SESSION['taikhoan'])){
     require_once('./includes/include.php');
-    $taikhoan = 'vinh';
+   $taikhoan=$_SESSION['taikhoan'];
     function View_Discount_Of_Product($masp){
         $sql_discount = "SELECT * FROM giamgia WHERE MAGIAMGIA = (SELECT MAGIAMGIA FROM sanpham WHERE MASP = '$masp');";
         $res_discount = Check_db($sql_discount);
@@ -11,12 +27,15 @@
         else{
             return 0;
         }
+>>>>>>> 6e578c4a264b56f067c8ffad4180455069c3fb12
     }
+}
 ?>
 
 <!DOCTYPE html>
 <html lang="en">
 <?php include('./includes/head.php') ?>
+
 <body>
     <!-- header -->
     <?php include('./includes/header.php') ?>
@@ -35,60 +54,61 @@
                     </tr>
                 </thead>
                 <tbody id="tblBody">
-                    <?php 
-                        $sql_cart = "SELECT * FROM SANPHAMGIOHANG, SANPHAM WHERE SANPHAMGIOHANG.MASP = SANPHAM.MASP and taikhoan = '$taikhoan'";
-                        $res_cart = Check_db($sql_cart);
-                        $temp = 0;
-                        if(mysqli_num_rows($res_cart)){
-                            while ($row = mysqli_fetch_assoc($res_cart)) {
-                                $masp = $row['MASP'];
-                                $tensp = $row['TENSP'];
-                                $gia = $row['GIA'];
-                                $phantram = View_Discount_Of_Product($masp);
-                                if($gia - $gia*$phantram/100 < $gia){
-                                    $gia = $gia - $gia*$phantram/100;
-                                }
-                                $soluonggio = $row['SOLUONGGIO'];
-                                $temp++;
+                    <?php
+                    $sql_cart = "SELECT * FROM SANPHAMGIOHANG, SANPHAM WHERE SANPHAMGIOHANG.MASP = SANPHAM.MASP and taikhoan = '$taikhoan'";
+                    $res_cart = Check_db($sql_cart);
+                    $temp = 0;
+                    if (mysqli_num_rows($res_cart)) {
+                        $tongtien = 0 ;
+                        while ($row = mysqli_fetch_assoc($res_cart)) { 
+                            
+                            $masp = $row['MASP'];
+                            $tensp = $row['TENSP'];
+                            $gia = $row['GIA'];
+                            $phantram = View_Discount_Of_Product($masp);
+                            if ($gia - $gia * $phantram / 100 < $gia) {
+                                $gia = $gia - $gia * $phantram / 100;
+                            }
+                            $soluonggio = $row['SOLUONGGIO'];
+                            $temp++;
                     ?>
-                    <form method="POST">
-                    <tr>
-                        <td>
-                            <a href="#" class="cartItem__product">
-                                <img src="./image/laptop.jpg" alt="">
-                            </a>
-                        </td>
-                        <td>
-                            <div class="cartItem__product--intro">
-                                <h4><?php echo $tensp ?></h4>
-                            </div>
-                        </td>
-                        <td><?php echo $gia ?></td>
-                        <td>
-                            <input type="number" class="" name="soluonggio" aria-label="" value='<?php echo $soluonggio ?>' size="5" min="1">
-                        </td>
-                        <td>
-                            <?php echo $gia*$soluonggio;
-                            ?>
-                        </td>
-                        <td>
-                            <a href="xoa.php?masp=<?php echo $masp ?>" style="padding: 10px;"><i class="fa fa-trash-alt"></i></a>
-                            <input type="submit" name="<?php echo $masp?>" value="luu">
-                        </td>
-                    </tr>
-                    </form>
+                            <form method="POST">
+                                <tr>
+                                    <td>
+                                        <a href="#" class="cartItem__product">
+                                            <img src="./image/laptop.jpg" alt="">
+                                        </a>
+                                    </td>
+                                    <td>
+                                        <div class="cartItem__product--intro">
+                                            <h4><?php echo $tensp ?></h4>
+                                        </div>
+                                    </td>
+                                    <td><?php echo $gia ?></td>
+                                    <td>
+                                        <input type="number" class="" name="soluonggio" value='<?php echo $soluonggio ?>' min="1">
+                                    </td>
+                                    <td class="tongTienSP">
+                                        <?php echo $gia * $soluonggio;
+                                            $tongtien += $gia * $soluonggio;
+                                        ?>
+                                    </td>
+                                    <td>
+                                        <a href="xoa.php?masp=<?php echo $masp ?>" style="padding: 10px;"><i class="fa fa-trash-alt"></i></a>
+                                        <input type="submit" name="<?php echo $masp ?>" value="Lưu">
+                                    </td>
+                                </tr>
+                            </form>
 
-                    <?php 
+                    <?php
                         }
-                        if(isset($_POST[$masp])){
+                        if (isset($_POST[$masp])) {
                             $soluonggio = $_POST['soluonggio'];
                             $sql = "UPDATE sanphamgiohang SET SOLUONGGIO='$soluonggio' WHERE TAIKHOAN='$taikhoan' AND MASP='$masp'";
-                            if($res = Check_db($sql)){
+                            if ($res = Check_db($sql)) {
                                 echo "<script>alert('Cập nhật thành công!') </script>";
                                 echo "<script>window.open('cart.php','_self')</script>";
-                    
-                            }
-                            else{
+                            } else {
                                 echo "<script>alert('sua gio hang that bai')</script>";
                             }
                         }
@@ -102,7 +122,10 @@
                             <span class="spacer"></span>
                             <span>Tổng tiền:</span>
                         </th>
-                        <td id="tongTien" name="TongTien"></td>
+                        <td id="tongTien" name="TongTien">
+                            <?php echo $tongtien;
+                            ?>
+                        </td>
                     </tr>
                     <tr>
                         <td colspan="5"></td>

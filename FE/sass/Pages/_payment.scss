@@ -85,5 +85,17 @@
         border-radius: 0;
       }
     }
+    #codPayment{
+      position: relative;
+      padding: 0 1rem;
+      height: 30px;
+      line-height: 30px;
+      background: #1275ff;
+      border: 0px solid transparent;
+      a{
+        color: white;
+        font-weight: 600;
+      }
+    }
   }
 }
