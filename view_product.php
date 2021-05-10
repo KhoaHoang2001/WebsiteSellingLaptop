@@ -4,8 +4,8 @@
 <?php
 if($_SERVER["REQUEST_METHOD"] == "POST" ){
     session_start();
-    if(isset( $_SESSION['TAIKHOAN'])){
-        // $MASP=$_GET['masp'];
+    if(isset( $_SESSION['taikhoan'])){
+        $MASP=$_GET['masp'];
         include('./cart/tsx_SP_gio.php');
         themSP_gio($MASP);
         header('Location: view.php?tenbien='.$MASP);

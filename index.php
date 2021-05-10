@@ -114,7 +114,7 @@ require_once('./includes/conn.php');
     <!-- New Item -->
     <?php include('./includes/item.php') ?>
     <!-- bestseller  -->
-    <section class="bestseller">
+    <section id="bestseller" class="bestseller">
         <div class="container">
             <div class="row bestseller-title">
                 <h2>Sản phẩm bán chạy</h2>
@@ -172,7 +172,7 @@ require_once('./includes/conn.php');
         </div>
     </section>
     <!-- sales  -->
-    <section class="sales">
+    <section id="sales" class="sales">
         <div class="container">
             <div class="row sales-title">
                 <h2>Sản phẩm giảm giá</h2>
