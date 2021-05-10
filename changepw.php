@@ -1,5 +1,9 @@
-
-              <form action="" id="formDoiMatKhau">
+<?php 
+    require_once('./includes/include.php');
+    require_once('./includes/conn.php');
+?>
+  
+  <form action="" id="formDoiMatKhau">
                 <table id="tblDoiMatKhau">
                   <tr>
                     <th>
@@ -60,15 +64,28 @@
       </div>
 
 <?php
+//   function check_account($taikhoan, $matkhau){
+//     $sql_check_pass = "SELECT * FROM NGUOIDUNG WHERE taikhoan = '$taikhoan' AND matkhau = '$matkhau'";
+//     $res_check_pass = Check_db($sql_check_pass);
+//     if(mysqli_num_rows($res_check_pass) > 0){
+//         return true;
+//     }
+//     else {
+//         return false;
+//     }
+// }
+  
     require_once('./includes/include.php');
-     function Change_Pw($taikhoan){
+    // function Change_Pw($taikhoan){
         if (isset(($_POST['doimatkhau']))){
+
             $matkhaucu = Get_value($_POST['matkhaucu']);
             $matkhaumoi = Get_value($_POST['matkhaumoi']);
             $rematkhaumoi = Get_value($_POST['rematkhaumoi']);
             $matkhaucu = md5($matkhaucu);
             $matkhaumoi = md5($matkhaumoi);
             $rematkhaumoi = md5($rematkhaumoi);
+
             $sql = "SELECT * FROM NGUOIDUNG WHERE taikhoan = '$taikhoan' AND matkhau = '$matkhaucu'";
             $res = Check_db($sql);
             if(mysqli_num_rows($res) > 0){
@@ -79,6 +96,6 @@
         }else{
             echo "sai rồi";
         }
-    }
+    
 }
 ?>

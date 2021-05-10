@@ -85,7 +85,18 @@ if (isset($_POST['submit_login'])) {
     $row = mysqli_fetch_assoc($res);
     $_SESSION['taikhoan'] = $row['TAIKHOAN'];
     $_SESSION['maquyen'] = $row['MAQUYEN'];
-    Check_role($_SESSION['maquyen']);
+    $role = $_SESSION['maquyen'];
+    switch ($role) {
+      case "NV":  
+          header('location: ./staff/index.php');    
+          break;
+      case "KH":
+          header('location: ./index.php');
+          break;
+      case "AD":
+          header('location: ./admin/index.php');
+          break;
+    }
   }
 }
 ?>
