@@ -48,7 +48,7 @@
               <li id="DMK" onclick="activeDMK()">
                 <a href="#">Đổi mật khẩu</a>
               </li>
-              <li id="DX"><a href="#">Đăng xuất</a></li>
+              <li id="DX"><a href="./logout.php">Đăng xuất</a></li>
             </ul>
           </div>
           <div id="account__right">
