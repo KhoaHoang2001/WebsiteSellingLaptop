@@ -120,7 +120,7 @@ require_once('./includes/conn.php');
                 <h2>Sản phẩm bán chạy</h2>
             </div>
             <div class="row bestseller-content">
-                <div class="row">
+                <div class="row" style="padding: 15px">
                     <?php
                     $sql = "SELECT *,SUM(SOLUONGDAT), LINK FROM sanpham,monhang,hinhanh where sanpham.MASP=monhang.MASP 
                         AND hinhanh.MASP=monhang.MASP GROUP BY monhang.MASP ORDER BY SUM(SOLUONGDAT) DESC LIMIT 4";
@@ -140,30 +140,30 @@ require_once('./includes/conn.php');
                         $vixuly = $row['VIXULY'];
                         $ram = $row['RAM'];
                     ?>
-                        <div class='card-group col-md-3 col-sm-6'>
-                            <div class='card'>
-                                <a href='./view_product.php'>
-                                    <div class='card-header'>
-                                        <img src='./admin/product_images/<?php echo $hinh ?>' class='card-img-top' alt=''>
-                                    </div>
-                                    <div class='card-body'>
-                                        <h4 class='card-title'><?php echo $tensp ?></h4>
-                                    </div>
-                                    <div class='card-body'>
-                                        <?php
-                                        if ($giamoi == "") {
-                                            echo " <span>" . $gia . "</span>";
-                                        } else {
-                                            echo "<s>
+                        <div class="card-group col-md-3 col-sm-6">
+                        <div class='card card-laptop-item'>
+                            <a href='./view_product.php?masp=<?php echo $masp ?>'>
+                                <div class='card-header'>
+                                    <img src='./admin/product_images/<?php echo $hinh ?>' class='card-img-top' alt=''>
+                                </div>
+                                <div class='card-body'>
+                                    <h4 class='card-title'><?php echo $tensp ?></h4>
+                                </div>
+                                <div class='card-footer'>
+                                    <?php
+                                    if ($giamoi == "") {
+                                        echo " <span>" . $gia . "</span>";
+                                    } else {
+                                        echo "      <s>
                                                         <span>" . $gia . "</span>
                                                     </s>
-                                                    <span style='color: red'>" . $giamoi . "</span>";
-                                        }
-                                        ?>
-                                    </div>
-                                </a>
-                            </div>
+                                                    <span style='color: red;'>" . $giamoi . "</span>";
+                                    }
+                                    ?>
+                                </div>
+                            </a>
                         </div>
+                    </div>
                     <?php
                     }
                     ?>
@@ -178,56 +178,54 @@ require_once('./includes/conn.php');
                 <h2>Sản phẩm giảm giá</h2>
             </div>
             <div class="row sales-content">
-                <div class="row">
-                    <?php
-                    $sql = "SELECT * ,LINK FROM sanpham,hinhanh where sanpham.MASP=hinhanh.MASP and MAGIAMGIA IS NOT NULL";
-                    $res = Check_db($sql);
-                    while ($row = mysqli_fetch_assoc($res)) {
-                        $masp = $row['MASP'];
-                        $tensp = $row['TENSP'];
-                        $gia = $row['GIA'];
-                        $hinh = $row['LINK'];
-                        $phantram = View_Discount_Of_Product($masp);
-                        if ($gia - $gia * $phantram / 100 != $gia) {
-                            $giamoi = $gia - $gia * $phantram / 100;
-                        } else {
-                            $giamoi = "";
-                        }
-                        $kichthuocmh = $row['KICHTHUOCMH'];
-                        $vixuly = $row['VIXULY'];
-                        $ram = $row['RAM'];
-                    ?>
-                        <div class='card-group col-md-3 col-sm-6'>
-                            <div class='card'>
-                                <a href='./view.html'>
-                                    <div class='card-header'>
-                                        <img src='./admin/product_images/<?php echo $hinh ?>' class='card-img-top' alt=''>
-                                    </div>
-                                    <div class='card-body'>
-                                        <h4 class='card-title'><?php echo $tensp ?></h4>
-                                        <p class='card-text'>
-                                            <?php
-                                            if ($giamoi == "") {
-                                                echo " <span>" . $gia . "</span>";
-                                            } else {
-                                                echo "<s>
+            <div class="row" style="padding: 15px">
+                <?php
+                $sql = "SELECT * ,LINK FROM sanpham,hinhanh where sanpham.MASP=hinhanh.MASP and MAGIAMGIA IS NOT NULL";
+                $res = Check_db($sql);
+                while ($row = mysqli_fetch_assoc($res)) {
+                    $masp = $row['MASP'];
+                    $tensp = $row['TENSP'];
+                    $gia = $row['GIA'];
+                    $hinh = $row['LINK'];
+                    $phantram = View_Discount_Of_Product($masp);
+                    if ($gia - $gia * $phantram / 100 != $gia) {
+                        $giamoi = $gia - $gia * $phantram / 100;
+                    } else {
+                        $giamoi = "";
+                    }
+                    $kichthuocmh = $row['KICHTHUOCMH'];
+                    $vixuly = $row['VIXULY'];
+                    $ram = $row['RAM'];
+                ?>
+                    <div class="card-group col-md-3 col-sm-6">
+                        <div class='card card-laptop-item'>
+                            <a href='./view_product.php?masp=<?php echo $masp ?>'>
+                                <div class='card-header'>
+                                    <img src='./admin/product_images/<?php echo $hinh ?>' class='card-img-top' alt=''>
+                                </div>
+                                <div class='card-body'>
+                                    <h4 class='card-title'><?php echo $tensp ?></h4>
+                                </div>
+                                <div class='card-footer'>
+                                    <?php
+                                    if ($giamoi == "") {
+                                        echo " <span>" . $gia . "</span>";
+                                    } else {
+                                        echo "      <s>
                                                         <span>" . $gia . "</span>
                                                     </s>
-                                                    <span style='color: red'>" . $giamoi . "</span>";
-                                            }
-                                            ?>
-                                        </p>
-                                    </div>
-                                    <span id='xemSP'>Xem sản phẩm</span>
-                                </a>
-                            </div>
+                                                    <span style='color: red;'>" . $giamoi . "</span>";
+                                    }
+                                    ?>
+                                </div>
                             </a>
                         </div>
-                    <?php
-                    }
-                    ?>
-                </div>
+                    </div>
+                <?php
+                } //end loop
+                ?>
             </div>
+        </div>
         </div>
     </section>
     <!-- footer -->
