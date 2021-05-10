@@ -141,6 +141,8 @@ CREATE TABLE `nguoidung` (
 INSERT INTO `nguoidung` (`TAIKHOAN`, `MAQUYEN`, `MATKHAU`, `TENND`, `GIOITINH`, `SDT`, `DIACHI`, `EMAIL`, `NGAYSINH`) VALUES
 ('bichngan', 'KH', '202cb962ac59075b964b07152d234b70', 'ngan', NULL, NULL, NULL, NULL, NULL),
 ('ngân', 'KH', '202cb962ac59075b964b07152d234b70', 'vu bich ngan', NULL, NULL, NULL, NULL, NULL);
+('vinh', 'KH', '4107eaebd361f3477b630f4ed7452418', 'thevinh', NULL, NULL, NULL, NULL, NULL);
+('vinh2', 'NV', 'ef370d21cb7ee38501ed3f6087d37b56', 'thevinh2', NULL, NULL, NULL, NULL, NULL);
 
 -- --------------------------------------------------------
 

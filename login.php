@@ -23,7 +23,7 @@ require_once('./includes/conn.php');
               </th>
               <td style="width: 10px"></td>
               <td>
-                <input type="text" name="taikhoan" id="tenDangNhap" />
+                <input type="text" name="taikhoan" id="taikhoan" />
               </td>
             </tr>
             <tr style="height: 10px">
@@ -47,9 +47,10 @@ require_once('./includes/conn.php');
             </tr>
             <tr>
               <td style="padding-left: 20px">
-                <button type="button" style="padding: 5px 10px" onclick="DangNhap()" name="submit_login">
+                <!-- <button type="button" style="padding: 5px 10px" name="submit_login">
                   Đăng nhập
-                </button>
+                </button> -->
+                <input type="submit" value="Đăng nhập" name="submit_login">
               </td>
               <td></td>
               <td>
@@ -85,7 +86,17 @@ if (isset($_POST['submit_login'])) {
     $row = mysqli_fetch_assoc($res);
     $_SESSION['taikhoan'] = $row['TAIKHOAN'];
     $_SESSION['maquyen'] = $row['MAQUYEN'];
-    Check_role($_SESSION['maquyen']);
+    switch ($_SESSION['maquyen']) {
+      case "NV":
+          echo "<script>window.open('./staff/index.php','_self')</script>";    
+          break;
+      case "KH":
+          echo "<script>window.open('./index.php','_self')</script>";
+          break;
+      case "AD":
+          echo "<script>window.open('./admin/index.php','_self')</script>";
+          break;
+  }
   }
 }
 ?>

@@ -13,7 +13,7 @@
     </head>
     <body>
         <form action="charge.php" method="post">
-            <input id="amount" type="text" name="amount">
+            <input id="tongtien" type="text" name="tongtien">
             <script id="scriptStripe" src="https://checkout.stripe.com/checkout.js" class="stripe-button"
                     data-key="<?php echo $stripe['publishable_key']; ?>"
                     data-description="Thanh toan"
