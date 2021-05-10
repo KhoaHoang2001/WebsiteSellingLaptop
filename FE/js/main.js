@@ -47,7 +47,6 @@ function DangKy() {
       loi++;
     }
   }
-
   if (loi != 0) {
     return false;
   }
@@ -66,16 +65,25 @@ function DangNhap() {
   if (KiemTraDauVaoRong("matKhau", matKhau) == true) {
     loi++;
   }
+  
+  if (loi != 0) {
+    return false;
+  }
+  else{
+    return true;
+  }
 }
 
 function KiemTraDauVaoRong(ID, value) {
   if (validate.KiemTraRong(value) == true) {
     DomID(ID).style.borderColor = "red";
     DomID(ID).placeholder = "Nhập thông tin vào đây!";
+    
     return true;
   } else {
     DomID(ID).style.borderColor = "green";
     return false;
   }
 }
+
 

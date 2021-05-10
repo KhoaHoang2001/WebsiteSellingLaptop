@@ -40,7 +40,7 @@
                 header('location: ./staff/index.php');    
                 break;
             case "KH":
-                header('location: ./index.php');
+                echo "<script>window.open('index.php','_self')</script>";
                 break;
             case "AD":
                 header('location: ./admin/index.php');

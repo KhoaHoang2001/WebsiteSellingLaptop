@@ -15,7 +15,7 @@ require_once('./includes/conn.php');
     <div class="container">
       <div class="login-form-center" align="center">
         <h2>Đăng nhập</h2>
-        <form action="" method="POST">
+        <form action="" method="POST" onsubmit="return DangNhap()">
           <table>
             <tr>
               <th>
@@ -23,7 +23,7 @@ require_once('./includes/conn.php');
               </th>
               <td style="width: 10px"></td>
               <td>
-                <input type="text" name="taikhoan" id="taikhoan" />
+                <input type="text" name="taikhoan" id="tenDangNhap" />
               </td>
             </tr>
             <tr style="height: 10px">
@@ -47,10 +47,9 @@ require_once('./includes/conn.php');
             </tr>
             <tr>
               <td style="padding-left: 20px">
-                <!-- <button type="button" style="padding: 5px 10px" name="submit_login">
-                  Đăng nhập
-                </button> -->
-                <input type="submit" value="Đăng nhập" name="submit_login">
+                <input type="submit" style="padding: 5px 10px" name="login" value="Đăng nhập">
+                  
+                </input>
               </td>
               <td></td>
               <td>
@@ -73,11 +72,9 @@ require_once('./includes/conn.php');
 
 
 <?php
-echo "hjhjhj";
-if (isset($_POST['submit_login'])) {
-  echo "jjjjjjjj";
-  $taikhoan = Get_value($_POST["taikhoan"]);
-  $matkhau = Get_value($_POST["matkhau"]);
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+  $taikhoan = ($_POST["taikhoan"]);
+  $matkhau =($_POST["matkhau"]);
   $matkhau = md5($matkhau);
   $sql = "SELECT * FROM NGUOIDUNG WHERE taikhoan = '$taikhoan' AND matkhau = '$matkhau'";
   echo $sql;
@@ -86,17 +83,7 @@ if (isset($_POST['submit_login'])) {
     $row = mysqli_fetch_assoc($res);
     $_SESSION['taikhoan'] = $row['TAIKHOAN'];
     $_SESSION['maquyen'] = $row['MAQUYEN'];
-    switch ($_SESSION['maquyen']) {
-      case "NV":
-          echo "<script>window.open('./staff/index.php','_self')</script>";    
-          break;
-      case "KH":
-          echo "<script>window.open('./index.php','_self')</script>";
-          break;
-      case "AD":
-          echo "<script>window.open('./admin/index.php','_self')</script>";
-          break;
-  }
+    echo "<script>window.open('account.php','_self')</script>";
   }
 }
 ?>

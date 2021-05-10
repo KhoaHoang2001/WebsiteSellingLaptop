@@ -18,8 +18,7 @@
         $conn->close();
     }
     function themSP_gio($MASP){
-        echo $MASP;
-        $TAIKHOAN=$_SESSION['TAIKHOAN'];
+        $TAIKHOAN=$_SESSION['taikhoan'];
         $row_SPGH=test("SELECT*FROM sanphamgiohang WHERE TAIKHOAN='$TAIKHOAN' AND MASP='$MASP'");
         if($row_SPGH!=null){
             $SOLUONGGIO=$row_SPGH['SOLUONGGIO']+1;
@@ -36,7 +35,7 @@
 
     function sua_SP_gio($SOLUONGGIO){
         include('connectDB.php');
-        $TAIKHOAN=$_SESSION['TAIKHOAN'];
+        $TAIKHOAN=$_SESSION['taikhoan'];
         $row_SPGH=test("SELECT*FROM sanphamgiohang WHERE TAIKHOAN='$TAIKHOAN' AND MASP='$MASP'");
         if($row_SPGH!=null){
             update("UPDATE sanphamgiohang SET SOLUONGGIO='$SOLUONGGIO' WHERE TAIKHOAN='$TAIKHOAN' AND MASP='$MASP");
