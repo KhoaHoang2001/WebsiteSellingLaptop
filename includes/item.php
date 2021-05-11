@@ -1,4 +1,4 @@
-<section class="item">
+<section id="item" class="item">
     <div class="container">
         <div class="row item-title">
             <h2>Sản phẩm mới</h2>
@@ -24,7 +24,7 @@
                     $ram = $row['RAM'];
                 ?>
                     <div class="card-group col-md-3 col-sm-6">
-                        <div class='card'>
+                        <div class='card card-laptop-item'>
                             <a href='./view_product.php?masp=<?php echo $masp ?>'>
                                 <div class='card-header'>
                                     <img src='./admin/product_images/<?php echo $hinh ?>' class='card-img-top' alt=''>
@@ -40,7 +40,7 @@
                                         echo "<s>
                                                         <span>" . $gia . "</span>
                                                     </s>
-                                                    <span>" . $giamoi . "</span>";
+                                                    <span class='giaMoi'>" . $giamoi . "</span>";
                                     }
                                     ?>
                                 </div>
