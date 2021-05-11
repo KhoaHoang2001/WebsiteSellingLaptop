@@ -1,7 +1,6 @@
 <?php
 require_once('./includes/include.php');
 require_once('./includes/conn.php');
-echo $_SESSION['taikhoan'];
 ?>
 <!DOCTYPE html>
 <html lang="en">
