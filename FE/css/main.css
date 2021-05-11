@@ -231,6 +231,7 @@ input:focus {
 
 .item .item-content .card-group .card-laptop-item a .card-footer span:nth-child(2) {
   font-size: 1.4rem;
+  color: red;
 }
 
 .bestseller .bestseller-title {
@@ -319,6 +320,7 @@ input:focus {
 
 .bestseller .bestseller-content .card-group .card-laptop-item a .card-footer span:nth-child(2) {
   font-size: 1.4rem;
+  color: red;
 }
 
 .sales .col-12 {
@@ -411,6 +413,7 @@ input:focus {
 
 .sales .sales-content .card-group .card-laptop-item a .card-footer span:nth-child(2) {
   font-size: 1.4rem;
+  color: red;
 }
 
 .contact .container .contact-title h2 {

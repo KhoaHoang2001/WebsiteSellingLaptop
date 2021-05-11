@@ -50,12 +50,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             <li id="DMK" onclick="activeDMK()">
               <a href="#">Đổi mật khẩu</a>
             </li>
-<<<<<<< HEAD
             <li id="DX"><a href="./logout.php">Đăng xuất</a></li>
-=======
-           <li id="DX" onclick=""><a href="./logout.php">Đăng xuất</a>
-          </li>
->>>>>>> 11e2c9e443ae4c45ef2e168163b760f7984b5912
           </ul>
         </div>
         <div id="account__right">
@@ -139,13 +134,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                   </form>
               <?php }
               } ?>
-<<<<<<< HEAD
-=======
-              <div id="account__img">
-                <img src="./image/laptop.jpg" alt="" />
-                <i class="fa fa-camera"></i>
-              </div>
->>>>>>> 11e2c9e443ae4c45ef2e168163b760f7984b5912
             </div>
             <div id="trangThaiDonHang">
               <table id="trangThaiDonHang_tblItem" class="table">
@@ -277,32 +265,30 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   </section>
   <!-- footer -->
   <?php include('./includes/footer.php') ?>
-
   <!-- script -->
   <?php include('./includes/script.php') ?>
-
   <!-- active -->
   <script>
     function activeTTTK() {
-      $("#TTTK").addClass("active");
-      $("#myAccount").css("display", "block");
-      $("#trangThaiDonHang").css("display", "none");
-      $("#TTDH").removeClass("active");
-      $("#lichSuMuaHang").css("display", "none");
-      $("#LSMH").removeClass("active");
-      $("#doiMatKhau").css("display", "none");
-      $("#DMK").removeClass("active");
+      document.getElementById("#thongTinTaiKhoan").css("display", "block");
+      document.getElementById("#trangThaiDonHang").css("display", "none");
+      document.getElementById("#lichSuMuaHang").css("display", "none");
+      document.getElementById("#doiMatKhau").css("display", "none");
+      document.getElementById('#TTTK').removeClass('active');
+      document.getElementById('#TTDH').removeClass('active');
+      document.getElementById('#LSMH').removeClass('active');
+      document.getElementById('#DMK').removeClass('active');
     }
 
     function activeTTDH() {
-      $("#TTTK").removeClass("active");
-      $("#TTDH").addClass("active");
-      $("#myAccount").css("display", "none");
-      $("#trangThaiDonHang").css("display", "block");
-      $("#lichSuMuaHang").css("display", "none");
-      $("#LSMH").removeClass("active");
-      $("#doiMatKhau").css("display", "none");
-      $("#DMK").removeClass("active");
+      document.getElementById("#thongTinTaiKhoan").css("display", "none");
+      document.getElementById("#trangThaiDonHang").css("display", "block");
+      document.getElementById("#lichSuMuaHang").css("display", "none");
+      document.getElementById("#doiMatKhau").css("display", "none");
+      document.getElementById('#TTTK').removeClass('active');
+      document.getElementById('#TTDH').addClass('active');
+      document.getElementById('#LSMH').removeClass('active');
+      document.getElementById('#DMK').removeClass('active');
     }
 
     function activeLSMH() {
