@@ -1,4 +1,5 @@
 <?php
+session_start();
 require_once('./includes/include.php');
 require_once('./includes/conn.php');
 ?>
@@ -71,17 +72,25 @@ require_once('./includes/conn.php');
 
 
 <?php
+<<<<<<< HEAD
 
+=======
+>>>>>>> e394964c80a33e0789b0dfcfe46e26409cc48d73
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
   $taikhoan = ($_POST["taikhoan"]);
   $matkhau =($_POST["matkhau"]);
   $matkhau = md5($matkhau);
   $sql = "SELECT * FROM NGUOIDUNG WHERE taikhoan = '$taikhoan' AND matkhau = '$matkhau'";
+<<<<<<< HEAD
+  //echo $sql;
+=======
+>>>>>>> fbfc8b26c50070f3a093a05bf06873a6fa01f747
   $res = Check_db($sql);
   if (mysqli_num_rows($res) > 0) {
     $row = mysqli_fetch_assoc($res);
     $_SESSION['taikhoan'] = $row['TAIKHOAN'];
     $_SESSION['maquyen'] = $row['MAQUYEN'];
+<<<<<<< HEAD
     switch ($_SESSION['maquyen']) {
       case "NV":
           echo "<script>window.open('./staff/index.php','_self')</script>";    
@@ -93,6 +102,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
           echo "<script>window.open('./admin/index.php','_self')</script>";
           break;
     }
+=======
+    echo "<script>window.open('account.php','_self')</script>";
+>>>>>>> e394964c80a33e0789b0dfcfe46e26409cc48d73
   }
 }
 ?>

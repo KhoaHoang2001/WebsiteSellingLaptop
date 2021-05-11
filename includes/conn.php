@@ -1,6 +1,6 @@
 <?php
+ 
     session_start();
-
     function Connect(){
         $conn = mysqli_connect(
             "localhost",

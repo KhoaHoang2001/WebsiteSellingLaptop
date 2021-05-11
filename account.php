@@ -48,8 +48,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             <li id="DMK" onclick="activeDMK()">
               <a href="#">Đổi mật khẩu</a>
             </li>
-            <li id="DX" onclick=""><a href="./logout.php">Đăng xuất</a>
-          </li>
+            <li id="DX"><a href="./logout.php">Đăng xuất</a></li>
           </ul>
         </div>
         <div id="account__right">
@@ -139,59 +138,25 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
               </div>
             </div>
-          </div>
-          <div id="trangThaiDonHang">
-            <table id="trangThaiDonHang_tblItem" class="table">
-              <thead id="trangThaiDonHang_tblHead">
-                <tr>
-                  <th>Hình Ảnh Sản Phẩm</th>
-                  <th>Tên Sản Phẩm</th>
-                  <th>Số lượng</th>
-                  <th>Số Tiền</th>
-                </tr>
-              </thead>
-              <tbody id="trangThaiDonHang_tblBody">
-                <tr>
-                  <td>
-                    <a href="#" class="trangThaiDonHang_product">
-                      <img src="./image/laptop.jpg" alt="" />
-                    </a>
-                  </td>
-                  <td>
-                    <div class="trangThaiDonHang_product--intro">
-                      <h4>Title</h4>
-                      <p>Lorem ipsum dolor sit amet.</p>
-                    </div>
-                  </td>
-                  <td>
-                    <span>1</span>
-                  </td>
-                  <td>5.000.000VND</td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-          <div id="lichSuMuaHang">
-            <div class="lichSuMuaHang">
-              <table id="tblItem" class="table">
-                <thead id="tblHead">
+            <div id="trangThaiDonHang">
+              <table id="trangThaiDonHang_tblItem" class="table">
+                <thead id="trangThaiDonHang_tblHead">
                   <tr>
                     <th>Hình Ảnh Sản Phẩm</th>
                     <th>Tên Sản Phẩm</th>
                     <th>Số lượng</th>
                     <th>Số Tiền</th>
-                    <th>Trạng thái</th>
                   </tr>
                 </thead>
-                <tbody id="tblBody">
+                <tbody id="trangThaiDonHang_tblBody">
                   <tr>
                     <td>
-                      <a href="#" class="cartItem__product">
+                      <a href="#" class="trangThaiDonHang_product">
                         <img src="./image/laptop.jpg" alt="" />
                       </a>
                     </td>
                     <td>
-                      <div class="cartItem__product--intro">
+                      <div class="trangThaiDonHang_product--intro">
                         <h4>Title</h4>
                         <p>Lorem ipsum dolor sit amet.</p>
                       </div>
@@ -200,68 +165,102 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                       <span>1</span>
                     </td>
                     <td>5.000.000VND</td>
-                    <td>
-                      <span>Đã nhận</span>
-                    </td>
                   </tr>
                 </tbody>
               </table>
             </div>
-          </div>
-          <div id="doiMatKhau">
-            <form action="" id="formDoiMatKhau">
-              <table id="tblDoiMatKhau">
-                <tr>
-                  <th>
-                    <label for="matKhauCu">Mật khẩu cũ:</label>
-                  </th>
-                  <td style="width: 10px"></td>
-                  <td>
-                    <input type="password" name="" id="" />
-                  </td>
-                </tr>
-                <tr style="height: 10px">
-                  <th></th>
-                  <td style="width: 10px"></td>
-                  <td></td>
-                </tr>
-                <tr>
-                  <th>
-                    <label for="matKhauMoi">Mật khẩu mới:</label>
-                  </th>
-                  <td style="width: 10px"></td>
-                  <td>
-                    <input type="password" name="" id="" />
-                  </td>
-                </tr>
-                <tr style="height: 10px">
-                  <th></th>
-                  <td style="width: 10px"></td>
-                  <td></td>
-                </tr>
-                <tr>
-                  <th>
-                    <label for="confirmMatKhauMoi">Nhập lại mật khẩu mới:</label>
-                  </th>
-                  <td style="width: 10px"></td>
-                  <td>
-                    <input type="password" name="" id="" />
-                  </td>
-                </tr>
-                <tr style="height: 10px">
-                  <th></th>
-                  <td style="width: 10px"></td>
-                  <td></td>
-                </tr>
-                <tr>
-                  <td></td>
-                  <td style="width: 10px"></td>
-                  <td>
-                    <input type="submit" value="Đổi mật khẩu" />
-                  </td>
-                </tr>
-              </table>
-            </form>
+            <div id="lichSuMuaHang">
+              <div class="lichSuMuaHang">
+                <table id="tblItem" class="table">
+                  <thead id="tblHead">
+                    <tr>
+                      <th>Hình Ảnh Sản Phẩm</th>
+                      <th>Tên Sản Phẩm</th>
+                      <th>Số lượng</th>
+                      <th>Số Tiền</th>
+                      <th>Trạng thái</th>
+                    </tr>
+                  </thead>
+                  <tbody id="tblBody">
+                    <tr>
+                      <td>
+                        <a href="#" class="cartItem__product">
+                          <img src="./image/laptop.jpg" alt="" />
+                        </a>
+                      </td>
+                      <td>
+                        <div class="cartItem__product--intro">
+                          <h4>Title</h4>
+                          <p>Lorem ipsum dolor sit amet.</p>
+                        </div>
+                      </td>
+                      <td>
+                        <span>1</span>
+                      </td>
+                      <td>5.000.000VND</td>
+                      <td>
+                        <span>Đã nhận</span>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+            <div id="doiMatKhau">
+              <form action="" id="formDoiMatKhau">
+                <table id="tblDoiMatKhau">
+                  <tr>
+                    <th>
+                      <label for="matKhauCu">Mật khẩu cũ:</label>
+                    </th>
+                    <td style="width: 10px"></td>
+                    <td>
+                      <input type="password" name="" id="" />
+                    </td>
+                  </tr>
+                  <tr style="height: 10px">
+                    <th></th>
+                    <td style="width: 10px"></td>
+                    <td></td>
+                  </tr>
+                  <tr>
+                    <th>
+                      <label for="matKhauMoi">Mật khẩu mới:</label>
+                    </th>
+                    <td style="width: 10px"></td>
+                    <td>
+                      <input type="password" name="" id="" />
+                    </td>
+                  </tr>
+                  <tr style="height: 10px">
+                    <th></th>
+                    <td style="width: 10px"></td>
+                    <td></td>
+                  </tr>
+                  <tr>
+                    <th>
+                      <label for="confirmMatKhauMoi">Nhập lại mật khẩu mới:</label>
+                    </th>
+                    <td style="width: 10px"></td>
+                    <td>
+                      <input type="password" name="" id="" />
+                    </td>
+                  </tr>
+                  <tr style="height: 10px">
+                    <th></th>
+                    <td style="width: 10px"></td>
+                    <td></td>
+                  </tr>
+                  <tr>
+                    <td></td>
+                    <td style="width: 10px"></td>
+                    <td>
+                      <input type="submit" value="Đổi mật khẩu" />
+                    </td>
+                  </tr>
+                </table>
+              </form>
+            </div>
           </div>
         </div>
       </div>
@@ -275,30 +274,26 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
   <!-- active -->
   <script>
-    var links = document.querySelectorAll("#setting__menu li");
-    links.forEach(function(element) {
-      element.addEventListener("click", function(e) {
-        e.preventDefault();
-        links.forEach(function(element) {
-          element.classList.remove("active");
-        });
-        this.classList.add("active");
-      });
-    });
-
     function activeTTTK() {
+      $("#TTTK").addClass("active");
       $("#myAccount").css("display", "block");
       $("#trangThaiDonHang").css("display", "none");
+      $("#TTDH").removeClass("active");
       $("#lichSuMuaHang").css("display", "none");
+      $("#LSMH").removeClass("active");
       $("#doiMatKhau").css("display", "none");
+      $("#DMK").removeClass("active");
     }
 
     function activeTTDH() {
+      $("#TTTK").removeClass("active");
       $("#TTDH").addClass("active");
       $("#myAccount").css("display", "none");
       $("#trangThaiDonHang").css("display", "block");
       $("#lichSuMuaHang").css("display", "none");
+      $("#LSMH").removeClass("active");
       $("#doiMatKhau").css("display", "none");
+      $("#DMK").removeClass("active");
     }
 
     function activeLSMH() {
@@ -307,6 +302,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
       $("#trangThaiDonHang").css("display", "none");
       $("#lichSuMuaHang").css("display", "block");
       $("#doiMatKhau").css("display", "none");
+      $("#TTDH").removeClass("active");
+      $("#TTTK").removeClass("active");
+      $("#DMK").removeClass("active");
     }
 
     function activeDMK() {
@@ -315,6 +313,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
       $("#trangThaiDonHang").css("display", "none");
       $("#lichSuMuaHang").css("display", "none");
       $("#doiMatKhau").css("display", "block");
+      $("#TTDH").removeClass("active");
+      $("#TTTK").removeClass("active");
+      $("#LSMH").removeClass("active");
     }
   </script>
   <!-- MAIN JS -->
