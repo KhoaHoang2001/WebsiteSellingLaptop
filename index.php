@@ -164,8 +164,9 @@ require_once('./includes/conn.php');
                                         ?>
 
                                     </div>
+                                </a>
                             </div>
-                            </a>
+                            
                         </div>
                     <?php
                     }
