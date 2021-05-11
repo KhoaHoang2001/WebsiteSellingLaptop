@@ -28,8 +28,6 @@
           #thongTinTaiKhoan {
             display: flex;
             justify-content: space-around;
-            form {
-            }
             #account__img {
               position: relative;
               width: 200px;
@@ -65,7 +63,7 @@
         #trangThaiDonHang {
           display: none;
           #trangThaiDonHang_tblItem {
-            width: 100%;
+            width: 95%;
             #trangThaiDonHang_tblHead {
               th {
                 &:nth-child(1) {
@@ -102,12 +100,6 @@
                   &:nth-child(3) {
                     width: 15%;
                   }
-                  &:nth-child(3) {
-                  }
-                  &:nth-child(4) {
-                  }
-                  &:nth-child(5) {
-                  }
                 }
               }
             }
@@ -122,8 +114,6 @@
             #tblHead {
               tr {
                 width: 100%;
-                th {
-                }
               }
             }
             #tblBody {
@@ -135,16 +125,8 @@
                       height: 150px;
                     }
                   }
-                  &:nth-child(2) {
-                  }
-                  &:nth-child(3) {
-                    
-                  }
                   &:nth-child(4) {
                     color: orangered;
-                  }
-                  &:nth-child(5) {
-                    
                   }
                   &:nth-child(6) {
                     color: orangered;

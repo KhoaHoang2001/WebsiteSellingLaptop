@@ -32,19 +32,4 @@
             header('location: ./index.php');
         }
     }
-
-    //kiem tra quyen va vao trang quyen can vao
-    function Check_role($role){ 
-        switch ($role) {
-            case "NV":
-                header('location: ./staff/index.php');    
-                break;
-            case "KH":
-                echo "<script>window.open('index.php','_self')</script>";
-                break;
-            case "AD":
-                header('location: ./admin/index.php');
-                break;
-        }
-}
 ?>

@@ -1,17 +1,4 @@
 <<<<<<< HEAD
-<?php
-require_once('./includes/include.php');
-$taikhoan = 'Test';
-function View_Discount_Of_Product($masp)
-{
-    $sql_discount = "SELECT * FROM giamgia WHERE MAGIAMGIA = (SELECT MAGIAMGIA FROM sanpham WHERE MASP = '$masp');";
-    $res_discount = Check_db($sql_discount);
-    if (mysqli_num_rows($res_discount) > 0) {
-        $row_discount = mysqli_fetch_assoc($res_discount);
-        return $row_discount['PHANTRAM'];
-    } else {
-        return 0;
-=======
 <?php 
 
 if(isset($_SESSION['taikhoan'])){
@@ -27,7 +14,21 @@ if(isset($_SESSION['taikhoan'])){
         else{
             return 0;
         }
->>>>>>> 6e578c4a264b56f067c8ffad4180455069c3fb12
+=======
+<?php
+require_once('./includes/include.php');
+session_start();
+$taikhoan = $_SESSION['taikhoan'];
+function View_Discount_Of_Product($masp)
+{
+    $sql_discount = "SELECT * FROM giamgia WHERE MAGIAMGIA = (SELECT MAGIAMGIA FROM sanpham WHERE MASP = '$masp');";
+    $res_discount = Check_db($sql_discount);
+    if (mysqli_num_rows($res_discount) > 0) {
+        $row_discount = mysqli_fetch_assoc($res_discount);
+        return $row_discount['PHANTRAM'];
+    } else {
+        return 0;
+>>>>>>> 11e2c9e443ae4c45ef2e168163b760f7984b5912
     }
 }
 ?>
@@ -54,14 +55,15 @@ if(isset($_SESSION['taikhoan'])){
                     </tr>
                 </thead>
                 <tbody id="tblBody">
+
                     <?php
-                    $sql_cart = "SELECT * FROM SANPHAMGIOHANG, SANPHAM WHERE SANPHAMGIOHANG.MASP = SANPHAM.MASP and taikhoan = '$taikhoan'";
+                    $sql_cart = "SELECT *,LINK FROM HINHANH,SANPHAMGIOHANG, SANPHAM WHERE SANPHAMGIOHANG.MASP = SANPHAM.MASP AND SANPHAMGIOHANG.MASP=HINHANH.MASP and taikhoan = '$taikhoan'";
                     $res_cart = Check_db($sql_cart);
                     $temp = 0;
                     if (mysqli_num_rows($res_cart)) {
                         $tongtien = 0 ;
                         while ($row = mysqli_fetch_assoc($res_cart)) { 
-                            
+                            $hinh=$row['LINK'];
                             $masp = $row['MASP'];
                             $tensp = $row['TENSP'];
                             $gia = $row['GIA'];
@@ -76,7 +78,7 @@ if(isset($_SESSION['taikhoan'])){
                                 <tr>
                                     <td>
                                         <a href="#" class="cartItem__product">
-                                            <img src="./image/laptop.jpg" alt="">
+                                        <img src="./admin/product_images/<?php echo $hinh ?>" alt="">
                                         </a>
                                     </td>
                                     <td>
@@ -86,7 +88,7 @@ if(isset($_SESSION['taikhoan'])){
                                     </td>
                                     <td><?php echo $gia ?></td>
                                     <td>
-                                        <input type="number" class="" name="soluonggio" value='<?php echo $soluonggio ?>' min="1">
+                                        <input type="number"  name="soluonggio" value='<?php echo $soluonggio ?>' min="1" >
                                     </td>
                                     <td class="tongTienSP">
                                         <?php echo $gia * $soluonggio;
@@ -99,12 +101,12 @@ if(isset($_SESSION['taikhoan'])){
                                     </td>
                                 </tr>
                             </form>
-
                     <?php
                         }
                         if (isset($_POST[$masp])) {
                             $soluonggio = $_POST['soluonggio'];
                             $sql = "UPDATE sanphamgiohang SET SOLUONGGIO='$soluonggio' WHERE TAIKHOAN='$taikhoan' AND MASP='$masp'";
+                            //echo $sql;
                             if ($res = Check_db($sql)) {
                                 echo "<script>alert('Cập nhật thành công!') </script>";
                                 echo "<script>window.open('cart.php','_self')</script>";
@@ -112,6 +114,7 @@ if(isset($_SESSION['taikhoan'])){
                                 echo "<script>alert('sua gio hang that bai')</script>";
                             }
                         }
+                            
                     } //end loop
                     ?>
                 </tbody>

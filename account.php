@@ -2,6 +2,7 @@
 require_once('./includes/include.php');
 require_once('./includes/conn.php');
 // require_once('logout.php');
+session_start();
 $taikhoan = $_SESSION['taikhoan'];
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
   $TENND = ($_POST["tennd"]);
@@ -30,7 +31,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   <!-- header -->
   <?php include('./includes/header.php') ?>
 
-<<<<<<< HEAD
   <!-- account info -->
   <section id="account">
     <div class="container">
@@ -50,8 +50,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             <li id="DMK" onclick="activeDMK()">
               <a href="#">Đổi mật khẩu</a>
             </li>
-            <li id="DX" onclick=""><a href="./logout.php">Đăng xuất</a>
+<<<<<<< HEAD
+            <li id="DX"><a href="./logout.php">Đăng xuất</a></li>
+=======
+           <li id="DX" onclick=""><a href="./logout.php">Đăng xuất</a>
           </li>
+>>>>>>> 11e2c9e443ae4c45ef2e168163b760f7984b5912
           </ul>
         </div>
         <div id="account__right">
@@ -135,167 +139,33 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                   </form>
               <?php }
               } ?>
+<<<<<<< HEAD
+=======
               <div id="account__img">
                 <img src="./image/laptop.jpg" alt="" />
                 <i class="fa fa-camera"></i>
-=======
-    <!-- account info -->
-    <section id="account">
-      <div class="container">
-        <h4>Tài khoản</h4>
-        <div class="row">
-          <div id="account__left">
-            <ul id="setting__menu">
-              <li class="active" id="TTTK" onclick="activeTTTK()">
-                <a href="#">Thông tin tài khoản</a>
-              </li>
-              <li id="TTDH" onclick="activeTTDH()">
-                <a href="#">Trạng thái đơn hàng</a>
-              </li>
-              <li id="LSMH" onclick="activeLSMH()">
-                <a href="#">Lịch sử mua hàng</a>
-              </li>
-              <li id="DMK" onclick="activeDMK()">
-                <a href="#">Đổi mật khẩu</a>
-              </li>
-              <li id="DX"><a href="./logout.php">Đăng xuất</a></li>
-            </ul>
-          </div>
-          <div id="account__right">
-            <div id="myAccount">
-              <div id="thongTinTaiKhoan">
-              <?php 
-                        $sql_account = "SELECT * FROM nguoidung where taikhoan = '$taikhoan'";
-                        $res_account = Check_db($sql_account);
-                        $temp = 0;
-                        if(mysqli_num_rows($res_account)){
-                            while ($row = mysqli_fetch_assoc($res_account)) {
-                                $tennd = $row['TENND'];
-                                $gioitinh = $row['GIOITINH'];
-                                $sdt = $row['SDT'];
-                                $email = $row['EMAIL'];
-                                $diachi = $row['DIACHI'];
-                                
-                ?>
-                <form action="" method="POST">
-                  <table>
-                    <tr>
-                      <th>
-                        <label for="firstName">Họ tên</label>
-                      </th>
-                      <td>
-                        <input type="text" name="tennd" id="userFistName" value="<?php echo $tennd?>"/>
-                      </td>
-                    </tr>
-                    <tr>
-                      <th>
-                        <label for="lastName">Giới tính</label>
-                      </th>
-                      <td>
-                        <input type="radio" name="gioiTinh" id='nam'value="Nam" >
-                        <label for="gioiTinh">Nam</label>
-                        <input type="radio" name="gioiTinh" id="nu" value="Nữ">
-                        <label for="gioiTinh">Nữ</label>
-                        <?php if($gioitinh=='Nữ'){?>
-                        <script>document.getElementById('nu').checked=true;</script>
-                        <?php } if($gioitinh=='Nam'){?>
-                        <script>document.getElementById('nam').checked=true;</script>
-                        <?php }?>
-                      </td>
-                    </tr>
-                    <tr>
-                      <th>
-                        <label for="email">Email</label>
-                      </th>
-                      <td>
-                        <input type="email" name="email" id="userEmail" value="<?php echo $email?>"/>
-                      </td>
-                    </tr>
-                    <tr>
-                      <th>
-                        <label for="sdt">Số điện thoại</label>
-                      </th>
-                      <td>
-                        <input type="tel" name="sdt" id="" value="<?php echo $sdt?>" />
-                      </td>
-                    </tr>
-                    <tr>
-                      <th>
-                        <label for="diaChi">Địa chỉ</label>
-                      </th>
-                      <td>
-                        <input type="text" name="diaChi" id="" value="<?php echo $diachi?>"/>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td></td>
-                      <td>
-                        <button type="submit" name="capnhat_tt">Cập nhật</button>
-                      </td>
-                    </tr>
-                  </table>
-                </form>
-                <?php } }?>
-                <div id="account__img">
-                  <img src="./image/laptop.jpg" alt="" />
-                  <i class="fa fa-camera"></i>
-                </div>
->>>>>>> 6e578c4a264b56f067c8ffad4180455069c3fb12
               </div>
+>>>>>>> 11e2c9e443ae4c45ef2e168163b760f7984b5912
             </div>
-          </div>
-          <div id="trangThaiDonHang">
-            <table id="trangThaiDonHang_tblItem" class="table">
-              <thead id="trangThaiDonHang_tblHead">
-                <tr>
-                  <th>Hình Ảnh Sản Phẩm</th>
-                  <th>Tên Sản Phẩm</th>
-                  <th>Số lượng</th>
-                  <th>Số Tiền</th>
-                </tr>
-              </thead>
-              <tbody id="trangThaiDonHang_tblBody">
-                <tr>
-                  <td>
-                    <a href="#" class="trangThaiDonHang_product">
-                      <img src="./image/laptop.jpg" alt="" />
-                    </a>
-                  </td>
-                  <td>
-                    <div class="trangThaiDonHang_product--intro">
-                      <h4>Title</h4>
-                      <p>Lorem ipsum dolor sit amet.</p>
-                    </div>
-                  </td>
-                  <td>
-                    <span>1</span>
-                  </td>
-                  <td>5.000.000VND</td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-          <div id="lichSuMuaHang">
-            <div class="lichSuMuaHang">
-              <table id="tblItem" class="table">
-                <thead id="tblHead">
+            <div id="trangThaiDonHang">
+              <table id="trangThaiDonHang_tblItem" class="table">
+                <thead id="trangThaiDonHang_tblHead">
                   <tr>
                     <th>Hình Ảnh Sản Phẩm</th>
                     <th>Tên Sản Phẩm</th>
                     <th>Số lượng</th>
                     <th>Số Tiền</th>
-                    <th>Trạng thái</th>
                   </tr>
                 </thead>
-                <tbody id="tblBody">
+                <tbody id="trangThaiDonHang_tblBody">
                   <tr>
                     <td>
-                      <a href="#" class="cartItem__product">
+                      <a href="#" class="trangThaiDonHang_product">
                         <img src="./image/laptop.jpg" alt="" />
                       </a>
                     </td>
                     <td>
-                      <div class="cartItem__product--intro">
+                      <div class="trangThaiDonHang_product--intro">
                         <h4>Title</h4>
                         <p>Lorem ipsum dolor sit amet.</p>
                       </div>
@@ -304,68 +174,102 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                       <span>1</span>
                     </td>
                     <td>5.000.000VND</td>
-                    <td>
-                      <span>Đã nhận</span>
-                    </td>
                   </tr>
                 </tbody>
               </table>
             </div>
-          </div>
-          <div id="doiMatKhau">
-            <form action="" id="formDoiMatKhau">
-              <table id="tblDoiMatKhau">
-                <tr>
-                  <th>
-                    <label for="matKhauCu">Mật khẩu cũ:</label>
-                  </th>
-                  <td style="width: 10px"></td>
-                  <td>
-                    <input type="password" name="" id="" />
-                  </td>
-                </tr>
-                <tr style="height: 10px">
-                  <th></th>
-                  <td style="width: 10px"></td>
-                  <td></td>
-                </tr>
-                <tr>
-                  <th>
-                    <label for="matKhauMoi">Mật khẩu mới:</label>
-                  </th>
-                  <td style="width: 10px"></td>
-                  <td>
-                    <input type="password" name="" id="" />
-                  </td>
-                </tr>
-                <tr style="height: 10px">
-                  <th></th>
-                  <td style="width: 10px"></td>
-                  <td></td>
-                </tr>
-                <tr>
-                  <th>
-                    <label for="confirmMatKhauMoi">Nhập lại mật khẩu mới:</label>
-                  </th>
-                  <td style="width: 10px"></td>
-                  <td>
-                    <input type="password" name="" id="" />
-                  </td>
-                </tr>
-                <tr style="height: 10px">
-                  <th></th>
-                  <td style="width: 10px"></td>
-                  <td></td>
-                </tr>
-                <tr>
-                  <td></td>
-                  <td style="width: 10px"></td>
-                  <td>
-                    <input type="submit" value="Đổi mật khẩu" />
-                  </td>
-                </tr>
-              </table>
-            </form>
+            <div id="lichSuMuaHang">
+              <div class="lichSuMuaHang">
+                <table id="tblItem" class="table">
+                  <thead id="tblHead">
+                    <tr>
+                      <th>Hình Ảnh Sản Phẩm</th>
+                      <th>Tên Sản Phẩm</th>
+                      <th>Số lượng</th>
+                      <th>Số Tiền</th>
+                      <th>Trạng thái</th>
+                    </tr>
+                  </thead>
+                  <tbody id="tblBody">
+                    <tr>
+                      <td>
+                        <a href="#" class="cartItem__product">
+                          <img src="./image/laptop.jpg" alt="" />
+                        </a>
+                      </td>
+                      <td>
+                        <div class="cartItem__product--intro">
+                          <h4>Title</h4>
+                          <p>Lorem ipsum dolor sit amet.</p>
+                        </div>
+                      </td>
+                      <td>
+                        <span>1</span>
+                      </td>
+                      <td>5.000.000VND</td>
+                      <td>
+                        <span>Đã nhận</span>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+            <div id="doiMatKhau">
+              <form action="" id="formDoiMatKhau">
+                <table id="tblDoiMatKhau">
+                  <tr>
+                    <th>
+                      <label for="matKhauCu">Mật khẩu cũ:</label>
+                    </th>
+                    <td style="width: 10px"></td>
+                    <td>
+                      <input type="password" name="" id="" />
+                    </td>
+                  </tr>
+                  <tr style="height: 10px">
+                    <th></th>
+                    <td style="width: 10px"></td>
+                    <td></td>
+                  </tr>
+                  <tr>
+                    <th>
+                      <label for="matKhauMoi">Mật khẩu mới:</label>
+                    </th>
+                    <td style="width: 10px"></td>
+                    <td>
+                      <input type="password" name="" id="" />
+                    </td>
+                  </tr>
+                  <tr style="height: 10px">
+                    <th></th>
+                    <td style="width: 10px"></td>
+                    <td></td>
+                  </tr>
+                  <tr>
+                    <th>
+                      <label for="confirmMatKhauMoi">Nhập lại mật khẩu mới:</label>
+                    </th>
+                    <td style="width: 10px"></td>
+                    <td>
+                      <input type="password" name="" id="" />
+                    </td>
+                  </tr>
+                  <tr style="height: 10px">
+                    <th></th>
+                    <td style="width: 10px"></td>
+                    <td></td>
+                  </tr>
+                  <tr>
+                    <td></td>
+                    <td style="width: 10px"></td>
+                    <td>
+                      <input type="submit" value="Đổi mật khẩu" />
+                    </td>
+                  </tr>
+                </table>
+              </form>
+            </div>
           </div>
         </div>
       </div>
@@ -379,30 +283,26 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
   <!-- active -->
   <script>
-    var links = document.querySelectorAll("#setting__menu li");
-    links.forEach(function(element) {
-      element.addEventListener("click", function(e) {
-        e.preventDefault();
-        links.forEach(function(element) {
-          element.classList.remove("active");
-        });
-        this.classList.add("active");
-      });
-    });
-
     function activeTTTK() {
+      $("#TTTK").addClass("active");
       $("#myAccount").css("display", "block");
       $("#trangThaiDonHang").css("display", "none");
+      $("#TTDH").removeClass("active");
       $("#lichSuMuaHang").css("display", "none");
+      $("#LSMH").removeClass("active");
       $("#doiMatKhau").css("display", "none");
+      $("#DMK").removeClass("active");
     }
 
     function activeTTDH() {
+      $("#TTTK").removeClass("active");
       $("#TTDH").addClass("active");
       $("#myAccount").css("display", "none");
       $("#trangThaiDonHang").css("display", "block");
       $("#lichSuMuaHang").css("display", "none");
+      $("#LSMH").removeClass("active");
       $("#doiMatKhau").css("display", "none");
+      $("#DMK").removeClass("active");
     }
 
     function activeLSMH() {
@@ -411,6 +311,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
       $("#trangThaiDonHang").css("display", "none");
       $("#lichSuMuaHang").css("display", "block");
       $("#doiMatKhau").css("display", "none");
+      $("#TTDH").removeClass("active");
+      $("#TTTK").removeClass("active");
+      $("#DMK").removeClass("active");
     }
 
     function activeDMK() {
@@ -419,6 +322,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
       $("#trangThaiDonHang").css("display", "none");
       $("#lichSuMuaHang").css("display", "none");
       $("#doiMatKhau").css("display", "block");
+      $("#TTDH").removeClass("active");
+      $("#TTTK").removeClass("active");
+      $("#LSMH").removeClass("active");
     }
   </script>
   <!-- MAIN JS -->
