@@ -7,7 +7,6 @@ require_once('./includes/product.php');
 // require_once('.cart/tsx_SP_gio.php');
 echo  $_SESSION['taikhoan'];
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    
     if(isset( $_SESSION['taikhoan'])){
          $MASP=$_GET['masp'];
         include('./cart/tsx_SP_gio.php');

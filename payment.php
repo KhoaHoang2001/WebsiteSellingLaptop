@@ -30,7 +30,10 @@ if (mysqli_num_rows($res_account)) {
         <h2 id="payment-title" class="text-center">
           <span>P</span>ayment
         </h2>
+<<<<<<< HEAD
+=======
 
+>>>>>>> 11e2c9e443ae4c45ef2e168163b760f7984b5912
         <section class="cartItem">
           <div class="container">
             <form action="charge.php" method="POST">
