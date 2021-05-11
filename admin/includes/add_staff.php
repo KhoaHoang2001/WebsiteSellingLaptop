@@ -144,4 +144,5 @@ if (isset($_POST['insert_post'])) {
         echo "<script>alert(\"Tài khoản đã tồn tại\");</script>";
     }
 }
+
 ?>

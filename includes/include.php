@@ -32,6 +32,8 @@
             header('location: ./index.php');
         }
     }
+<<<<<<< HEAD
+=======
 
     //kiem tra quyen va vao trang quyen can vao
     function Check_role($role){ 
@@ -47,4 +49,5 @@
                 break;
         }
 }
+>>>>>>> d151f129063484f2ac9d03f414e60f61cc38024e
 ?>
