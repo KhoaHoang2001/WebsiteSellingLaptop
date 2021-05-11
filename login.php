@@ -1,4 +1,5 @@
 <?php
+session_start();
 require_once('./includes/include.php');
 require_once('./includes/conn.php');
 ?>
@@ -77,6 +78,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   $matkhau =($_POST["matkhau"]);
   $matkhau = md5($matkhau);
   $sql = "SELECT * FROM NGUOIDUNG WHERE taikhoan = '$taikhoan' AND matkhau = '$matkhau'";
+<<<<<<< HEAD
+  //echo $sql;
+=======
+>>>>>>> fbfc8b26c50070f3a093a05bf06873a6fa01f747
   $res = Check_db($sql);
   if (mysqli_num_rows($res) > 0) {
     $row = mysqli_fetch_assoc($res);

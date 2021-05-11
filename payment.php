@@ -4,7 +4,8 @@ require_once('./includes/conn.php');
 require_once('./includes/product.php');
 
 // $taikhoan = $_SESSION['taikhoan'];
-$taikhoan = 'Test';
+session_start();
+$taikhoan = $_SESSION['taikhoan'];
 
 $sql_account = "SELECT * FROM nguoidung where taikhoan = '$taikhoan'";
 $res_account = Check_db($sql_account);
@@ -17,8 +18,6 @@ if (mysqli_num_rows($res_account)) {
     $diachi = $row['DIACHI'];
   }
 ?>
-
-
   <!DOCTYPE html>
   <html lang="en">
   <?php include('./includes/head.php') ?>
@@ -33,6 +32,10 @@ if (mysqli_num_rows($res_account)) {
         <h2 id="payment-title" class="text-center">
           <span>P</span>ayment
         </h2>
+<<<<<<< HEAD
+=======
+
+>>>>>>> 11e2c9e443ae4c45ef2e168163b760f7984b5912
         <section class="cartItem">
           <div class="container">
             <form action="charge.php" method="POST">
