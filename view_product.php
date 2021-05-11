@@ -5,13 +5,29 @@
 echo  $_SESSION['taikhoan'];
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     session_start();
+<<<<<<< HEAD
+// <<<<<<< HEAD
+//     if (isset($_SESSION['taikhoan'])) {
+//         $MASP = $_GET['masp'];
+//         include('./cart/tsx_SP_gio.php');
+//         themSP_gio($MASP);
+//         header('Location: view.php?tenbien=' . $MASP);
+//     } else header('Location: login.php');
+// =======
+=======
+>>>>>>> e394964c80a33e0789b0dfcfe46e26409cc48d73
     if(isset( $_SESSION['taikhoan'])){
          $MASP=$_GET['masp'];
         include('./cart/tsx_SP_gio.php');
         themSP_gio($MASP);
         header('Location: view_product.php?masp='.$MASP);
     }else header('Location: login.php');
+<<<<<<< HEAD
+   
+// >>>>>>> 6e578c4a264b56f067c8ffad4180455069c3fb12
+=======
 
+>>>>>>> e394964c80a33e0789b0dfcfe46e26409cc48d73
 }
 
 ?>

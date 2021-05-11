@@ -1,5 +1,8 @@
 <?php
     require_once('conn.php');
+    if(!isset($_SESSION['taikhoan'])){
+        
+    }
     
     function Pr($arr){
         echo "<pre>";

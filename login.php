@@ -49,7 +49,6 @@ require_once('./includes/conn.php');
             <tr>
               <td style="padding-left: 20px">
                 <input type="submit" style="padding: 5px 10px" name="login" value="Đăng nhập">
-                  
                 </input>
               </td>
               <td></td>
@@ -73,6 +72,10 @@ require_once('./includes/conn.php');
 
 
 <?php
+<<<<<<< HEAD
+
+=======
+>>>>>>> e394964c80a33e0789b0dfcfe46e26409cc48d73
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
   $taikhoan = ($_POST["taikhoan"]);
   $matkhau =($_POST["matkhau"]);
@@ -87,7 +90,21 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $row = mysqli_fetch_assoc($res);
     $_SESSION['taikhoan'] = $row['TAIKHOAN'];
     $_SESSION['maquyen'] = $row['MAQUYEN'];
+<<<<<<< HEAD
+    switch ($_SESSION['maquyen']) {
+      case "NV":
+          echo "<script>window.open('./staff/index.php','_self')</script>";    
+          break;
+      case "KH":
+          echo "<script>window.open('./index.php','_self')</script>";
+          break;
+      case "AD":
+          echo "<script>window.open('./admin/index.php','_self')</script>";
+          break;
+    }
+=======
     echo "<script>window.open('account.php','_self')</script>";
+>>>>>>> e394964c80a33e0789b0dfcfe46e26409cc48d73
   }
 }
 ?>

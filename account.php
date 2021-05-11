@@ -2,7 +2,6 @@
 require_once('./includes/include.php');
 require_once('./includes/conn.php');
 // require_once('logout.php');
-session_start();
 $taikhoan = $_SESSION['taikhoan'];
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
   $TENND = ($_POST["tennd"]);
@@ -30,7 +29,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <body>
   <!-- header -->
   <?php include('./includes/header.php') ?>
-
   <!-- account info -->
   <section id="account">
     <div class="container">
@@ -50,12 +48,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             <li id="DMK" onclick="activeDMK()">
               <a href="#">Đổi mật khẩu</a>
             </li>
-<<<<<<< HEAD
             <li id="DX"><a href="./logout.php">Đăng xuất</a></li>
-=======
-           <li id="DX" onclick=""><a href="./logout.php">Đăng xuất</a>
-          </li>
->>>>>>> 11e2c9e443ae4c45ef2e168163b760f7984b5912
           </ul>
         </div>
         <div id="account__right">
@@ -139,13 +132,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                   </form>
               <?php }
               } ?>
-<<<<<<< HEAD
-=======
               <div id="account__img">
                 <img src="./image/laptop.jpg" alt="" />
                 <i class="fa fa-camera"></i>
+
               </div>
->>>>>>> 11e2c9e443ae4c45ef2e168163b760f7984b5912
             </div>
             <div id="trangThaiDonHang">
               <table id="trangThaiDonHang_tblItem" class="table">

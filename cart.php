@@ -1,8 +1,8 @@
-<<<<<<< HEAD
 <?php 
-
-if(isset($_SESSION['taikhoan'])){
     require_once('./includes/include.php');
+    require_once('./includes/conn.php');
+if(isset($_SESSION['taikhoan'])){
+    
    $taikhoan=$_SESSION['taikhoan'];
     function View_Discount_Of_Product($masp){
         $sql_discount = "SELECT * FROM giamgia WHERE MAGIAMGIA = (SELECT MAGIAMGIA FROM sanpham WHERE MASP = '$masp');";
@@ -14,13 +14,9 @@ if(isset($_SESSION['taikhoan'])){
         else{
             return 0;
         }
-=======
-<?php
-require_once('./includes/include.php');
-session_start();
+    }
 $taikhoan = $_SESSION['taikhoan'];
-function View_Discount_Of_Product($masp)
-{
+function View_Discount_Of_Product($masp){
     $sql_discount = "SELECT * FROM giamgia WHERE MAGIAMGIA = (SELECT MAGIAMGIA FROM sanpham WHERE MASP = '$masp');";
     $res_discount = Check_db($sql_discount);
     if (mysqli_num_rows($res_discount) > 0) {
@@ -28,7 +24,6 @@ function View_Discount_Of_Product($masp)
         return $row_discount['PHANTRAM'];
     } else {
         return 0;
->>>>>>> 11e2c9e443ae4c45ef2e168163b760f7984b5912
     }
 }
 ?>
