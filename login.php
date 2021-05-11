@@ -47,7 +47,12 @@ require_once('./includes/conn.php');
             </tr>
             <tr>
               <td style="padding-left: 20px">
+<<<<<<< HEAD
                 <input type="submit" style="padding: 5px 10px" value="Đăng nhập" name="submit_login">
+=======
+                <input type="submit" style="padding: 5px 10px" name="login" value="Đăng nhập">
+                </input>
+>>>>>>> 3cc529505b2088aebb25d9b2671216278fb6eba1
               </td>
               <td></td>
               <td>
@@ -70,9 +75,19 @@ require_once('./includes/conn.php');
 
 
 <?php
+<<<<<<< HEAD
 if (isset($_POST['submit_login'])) {
   $taikhoan = Get_value($_POST["taikhoan"]);
   $matkhau = Get_value($_POST["matkhau"]);
+=======
+<<<<<<< HEAD
+
+=======
+>>>>>>> e394964c80a33e0789b0dfcfe46e26409cc48d73
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+  $taikhoan = ($_POST["taikhoan"]);
+  $matkhau =($_POST["matkhau"]);
+>>>>>>> 3cc529505b2088aebb25d9b2671216278fb6eba1
   $matkhau = md5($matkhau);
   $sql = "SELECT * FROM NGUOIDUNG WHERE taikhoan = '$taikhoan' AND matkhau = '$matkhau'";
   //echo $sql;
@@ -81,6 +96,10 @@ if (isset($_POST['submit_login'])) {
     $row = mysqli_fetch_assoc($res);
     $_SESSION['taikhoan'] = $row['TAIKHOAN'];
     $_SESSION['maquyen'] = $row['MAQUYEN'];
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> 3cc529505b2088aebb25d9b2671216278fb6eba1
     switch ($_SESSION['maquyen']) {
       case "NV":
           echo "<script>window.open('./staff/index.php','_self')</script>";    
@@ -92,6 +111,12 @@ if (isset($_POST['submit_login'])) {
           echo "<script>window.open('./admin/index.php','_self')</script>";
           break;
     }
+<<<<<<< HEAD
+=======
+=======
+    echo "<script>window.open('account.php','_self')</script>";
+>>>>>>> e394964c80a33e0789b0dfcfe46e26409cc48d73
+>>>>>>> 3cc529505b2088aebb25d9b2671216278fb6eba1
   }
 }
 ?>

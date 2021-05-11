@@ -1,4 +1,18 @@
 <?php
+<<<<<<< HEAD
+  require_once('./includes/include.php');
+  require_once('./includes/conn.php');
+  require_once('./includes/product.php');
+  require_once('./includes/config.php');
+  require_once('./includes/order.php');
+  // $taikhoan = $_SESSION['taikhoan'];
+  $taikhoan = 'vinh7';
+  $thongtin = Get_Info_Account($taikhoan);
+  $tennd = $thongtin['tennd'];
+  $sdt = $thongtin['sdt'];
+  $email = $thongtin['email'];
+  $diachi = $thongtin['diachi'];
+=======
 require_once('./includes/include.php');
 require_once('./includes/conn.php');
 require_once('./includes/product.php');
@@ -15,6 +29,7 @@ if (mysqli_num_rows($res_account)) {
     $email = $row['EMAIL'];
     $diachi = $row['DIACHI'];
   }
+>>>>>>> e394964c80a33e0789b0dfcfe46e26409cc48d73
 ?>
   <!DOCTYPE html>
   <html lang="en">
@@ -32,8 +47,11 @@ if (mysqli_num_rows($res_account)) {
         </h2>
 <<<<<<< HEAD
 =======
+<<<<<<< HEAD
+=======
 
 >>>>>>> 11e2c9e443ae4c45ef2e168163b760f7984b5912
+>>>>>>> e394964c80a33e0789b0dfcfe46e26409cc48d73
         <section class="cartItem">
           <div class="container">
             <form action="charge.php" method="POST">
@@ -151,8 +169,11 @@ if (mysqli_num_rows($res_account)) {
                           </tr>
                         </table>
                       </form>
+<<<<<<< HEAD
+=======
                     <?php }
                     ?>
+>>>>>>> e394964c80a33e0789b0dfcfe46e26409cc48d73
                     </div>
                   </td>
                   <th style="text-align: center;">
@@ -187,5 +208,4 @@ if (mysqli_num_rows($res_account)) {
 
     </script>
   </body>
-
   </html>

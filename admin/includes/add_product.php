@@ -1,3 +1,9 @@
+<?php
+require_once('./includes/include.php');
+require_once('./includes/conn.php');
+$masp = tao_id();
+?>
+
 <div class="form_box">
     <script>
 
@@ -15,10 +21,13 @@
         }
 
         const Check_all = function () {
-            let confirm_password = document.getElementById('xacnhanmk').value;
             let gia = document.getElementById('gia').value;
+            let soluongcon = document.getElementById('soluongcon').value;
             if(isNaN(gia)){
                 alert("giá bắt buộc phải là số!");
+                return false;
+            }else if(isNaN(soluongcon)){
+                alert("só lượng còn bắt buộc phải là số!");
                 return false;
             }
         }
@@ -31,7 +40,7 @@
         <table align="center" width="100%">
             <tr>
                 <td valign="top"><b>Mã sản phẩm:</b></td>
-                <td><input type="text" name="masp" id="masp"  required onkeyup="check_nsx()"/></td>
+                <td><input type="text" name="masp" id="masp" value="<?php echo $masp ?>"  disabled /></td>
             </tr>
             <tr>
                 <td valign="top"><b>Mã loại sản phẩm:</b></td>
@@ -159,8 +168,7 @@
 
 </div>
 <?php
-require_once('./includes/include.php');
-require_once('./includes/conn.php');
+
 
     function Check_product($masp){
         $sql = "SELECT * FROM SANPHAM WHERE masp = '$masp';";
@@ -171,6 +179,20 @@ require_once('./includes/conn.php');
         else{
             return false;
         }
+    }
+    function tao_id(){
+        $ktra = "SELECT masp FROM sanpham";
+        $res = Check_db($ktra);
+        if(mysqli_num_rows($res)>0){
+        $sql = "SELECT MAX(masp) FROM sanpham";
+        $res = Check_db($sql);
+        $row = mysqli_fetch_array($res);
+        $sosp =(intval(substr(($row['MAX(masp)']),2))+1);
+        $masp = 'MT'.strval($sosp);
+        }else{
+            $masp = "MT1";
+        }
+        return $masp;
     }
     if (isset($_POST['themsanpham'])){
             $masp = Get_value($_POST["masp"]);
@@ -221,6 +243,10 @@ require_once('./includes/conn.php');
         } else {
             echo "<script>alert('Thêm sản phẩm thất bại');</script>"; 
         }
+}
+$pageWasRefreshed = isset($_SERVER['HTTP_CACHE_CONTROL']) && $_SERVER['HTTP_CACHE_CONTROL'] === 'max-age=0';
+if($pageWasRefreshed ) {
+    unset(($_POST['themsanpham']));
 }
 
 

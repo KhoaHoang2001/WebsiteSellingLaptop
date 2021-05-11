@@ -1,6 +1,6 @@
 <?php 
-    require_once('./include.php');
-    require_once('./conn.php');
+    require_once('./includes/include.php');
+    require_once('./includes/conn.php');
 
     function Get_Info_Account($taikhoan){
         $sql = "SELECT * FROM NGUOIDUNG WHERE taikhoan = '$taikhoan'";
@@ -13,6 +13,15 @@
         $ngaysinh = $row['NGAYSINH'];
         $thongtin = array('tennd'=>$tennd, 'sdt'=>$sdt, 'diachi'=>$diachi, 'email'=>$email, 'ngaysinh'=>$ngaysinh);
         return $thongtin;
+    }
+
+    function Get_Amout(){
+        $tongtien = 0;
+        $sql_cart = "SELECT * FROM SANPHAMGIOHANG, SANPHAM WHERE SANPHAMGIOHANG.MASP = SANPHAM.MASP and taikhoan = '$taikhoan'";
+        $res_cart = Check_db($sql_cart);
+        while ($row = mysqli_fetch_assoc($res_cart)) {
+            
+        }
     }
 
     function Del_Cart($taikhoan){
@@ -38,7 +47,7 @@
             }
         }
     }
-    
+
     function Create_Order(){
         if(isset($_POST['dathang'])){
             $thongtin = Get_Info_Account($_SESSION['taikhoan']);
