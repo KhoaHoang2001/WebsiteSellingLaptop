@@ -4,14 +4,14 @@
 <?php
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     session_start();
-<<<<<<< HEAD
-    if (isset($_SESSION['taikhoan'])) {
-        $MASP = $_GET['masp'];
-        include('./cart/tsx_SP_gio.php');
-        themSP_gio($MASP);
-        header('Location: view.php?tenbien=' . $MASP);
-    } else header('Location: login.php');
-=======
+// <<<<<<< HEAD
+//     if (isset($_SESSION['taikhoan'])) {
+//         $MASP = $_GET['masp'];
+//         include('./cart/tsx_SP_gio.php');
+//         themSP_gio($MASP);
+//         header('Location: view.php?tenbien=' . $MASP);
+//     } else header('Location: login.php');
+// =======
     if(isset( $_SESSION['taikhoan'])){
          $MASP=$_GET['masp'];
         include('./cart/tsx_SP_gio.php');
@@ -19,7 +19,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         header('Location: view_product.php?masp='.$MASP);
     }else header('Location: login.php');
    
->>>>>>> 6e578c4a264b56f067c8ffad4180455069c3fb12
+// >>>>>>> 6e578c4a264b56f067c8ffad4180455069c3fb12
 }
 
 ?>
