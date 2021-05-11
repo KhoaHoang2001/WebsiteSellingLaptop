@@ -1,6 +1,6 @@
 <?php
 require_once('./includes/include.php');
-session_start();
+require_once('./includes/conn.php');
 $taikhoan = $_SESSION['taikhoan'];
 function View_Discount_Of_Product($masp)
 {
@@ -37,7 +37,6 @@ function View_Discount_Of_Product($masp)
                     </tr>
                 </thead>
                 <tbody id="tblBody">
-
                     <?php
                     $sql_cart = "SELECT *,LINK FROM HINHANH,SANPHAMGIOHANG, SANPHAM WHERE SANPHAMGIOHANG.MASP = SANPHAM.MASP AND SANPHAMGIOHANG.MASP=HINHANH.MASP and taikhoan = '$taikhoan'";
                     $res_cart = Check_db($sql_cart);

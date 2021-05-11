@@ -1,8 +1,6 @@
 <?php
 require_once('./includes/include.php');
 require_once('./includes/conn.php');
-// require_once('logout.php');
-session_start();
 $taikhoan = $_SESSION['taikhoan'];
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
   $TENND = ($_POST["tennd"]);

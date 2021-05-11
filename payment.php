@@ -3,8 +3,6 @@ require_once('./includes/include.php');
 require_once('./includes/conn.php');
 require_once('./includes/product.php');
 
-// $taikhoan = $_SESSION['taikhoan'];
-session_start();
 $taikhoan = $_SESSION['taikhoan'];
 
 $sql_account = "SELECT * FROM nguoidung where taikhoan = '$taikhoan'";

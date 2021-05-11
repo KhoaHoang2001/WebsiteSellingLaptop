@@ -1,10 +1,13 @@
 <!DOCTYPE html>
-
-
 <?php
+$MASP = $_GET['masp'];
+require_once('./includes/include.php');
+require_once('./includes/conn.php');
+require_once('./includes/product.php');
+// require_once('.cart/tsx_SP_gio.php');
 echo  $_SESSION['taikhoan'];
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    session_start();
+    
     if(isset( $_SESSION['taikhoan'])){
          $MASP=$_GET['masp'];
         include('./cart/tsx_SP_gio.php');
@@ -13,14 +16,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }else header('Location: login.php');
 
 }
-
-?>
-<?php
-$MASP = $_GET['masp'];
-require_once('./includes/include.php');
-require_once('./includes/conn.php');
-require_once('./includes/product.php');
-// require_once('.cart/tsx_SP_gio.php');
 
 $sql = "SELECT * FROM sanpham where MASP='$MASP'";
 $res = Check_db($sql);
