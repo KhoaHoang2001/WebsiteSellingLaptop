@@ -1,3 +1,8 @@
+<?php
+    require_once('./includes/include.php');
+    require_once('./includes/conn.php');
+    $magiamgia = tao_id();
+?>
 <div class="form_box">
     <script>
         const Check_percent = function () {
@@ -9,7 +14,6 @@
                 document.getElementById('kiemtraphtram').innerHTML = 'Phải là số';
             }
         }
-
         const Check_all = () => {
             let percent = document.getElementById('phantram').value;
             if(isNaN(percent)){
@@ -26,7 +30,7 @@
         <table align="center" width="100%">
             <tr>
                 <td valign="top"><b>Mã giảm giá: </b></td>
-                <td><input type="text" name="magiamgia" id="magiamgia" size=60 required /></td>
+                <td><input type="text" name="magiamgia" id="magiamgia" size=60 value="<?php echo $magiamgia?>" disabled /></td>
             </tr>
             <tr>
                 <td valign="top"><b>Tên giảm giá: </b></td>
@@ -51,9 +55,22 @@
 </div>
 
 <?php
-    require_once('./includes/include.php');
-    require_once('./includes/conn.php');
+
     
+function tao_id(){
+    $ktra = "SELECT magiamgia FROM giamgia";
+    $res = Check_db($ktra);
+    if(mysqli_num_rows($res)>0){
+        $sql = "SELECT MAX(magiamgia) FROM giamgia";
+        $res = Check_db($sql);
+        $row = mysqli_fetch_array($res);
+        $sosp =(intval(substr(($row['MAX(magiamgia)']),2))+1);
+        $magiamgia = 'GG'.strval($sosp);
+    }else{
+    $magiamgia = "GG1";
+    }
+    return $magiamgia;
+}
     function Check_Discount($magiamgia){
         $sql = "SELECT * FROM GIAMGIA WHERE magiamgia = '$magiamgia'";
         $res = Check_db($sql);
@@ -66,7 +83,7 @@
     }
 
     if(isset($_POST['insert_discount'])){
-        $magiamgia = Get_value($_POST['magiamgia']);
+        // $magiamgia = Get_value($_POST['magiamgia']);
         $tengiamgia = Get_value($_POST['tengiamgia']);
         $phantram = Get_value($_POST['phantram']);
         if(!Check_Discount($magiamgia)){

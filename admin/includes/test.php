@@ -1,43 +1,11 @@
 
+<?php
+require_once('./includes/include.php');
+require_once('./includes/conn.php');
+?>
 <div class="form_box">
-    <script>
-        const check_password = function () {
-            let password = document.getElementById('matkhau').value;
-            let confirm_password = document.getElementById('xacnhanmk').value;
-            if (password == confirm_password) {
-                document.getElementById('kiemtramk').style.color = 'green';
-                document.getElementById('kiemtramk').innerHTML = 'Trùng khớp';
-            } else {
-                document.getElementById('kiemtramk').style.color = 'red';
-                document.getElementById('kiemtramk').innerHTML = 'Không trùng khớp';
-            }
-        }
 
-        const check_number_phone = function () {
-            let phone = document.getElementById('sdt').value;
-            if(!isNaN(phone)){
-                document.getElementById('kiemtrasdt').innerHTML = '';
-            } else {
-                document.getElementById('kiemtrasdt').style.color = 'red';
-                document.getElementById('kiemtrasdt').innerHTML = 'Phải là số';
-            }
-        }
-
-        const Check_all = function () {
-            let password = document.getElementById('matkhau').value;
-            let confirm_password = document.getElementById('xacnhanmk').value;
-            let phone = document.getElementById('sdt').value;
-            if(password != confirm_password){
-                alert("Mật khẩu và xác nhận mật khẩu bắt buộc phải giống nhau!");
-                return false;
-            }
-            else if(isNaN(phone)){
-                alert("Số điện thoại bắt buộc phải là số!");
-                return false;
-            }
-        }
-    </script>
-    <h2>Thêm hinh</h2>
+    <h2></h2>
     <div class="border_bottom"></div>
     <!--/.border_bottom -->
     <form onsubmit="return Check_all()" method="post" enctype="multipart/form-data">
@@ -45,16 +13,16 @@
         <table align="center" width="100%">
         <tr>
                 <td valign="top"><b>Mã sản phẩm:</b></td>
-                <td><input type="text" name="masp" id="masp"  required /></td>
+                <td><input type="text" name="masp" id="masp"   /></td>
             </tr>
-
+<!-- 
             <tr>
                 <td><b>Hình ảnh: </b></td>
                 <form action="" method="post" enctype="multipart/form-data">
                 <input type="file" name="files[]" multiple >
-                <input type="submit" name="submit" value="UPLOAD">
+                <input type="submit" name="submit" value="UPLOAD"> -->
 </form>
-            </tr>
+            <!-- </tr> -->
                             
             <tr>
 
@@ -67,7 +35,7 @@
     </form>
 </div>
 <?php
-    if (isset($_POST['themsanpham'])) {
+  /*  if (isset($_POST['themsanpham'])) {
         $uploads_dir = '/uploads';
         foreach ($_FILES["files"]["error"] as $key => $error) {
             if ($error == UPLOAD_ERR_OK) {
@@ -76,15 +44,32 @@
             move_uploaded_file($tmp_name, "product_images/$name");
     }
     echo "<script>alert(\"<?php echo $name ?>\");</script>";      
-    // $sql_hinh = "INSERT INTO HINHANH (masp, link) VALUES ('MT100', '$name');";
-    // $conn = Connect();
-    // mysqli_query($conn, $sql_hinh);
-    // mysqli_close($conn);
-    // if($sql_hinh){
-    //     echo "<script>alert(\"Thêm sản phẩm thành công\");</script>"; 
-    // }else{
-    //     "<script>alert(\"buồn\");</script>";
-    // }
+    $sql_hinh = "INSERT INTO HINHANH (masp, link) VALUES ('MT100', '$name');";
+    $conn = Connect();
+    mysqli_query($conn, $sql_hinh);
+    mysqli_close($conn);
+    if($sql_hinh){
+        echo "<script>alert(\"Thêm sản phẩm thành công\");</script>"; 
+    }else{
+        "<script>alert(\"buồn\");</script>";
+    }
+}*/
+$ktra = "SELECT magiamgia FROM giamgia";
+$res = Check_db($ktra);
+if(mysqli_num_rows($res)>0){
+    $sql = "SELECT MAX(magiamgia) FROM giamgia";
+    $res = Check_db($sql);
+    $row = mysqli_fetch_array($res);
+    $sosp =(intval(substr(($row['MAX(magiamgia)']),2))+1);
+    $magiamgia = 'GG'.strval($sosp);
+}else{
+    $magiamgia = "GG1";
 }
 
-       }?>
+echo $magiamgia;
+
+
+    
+
+//}
+       

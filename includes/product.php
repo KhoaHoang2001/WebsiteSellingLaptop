@@ -15,8 +15,10 @@
         }
     }
 
-    function View_Product_Sellest(){
-        
+    function Get_image($masp){
+        $sql = "SELECT * FROM HINHANH WHERE MASP = '$masp'";
+        $res = Check_db($sql);
+        return $res;
     }
 
     function View_Product_Discount(){
@@ -55,6 +57,7 @@
         }
 
     }
+    
     function View_Full_Product(){
         $sql = "SELECT * FROM sanpham";
         $res = Check_db($sql);

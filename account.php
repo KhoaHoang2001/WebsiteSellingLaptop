@@ -1,8 +1,10 @@
 <?php
 require_once('./includes/include.php');
 require_once('./includes/conn.php');
+<<<<<<< HEAD
+=======
 // require_once('logout.php');
-session_start();
+>>>>>>> 3cc529505b2088aebb25d9b2671216278fb6eba1
 $taikhoan = $_SESSION['taikhoan'];
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
   $TENND = ($_POST["tennd"]);
@@ -30,7 +32,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <body>
   <!-- header -->
   <?php include('./includes/header.php') ?>
-
   <!-- account info -->
   <section id="account">
     <div class="container">
@@ -134,6 +135,17 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                   </form>
               <?php }
               } ?>
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
+              <div id="account__img">
+                <img src="./image/laptop.jpg" alt="" />
+                <i class="fa fa-camera"></i>
+
+              </div>
+>>>>>>> 3cc529505b2088aebb25d9b2671216278fb6eba1
+>>>>>>> 988c39291fa539bbdf4e0b69b87b3dd865ba9231
             </div>
             <div id="trangThaiDonHang">
               <table id="trangThaiDonHang_tblItem" class="table">
