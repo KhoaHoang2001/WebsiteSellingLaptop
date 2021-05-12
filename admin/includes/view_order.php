@@ -7,9 +7,6 @@
     <h2>Chi tiết hóa đơn</h2>
     <div class="border_bottom"></div>
     <form action="" method="post" enctype="multipart/form-data">
-        <div class="search_bar">
-            <input type="text" id="search" placeholder="Type to search..." />
-        </div>
         <table width="100%">
             <thead>
                 <tr>
@@ -47,7 +44,7 @@
 
 <?php 
     function Order_detail($madh){
-        $sql_detail = "SELECT * FROM MONHANG";
+        $sql_detail = "SELECT * FROM MONHANG WHERE MADH = '$madh'";
         $res_detail = Check_db($sql_detail);
         return $res_detail;
     }

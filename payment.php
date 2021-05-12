@@ -12,6 +12,7 @@
   $email = $thongtin['email'];
   $diachi = $thongtin['diachi'];
 ?>
+
   <!DOCTYPE html>
   <html lang="en">
   <?php include('./includes/head.php') ?>
@@ -28,7 +29,7 @@
         </h2>
         <section class="cartItem">
           <div class="container">
-            <form action="charge.php" method="POST">
+            <form action="./includes/charge.php" method="POST">
             <table id="tblItem" class="table">
               <thead id="tblHead">
                 <tr>
@@ -44,6 +45,7 @@
                 $sql_cart = "SELECT * FROM SANPHAMGIOHANG, SANPHAM WHERE SANPHAMGIOHANG.MASP = SANPHAM.MASP and taikhoan = '$taikhoan'";
                 $res_cart = Check_db($sql_cart);
                 $temp = 0;
+                $tongtien = 0;
                 if (mysqli_num_rows($res_cart)) {
                   while ($row = mysqli_fetch_assoc($res_cart)) {
                     $masp = $row['MASP'];
@@ -56,29 +58,26 @@
                     $soluonggio = $row['SOLUONGGIO'];
                     $temp++;
                 ?>
-                    <form method="POST">
-                      <tr>
-                        <td>
-                          <a href="#" class="cartItem__product">
-                            <img src="./image/laptop.jpg" alt="">
-                          </a>
-                        </td>
-                        <td>
-                          <div class="cartItem__product--intro">
-                            <h4><?php echo $tensp ?></h4>
-                          </div>
-                        </td>
-                        <td><?php echo $gia ?></td>
-                        <td>
-                          <span><?php echo $soluonggio ?></span>
-                        </td>
-                        <td>
-                          <?php echo $gia * $soluonggio;
-                          ?>
-                        </td>
-                      </tr>
-                    </form>
-
+                  <tr>
+                    <td>
+                      <a href="#" class="cartItem__product">
+                        <img src="./image/laptop.jpg" alt="">
+                      </a>
+                    </td>
+                    <td>
+                      <div class="cartItem__product--intro">
+                        <h4><?php echo $tensp ?></h4>
+                      </div>
+                    </td>
+                    <td><?php echo $gia ?></td>
+                    <td>
+                      <span><?php echo $soluonggio ?></span>
+                    </td>
+                    <td>
+                      <?php $tongtien = $tongtien + $gia * $soluonggio; echo $gia * $soluonggio;
+                      ?>
+                    </td>
+                  </tr>
                 <?php
                   }
                   if (isset($_POST[$masp])) {
@@ -102,19 +101,18 @@
                     <span>Tổng tiền:</span>
                   </th>
                   <!-- tong tien don hang-->
-                  <td id="tongTien" name="TongTien"><?php $tongtien ?></td> 
+                  <td id="tongtien" name="tongtien">$<?php echo $tongtien; ?></td>
                 </tr>
                 <tr>
                   <td colspan="2" style="padding: 0;">
                     <div id="thongTinTaiKhoan">
-                      <form action="" method="">
                         <table>
                           <tr>
                             <th>
                               <label for="firstName">Họ tên:</label>
                             </th>
                             <td>
-                              <input type="text" name="tennd" id="userFistName" value="<?php echo $tennd ?>" />
+                              <input type="text" name="tennd" id="userFistName" value="<?php echo $tennd ?>" disabled/>
                             </td>
                           </tr>
                           <tr>
@@ -122,7 +120,7 @@
                               <label for="email">Email:</label>
                             </th>
                             <td>
-                              <input type="email" name="email" id="userEmail" value="<?php echo $email ?>" />
+                              <input type="email" name="email" id="userEmail" value="<?php echo $email ?>"/>
                             </td>
                           </tr>
                           <tr>
@@ -130,32 +128,36 @@
                               <label for="sdt">Số điện thoại:</label>
                             </th>
                             <td>
-                              <input type="tel" name="sdt" id="" value="<?php echo $sdt ?>" />
+                              <input type="tel" name="sdt" id="" value="<?php echo $sdt ?>" disabled/>
                             </td>
                           </tr>
                           <tr>
                             <th>
-                              <label for="diaChi">Địa chỉ:</label>
+                              <label for="diachi">Địa chỉ:</label>
                             </th>
                             <td>
-                              <input type="text" name="diaChi" id="" value="<?php echo $diachi ?>" />
+                              <input type="text" name="diachi" id="" value="<?php echo $diachi ?>" required/>
+                            </td>
+                            <td>
+                              <input style="display: none" type="text" name="tongtien" id="tongtien" value="<?php echo $tongtien; ?>">
+                              <input style="display: none" type="text" name="taikhoan" id="taikhoan" value="<?php echo $taikhoan; ?>">
                             </td>
                           </tr>
                         </table>
-                      </form>
                     </div>
                   </td>
                   <th style="text-align: center;">
                     Hình thức thanh toán:
                   </th>
                   <td style="text-align: center;">
-                    <form action="">
-                      <script id="scriptStripe" src="https://checkout.stripe.com/checkout.js" class="stripe-button" data-key="<?php echo $stripe['publishable_key']; ?>" data-description="Thanh toán" data-locale="auto"></script>
-                    </form>
+                    <script id="scriptStripe" src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+                      data-key="<?php echo $stripe['publishable_key']; ?>"
+                      data-description="Thanh toán VISA"
+                      data-locale="auto">
                   </td>
                   <td style="text-align: center;">
                     <button id="codPayment">
-                      <a href="./payment.php">Cash on delivery</a>
+                      <a href="./COD.php" >Cash on delivery</a>
                     </button>
                   </td>
                 </tr>

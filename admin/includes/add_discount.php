@@ -2,6 +2,9 @@
     require_once('./includes/include.php');
     require_once('./includes/conn.php');
     $magiamgia = tao_id();
+    if(isset($_POST['insert_discount'])){
+        Check_f5($_POST['insert_discount']);
+    }
 ?>
 <div class="form_box">
     <script>
