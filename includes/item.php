@@ -1,7 +1,7 @@
 <section id="item" class="item">
     <div class="container">
         <div class="row item-title">
-            <h2>Sản phẩm mới</h2>
+            <h2>Sản phẩm</h2>
         </div>
         <div class="row item-content">
             <div class="row" style="padding: 15px">

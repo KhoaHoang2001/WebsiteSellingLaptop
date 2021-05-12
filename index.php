@@ -1,6 +1,7 @@
 <?php
 require_once('./includes/include.php');
 require_once('./includes/conn.php');
+require_once('./includes/product.php');
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -66,7 +67,7 @@ require_once('./includes/conn.php');
                     <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
                         <a class="dropdown-item" href="#">1GB</a>
                         <a class="dropdown-item" href="#">2GB</a>
-                        <a class="dropdown-item" href="#">4GB</a>
+                        <a class="dropdown-item" href="index.php?action=filter_ram&ram=4">4GB</a>
                         <a class="dropdown-item" href="#">8GB</a>
                         <a class="dropdown-item" href="#">16GB</a>
                         <a class="dropdown-item" href="#">32GB</a>
@@ -113,6 +114,18 @@ require_once('./includes/conn.php');
         </div>
     </section>
     <!-- New Item -->
+    <?php
+        if (isset($_GET['action'])) {
+            $action = $_GET['action'];
+          } else {
+            $action = '';
+          }
+        switch ($action) {
+            case 'filter_ram';
+              include './includes/filter_ram.php';
+              break;
+        }
+    ?>
     <?php include('./includes/item.php') ?>
     <!-- bestseller  -->
     <section class="bestseller" id="bestseller" style="margin-top: 30px;">
@@ -241,15 +254,15 @@ require_once('./includes/conn.php');
 
 </html>
 <?php
-function View_Discount_Of_Product($masp)
-{
-    $sql_discount = "SELECT * FROM giamgia WHERE MAGIAMGIA = (SELECT MAGIAMGIA FROM sanpham WHERE MASP = '$masp');";
-    $res_discount = Check_db($sql_discount);
-    if (mysqli_num_rows($res_discount) > 0) {
-        $row_discount = mysqli_fetch_assoc($res_discount);
-        return $row_discount['PHANTRAM'];
-    } else {
-        return;
-    }
-}
+// function View_Discount_Of_Product($masp)
+// {
+//     $sql_discount = "SELECT * FROM giamgia WHERE MAGIAMGIA = (SELECT MAGIAMGIA FROM sanpham WHERE MASP = '$masp');";
+//     $res_discount = Check_db($sql_discount);
+//     if (mysqli_num_rows($res_discount) > 0) {
+//         $row_discount = mysqli_fetch_assoc($res_discount);
+//         return $row_discount['PHANTRAM'];
+//     } else {
+//         return;
+//     }
+// }
 ?>
