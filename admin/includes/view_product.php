@@ -50,10 +50,14 @@
                     <td><?php echo $gia; ?></td>
                     <td><?php echo $soluongcon; ?></td>
                     <td><?php echo $ngaysx; ?></td>
-                    <td class="text-center"><a class="btn btn-danger btn-submit btn-sm"
-                            href="index.php?action=update_product&product_id=<?php echo $masp; ?>">xem</a></td>
-                    <td class="text-center"><a class="btn btn-danger btn-submit btn-sm"
-                            href="index.php?action=view_product&delete_product=<?php echo $masp; ?>">Xóa</a></td>
+                    <td class="text-center"><a class="btn btn-primary btn-submit btn-sm"
+                            href="index.php?action=update_product&product_id=<?php echo $masp; ?>">chi tiết</a>
+                        </td>
+                    <td class="text-center">
+                        <input class="btn btn-sm btn-danger" style="padding: 4px 15px 4px 15px;"
+                             type="submit" name="delete_product" id="delete_product" value="Xóa">
+                        <input style="display: none" type="text" name="masp" id="masp" value="<?php echo $masp; ?>">
+                    </td>
                 </tr>
             </tbody>
             <?php

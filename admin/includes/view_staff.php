@@ -64,7 +64,10 @@
         }
     }
 
-    if(isset($_GET['delete_staff'])){
+    echo isset($_SESSION['taikhoan']);
+    echo $_SESSION['taikhoan'];
+    echo $_SESSION['maquyen'];
+    if(isset($_GET['delete_staff']) && isset($_SESSION['taikhoan']) && $_SESSION['maquyen'] == 'AM'){
         $taikhoan = $_GET['delete_staff'];
         $sql_del_staff = "DELETE FROM NGUOIDUNG WHERE taikhoan = '$taikhoan';";
         echo $sql_del_staff;

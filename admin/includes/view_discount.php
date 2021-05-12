@@ -29,10 +29,14 @@
                     <td class="text-center"><?php echo $magiamgia; ?></td>
                     <td><?php echo $tengiamgia; ?></td>
                     <td><?php echo $phantram; ?></td>
-                    <td><a class="btn btn-danger btn-submit btn-sm" 
-                            href="index.php?action=view_discount&delete_discount=<?php echo $magiamgia; ?>">Xóa</a></td>
+                    <td>
+                        <input class="btn btn-sm btn-danger" style="padding: 4px 15px 4px 15px;"
+                            type="submit" name="delete_discount" id="delete_discount" value="Xóa">
+                        <input style="display: none" type="text" name="magiamgia" id="magiamgia" value="<?php echo $magiamgia; ?>">
+                    </td>
                     <td class="text-center"><a class="btn btn-primary btn-submit btn-sm"
-                        href="index.php?action=update_discount&discount_id=<?php echo $magiamgia; ?>">Chỉnh sửa</a></td>
+                        href="index.php?action=update_discount&discount_id=<?php echo $magiamgia; ?>">Chỉnh sửa</a>
+                    </td>
                 </tr>
             </tbody>
             <?php
@@ -55,8 +59,8 @@
         }
     }
 
-    if(isset($_GET['delete_discount'])){
-        $magiamgia = $_GET['delete_discount'];
+    if(isset($_POST['delete_discount'])){
+        $magiamgia = $_POST['magiamgia'];
         $sql_del_discount = "DELETE FROM GIAMGIA WHERE magiamgia = '$magiamgia'";
         $res_del_discount = Check_db($sql_del_discount);
         if($res_del_discount){

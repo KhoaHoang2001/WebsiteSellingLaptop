@@ -28,7 +28,7 @@
                     <th>Hình thức thanh toán</th>
                     <th>Địa chỉ nhận</th>
                     <th>Tổng tiền</th>
-                    <th>Chi tiết</th>
+                    <th>Xem</th>
                     <th>Duyệt</th>
                     <th class="text-center">Từ chối</th>
                 </tr>
@@ -56,7 +56,7 @@
                     <td><?php echo $tongtien; ?></td>
                     <form method="post">
                         <td><a class="btn btn-danger btn-submit btn-sm" style="margin: 0"
-                                href="index.php?action=view_order&order_detail=<?php echo $madh; ?>">Xem chi tiết</a>
+                                href="index.php?action=view_order&order_detail=<?php echo $madh; ?>">Chi tiết</a>
                         </td>
                         <!-- KHI CLICK VAO DOI MAU BUTTON -->
                         <?php  

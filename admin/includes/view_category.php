@@ -25,8 +25,11 @@
                 <tr>
                     <td class="text-center"><?php echo $maloaisp; ?></td>
                     <td><?php echo $tenloaisp; ?></td>
-                    <td class="text-center"><a class="btn btn-danger btn-submit btn-sm"
-                            href="index.php?action=view_category&delete_category=<?php echo $tenloaisp; ?>">Xóa</a></td>
+                    <td class="text-center">
+                        <input class="btn btn-sm btn-danger" style="padding: 4px 15px 4px 15px;"
+                             type="submit" name="delete_category" id="delete_category" value="Xóa">
+                        <input style="display: none" type="text" name="maloaisp" id="maloaisp" value="<?php echo $tenloaisp; ?>">
+                    </td>
                 </tr>
             </tbody>
             <?php
@@ -38,8 +41,8 @@
 
 </div>
 <?php
-if(isset($_GET['delete_category'])){
-    $mansx = $_GET['delete_category'];
+if(isset($_POST['delete_category'])){
+    $mansx = $_POST['maloaisp'];
     $sql_del_category = "DELETE FROM LOAISP WHERE maloaisp = '$maloaisp';";
     $res_del_category = Check_db($sql_del_category);
     if($res_del_category){
