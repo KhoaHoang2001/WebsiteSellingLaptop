@@ -617,48 +617,26 @@ footer .bottom p {
 }
 
 #account .container .row #account__right #trangThaiDonHang #trangThaiDonHang_tblItem {
-  width: 95%;
+  width: 100%;
+  text-align: center;
+  border-spacing: 10px;
 }
 
-#account .container .row #account__right #trangThaiDonHang #trangThaiDonHang_tblItem #trangThaiDonHang_tblHead th:nth-child(1) {
-  width: 15%;
-}
-
-#account .container .row #account__right #trangThaiDonHang #trangThaiDonHang_tblItem #trangThaiDonHang_tblHead th:nth-child(2) {
-  width: 30%;
-}
-
-#account .container .row #account__right #trangThaiDonHang #trangThaiDonHang_tblItem #trangThaiDonHang_tblHead th:nth-child(3) {
-  width: 25%;
-}
-
-#account .container .row #account__right #trangThaiDonHang #trangThaiDonHang_tblItem #trangThaiDonHang_tblHead th:nth-child(3) {
-  width: 10%;
-}
-
-#account .container .row #account__right #trangThaiDonHang #trangThaiDonHang_tblItem #trangThaiDonHang_tblHead th:nth-child(4) {
-  width: 10%;
-}
-
-#account .container .row #account__right #trangThaiDonHang #trangThaiDonHang_tblItem #trangThaiDonHang_tblHead th:nth-child(5) {
-  width: 10%;
-}
-
-#account .container .row #account__right #trangThaiDonHang #trangThaiDonHang_tblItem #trangThaiDonHang_tblBody tr {
-  text-decoration: none;
-}
-
-#account .container .row #account__right #trangThaiDonHang #trangThaiDonHang_tblItem #trangThaiDonHang_tblBody tr td:nth-child(2) {
-  display: flex;
-  width: 50%;
-}
-
-#account .container .row #account__right #trangThaiDonHang #trangThaiDonHang_tblItem #trangThaiDonHang_tblBody tr td:nth-child(2) img {
+#account .container .row #account__right #trangThaiDonHang #trangThaiDonHang_tblItem #trangThaiDonHang_tblHead tr {
   width: 100%;
 }
 
-#account .container .row #account__right #trangThaiDonHang #trangThaiDonHang_tblItem #trangThaiDonHang_tblBody tr td:nth-child(3) {
-  width: 15%;
+#account .container .row #account__right #trangThaiDonHang #trangThaiDonHang_tblItem #trangThaiDonHang_tblBody tr td:nth-child(1) img {
+  width: 150px;
+  height: 150px;
+}
+
+#account .container .row #account__right #trangThaiDonHang #trangThaiDonHang_tblItem #trangThaiDonHang_tblBody tr td:nth-child(4) {
+  color: orangered;
+}
+
+#account .container .row #account__right #trangThaiDonHang #trangThaiDonHang_tblItem #trangThaiDonHang_tblBody tr td:nth-child(6) {
+  color: orangered;
 }
 
 #account .container .row #account__right #lichSuMuaHang {

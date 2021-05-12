@@ -35,24 +35,24 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
       <div class="row">
         <div id="account__left">
           <ul id="setting__menu">
-            <li class="active" id="TTTK" onclick="activeTTTK()">
-              <a href="#">Thông tin tài khoản</a>
+            <li>
+              <a href="#" id="TTTK" onclick="activeTTTK()" style="background-color: #ffa600;">Thông tin tài khoản</a>
             </li>
-            <li id="TTDH" onclick="activeTTDH()">
-              <a href="#">Trạng thái đơn hàng</a>
+            <li>
+              <a href="#" id="TTDH" onclick="activeTTDH()">Trạng thái đơn hàng</a>
             </li>
-            <li id="LSMH" onclick="activeLSMH()">
-              <a href="#">Lịch sử mua hàng</a>
+            <li>
+              <a href="#" id="LSMH" onclick="activeLSMH()">Lịch sử mua hàng</a>
             </li>
-            <li id="DMK" onclick="activeDMK()">
-              <a href="#">Đổi mật khẩu</a>
+            <li>
+              <a href="#" id="DMK" onclick="activeDMK()">Đổi mật khẩu</a>
             </li>
-            <li id="DX"><a href="./logout.php">Đăng xuất</a></li>
+            <li><a href="./logout.php" id="DX">Đăng xuất</a></li>
           </ul>
         </div>
         <div id="account__right">
           <div id="myAccount">
-            <div id="thongTinTaiKhoan">
+            <div id="thongTinTaiKhoan" align="center">
               <?php
               $sql_account = "SELECT * FROM nguoidung where taikhoan = '$taikhoan'";
               $res_account = Check_db($sql_account);
@@ -67,10 +67,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
               ?>
                   <form action="" method="POST">
-                    <table>
+                    <table >
                       <tr>
                         <th>
-                          <label for="firstName">Họ tên</label>
+                          <label for="firstName">Họ tên:</label>
                         </th>
                         <td>
                           <input type="text" name="tennd" id="userFistName" value="<?php echo $tennd ?>" />
@@ -78,14 +78,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                       </tr>
                       <tr>
                         <th>
-                          <label for="lastName">Giới tính</label>
+                          <label for="lastName">Giới tính:</label>
                         </th>
                         <td>
-                          <input type="radio" name="gioiTinh" id='nam' value="Nam">
+                          <input type="radio" name="gioiTinh" id='nam' value="Nam" checked>
                           <label for="gioiTinh">Nam</label>
                           <input type="radio" name="gioiTinh" id="nu" value="Nữ">
                           <label for="gioiTinh">Nữ</label>
-                          <?php if ($gioitinh == 'Nữ') { ?>
+                          <!-- <?php if ($gioitinh == 'Nữ') { ?>
                             <script>
                               document.getElementById('nu').checked = true;
                             </script>
@@ -94,12 +94,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                             <script>
                               document.getElementById('nam').checked = true;
                             </script>
-                          <?php } ?>
+                          <?php } ?> -->
                         </td>
                       </tr>
                       <tr>
                         <th>
-                          <label for="email">Email</label>
+                          <label for="email">Email:</label>
                         </th>
                         <td>
                           <input type="email" name="email" id="userEmail" value="<?php echo $email ?>" />
@@ -107,7 +107,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                       </tr>
                       <tr>
                         <th>
-                          <label for="sdt">Số điện thoại</label>
+                          <label for="sdt">Số điện thoại:</label>
                         </th>
                         <td>
                           <input type="tel" name="sdt" id="" value="<?php echo $sdt ?>" />
@@ -115,7 +115,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                       </tr>
                       <tr>
                         <th>
-                          <label for="diaChi">Địa chỉ</label>
+                          <label for="diaChi">Địa chỉ:</label>
                         </th>
                         <td>
                           <input type="text" name="diaChi" id="" value="<?php echo $diachi ?>" />
@@ -131,11 +131,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                   </form>
               <?php }
               } ?>
-              <div id="account__img">
-                <img src="./image/laptop.jpg" alt="" />
-                <i class="fa fa-camera"></i>
-
-              </div>
             </div>
             <div id="trangThaiDonHang">
               <table id="trangThaiDonHang_tblItem" class="table">
@@ -145,13 +140,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     <th>Tên Sản Phẩm</th>
                     <th>Số lượng</th>
                     <th>Số Tiền</th>
+                    <th>Trạng thái</th>
                   </tr>
                 </thead>
                 <tbody id="trangThaiDonHang_tblBody">
                   <tr>
                     <td>
                       <a href="#" class="trangThaiDonHang_product">
-                        <img src="./image/laptop.jpg" alt="" />
+                        <img src="./FE/image/laptop.jpg" alt="" />
                       </a>
                     </td>
                     <td>
@@ -164,6 +160,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                       <span>1</span>
                     </td>
                     <td>5.000.000VND</td>
+                    <td>Đang giao...</td>
                   </tr>
                 </tbody>
               </table>
@@ -184,7 +181,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     <tr>
                       <td>
                         <a href="#" class="cartItem__product">
-                          <img src="./image/laptop.jpg" alt="" />
+                          <img src="./FE/image/laptop.jpg" alt="" />
                         </a>
                       </td>
                       <td>
@@ -272,47 +269,47 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   <!-- active -->
   <script>
     function activeTTTK() {
-      document.getElementById("#thongTinTaiKhoan").css("display", "block");
-      document.getElementById("#trangThaiDonHang").css("display", "none");
-      document.getElementById("#lichSuMuaHang").css("display", "none");
-      document.getElementById("#doiMatKhau").css("display", "none");
-      document.getElementById('#TTTK').removeClass('active');
-      document.getElementById('#TTDH').removeClass('active');
-      document.getElementById('#LSMH').removeClass('active');
-      document.getElementById('#DMK').removeClass('active');
+      document.getElementById("TTTK").style.backgroundColor = "#ffa600";
+      document.getElementById("TTDH").style.backgroundColor = "transparent";
+      document.getElementById("LSMH").style.backgroundColor = "transparent";
+      document.getElementById("DMK").style.backgroundColor = "transparent";
+      document.getElementById("thongTinTaiKhoan").style.display = "block";
+      document.getElementById("trangThaiDonHang").style.display = "none";
+      document.getElementById("lichSuMuaHang").style.display = "none";
+      document.getElementById("doiMatKhau").style.display = "none";
     }
 
     function activeTTDH() {
-      document.getElementById("#thongTinTaiKhoan").css("display", "none");
-      document.getElementById("#trangThaiDonHang").css("display", "block");
-      document.getElementById("#lichSuMuaHang").css("display", "none");
-      document.getElementById("#doiMatKhau").css("display", "none");
-      document.getElementById('#TTTK').removeClass('active');
-      document.getElementById('#TTDH').addClass('active');
-      document.getElementById('#LSMH').removeClass('active');
-      document.getElementById('#DMK').removeClass('active');
+      document.getElementById("TTTK").style.backgroundColor = "transparent";
+      document.getElementById("TTDH").style.backgroundColor = "#ffa600";
+      document.getElementById("LSMH").style.backgroundColor = "transparent";
+      document.getElementById("DMK").style.backgroundColor = "transparent";
+      document.getElementById("thongTinTaiKhoan").style.display = "none";
+      document.getElementById("trangThaiDonHang").style.display = "block";
+      document.getElementById("lichSuMuaHang").style.display = "none";
+      document.getElementById("doiMatKhau").style.display = "none";
     }
 
     function activeLSMH() {
-      $("#LSMH").addClass("active");
-      $("#myAccount").css("display", "none");
-      $("#trangThaiDonHang").css("display", "none");
-      $("#lichSuMuaHang").css("display", "block");
-      $("#doiMatKhau").css("display", "none");
-      $("#TTDH").removeClass("active");
-      $("#TTTK").removeClass("active");
-      $("#DMK").removeClass("active");
+      document.getElementById("TTTK").style.backgroundColor = "transparent";
+      document.getElementById("TTDH").style.backgroundColor = "transparent";
+      document.getElementById("LSMH").style.backgroundColor = "#ffa600";
+      document.getElementById("DMK").style.backgroundColor = "transparent";
+      document.getElementById("thongTinTaiKhoan").style.display = "none";
+      document.getElementById("trangThaiDonHang").style.display = "none";
+      document.getElementById("lichSuMuaHang").style.display = "block";
+      document.getElementById("doiMatKhau").style.display = "none";
     }
 
     function activeDMK() {
-      $("#DMK").addClass("active");
-      $("#myAccount").css("display", "none");
-      $("#trangThaiDonHang").css("display", "none");
-      $("#lichSuMuaHang").css("display", "none");
-      $("#doiMatKhau").css("display", "block");
-      $("#TTDH").removeClass("active");
-      $("#TTTK").removeClass("active");
-      $("#LSMH").removeClass("active");
+      document.getElementById("TTTK").style.backgroundColor = "transparent";
+      document.getElementById("TTDH").style.backgroundColor = "transparent";
+      document.getElementById("LSMH").style.backgroundColor = "transparent";
+      document.getElementById("DMK").style.backgroundColor = "#ffa600";
+      document.getElementById("thongTinTaiKhoan").style.display = "none";
+      document.getElementById("trangThaiDonHang").style.display = "none";
+      document.getElementById("lichSuMuaHang").style.display = "none";
+      document.getElementById("doiMatKhau").style.display = "block";
     }
   </script>
   <!-- MAIN JS -->
