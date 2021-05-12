@@ -226,22 +226,30 @@ $masp = tao_id();
             mysqli_close($conn);
         }
         $uploads_dir = '/uploads';
-        foreach ($_FILES["files"]["error"] as $key => $error) {
-            if ($error == UPLOAD_ERR_OK) {
-                $tmp_name = $_FILES["files"]["tmp_name"][$key];
-                $name = basename($_FILES["files"]["name"][$key]);
-                move_uploaded_file($tmp_name, "product_images/$name");
-                $sql_hinh = "INSERT INTO HINHANH (masp, link) VALUES ('$masp', '$name');";
-                $conn = Connect();
-                $themhinh= mysqli_query($conn, $sql_hinh);
-                mysqli_close($conn);
+        $ktra = $_FILES["files"];
+        if($ktra != "jpg" || $ktra != "png" || $ktra != "jpeg" || $ktra != "gif" ) {
+            echo "<script>alert('Thêm sản phẩm thành công');</script>"; 
+        }else{
+            foreach ($_FILES["files"]["error"] as $key => $error) {
+                if($error == UPLOAD_ERR_OK) {
+                        $tmp_name = $_FILES["files"]["tmp_name"][$key];
+                        $name = basename($_FILES["files"]["name"][$key]);
+                        move_uploaded_file($tmp_name, "product_images/$name");
+                        $sql_hinh = "INSERT INTO HINHANH (masp, link) VALUES ('$masp', '$name');";
+                        $conn = Connect();
+                        $themhinh= mysqli_query($conn, $sql_hinh);
+                        mysqli_close($conn);
+                }
+                
             }
-        }   
-        if($themhinh){
-            echo "<script>alert('Thêm sản phẩm thành công');</script>";      
-        } else {
-            echo "<script>alert('Thêm sản phẩm thất bại');</script>"; 
+            if($themhinh){
+                echo "<script>alert('Thêm sản phẩm thành công');</script>";      
+            } else {
+                echo "<script>alert('Thêm sản phẩm thất bại');</script>"; 
+            }
         }
+        
+
 }
 $pageWasRefreshed = isset($_SERVER['HTTP_CACHE_CONTROL']) && $_SERVER['HTTP_CACHE_CONTROL'] === 'max-age=0';
 if($pageWasRefreshed ) {

@@ -20,7 +20,7 @@
         $res = Check_db($sql);
         return $res;
     }
-    function filter_Ram($ram){
+    function Filter_Ram($ram){
         $sql_ram = "SELECT * FROM SANPHAM WHERE RAM = '$ram'";
         $res = Check_db(($sql_ram));
         if(mysqli_num_rows($res) > 0){
@@ -38,7 +38,51 @@
                 $hinh = Get_image($masp);
 
             }
+        }
     }
+    function Filter_Vixuly($vixuly){
+        $sql_vixuly = "SELECT * FROM SANPHAM WHERE vixuly LIKE '%$vixuly%'";
+        $res = Check_db($sql_vixuly);
+        if(mysqli_num_rows($res) > 0){
+            while ($row = mysqli_fetch_assoc($res)) {
+                $masp = $row['MASP']; 
+                $tensp = $row['TENSP'];
+                $gia = $row['GIA'];
+                $phantram = View_Discount_Of_Product($masp);
+                $kichthuocmh = $row['KICHTHUOCMH'];
+                $vixuly = $row['VIXULY'];
+                $ram = $row['RAM'];
+                $motasp = $row['MOTASP'];
+                $ngaysx = $row['NGAYSX'];
+                $giam=$gia*(100-$phantram)/100;
+                $hinh = Get_image($masp);
+
+            }
+        }
+
+    }
+    function Filter_Kichthuocmh($kichthuocmh){
+        $sql_kichthuocmh = "SELECT * FROM SANPHAM WHERE kichthuocmh LIKE '%$kichthuocmh%'";
+        $res = Check_db($sql_kichthuocmh);
+        if(mysqli_num_rows($res) > 0){
+            while ($row = mysqli_fetch_assoc($res)) {
+                $masp = $row['MASP']; 
+                $tensp = $row['TENSP'];
+                $gia = $row['GIA'];
+                $phantram = View_Discount_Of_Product($masp);
+                $kichthuocmh = $row['KICHTHUOCMH'];
+                $vixuly = $row['VIXULY'];
+                $ram = $row['RAM'];
+                $motasp = $row['MOTASP'];
+                $ngaysx = $row['NGAYSX'];
+                $giam=$gia*(100-$phantram)/100;
+                $hinh = Get_image($masp);
+
+            }
+        }
+
+    }
+
     function View_Product_Discount(){
         $sql = "SELECT * FROM sanpham where MAGIAMGIA IS NOT NULL";
         $res = Check_db($sql);
@@ -96,5 +140,5 @@
         }
     }
  
-
+    
 ?>
