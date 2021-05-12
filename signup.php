@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <?php
-  require_once('./includes/conn.php');?>
+require_once('./includes/conn.php'); ?>
 <html lang="en">
 <?php include('./includes/head.php') ?>
 
@@ -15,32 +15,33 @@
         <h2 style="text-align: center; margin-bottom: 50px">
           Đăng ký tài khoản
         </h2>
-        <form method="POST" action="" onsubmit="return DangKy()">
+        <form method="" action="" onsubmit="return DangKy()">
           <table style="padding: 10px; text-align: left">
             <tr>
-              <th style="width: 40%">Họ và tên:</th>
-              <td style="width: 10%"></td>
-              <td style="display: inline-block; width: 40%">
+              <th>Họ và tên:</th>
+              <td></td>
+              <td>
                 <input type="text" name="TENND" id="HoTen" />
               </td>
-              <td style="width: 20%"></td>
-            </tr>
-            <tr>
-              <th style="height: 15px"></th>
-              <td></td>
-              <td></td>
               <td></td>
             </tr>
             <tr>
-              <th style="width: 40%">Tên đăng nhập:</th>
-              <td style="width: 10%"></td>
-              <td style="display: inline-block; width: 40%">
+              <th style="height: 15px;"></th>
+              <td style="width: 15px;"></td>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr>
+              <th>Tên đăng nhập:</th>
+              <td></td>
+              <td>
                 <input type="text" name="TAIKHOAN" id="tenDangNhap" />
+                <span id="errorUsername"></span>
               </td>
-              <td style="width: 20%"></td>
+              <td></td>
             </tr>
             <tr>
-              <th style="height: 15px"></th>
+              <th style="height: 15px;"></th>
               <td></td>
               <td></td>
               <td></td>
@@ -50,11 +51,12 @@
               <td></td>
               <td>
                 <input type="password" name="MATKHAU" id="matKhau" />
+                <span id="errorPassword"></span>
               </td>
               <td></td>
             </tr>
             <tr>
-              <th style="height: 15px"></th>
+              <th style="height: 15px;"></th>
               <td></td>
               <td></td>
               <td></td>
@@ -64,11 +66,12 @@
               <td></td>
               <td>
                 <input type="password" id="nhapLaiMatKhau" name="NHAPLAIMK" />
+                <span id="errorConfirmPassword"></span>
               </td>
               <td></td>
             </tr>
             <tr>
-              <th style="height: 15px"></th>
+              <th style="height: 15px;"></th>
               <td></td>
               <td></td>
               <td></td>
@@ -85,7 +88,7 @@
               <td></td>
             </tr>
             <tr>
-              <th style="height: 15px"></th>
+              <th style="height: 15px;"></th>
               <td></td>
               <td></td>
               <td></td>
@@ -99,7 +102,7 @@
               <td></td>
             </tr>
             <tr>
-              <th style="height: 15px"></th>
+              <th style="height: 15px;"></th>
               <td></td>
               <td></td>
               <td></td>
@@ -113,7 +116,7 @@
               <td></td>
             </tr>
             <tr>
-              <th style="height: 15px"></th>
+              <th style="height: 15px;"></th>
               <td></td>
               <td></td>
               <td></td>
@@ -122,15 +125,13 @@
               <th></th>
               <td></td>
               <td>
-                <input type="submit" style="
-                      padding: 0 10px;
+                <button type="submit" style="
                       border-radius: 3px;
-                      border: 1px solid;
-                    " value="Đăng ký" name="btnDangKy">
+                      border: 1px solid; padding: 5px 10px
+                    " name="btnDangKy">Đăng ký</button>
                 <button type="reset" style="
-                      padding: 0 10px;
                       border-radius: 3px;
-                      border: 1px solid;
+                      border: 1px solid; padding: 5px 10px
                     ">
                   Làm lại
                 </button>
@@ -161,14 +162,14 @@
     $GIOITINH = ($_POST['GIOITINH']);
     $EMAIL = $_POST['EMAIL'];
     $SDT = $_POST['SDT'];
-   // echo $GIOITINH . "" . $EMAIL . "" . $SDT;
+    // echo $GIOITINH . "" . $EMAIL . "" . $SDT;
     $conn = Connect();
     $sql1 = "SELECT * FROM nguoidung WHERE TAIKHOAN='$TAIKHOAN'";
     $request = $conn->query($sql1);
 
     if (mysqli_num_rows($request) > 0) {
       echo "<script>alert('tai khoan da ton tai!')</script>";
-      echo "<script>window.open('signup.php','_self')</script>"; 
+      echo "<script>window.open('signup.php','_self')</script>";
     } else {
       $MATKHAU = md5($MATKHAU);
       $sql = "INSERT INTO nguoidung(TAIKHOAN,MAQUYEN,MATKHAU,TENND,GIOITINH,SDT,EMAIL) VALUE ('$TAIKHOAN','KH','$MATKHAU','$TENND','$GIOITINH','$SDT','$EMAIL')";
@@ -181,8 +182,6 @@
     }
     $conn->close();
   }
-
-
   ?>
 </body>
 

@@ -13,6 +13,9 @@ function DangKy() {
   //   var gioiTinh = DomID("gioiTinh").value;
   var email = DomID("Email").value;
   var sdt = DomID("SDT").value;
+  var errorUsername = DomID("errorUsername");
+  var errorPassword = DomID("errorPassword");
+  var errorConfirm = DomID("errorConfirmPassword");
   var loi = 0;
   if (KiemTraDauVaoRong("HoTen", HoTen) == true) {
     loi++;
@@ -24,7 +27,7 @@ function DangKy() {
     loi++;
     DomID("tenDangNhap").style.borderColor = "red";
     errorUsername.style.display = "block";
-    errorUsername.innerHTML = "Bắt đầu bằng chữ cái<br> Độ dài từ 8 -> 20 ký tự";
+    errorUsername.innerHTML = "Bắt đầu bằng chữ<br>Độ dài từ 8 -> 20 ký tự";
   }
   else {
     DomID("tenDangNhap").style.borderColor = "green";
@@ -37,7 +40,7 @@ function DangKy() {
     loi++;
     DomID("matKhau").style.borderColor = "red";
     errorPassword.style.display = "block";
-    errorPassword.innerHTML = "Phải có chữ và số <br> Độ dài từ 6 -> 15 ký tự";
+    errorPassword.innerHTML = "Phải có chữ và số <br> Độ dài từ 8 -> 20 ký tự";
   }
   else {
     DomID("matKhau").style.borderColor = "green";
@@ -58,7 +61,6 @@ function DangKy() {
   //   if (KiemTraDauVaoRong("gioiTinh", gioiTinh) == true) {
   //     loi++;
   //   }
-
   if (validate.KiemTraRong(email) == true) {
   } else {
     if (validate.KiemTraEmail(email) == false) {
@@ -67,7 +69,6 @@ function DangKy() {
       loi++;
     }
   }
-
   if (validate.KiemTraRong(sdt) == true) {
   } else {
     if (validate.KiemTraSoDT(sdt) == false) {
@@ -76,12 +77,10 @@ function DangKy() {
       loi++;
     }
   }
-  if (loi != 0) {
-    return false;
-  }
-  else{
+  if (loi === 0) {
     return true;
   }
+  return false;
 }
 
 function DangNhap() {
