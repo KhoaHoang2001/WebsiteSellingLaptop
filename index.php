@@ -1,6 +1,7 @@
 <?php
 require_once('./includes/include.php');
 require_once('./includes/conn.php');
+require_once('./includes/product.php');
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -31,31 +32,31 @@ require_once('./includes/conn.php');
         <div class="container">
             <div class="row" style="margin-bottom: 20px;">
                 <div class="card">
-                    <a href="#"><img src="./FE/image/MacBook44-b_27.png" alt=""></a>
+                    <a href="index.php?action=filter_producer&producer=macbook"><img src="./FE/image/MacBook44-b_27.png" alt=""></a>
                 </div>
                 <div class="card">
-                    <a href="#"><img src="./FE/image/Acer44-b_25.jpg" alt=""></a>
+                    <a href="index.php?action=filter_producer&producer=acer"><img src="./FE/image/Acer44-b_25.jpg" alt=""></a>
                 </div>
                 <div class="card">
-                    <a href="#"><img src="./FE/image/Asus44-b_1.png" alt=""></a>
+                    <a href="index.php?action=filter_producer&producer=asus"><img src="./FE/image/Asus44-b_1.png" alt=""></a>
                 </div>
                 <div class="card">
-                    <a href="#"><img src="./FE/image/Dell44-b_2.jpg" alt=""></a>
+                    <a href="index.php?action=filter_producer&producer=dell"><img src="./FE/image/Dell44-b_2.jpg" alt=""></a>
                 </div>
                 <div class="card">
-                    <a href="#"><img src="./FE/image/HP44-b_27.jpg" alt=""></a>
+                    <a href="index.php?action=filter_producer&producer=hp"><img src="./FE/image/HP44-b_27.jpg" alt=""></a>
                 </div>
                 <div class="card">
-                    <a href="#"><img src="./FE/image/Huawei44-b_7.jpg" alt=""></a>
+                    <a href="index.php?action=filter_producer&producer=huawei"><img src="./FE/image/Huawei44-b_7.jpg" alt=""></a>
                 </div>
                 <div class="card">
-                    <a href="#"><img src="./FE/image/Lenovo44-b_35.png" alt=""></a>
+                    <a href="index.php?action=filter_producer&producer=lenovo"><img src="./FE/image/Lenovo44-b_35.png" alt=""></a>
                 </div>
                 <div class="card">
-                    <a href="#"><img src="./FE/image/LG44-b_32.jpg" alt=""></a>
+                    <a href="index.php?action=filter_producer&producer=lg"><img src="./FE/image/LG44-b_32.jpg" alt=""></a>
                 </div>
                 <div class="card">
-                    <a href="#"><img src="./FE/image/MSI44-b_17.png" alt=""></a>
+                    <a href="index.php?action=filter_producer&producer=msi"><img src="./FE/image/MSI44-b_17.png" alt=""></a>
                 </div>
             </div>
             <div class="row">
@@ -66,10 +67,10 @@ require_once('./includes/conn.php');
                     <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
                         <a class="dropdown-item" href="index.php?action=filter_ram&ram=1">1GB</a>
                         <a class="dropdown-item" href="index.php?action=filter_ram&ram=2">2GB</a>
-                        <a class="dropdown-item" href="index.php?action=filter_ram&ram=3">4GB</a>
-                        <a class="dropdown-item" href="index.php?action=filter_ram&ram=4">8GB</a>
-                        <a class="dropdown-item" href="index.php?action=filter_ram&ram=5">16GB</a>
-                        <a class="dropdown-item" href="index.php?action=filter_ram&ram=6">32GB</a>
+                        <a class="dropdown-item" href="index.php?action=filter_ram&ram=4">4GB</a>
+                        <a class="dropdown-item" href="index.php?action=filter_ram&ram=8">8GB</a>
+                        <a class="dropdown-item" href="index.php?action=filter_ram&ram=16">16GB</a>
+                        <a class="dropdown-item" href="index.php?action=filter_ram&ram=32">32GB</a>
                     </div>
                 </div>
                 <div class="dropdown">
@@ -78,10 +79,10 @@ require_once('./includes/conn.php');
                     </a>
 
                     <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                        <a class="dropdown-item" href="#">i3</a>
-                        <a class="dropdown-item" href="#">i5</a>
-                        <a class="dropdown-item" href="#">i7</a>
-                        <a class="dropdown-item" href="#">i9</a>
+                        <a class="dropdown-item" href="index.php?action=filter_cpu&cpu=i3">i3</a>
+                        <a class="dropdown-item" href="index.php?action=filter_cpu&cpu=i5">i5</a>
+                        <a class="dropdown-item" href="index.php?action=filter_cpu&cpu=i7">i7</a>
+                        <a class="dropdown-item" href="index.php?action=filter_cpu&cpu=i9">i9</a>
                     </div>
                 </div>
                 <div class="dropdown">
@@ -90,11 +91,11 @@ require_once('./includes/conn.php');
                     </a>
 
                     <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                        <a class="dropdown-item" href="#"> Nhỏ hơn 13 inch</a>
-                        <a class="dropdown-item" href="#">13 inch</a>
-                        <a class="dropdown-item" href="#">14 inch</a>
-                        <a class="dropdown-item" href="#">15 inch</a>
-                        <a class="dropdown-item" href="#"> Lớn hơn 15 inch</a>
+                        <a class="dropdown-item" href="index.php?action=filter_screen&screen="> Nhỏ hơn 13 inch</a>
+                        <a class="dropdown-item" href="index.php?action=filter_screen&screen=13 inch">13 inch</a>
+                        <a class="dropdown-item" href="index.php?action=filter_screen&screen=14 inch">14 inch</a>
+                        <a class="dropdown-item" href="index.php?action=filter_screen&screen=15 inch">15 inch</a>
+                        <a class="dropdown-item" href="index.php?action=filter_screen&screen="> Lớn hơn 15 inch</a>
                     </div>
                 </div>
                 <div class="dropdown">
@@ -102,10 +103,10 @@ require_once('./includes/conn.php');
                         Giá
                     </a>
                     <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                        <a class="dropdown-item" href="#">Dưới 10 triệu</a>
-                        <a class="dropdown-item" href="#">Từ 10 triệu đến 15 triệu</a>
-                        <a class="dropdown-item" href="#">Từ 15 triệu đến 20 triệu</a>
-                        <a class="dropdown-item" href="#">Từ 20 triệu đến 25 triệu</a>
+                        <a class="dropdown-item" href="index.php?action=filter_price&price=">Dưới 10 triệu</a>
+                        <a class="dropdown-item" href="index.php?action=filter_price&price=">Từ 10 triệu đến 15 triệu</a>
+                        <a class="dropdown-item" href="index.php?action=filter_price&price=">Từ 15 triệu đến 20 triệu</a>
+                        <a class="dropdown-item" href="index.php?action=filter_price&price=">Từ 20 triệu đến 25 triệu</a>
                         <a class="dropdown-item" href="#">Hơn 20 triệu</a>
                     </div>
                 </div>
@@ -113,7 +114,36 @@ require_once('./includes/conn.php');
         </div>
     </section>
     <!-- New Item -->
-    <?php include('./includes/item.php') ?>
+    <?php 
+        if (isset($_GET['action'])) {
+            $action = $_GET['action'];
+            switch ($action) {
+                case 'filter_ram';
+                include './includes/filter_ram.php';
+                break;
+    
+                case 'filter_producer';
+                include './includes/filter_producer.php';
+                break;
+    
+                case 'filter_screen';
+                include './includes/filter_screen.php';
+                break;
+    
+                case 'filter_cpu';
+                include './includes/filter_cpu.php';
+                break;
+    
+                case 'filter_price';
+                include './includes/filter_price.php';
+                break;
+            }
+        } else {
+            include('./includes/item.php');
+        }
+
+        
+     ?>
     <!-- bestseller  -->
     <section class="bestseller" id="bestseller" style="margin-top: 30px;">
         <div class="container">
@@ -241,15 +271,15 @@ require_once('./includes/conn.php');
 
 </html>
 <?php
-function View_Discount_Of_Product($masp)
-{
-    $sql_discount = "SELECT * FROM giamgia WHERE MAGIAMGIA = (SELECT MAGIAMGIA FROM sanpham WHERE MASP = '$masp');";
-    $res_discount = Check_db($sql_discount);
-    if (mysqli_num_rows($res_discount) > 0) {
-        $row_discount = mysqli_fetch_assoc($res_discount);
-        return $row_discount['PHANTRAM'];
-    } else {
-        return;
-    }
-}
+// function View_Discount_Of_Product($masp)
+// {
+//     $sql_discount = "SELECT * FROM giamgia WHERE MAGIAMGIA = (SELECT MAGIAMGIA FROM sanpham WHERE MASP = '$masp');";
+//     $res_discount = Check_db($sql_discount);
+//     if (mysqli_num_rows($res_discount) > 0) {
+//         $row_discount = mysqli_fetch_assoc($res_discount);
+//         return $row_discount['PHANTRAM'];
+//     } else {
+//         return;
+//     }
+// }
 ?>

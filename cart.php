@@ -1,7 +1,9 @@
 <?php
 require_once('./includes/include.php');
 require_once('./includes/conn.php');
-
+if(!isset($_SESSION['taikhoan'])){
+    header('Location: login.php');
+}
 $taikhoan = $_SESSION['taikhoan'];
 function View_Discount_Of_Product($masp)
 {

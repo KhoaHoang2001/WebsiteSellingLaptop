@@ -2,7 +2,7 @@
 require_once('./includes/include.php');
 require_once('./includes/conn.php');
 $taikhoan = $_SESSION['taikhoan'];
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
+if (isset($_POST['capnhat_tt'])) {
   $TENND = ($_POST["tennd"]);
   $GIOITINH = ($_POST['gioiTinh']);
   $EMAIL = $_POST['email'];
@@ -56,7 +56,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
               <?php
               $sql_account = "SELECT * FROM nguoidung where taikhoan = '$taikhoan'";
               $res_account = Check_db($sql_account);
-              $temp = 0;
               if (mysqli_num_rows($res_account)) {
                 while ($row = mysqli_fetch_assoc($res_account)) {
                   $tennd = $row['TENND'];
@@ -86,7 +85,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                           <label for="gioiTinh">Nam</label>
                           <input type="radio" name="gioiTinh" id="nu" value="Nữ">
                           <label for="gioiTinh">Nữ</label>
-                          <!-- <?php if ($gioitinh == 'Nữ') { ?>
+                           <?php if ($gioitinh == 'Nữ') { ?>
                             <script>
                               document.getElementById('nu').checked = true;
                             </script>
@@ -95,7 +94,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                             <script>
                               document.getElementById('nam').checked = true;
                             </script>
-                          <?php } ?> -->
+                          <?php } ?> 
                         </td>
                       </tr>
                       <tr>
@@ -138,35 +137,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             </div>
             <div id="trangThaiDonHang">
               <table id="trangThaiDonHang_tblItem" class="table">
-                <thead id="trangThaiDonHang_tblHead">
-                  <tr>
-                    <th>Hình Ảnh Sản Phẩm</th>
-                    <th>Tên Sản Phẩm</th>
-                    <th>Số lượng</th>
-                    <th>Số Tiền</th>
-                    <th>Trạng thái</th>
-                  </tr>
-                </thead>
-                <tbody id="trangThaiDonHang_tblBody">
-                  <tr>
-                    <td>
-                      <a href="#" class="trangThaiDonHang_product">
-                        <img src="./FE/image/laptop.jpg" alt="" />
-                      </a>
-                    </td>
-                    <td>
-                      <div class="trangThaiDonHang_product--intro">
-                        <h4>Title</h4>
-                        <p>Lorem ipsum dolor sit amet.</p>
-                      </div>
-                    </td>
-                    <td>
-                      <span>1</span>
-                    </td>
-                    <td>5.000.000VND</td>
-                    <td>Đang giao...</td>
-                  </tr>
-                </tbody>
+                <?php 
+                  if(isset($_GET['action'])){
+                    if($_GET['action']=='account_detail_order'){
+                      include './includes/account_detail_order.php';
+                    }
+                  }else{
+                    include './includes/account_status_order.php';
+                  }
+                ?>
               </table>
             </div>
             <div id="lichSuMuaHang">
@@ -174,40 +153,51 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 <table id="tblItem" class="table">
                   <thead id="tblHead">
                     <tr>
-                      <th>Hình Ảnh Sản Phẩm</th>
-                      <th>Tên Sản Phẩm</th>
-                      <th>Số lượng</th>
-                      <th>Số Tiền</th>
-                      <th>Trạng thái</th>
+                    <th>Mã đơn hàng</th>
+                    <th>Ngày đặt</th>
+                    <th>Địa chỉ nhận</th>
+                    <th>Tổng tiền</th>
+                    <th>Trạng thái</th>
+                    <th>Thao tác</th>
                     </tr>
                   </thead>
                   <tbody id="tblBody">
+                    <?php 
+                      $sql_order = "SELECT * FROM `donhang` WHERE TAIKHOAN='$taikhoan' and TRANGTHAI ='đã giao'";
+                      $res_order = Check_db($sql_order);
+                      if (mysqli_num_rows($res_order)) {
+                        while ($row = mysqli_fetch_assoc($res_order)) {
+                          $madh=$row['MADH'];
+                          $ngaydat=$row['NGAYDAT'];
+                          $trangthai=$row['TRANGTHAI'];
+                          $httt=$row['HTTHANHTOAN'];
+                          $diachi=$row['DIACHINHAN'];
+                          $tongtien=$row['TONGTIEN'];
+                    ?>
                     <tr>
-                      <td>
-                        <a href="#" class="cartItem__product">
-                          <img src="./FE/image/laptop.jpg" alt="" />
-                        </a>
-                      </td>
+                      <td><?php echo $madh?></td>
                       <td>
                         <div class="cartItem__product--intro">
-                          <h4>Title</h4>
-                          <p>Lorem ipsum dolor sit amet.</p>
+                          <p><?php echo $ngaydat?></p>
                         </div>
                       </td>
-                      <td>
-                        <span>1</span>
-                      </td>
-                      <td>5.000.000VND</td>
-                      <td>
-                        <span>Đã nhận</span>
-                      </td>
-                    </tr>
+                      <td><?php echo $diachi?></td>
+                          <td><?php echo $tongtien?></td>
+                          <td><?php echo $trangthai?></td>
+                          <td>
+                            <a class="btn btn-danger btn-submit btn-sm" style="margin: 0" href="#">Chi tiết</a>
+                          </td>
+                        </tr>
+                  <?php 
+                      }
+                    }
+                  ?>
                   </tbody>
                 </table>
               </div>
             </div>
             <div id="doiMatKhau">
-              <form action="" id="formDoiMatKhau" onsubmit="return DoiMK()">
+              <form action="" method="POST" id="formDoiMatKhau" onsubmit="return DoiMK()" >
                 <table id="tblDoiMatKhau">
                   <tr>
                     <th>
@@ -215,7 +205,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     </th>
                     <td style="width: 10px"></td>
                     <td>
-                      <input type="password" name="" id="oldPassword" />
+                      <input type="password" name="mkc" id="oldPassword" />
                       <span id="errorOldPassword"></span>
                     </td>
                   </tr>
@@ -230,7 +220,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     </th>
                     <td style="width: 10px"></td>
                     <td>
-                      <input type="password" name="" id="newPassword" />
+                      <input type="password" name="mkm" id="newPassword" />
                       <span id="errorNewPassword"></span>
                     </td>
                   </tr>
@@ -258,7 +248,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     <td></td>
                     <td style="width: 10px"></td>
                     <td>
-                      <input type="submit" style="padding: 5px 10px;" value="Đổi mật khẩu" />
+                      <input type="submit" style="padding: 5px 10px;" value="Đổi mật khẩu" name="dmk"/>
                     </td>
                   </tr>
                 </table>
@@ -269,6 +259,26 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
       </div>
     </div>
   </section>
+  <?php 
+    if(isset($_POST['dmk'])){
+      $mkc=md5($_POST['mkc']);
+      $mkm=MD5($_POST['mkm']);
+      $sql_dmk="SELECT *FROM nguoidung where TAIKHOAN='$taikhoan' and MATKHAU='$mkc'" ;
+      $res_dmk=Check_db($sql_dmk);
+      if(mysqli_num_rows($res_dmk)){
+        $update_dmk="UPDATE nguoidung SET MATKHAU='$mkm' WHERE TAIKHOAN='$taikhoan'";
+        $res_mk=Check_db($update_dmk);
+        if($res_mk){
+          echo "<script>alert('Đổi mật khẩu thành công!')</script>";
+          echo "<script>window.open('login.php','_self')</script>";
+        }else  {
+          echo "<script>alert('Đổi mật khẩu không thành công!')</script>";
+        }
+      }else {
+        echo "<script>alert('Mật khẩu cũ không đúng!')</script>";
+      }
+    }
+  ?>
   <!-- footer -->
   <?php include('./includes/footer.php') ?>
   <!-- script -->
