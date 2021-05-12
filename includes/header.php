@@ -13,7 +13,7 @@
                         <span class="navbar-toggler-icon"></span>
                     </button>
                     <div class="collapse navbar-collapse header-navbar--content col-sm-10" id="navbarSupportedContent">
-                    <form class="">
+                    <form class="" action="./../search.php">
                         <div class="input-group navbar-search">
                             <div class="input-group-prepend">
                                 <button class="btn btn-outline-secondary" type="button"><i class="fa fa-search"></i></button>
