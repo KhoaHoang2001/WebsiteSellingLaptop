@@ -66,19 +66,20 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                   $diachi = $row['DIACHI'];
 
               ?>
-                  <form action="" method="POST">
+                  <form action="" method="POST" onsubmit="return CapNhatTT()">
                     <table >
                       <tr>
                         <th>
-                          <label for="firstName">Họ tên:</label>
+                          <label for="HoTen">Họ tên:</label>
                         </th>
                         <td>
-                          <input type="text" name="tennd" id="userFistName" value="<?php echo $tennd ?>" />
+                          <input type="text" name="tennd" id="HoTen" value="<?php echo $tennd ?>" />
+                          <span id="errorHoTen"></span>
                         </td>
                       </tr>
                       <tr>
                         <th>
-                          <label for="lastName">Giới tính:</label>
+                          <label for="gioiTinh">Giới tính:</label>
                         </th>
                         <td>
                           <input type="radio" name="gioiTinh" id='nam' value="Nam" checked>
@@ -102,7 +103,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                           <label for="email">Email:</label>
                         </th>
                         <td>
-                          <input type="email" name="email" id="userEmail" value="<?php echo $email ?>" />
+                          <input type="email" name="email" id="EmailND" value="<?php echo $email ?>" />
+                          <span id="errorEmailND"></span>
                         </td>
                       </tr>
                       <tr>
@@ -110,7 +112,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                           <label for="sdt">Số điện thoại:</label>
                         </th>
                         <td>
-                          <input type="tel" name="sdt" id="" value="<?php echo $sdt ?>" />
+                          <input type="tel" name="sdt" id="SDTND" value="<?php echo $sdt ?>" />
+                          <span id="errorSDTND"></span>
                         </td>
                       </tr>
                       <tr>
@@ -118,7 +121,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                           <label for="diaChi">Địa chỉ:</label>
                         </th>
                         <td>
-                          <input type="text" name="diaChi" id="" value="<?php echo $diachi ?>" />
+                          <input type="text" name="diaChi" id="DiaChiND" value="<?php echo $diachi ?>" />
+                          <span id="errorDiaChiND"></span>
                         </td>
                       </tr>
                       <tr>
@@ -203,7 +207,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
               </div>
             </div>
             <div id="doiMatKhau">
-              <form action="" id="formDoiMatKhau">
+              <form action="" id="formDoiMatKhau" onsubmit="return DoiMK()">
                 <table id="tblDoiMatKhau">
                   <tr>
                     <th>
@@ -211,7 +215,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     </th>
                     <td style="width: 10px"></td>
                     <td>
-                      <input type="password" name="" id="" />
+                      <input type="password" name="" id="oldPassword" />
+                      <span id="errorOldPassword"></span>
                     </td>
                   </tr>
                   <tr style="height: 10px">
@@ -225,7 +230,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     </th>
                     <td style="width: 10px"></td>
                     <td>
-                      <input type="password" name="" id="" />
+                      <input type="password" name="" id="newPassword" />
+                      <span id="errorNewPassword"></span>
                     </td>
                   </tr>
                   <tr style="height: 10px">
@@ -239,7 +245,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     </th>
                     <td style="width: 10px"></td>
                     <td>
-                      <input type="password" name="" id="" />
+                      <input type="password" name="" id="confirmNewPassword" />
+                      <span id="errorConfirmNewPassword"></span>
                     </td>
                   </tr>
                   <tr style="height: 10px">
@@ -251,7 +258,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     <td></td>
                     <td style="width: 10px"></td>
                     <td>
-                      <input type="submit" value="Đổi mật khẩu" />
+                      <input type="submit" style="padding: 5px 10px;" value="Đổi mật khẩu" />
                     </td>
                   </tr>
                 </table>

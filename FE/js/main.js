@@ -28,8 +28,7 @@ function DangKy() {
     DomID("tenDangNhap").style.borderColor = "red";
     errorUsername.style.display = "block";
     errorUsername.innerHTML = "Bắt đầu bằng chữ<br>Độ dài từ 8 -> 20 ký tự";
-  }
-  else {
+  } else {
     DomID("tenDangNhap").style.borderColor = "green";
     errorUsername.style.display = "none";
   }
@@ -41,8 +40,7 @@ function DangKy() {
     DomID("matKhau").style.borderColor = "red";
     errorPassword.style.display = "block";
     errorPassword.innerHTML = "Phải có chữ và số <br> Độ dài từ 8 -> 20 ký tự";
-  }
-  else {
+  } else {
     DomID("matKhau").style.borderColor = "green";
     errorPassword.style.display = "none";
   }
@@ -51,8 +49,7 @@ function DangKy() {
   }
   if (matKhau == nhapLaiMatKhau) {
     errorConfirm.style.display = "none";
-  }
-  else {
+  } else {
     errorConfirm.style.display = "block";
     errorConfirm.innerHTML = "không trùng khớp";
     DomID("nhapLaiMatKhau").style.borderColor = "red";
@@ -93,25 +90,114 @@ function DangNhap() {
   if (KiemTraDauVaoRong("matKhau", matKhau) == true) {
     loi++;
   }
-  
+
   if (loi != 0) {
     return false;
-  }
-  else{
+  } else {
     return true;
   }
 }
+
+function DoiMK() {
+  var oldPassword = DomID("oldPassword").value;
+  var newPassword = DomID("newPassword").value;
+  var confirmNewPassword = DomID("confirmNewPassword").value;
+  var erroroldPassword = DomID("erroroldPassword");
+  var errornewPassword = DomID("errornewPassword");
+  var errorconfirmNewPassword = DomID("errorconfirmNewPassword");
+  var loi = 0;
+  if (KiemTraDauVaoRong("oldPassword", oldPassword) == true) {
+    loi++;
+  }
+  if (validate.KiemTraMatKhau(newPassword) == false) {
+    loi++;
+    DomID("oldPassword").style.borderColor = "red";
+    errornewPassword.style.display = "block";
+    errornewPassword.innerHTML = "Phải có chữ và số <br> Độ dài từ 8 -> 20 ký tự";
+  } else {
+    DomID("oldPassword").style.borderColor = "green";
+    erroroldPassword.style.display = "none";
+  }
+  if (KiemTraDauVaoRong("confirmNewPassword", confirmNewPassword) == true) {
+    loi++;
+  }
+  if (oldPassword == confirmNewPassword) {
+    errorconfirmNewPassword.style.display = "none";
+  } else {
+    errorconfirmNewPassword.style.display = "block";
+    errorconfirmNewPassword.innerHTML = "không trùng khớp";
+    DomID("confirmNewPassword").style.borderColor = "red";
+    loi++;
+  }
+  if (loi === 0) {
+    return true;
+  }
+  return false;
+}
+
+function CapNhatTT() {
+  var HoTen = DomID("HoTen").value;
+  var EmailND = DomID("EmailND").value;
+  var SDTND = DomID("SDTND").value;
+  var DiaChiND = DomID("DiaChiND").value;
+  var errorHoTen = DomID("errorHoTen");
+  var errorEmailND = DomID("errorEmailND");
+  var errorSDTND = DomID("errorSDTND");
+  var errorDiaChiND = DomID("errorDiaChiND");
+  var loi = 0;
+  if (KiemTraDauVaoRong("HoTen", HoTen) == true) {
+    loi++;
+    errorHoTen.style.display = "block";
+    errorHoTen.innerHTML = "Vui lòng nhập họ và tên";
+  } else {
+    DomID("errorHoTen").style.borderColor = "green";
+    errorHoTen.style.display = "none";
+  }
+  if (KiemTraDauVaoRong("EmailND", EmailND) == true) {
+    loi++;
+  }
+  if (validate.KiemTraEmail(EmailND) == false) {
+    loi++;
+    errorEmailND.style.display = "block";
+    errorEmailND.innerHTML = "Định dạng: name@email.com";
+  } else {
+    DomID("errorEmailND").style.borderColor = "green";
+    errorEmailND.style.display = "none";
+  }
+  if (KiemTraDauVaoRong("SDTND", SDTND) == true) {
+    loi++;
+    errorSDTND.style.display = "block";
+    errorSDTND.innerHTML = "Định dạng: 0123456789";
+  } else {
+    DomID("errorSDTND").style.borderColor = "green";
+    errorSDTND.style.display = "none";
+  }
+  if (validate.KiemTraSoDT(SDTND) == false) {
+    loi++;
+  }
+  if (KiemTraDauVaoRong("DiaChiND", DiaChiND) == true) {
+    loi++;
+    errorDiaChiND.style.display = "block";
+    errorDiaChiND.innerHTML = "Không để trống địa chỉ";
+  } else {
+    DomID("errorDiaChiND").style.borderColor = "green";
+    errorDiaChiND.style.display = "none";
+  }
+  if (loi === 0) {
+    return true;
+  }
+  return false;
+}
+
 
 function KiemTraDauVaoRong(ID, value) {
   if (validate.KiemTraRong(value) == true) {
     DomID(ID).style.borderColor = "red";
     DomID(ID).placeholder = "Nhập thông tin vào đây!";
-    
+
     return true;
   } else {
     DomID(ID).style.borderColor = "green";
     return false;
   }
 }
-
-
