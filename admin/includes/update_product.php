@@ -15,8 +15,6 @@
     $gia = $fetch_update['GIA'];
     $soluongcon = $fetch_update['SOLUONGCON'];
     $ngaysx = $fetch_update['NGAYSX'];
-    $update_product = Check_db("SELECT * from hinhanh where masp='$masp'");
-    $fetch_update = mysqli_fetch_array($update_product);
 ?>
 <div class="form_box">
     <script>
@@ -48,7 +46,7 @@
                 <td><input type="text" name="magiamgia" value="<?php echo $masp;?>" size="60" disabled/></td>
             </tr>
             <tr>
-                <td valign="top"><b>Mã loại sản phẩm:<?php echo $maloaisp?></b></td>
+                <td valign="top"><b>Mã loại sản phẩm:</b></td>
                 <td>
                     <select id="maloaisp" name="maloaisp">
                         <option value="loaisp" ></option>

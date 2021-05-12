@@ -1,13 +1,14 @@
-
+<!-- 
 <?php include './includes/include.php';
-  ?>
+  ?> -->
 <?php
-// session_start();
-    include_once('./includes/include.php');
-// if (isset($_SESSION['usernamenv']) == '') {
-//   echo "<script>window.open('login.php','_self')</script>";
-// } else {
-//   $usernanme = $_SESSION['usernamenv'];
+    // include_once('./includes/include.php');
+    // if(isset($_SESSION['taikhoan']) == ""){
+    //   echo "<script>window.open('../login.php','_self')</script>";
+    // }
+    // else{
+    //   $usernanme = $_SESSION['taikhoan'];
+    // }
 ?>
 
 <!DOCTYPE html>

@@ -3,7 +3,7 @@
     require_once('./includes/conn.php');
 ?>
 <div class="view_product_box">
-    <h2>Danh sách nhân viên</h2>
+    <h2>Danh sách khách hàng</h2>
     <div class="border_bottom"></div>
     <form action="" method="post" enctype="multipart/form-data">
         <table width="100%">
@@ -39,8 +39,11 @@
                     <td><?php echo $diachi ?></td>
                     <td><?php echo $email ?></td>
                     <td><?php echo $ngaysinh ?></td>
-                    <td class="text-center"><a class="btn btn-danger btn-submit btn-sm"
-                            href="index.php?action=view_customer&delete_customer=<?php echo $taikhoan; ?>">Xóa</a></td>
+                    <td class="text-center">
+                        <input class="btn btn-danger btn-sm" style="padding: 4px 15px 4px 15px;"
+                             type="submit" name="delete_customer" id="delete_customer" value="Xóa">
+                        <input style="display: none" type="text" name="taikhoan" id="taikhoan" value="<?php echo $taikhoan; ?>">
+                    </td>
                 </tr>
             </tbody>
             <?php
@@ -53,8 +56,8 @@
 </div>
 
 <?php 
-    if(isset($_GET['delete_customer'])){
-        $taikhoan = $_GET['delete_customer'];
+    if(isset($_POST['delete_customer'])){
+        $taikhoan = $_POST['taikhoan'];
         $sql_del_cus = "DELETE FROM NGUOIDUNG WHERE taikhoan = '$taikhoan';";
         echo $sql_del_cus;
         $res_del_cus = Check_db($sql_del_cus);

@@ -25,8 +25,11 @@
                 <tr>
                     <td class="text-center"><?php echo $mansx; ?></td>
                     <td><?php echo $tennsx; ?></td>
-                    <td><a class="btn btn-danger btn-submit btn-sm" 
-                            href="index.php?action=view_producer&delete_producer=<?php echo $mansx; ?>">Xóa</a></td>
+                    <td>
+                        <input class="btn btn-danger btn-sm" style="padding: 4px 15px 4px 15px;"
+                            type="submit" name="delete_producer" id="delete_producer" value="Xóa">
+                        <input style="display: none" type="text" name="mansx" id="mansx" value="<?php echo $mansx; ?>">    
+                    </td>
                 </tr>
             </tbody>
             <?php
@@ -47,8 +50,8 @@ function check_Mansx($mansx){
         return false;
     }
 }
-if(isset($_GET['delete_producer'])){
-    $mansx = $_GET['delete_producer'];
+if(isset($_POST['delete_producer'])){
+    $mansx = $_POST['mansx'];
     $sql_del_producer = "DELETE FROM NHASANXUAT WHERE mansx = '$mansx';";
     $res_del_producer = Check_db($sql_del_producer);
     if($res_del_producer){
