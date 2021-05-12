@@ -207,26 +207,29 @@ $masp = tao_id();
             $gia = Get_value($_POST["gia"]);
             $soluongcon = Get_value($_POST["soluongcon"]);
             $ngaysx = Get_value($_POST["ngaysx"]);
-    if(!Check_product($masp)){
-        if($magiamgia==''){
-            $sql = "INSERT INTO `sanpham` (`MASP`, `MALOAISP`, `MANSX`, `TENSP`, `MOTASP`, `RAM`, `VIXULY`, `KICHTHUOCMH`, `GIA`, `SOLUONGCON`, `NGAYSX`) 
-            VALUES ('$masp', '$maloaisp','$mansx', '$tensp', '$motasp', '$ram', '$vixuly', '$kichthuocmh', '$gia', '$soluongcon', '$ngaysx');";                     
-        }else{
-            $sql = "INSERT INTO `sanpham` (`MASP`, `MALOAISP`, `MAGIAMGIA`, `MANSX`, `TENSP`, `MOTASP`, `RAM`, `VIXULY`, `KICHTHUOCMH`, `GIA`, `SOLUONGCON`, `NGAYSX`) 
-            VALUES ('$masp', '$maloaisp', '$magiamgia','$mansx', '$tensp', '$motasp', '$ram', '$vixuly', '$kichthuocmh', '$gia', '$soluongcon', '$ngaysx');";       
-            }
-            $conn = Connect();
-            $res = mysqli_query($conn, $sql);
-            mysqli_close($conn);
-    }
-        $uploads_dir = '/uploads';
-        $ktra = $_FILES["files"]; 
-        if($ktra != "jpg" || $ktra != "png" || $ktra != "jpeg" || $ktra != "gif" ) {
-            echo "<script>alert('Sorry, only JPG, JPEG, PNG & GIF files are allowed.');</script>"; 
-            break;
+    $uploads_dir = '/uploads';
+    $temp = 0;
+    foreach($_FILES['files']['type'] as $key => $value){
+        $value = substr($value, 0, 5);
+        echo "<script>alert('$value');</script>";
+        if($value!= "image"){
+            $temp++;
         }
-        
-        foreach ($_FILES["files"]["error"] as $key => $error) {
+    } 
+    if($temp==0){
+        if(!Check_product($masp)){
+            if($magiamgia==''){
+                $sql = "INSERT INTO `sanpham` (`MASP`, `MALOAISP`, `MANSX`, `TENSP`, `MOTASP`, `RAM`, `VIXULY`, `KICHTHUOCMH`, `GIA`, `SOLUONGCON`, `NGAYSX`) 
+                VALUES ('$masp', '$maloaisp','$mansx', '$tensp', '$motasp', '$ram', '$vixuly', '$kichthuocmh', '$gia', '$soluongcon', '$ngaysx');";                     
+            }else{
+                $sql = "INSERT INTO `sanpham` (`MASP`, `MALOAISP`, `MAGIAMGIA`, `MANSX`, `TENSP`, `MOTASP`, `RAM`, `VIXULY`, `KICHTHUOCMH`, `GIA`, `SOLUONGCON`, `NGAYSX`) 
+                VALUES ('$masp', '$maloaisp', '$magiamgia','$mansx', '$tensp', '$motasp', '$ram', '$vixuly', '$kichthuocmh', '$gia', '$soluongcon', '$ngaysx');";       
+                }
+                $conn = Connect();
+                $res = mysqli_query($conn, $sql);
+                mysqli_close($conn);
+        }
+        foreach($_FILES["files"]["error"] as $key => $error) {
             if($error == UPLOAD_ERR_OK) {
                     $tmp_name = $_FILES["files"]["tmp_name"][$key];
                     $name = basename($_FILES["files"]["name"][$key]);
@@ -235,14 +238,16 @@ $masp = tao_id();
                     $conn = Connect();
                     $themhinh= mysqli_query($conn, $sql_hinh);
                     mysqli_close($conn);
-            }
-            
+            } 
         }
         if($themhinh){
             echo "<script>alert('Thêm sản phẩm thành công');</script>";      
         } else {
             echo "<script>alert('Thêm sản phẩm thất bại');</script>"; 
         }
+    }else{
+        echo "<script>alert('Định dạng hình không đúng');</script>";
+    }
 }
 $pageWasRefreshed = isset($_SERVER['HTTP_CACHE_CONTROL']) && $_SERVER['HTTP_CACHE_CONTROL'] === 'max-age=0';
 if($pageWasRefreshed ) {
