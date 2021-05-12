@@ -1,9 +1,10 @@
 <?php
-    require_once('./includes/include.php');
-    require_once('./includes/conn.php');
+require_once('./includes/include.php');
+require_once('./includes/conn.php');
 
 $taikhoan = $_SESSION['taikhoan'];
-function View_Discount_Of_Product($masp){
+function View_Discount_Of_Product($masp)
+{
     $sql_discount = "SELECT * FROM giamgia WHERE MAGIAMGIA = (SELECT MAGIAMGIA FROM sanpham WHERE MASP = '$masp');";
     $res_discount = Check_db($sql_discount);
     if (mysqli_num_rows($res_discount) > 0) {
@@ -42,9 +43,9 @@ function View_Discount_Of_Product($masp){
                     $res_cart = Check_db($sql_cart);
                     $temp = 0;
                     if (mysqli_num_rows($res_cart)) {
-                        $tongtien = 0 ;
-                        while ($row = mysqli_fetch_assoc($res_cart)) { 
-                            $hinh=$row['LINK'];
+                        $tongtien = 0;
+                        while ($row = mysqli_fetch_assoc($res_cart)) {
+                            $hinh = $row['LINK'];
                             $masp = $row['MASP'];
                             $tensp = $row['TENSP'];
                             $gia = $row['GIA'];
@@ -59,7 +60,7 @@ function View_Discount_Of_Product($masp){
                                 <tr>
                                     <td>
                                         <a href="#" class="cartItem__product">
-                                        <img src="./admin/product_images/<?php echo $hinh ?>" alt="">
+                                            <img src="./admin/product_images/<?php echo $hinh ?>" alt="">
                                         </a>
                                     </td>
                                     <td>
@@ -69,17 +70,17 @@ function View_Discount_Of_Product($masp){
                                     </td>
                                     <td><?php echo $gia ?></td>
                                     <td>
-                                        <input type="number"  name="soluonggio" value='<?php echo $soluonggio ?>' min="1" >
+                                        <input type="number" name="soluonggio" value='<?php echo $soluonggio ?>' min="1">
                                     </td>
                                     <td class="tongTienSP">
                                         <?php echo $gia * $soluonggio;
-                                            $tongtien += $gia * $soluonggio;
+                                        $tongtien += $gia * $soluonggio;
                                         ?>
                                     </td>
                                     <td>
-                                        <input type="text" value="<?php echo $masp ?>" name ="masp"style="display: none;">
+                                        <input type="text" value="<?php echo $masp ?>" name="masp" style="display: none;">
                                         <a href="xoa.php?masp=<?php echo $masp ?>" style="padding: 10px;"><i class="fa fa-trash-alt"></i></a>
-                                        <input type="submit" value="luu">
+                                        <input type="submit" value="Lưu" style="padding: 5px 10px;">
                                     </td>
                                 </tr>
                             </form>
@@ -96,10 +97,10 @@ function View_Discount_Of_Product($masp){
                             <span>Tổng tiền:</span>
                         </th>
                         <td id="tongTien" name="TongTien">
-                            <?php 
-                                if(isset($tongtien)){
-                                    echo $tongtien;
-                                }
+                            <?php
+                            if (isset($tongtien)) {
+                                echo $tongtien;
+                            }
                             ?>
                         </td>
                     </tr>
@@ -118,5 +119,5 @@ function View_Discount_Of_Product($masp){
     <!-- script -->
     <?php include('./includes/script.php') ?>
 
-    
+
 </body>

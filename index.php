@@ -29,7 +29,7 @@ require_once('./includes/conn.php');
     <!-- filter -->
     <section id="laptop" class="filter">
         <div class="container">
-            <div class="row">
+            <div class="row" style="margin-bottom: 20px;">
                 <div class="card">
                     <a href="#"><img src="./FE/image/MacBook44-b_27.png" alt=""></a>
                 </div>
@@ -115,12 +115,12 @@ require_once('./includes/conn.php');
     <!-- New Item -->
     <?php include('./includes/item.php') ?>
     <!-- bestseller  -->
-    <section class="bestseller" id="bestseller">
+    <section class="bestseller" id="bestseller" style="margin-top: 30px;">
         <div class="container">
             <div class="row bestseller-title">
                 <h2>Sản phẩm bán chạy</h2>
             </div>
-            <div class="row bestseller-content item-content">
+            <div class="row bestseller-content">
                 <!-- <div class="row"> -->
                 <div class="row" style="padding: 15px">
                     <?php
@@ -176,7 +176,7 @@ require_once('./includes/conn.php');
         </div>
     </section>
     <!-- sales  -->
-    <section id="sales" class="sales">
+    <section id="sales" class="sales" style="margin-top: 30px;">
         <div class="container">
             <div class="row sales-title">
                 <h2>Sản phẩm giảm giá</h2>
