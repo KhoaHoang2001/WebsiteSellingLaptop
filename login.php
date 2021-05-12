@@ -6,10 +6,11 @@ require_once('./includes/conn.php');
 <html lang="en">
 
 <?php include('./includes/head.php') ?>
-    <body>
-    <!-- header -->
-    <?php include('./includes/header.php') ?>
-    <!-- banner -->
+
+<body>
+  <!-- header -->
+  <?php include('./includes/header.php') ?>
+  <!-- banner -->
   <!-- login form -->
   <section class="login-form">
     <div class="container">
@@ -51,18 +52,18 @@ require_once('./includes/conn.php');
               </td>
               <td></td>
               <td>
-                <button style="padding: 5px 10px">
-                  <a href="./signup.php" style="text-decoration: none; color: black">Đăng ký</a>
-                </button>
+                <a href="./signup.php" style="text-decoration: none; color: black; display: block;">
+                <input type="button" style="padding: 5px 10px" value="Đăng ký">
+                </a>
               </td>
             </tr>
           </table>
         </form>
 
-  <!-- footer -->
-  <?php include('./includes/footer.php')?>
-  <script src="./FE/js/validation.js"></script>
-  <script src="./FE/js/main.js"></script>
+        <!-- footer -->
+        <?php include('./includes/footer.php') ?>
+        <script src="./FE/js/validation.js"></script>
+        <script src="./FE/js/main.js"></script>
 </body>
 
 
@@ -83,14 +84,14 @@ if (isset($_POST['submit_login'])) {
     $_SESSION['maquyen'] = $row['MAQUYEN'];
     switch ($_SESSION['maquyen']) {
       case "NV":
-          echo "<script>window.open('./staff/index.php','_self')</script>";    
-          break;
+        echo "<script>window.open('./staff/index.php','_self')</script>";
+        break;
       case "KH":
-          echo "<script>window.open('./index.php','_self')</script>";
-          break;
+        echo "<script>window.open('./index.php','_self')</script>";
+        break;
       case "AD":
-          echo "<script>window.open('./admin/index.php','_self')</script>";
-          break;
+        echo "<script>window.open('./admin/index.php','_self')</script>";
+        break;
     }
   }
 }

@@ -20,10 +20,39 @@ function DangKy() {
   if (KiemTraDauVaoRong("tenDangNhap", tenDangNhap) == true) {
     loi++;
   }
+  if (validate.KiemTraTaiKhoan(tenDangNhap) == false) {
+    loi++;
+    DomID("tenDangNhap").style.borderColor = "red";
+    errorUsername.style.display = "block";
+    errorUsername.innerHTML = "Bắt đầu bằng chữ cái<br> Độ dài từ 8 -> 20 ký tự";
+  }
+  else {
+    DomID("tenDangNhap").style.borderColor = "green";
+    errorUsername.style.display = "none";
+  }
   if (KiemTraDauVaoRong("matKhau", matKhau) == true) {
     loi++;
   }
+  if (validate.KiemTraMatKhau(matKhau) == false) {
+    loi++;
+    DomID("matKhau").style.borderColor = "red";
+    errorPassword.style.display = "block";
+    errorPassword.innerHTML = "Phải có chữ và số <br> Độ dài từ 6 -> 15 ký tự";
+  }
+  else {
+    DomID("matKhau").style.borderColor = "green";
+    errorPassword.style.display = "none";
+  }
   if (KiemTraDauVaoRong("nhapLaiMatKhau", nhapLaiMatKhau) == true) {
+    loi++;
+  }
+  if (matKhau == nhapLaiMatKhau) {
+    errorConfirm.style.display = "none";
+  }
+  else {
+    errorConfirm.style.display = "block";
+    errorConfirm.innerHTML = "không trùng khớp";
+    DomID("nhapLaiMatKhau").style.borderColor = "red";
     loi++;
   }
   //   if (KiemTraDauVaoRong("gioiTinh", gioiTinh) == true) {
