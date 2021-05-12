@@ -22,7 +22,7 @@
                 </tr>
             </thead>
             <?php
-            $sql_all_product = "SELECT sanpham.MASP, sanpham.MALOAISP, sanpham.MAGIAMGIA,sanpham.MANSX, sanpham.TENSP, sanpham.MOTASP, sanpham.RAM, sanpham.VIXULY, sanpham.KICHTHUOCMH, sanpham.GIA, sanpham.SOLUONGCON, sanpham.NGAYSX, hinhanh.LINK FROM hinhanh INNER JOIN sanpham ON hinhanh.MASP=sanpham.MASP";
+            $sql_all_product = "SELECT * FROM SANPHAM";
             $res_all_product = Check_db($sql_all_product);
 
             while ($row = mysqli_fetch_assoc($res_all_product)) {
@@ -38,7 +38,6 @@
                 $gia = $row['GIA'];
                 $soluongcon = $row['SOLUONGCON'];
                 $ngaysx = $row['NGAYSX'];
-                $hinh = $row['LINK'];
                 
             ?>
             <tbody>

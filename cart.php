@@ -55,7 +55,7 @@ function View_Discount_Of_Product($masp){
                             $soluonggio = $row['SOLUONGGIO'];
                             $temp++;
                     ?>
-                            <form method="POST">
+                            <form method="POST" action="sua.php">
                                 <tr>
                                     <td>
                                         <a href="#" class="cartItem__product">
@@ -77,25 +77,14 @@ function View_Discount_Of_Product($masp){
                                         ?>
                                     </td>
                                     <td>
+                                        <input type="text" value="<?php echo $masp ?>" name ="masp"style="display: none;">
                                         <a href="xoa.php?masp=<?php echo $masp ?>" style="padding: 10px;"><i class="fa fa-trash-alt"></i></a>
-                                        <input type="submit" name="<?php echo $masp ?>" value="Lưu">
+                                        <input type="submit" value="luu">
                                     </td>
                                 </tr>
                             </form>
                     <?php
                         }
-                        if (isset($_POST[$masp])) {
-                            $soluonggio = $_POST['soluonggio'];
-                            $sql = "UPDATE sanphamgiohang SET SOLUONGGIO='$soluonggio' WHERE TAIKHOAN='$taikhoan' AND MASP='$masp'";
-                            //echo $sql;
-                            if ($res = Check_db($sql)) {
-                                echo "<script>alert('Cập nhật thành công!') </script>";
-                                echo "<script>window.open('cart.php','_self')</script>";
-                            } else {
-                                echo "<script>alert('sua gio hang that bai')</script>";
-                            }
-                        }
-                            
                     } //end loop
                     ?>
                 </tbody>
@@ -128,4 +117,6 @@ function View_Discount_Of_Product($masp){
     <?php include('./includes/footer.php') ?>
     <!-- script -->
     <?php include('./includes/script.php') ?>
+
+    
 </body>

@@ -1,4 +1,6 @@
 <!DOCTYPE html>
+<?php
+  require_once('./includes/conn.php');?>
 <html lang="en">
 <?php include('./includes/head.php') ?>
 
