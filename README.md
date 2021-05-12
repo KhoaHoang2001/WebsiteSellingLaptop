@@ -4,6 +4,7 @@ Thuận:
     + nsx
     + loaisp
     + thiết kế database (done)
+    + lọc trang index backend
 
 Ngân:
     + nhập database (done)
@@ -15,7 +16,6 @@ Ngân:
 Thắng:
     + full giao diện người dùng (done)
     + ràng buộc đăng nhập, đăng ký frontend (done)
-    + lọc trang index
 Vinh:
     + giao diện admin (done)
     + giảm giá (done)
