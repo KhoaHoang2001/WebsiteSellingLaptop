@@ -195,7 +195,7 @@ $masp = tao_id();
         return $masp;
     }
     if (isset($_POST['themsanpham'])){
-            $masp = Get_value($_POST["masp"]);
+            //$masp = Get_value($_POST["masp"]);
             $maloaisp = Get_value($_POST["maloaisp"]);
             $magiamgia = Get_value($_POST["magiamgia"]);
             $mansx = Get_value($_POST["mansx"]);
@@ -221,7 +221,6 @@ $masp = tao_id();
             $sql = "INSERT INTO `sanpham` (`MASP`, `MALOAISP`, `MAGIAMGIA`, `MANSX`, `TENSP`, `MOTASP`, `RAM`, `VIXULY`, `KICHTHUOCMH`, `GIA`, `SOLUONGCON`, `NGAYSX`) 
             VALUES ('$masp', '$maloaisp', '$magiamgia','$mansx', '$tensp', '$motasp', '$ram', '$vixuly', '$kichthuocmh', '$gia', '$soluongcon', '$ngaysx');";       
                 }
-                echo $sql;
             $conn = Connect();
             $res = mysqli_query($conn, $sql);
             mysqli_close($conn);
@@ -246,8 +245,6 @@ $masp = tao_id();
 }
 $pageWasRefreshed = isset($_SERVER['HTTP_CACHE_CONTROL']) && $_SERVER['HTTP_CACHE_CONTROL'] === 'max-age=0';
 if($pageWasRefreshed ) {
-    unset(($_POST['themsanpham']));
+    unset($refresh);
 }
-
-
 ?>
