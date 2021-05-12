@@ -109,6 +109,9 @@ function DoiMK() {
   if (KiemTraDauVaoRong("oldPassword", oldPassword) == true) {
     loi++;
   }
+  if (KiemTraDauVaoRong("newPassword", newPassword) == true) {
+    loi++;
+  }
   if (validate.KiemTraMatKhau(newPassword) == false) {
     loi++;
     DomID("oldPassword").style.borderColor = "red";
@@ -116,12 +119,12 @@ function DoiMK() {
     errornewPassword.innerHTML = "Phải có chữ và số <br> Độ dài từ 8 -> 20 ký tự";
   } else {
     DomID("oldPassword").style.borderColor = "green";
-    erroroldPassword.style.display = "none";
+    errornewPassword.style.display = "none";
   }
   if (KiemTraDauVaoRong("confirmNewPassword", confirmNewPassword) == true) {
     loi++;
   }
-  if (oldPassword == confirmNewPassword) {
+  if (newPassword == confirmNewPassword) {
     errorconfirmNewPassword.style.display = "none";
   } else {
     errorconfirmNewPassword.style.display = "block";

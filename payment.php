@@ -151,36 +151,33 @@ $diachi = $thongtin['diachi'];
                     Hình thức thanh toán:
                   </th>
                   <td style="text-align: center;">
-                    < id="scriptStripe" src="https://checkout.stripe.com/checkout.js" class="stripe-button" data-key="<?php echo $stripe['publishable_key']; ?>" data-description="Thanh toán VISA" data-locale="auto">
-                      < /td> <
-                      td style = "text-align: center;" >
-                        <
-                        button id = "codPayment" >
-                        <
-                        a href = "./COD.php" > Cash on delivery < /a> < /
-                        button > <
-                        /td> < /
-                        tr > <
-                        /tfoot> < /
-                        table > <
-                        /form> < /
-                        div > <
-                        /section>
+                    <form action="">
+                      <script id="scriptStripe" src="https://checkout.stripe.com/checkout.js" class="stripe-button" data-key="<?php echo $stripe['publishable_key']; ?>" data-description="Thanh toán" data-locale="auto"></script>
+                    </form>
+                  </td>
+                  <td style="text-align: center;">
+                    <button id="codPayment">
+                      <a href="./payment.php">Cash on delivery</a>
+                    </button>
+                  </td>
+                </tr>
+              </tfoot>
+            </table>
+          </form>
+        </div>
+      </section>
 
-                        <
-                        /div> < /
-                        section > <
-                        !-- //payment page -->
-                        <
-                        !--footer-- >
-                        <?php include('./includes/footer.php') ?> <
-                        !--script-- >
-                        <?php include('./includes/script.php') ?> <
-                        !--active-- >
-                        <
-                        script
-                      script type = "text/javascript" >
-                    </>
+    </div>
+  </section>
+  <!-- //payment page -->
+  <!-- footer -->
+  <?php include('./includes/footer.php') ?>
+  <!-- script -->
+  <?php include('./includes/script.php') ?>
+  <!-- active -->
+  <script type="text/javascript">
+
+  </script>
 </body>
 
 </html>
