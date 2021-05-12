@@ -1,6 +1,12 @@
 <?php 
     require_once('./includes/include.php');
     require_once('./includes/conn.php');
+    if(isset($_POST['accept_order'])){
+        Check_f5($_POST['accept_order']);
+    }
+    if(isset($_POST['cancel_order'])){
+        Check_f5($_POST['cancel_order']);
+    }
 ?>
 
 <div class="view_product_box">
@@ -9,7 +15,6 @@
     </script>
     <h2>Duyệt đơn hàng</h2>
     <div class="border_bottom"></div>
-    <form action="" method="post" enctype="multipart/form-data">
         <div class="search_bar">
             <input type="text" id="search" placeholder="Type to search..." />
         </div>
@@ -24,7 +29,8 @@
                     <th>Địa chỉ nhận</th>
                     <th>Tổng tiền</th>
                     <th>Chi tiết</th>
-                    <th class="text-center">Duyệt</th>
+                    <th>Duyệt</th>
+                    <th class="text-center">Từ chối</th>
                 </tr>
             </thead>
             <?php
@@ -48,18 +54,41 @@
                     <td><?php echo $htthanhtoan; ?></td>
                     <td><?php echo $diachinhan; ?></td>
                     <td><?php echo $tongtien; ?></td>
-                    <td><a class="btn btn-danger btn-submit btn-sm" 
-                            href="index.php?action=view_order&order_detail=<?php echo $madh; ?>">Xem chi tiết</a></td>
-                    <!-- KHI CLICK VAO DOI MAU BUTTON -->
-                    <td class="text-center"><a class="btn btn-primary btn-submit btn-sm" id="Xacnhan"
-                    onclick="Disable_button_confirm()" href="">Xác nhận</a></td>
+                    <form method="post">
+                        <td><a class="btn btn-danger btn-submit btn-sm" style="margin: 0"
+                                href="index.php?action=view_order&order_detail=<?php echo $madh; ?>">Xem chi tiết</a>
+                        </td>
+                        <!-- KHI CLICK VAO DOI MAU BUTTON -->
+                        <?php  
+                            if($trangthai == "Chưa xác nhận"){
+                                echo "<td  >
+                                    <input class=\"btn btn-sm btn-primary\" style=\"padding: 4px 15px 8px 15px; background: #007BFF; border: #007BFF;\" type=\"submit\" name=\"accept_order\" value=\"Xác nhận\">
+                                    <input style=\"display: none\" type=\"text\" name=\"madh\" id=\"madh\" value=\"$madh\">
+                                </td>
+                                <td>
+                                    <input class=\"btn btn-sm btn-danger\" style=\"padding: 4px 15px 8px 15px; background: #red; border: #red;\" type=\"submit\" name=\"cancel_order\" value=\"Từ chối\">
+                                    <input  style=\"display: none\" type=\"text\" name=\"madh\" id=\"madh\" value=\"$madh\">
+                                </td>";
+                            }
+                            else{
+                                echo "<td  >
+                                    <input class=\"btn btn-sm btn-primary\" style=\"padding: 4px 15px 8px 15px; background: gray; border: gray;\" type=\"submit\" name=\"accept_order\" value=\"Xác nhận\" disabled>
+                                    <input style=\"display: none\" type=\"text\" name=\"madh\" id=\"madh\" value=\"$madh\">
+                                </td>
+                                <td>
+                                    <input class=\"btn btn-sm btn-danger\" style=\"padding: 4px 15px 8px 15px; background: gray; border: gray;\" type=\"submit\" name=\"cancel_order\" value=\"Từ chối\" disabled>
+                                    <input  style=\"display: none\" type=\"text\" name=\"madh\" id=\"madh\" value=\"$madh\">
+                                </td>";
+                            }
+                        ?>
+                        
+                    </form>
                 </tr>
             </tbody>
             <?php
             } // End while loop 
             ?>
         </table>
-    </form>
 </div>
 
 <?php 
@@ -69,6 +98,28 @@
         if(mysqli_num_rows($res_status) > 0){
             $row = mysqli_fetch_assoc($res_status);
             return $row['TRANGTHAI'];
+        }
+    }
+
+    if(isset($_POST['accept_order'])){
+        $madh = $_POST['madh'];
+        echo $_POST['madh'];
+        $sql = "UPDATE DONHANG SET trangthai = 'Đã xác nhận' WHERE MADH = '$madh'";
+        $res = Check_db($sql);
+        if($res){
+            echo "<script>alert('Đã xác nhận đơn hàng')</script>";
+            echo "<script>window.open(window.location.href,'_self');</script>";
+        }
+    }
+
+    if(isset($_POST['cancel_order'])){
+        $madh = $_POST['madh'];
+        echo $_POST['madh'];
+        $sql = "UPDATE DONHANG SET trangthai = 'Đã từ chối' WHERE MADH = '$madh'";
+        $res = Check_db($sql);
+        if($res){
+            echo "<script>alert('Đã từ chối đơn hàng')</script>";
+            echo "<script>window.open(window.location.href,'_self');</script>";
         }
     }
 ?>

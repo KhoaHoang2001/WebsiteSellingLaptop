@@ -96,7 +96,10 @@ function View_Discount_Of_Product($masp){
                             <span>Tổng tiền:</span>
                         </th>
                         <td id="tongTien" name="TongTien">
-                            <?php echo $tongtien;
+                            <?php 
+                                if(isset($tongtien)){
+                                    echo $tongtien;
+                                }
                             ?>
                         </td>
                     </tr>

@@ -6,9 +6,6 @@
     <h2>Danh sách sản phẩm</h2>
     <div class="border_bottom"></div>
     <form action="" method="post" enctype="multipart/form-data">
-        <div class="search_bar">
-            <input type="text" id="search" placeholder="Type to search..." />
-        </div>
         <table width="100%">
             <thead>
                 <tr>

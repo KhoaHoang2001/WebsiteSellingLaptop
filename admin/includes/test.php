@@ -3,36 +3,25 @@
 require_once('./includes/include.php');
 require_once('./includes/conn.php');
 ?>
-<div class="form_box">
 
-    <h2></h2>
-    <div class="border_bottom"></div>
-    <!--/.border_bottom -->
-    <form onsubmit="return Check_all()" method="post" enctype="multipart/form-data">
-    
-        <table align="center" width="100%">
-        <tr>
-                <td valign="top"><b>Mã sản phẩm:</b></td>
-                <td><input type="text" name="masp" id="masp"   /></td>
-            </tr>
-<!-- 
-            <tr>
-                <td><b>Hình ảnh: </b></td>
-                <form action="" method="post" enctype="multipart/form-data">
-                <input type="file" name="files[]" multiple >
-                <input type="submit" name="submit" value="UPLOAD"> -->
-</form>
-            <!-- </tr> -->
-                            
-            <tr>
-
-                <td colspan="1" class="text-center"> 
-                    <input type="submit" class="btn-submit" name="themsanpham" value="Thêm Sản Phẩm">
-                </td>
-            </tr>
-            
-        </table>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function check_js() {
+            var 
+        }
+    </script>
+</head>
+<body>
+    <form action="" method="post">
+        
     </form>
+<<<<<<< HEAD
 </div>
 <?php
   /*  if (isset($_POST['themsanpham'])) {
@@ -85,6 +74,9 @@ if($tam=0){
 
 
     
+=======
+</body>
+</html>
+>>>>>>> 448ba4895c1db02d36246b73d518fc577c9bfc00
 
-//}
        

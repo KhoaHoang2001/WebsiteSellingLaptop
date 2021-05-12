@@ -124,7 +124,7 @@ require_once('./includes/conn.php');
                 <!-- <div class="row"> -->
                 <div class="row" style="padding: 15px">
                     <?php
-                    $sql = "SELECT *,SUM(SOLUONGDAT), LINK FROM sanpham,monhang,hinhanh where sanpham.MASP=monhang.MASP 
+                    $sql = "SELECT * , SUM(SOLUONGDAT), LINK FROM sanpham,monhang,hinhanh where sanpham.MASP=monhang.MASP 
                         AND hinhanh.MASP=monhang.MASP GROUP BY monhang.MASP ORDER BY SUM(SOLUONGDAT) DESC LIMIT 4";
                     $res = Check_db($sql);
                     while ($row = mysqli_fetch_assoc($res)) {

@@ -1,6 +1,9 @@
 <?php
     require_once('./includes/include.php');
     require_once('./includes/conn.php');
+    if(isset($_POST['insert_post'])){
+        Check_f5($_POST['insert_post']);
+    }
 ?>
 <div class="form_box">
     <script>
