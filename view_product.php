@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <?php
-$MASP = $_GET['masp'];
+
 require_once('./includes/include.php');
 require_once('./includes/conn.php');
 require_once('./includes/product.php');
 // require_once('.cart/tsx_SP_gio.php');
-echo  $_SESSION['taikhoan'];
+//echo  $_SESSION['taikhoan'];
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if(isset( $_SESSION['taikhoan'])){
          $MASP=$_GET['masp'];
@@ -14,7 +14,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         header('Location: view_product.php?masp='.$MASP);
     }else header('Location: login.php');
 }
-
+$MASP = $_GET['masp'];
 $sql = "SELECT * FROM sanpham where MASP='$MASP'";
 $res = Check_db($sql);
 $row = mysqli_fetch_assoc($res);
@@ -67,14 +67,20 @@ if ($gia - $gia * $phantram / 100 != $gia) {
                             <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
                                 <div class="carousel-inner">
                                     <div class="carousel-item active">
-                                        <img src="./FE/image/Slide-Galaxy-Buds-Live-2.jpg" class="d-block w-100" alt="...">
+                                        <?php 
+                                            $sql1 = "SELECT * FROM hinhanh where MASP='$MASP'";
+                                            $res1 = Check_db($sql1);
+                                            $row1 = mysqli_fetch_assoc($res1);
+                                        ?>
+                                            <img src="./admin/product_images/<?php echo $row1['LINK']?>" class="d-block w-100" alt="...">
                                     </div>
-                                    <div class="carousel-item">
-                                        <img src="./FE/image/Slide-Mi-11-5G-1.jpg" class="d-block w-100" alt="...">
-                                    </div>
-                                    <div class="carousel-item">
-                                        <img src="./FE/image/Slide-oppo-reno5.jpg" class="d-block w-100" alt="...">
-                                    </div>
+                                    <?php 
+                                       while ( $row1 = mysqli_fetch_assoc($res1)){
+                                    ?>
+                                        <div class="carousel-item">
+                                            <img src="./admin/product_images/<?php echo $row1['LINK']?>" class="d-block w-100" alt="...">
+                                        </div>
+                                    <?php }?>
                                 </div>
                                 <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
                                     <span class="carousel-control-prev-icon" aria-hidden="true"></span>
