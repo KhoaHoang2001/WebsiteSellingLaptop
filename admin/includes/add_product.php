@@ -207,49 +207,42 @@ $masp = tao_id();
             $gia = Get_value($_POST["gia"]);
             $soluongcon = Get_value($_POST["soluongcon"]);
             $ngaysx = Get_value($_POST["ngaysx"]);
-
-           // $Hinh  = $_FILES['Hinh']['name'];
-           // $product_image_tmp = $_FILES['Hinh']['tmp_name'];
-           // move_uploaded_file($product_image_tmp, "product_images/$Hinh");
-
-       
-            if(!Check_product($masp)){
-                if($magiamgia==''){
-                    $sql = "INSERT INTO `sanpham` (`MASP`, `MALOAISP`, `MANSX`, `TENSP`, `MOTASP`, `RAM`, `VIXULY`, `KICHTHUOCMH`, `GIA`, `SOLUONGCON`, `NGAYSX`) 
-                    VALUES ('$masp', '$maloaisp','$mansx', '$tensp', '$motasp', '$ram', '$vixuly', '$kichthuocmh', '$gia', '$soluongcon', '$ngaysx');";                     
-            }else{
+    if(!Check_product($masp)){
+        if($magiamgia==''){
+            $sql = "INSERT INTO `sanpham` (`MASP`, `MALOAISP`, `MANSX`, `TENSP`, `MOTASP`, `RAM`, `VIXULY`, `KICHTHUOCMH`, `GIA`, `SOLUONGCON`, `NGAYSX`) 
+            VALUES ('$masp', '$maloaisp','$mansx', '$tensp', '$motasp', '$ram', '$vixuly', '$kichthuocmh', '$gia', '$soluongcon', '$ngaysx');";                     
+        }else{
             $sql = "INSERT INTO `sanpham` (`MASP`, `MALOAISP`, `MAGIAMGIA`, `MANSX`, `TENSP`, `MOTASP`, `RAM`, `VIXULY`, `KICHTHUOCMH`, `GIA`, `SOLUONGCON`, `NGAYSX`) 
             VALUES ('$masp', '$maloaisp', '$magiamgia','$mansx', '$tensp', '$motasp', '$ram', '$vixuly', '$kichthuocmh', '$gia', '$soluongcon', '$ngaysx');";       
-                }
+            }
             $conn = Connect();
             $res = mysqli_query($conn, $sql);
             mysqli_close($conn);
-        }
+    }
         $uploads_dir = '/uploads';
-        $ktra = $_FILES["files"];
+        $ktra = $_FILES["files"]; 
         if($ktra != "jpg" || $ktra != "png" || $ktra != "jpeg" || $ktra != "gif" ) {
-            echo "<script>alert('Thêm sản phẩm thành công');</script>"; 
-        }else{
-            foreach ($_FILES["files"]["error"] as $key => $error) {
-                if($error == UPLOAD_ERR_OK) {
-                        $tmp_name = $_FILES["files"]["tmp_name"][$key];
-                        $name = basename($_FILES["files"]["name"][$key]);
-                        move_uploaded_file($tmp_name, "product_images/$name");
-                        $sql_hinh = "INSERT INTO HINHANH (masp, link) VALUES ('$masp', '$name');";
-                        $conn = Connect();
-                        $themhinh= mysqli_query($conn, $sql_hinh);
-                        mysqli_close($conn);
-                }
-                
-            }
-            if($themhinh){
-                echo "<script>alert('Thêm sản phẩm thành công');</script>";      
-            } else {
-                echo "<script>alert('Thêm sản phẩm thất bại');</script>"; 
-            }
+            echo "<script>alert('Sorry, only JPG, JPEG, PNG & GIF files are allowed.');</script>"; 
+            break;
         }
         
-
+        foreach ($_FILES["files"]["error"] as $key => $error) {
+            if($error == UPLOAD_ERR_OK) {
+                    $tmp_name = $_FILES["files"]["tmp_name"][$key];
+                    $name = basename($_FILES["files"]["name"][$key]);
+                    move_uploaded_file($tmp_name, "product_images/$name");
+                    $sql_hinh = "INSERT INTO HINHANH (masp, link) VALUES ('$masp', '$name');";
+                    $conn = Connect();
+                    $themhinh= mysqli_query($conn, $sql_hinh);
+                    mysqli_close($conn);
+            }
+            
+        }
+        if($themhinh){
+            echo "<script>alert('Thêm sản phẩm thành công');</script>";      
+        } else {
+            echo "<script>alert('Thêm sản phẩm thất bại');</script>"; 
+        }
 }
 $pageWasRefreshed = isset($_SERVER['HTTP_CACHE_CONTROL']) && $_SERVER['HTTP_CACHE_CONTROL'] === 'max-age=0';
 if($pageWasRefreshed ) {

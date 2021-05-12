@@ -54,19 +54,34 @@ require_once('./includes/conn.php');
         "<script>alert(\"buồn\");</script>";
     }
 }*/
-$ktra = "SELECT magiamgia FROM giamgia";
-$res = Check_db($ktra);
-if(mysqli_num_rows($res)>0){
-    $sql = "SELECT MAX(magiamgia) FROM giamgia";
-    $res = Check_db($sql);
-    $row = mysqli_fetch_array($res);
-    $sosp =(intval(substr(($row['MAX(magiamgia)']),2))+1);
-    $magiamgia = 'GG'.strval($sosp);
-}else{
-    $magiamgia = "GG1";
+$uploads_dir = '/uploads';
+$ktra = $_FILES["files"]; 
+$tam = 0;
+foreach($_FILES["files"]["error"] as $key => $error){
+    if($ktra != "jpg" || $ktra != "png" || $ktra != "jpeg" || $ktra != "gif" ){
+        $tam++;
+    }
+} 
+
+if($tam=0){
+    foreach($_FILES["files"]["error"] as $key => $error) {
+        if($error == UPLOAD_ERR_OK) {
+                $tmp_name = $_FILES["files"]["tmp_name"][$key];
+                $name = basename($_FILES["files"]["name"][$key]);
+                move_uploaded_file($tmp_name, "product_images/$name");
+                $sql_hinh = "INSERT INTO HINHANH (masp, link) VALUES ('$masp', '$name');";
+                $conn = Connect();
+                $themhinh= mysqli_query($conn, $sql_hinh);
+                mysqli_close($conn);
+        } 
+    }
+    if($themhinh){
+        echo "<script>alert('Thêm sản phẩm thành công');</script>";      
+    } else {
+        echo "<script>alert('Thêm sản phẩm thất bại');</script>"; 
+    }
 }
 
-echo $magiamgia;
 
 
     
