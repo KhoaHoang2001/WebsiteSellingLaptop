@@ -72,6 +72,7 @@
 if(isset($_GET['delete_product'])){
     $masp = $_GET['delete_product'];
     echo $masp;
+    
     $sql_del_img = "DELETE FROM HINHANH WHERE masp = '$masp';";
     $delete = Check_db($sql_del_img);
     if($delete){
