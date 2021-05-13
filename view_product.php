@@ -104,7 +104,7 @@ if ($gia - $gia * $phantram / 100 != $gia) {
                             &nbsp;&nbsp;<i class='fa fa-hand-point-right' style='font-size: 1.5rem'></i>
                             &nbsp;&nbsp;
                             <span style='color: red; font-size: 1.5rem;'>" . $giamoi . " </span>
-                            <span class= 'badge'>-" . $phantram . "%</span></p>";
+                            <sup style='font-size: 1.2rem; color: white; background-color: red; border: 1px solid transparent; border-radius: 50%'>-" . $phantram . "%</sup></p>";
                         }
                         ?>
                     </p>
