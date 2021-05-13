@@ -103,6 +103,9 @@ if ($gia - $gia * $phantram / 100 != $gia) {
                             &nbsp;&nbsp;
                             <span style='color: red; font-size: 1.5rem;'>" . $giamoi . " </span>
                             <sup style='font-size: 1.2rem; color: white; background-color: red; border: 1px solid transparent; border-radius: 50%'>-" . $phantram . "%</sup></p>";
+                        } else {
+                            echo "
+                                <p class='Gia' style='font-size: 1.5rem'>" . $gia . "</p>";
                         }
                         ?>
                     </p>

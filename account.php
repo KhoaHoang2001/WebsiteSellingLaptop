@@ -139,9 +139,7 @@ if (isset($_POST['capnhat_tt'])) {
             <div id="trangThaiDonHang">
               <table id="trangThaiDonHang_tblItem" class="table">
                 <?php
-
                 include './includes/account_status_order.php';
-
                 ?>
               </table>
             </div>
