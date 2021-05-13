@@ -479,6 +479,26 @@ footer .bottom p {
   height: 100%;
 }
 
+.about_item .container .about_item-intro .Gia {
+  background-color: #555;
+  color: white;
+  text-decoration: none;
+  padding: 15px 26px;
+  position: relative;
+  display: inline-block;
+  border-radius: 2px;
+}
+
+.about_item .container .about_item-intro .Gia .badge {
+  position: absolute;
+  top: -10px;
+  right: -10px;
+  padding: 5px 10px;
+  border-radius: 50%;
+  background-color: red;
+  color: white;
+}
+
 .cartItem .container #tblItem {
   text-align: center;
   border-spacing: 10px;

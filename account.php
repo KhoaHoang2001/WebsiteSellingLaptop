@@ -158,7 +158,6 @@ if (isset($_POST['capnhat_tt'])) {
                     <th>Địa chỉ nhận</th>
                     <th>Tổng tiền</th>
                     <th>Trạng thái</th>
-                    <th>Thao tác</th>
                     </tr>
                   </thead>
                   <tbody id="tblBody">

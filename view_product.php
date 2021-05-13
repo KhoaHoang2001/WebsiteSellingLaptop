@@ -7,12 +7,12 @@ require_once('./includes/product.php');
 // require_once('.cart/tsx_SP_gio.php');
 //echo  $_SESSION['taikhoan'];
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    if(isset( $_SESSION['taikhoan'])){
-         $MASP=$_GET['masp'];
+    if (isset($_SESSION['taikhoan'])) {
+        $MASP = $_GET['masp'];
         include('./cart/tsx_SP_gio.php');
         themSP_gio($MASP);
-        header('Location: view_product.php?masp='.$MASP);
-    }else header('Location: login.php');
+        header('Location: view_product.php?masp=' . $MASP);
+    } else header('Location: login.php');
 }
 $MASP = $_GET['masp'];
 $sql = "SELECT * FROM sanpham where MASP='$MASP'";
@@ -67,20 +67,20 @@ if ($gia - $gia * $phantram / 100 != $gia) {
                             <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
                                 <div class="carousel-inner">
                                     <div class="carousel-item active">
-                                        <?php 
-                                            $sql1 = "SELECT * FROM hinhanh where MASP='$MASP'";
-                                            $res1 = Check_db($sql1);
-                                            $row1 = mysqli_fetch_assoc($res1);
+                                        <?php
+                                        $sql1 = "SELECT * FROM hinhanh where MASP='$MASP'";
+                                        $res1 = Check_db($sql1);
+                                        $row1 = mysqli_fetch_assoc($res1);
                                         ?>
-                                            <img src="./admin/product_images/<?php echo $row1['LINK']?>" class="d-block w-100" alt="...">
+                                        <img src="./admin/product_images/<?php echo $row1['LINK'] ?>" class="d-block w-100" alt="...">
                                     </div>
-                                    <?php 
-                                       while ( $row1 = mysqli_fetch_assoc($res1)){
+                                    <?php
+                                    while ($row1 = mysqli_fetch_assoc($res1)) {
                                     ?>
                                         <div class="carousel-item">
-                                            <img src="./admin/product_images/<?php echo $row1['LINK']?>" class="d-block w-100" alt="...">
+                                            <img src="./admin/product_images/<?php echo $row1['LINK'] ?>" class="d-block w-100" alt="...">
                                         </div>
-                                    <?php }?>
+                                    <?php } ?>
                                 </div>
                                 <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
                                     <span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -94,12 +94,20 @@ if ($gia - $gia * $phantram / 100 != $gia) {
                     </section>
                 </div>
                 <div class="col-md-4">
-                    Giá <?php
+                    <h3>Giá</h3>
+                    <p>
+                        <?php
                         if ($phantram != 0) {
                             echo "
-                        <p class='card-text'>" . $gia . " " . $giamoi . " -" . $phantram . "%</p>";
+                        <p class='Gia'> 
+                            <s>" . $gia . " </s>
+                            &nbsp;&nbsp;<i class='fa fa-hand-point-right' style='font-size: 1.5rem'></i>
+                            &nbsp;&nbsp;
+                            <span style='color: red; font-size: 1.5rem;'>" . $giamoi . " </span>
+                            <span class= 'badge'>-" . $phantram . "%</span></p>";
                         }
                         ?>
+                    </p>
                 </div>
                 <div class="col-md-4">
                     <form action="" method="POST">
