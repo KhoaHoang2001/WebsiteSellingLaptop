@@ -147,7 +147,7 @@ if (isset($_POST['capnhat_tt'])) {
               <div class="lichSuMuaHang">
                 <table id="tblItem" class="table">
                   <?php
-                    include './includes/account_histoty_order.php';
+                    include './includes/account_history_order.php';
                     ?>
                 </table>
               </div>
