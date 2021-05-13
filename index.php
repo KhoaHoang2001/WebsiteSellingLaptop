@@ -32,85 +32,34 @@ require_once('./includes/product.php');
         <div class="container">
             <div class="row">
                 <div class="card">
-                    <a href="#"><img src="./FE/image/MacBook44-b_27.png" alt=""></a>
+                    <a href="index.php?action=filter_producer&producer=macbook"><img src="./FE/image/MacBook44-b_27.png" alt="Macbook"></a>
                 </div>
                 <div class="card">
-                    <a href="#"><img src="./FE/image/Acer44-b_25.jpg" alt=""></a>
+                    <a href="index.php?action=filter_producer&producer=acer"><img src="./FE/image/Acer44-b_25.jpg" alt="Acer"></a>
                 </div>
                 <div class="card">
-                    <a href="#"><img src="./FE/image/Asus44-b_1.png" alt=""></a>
+                    <a href="index.php?action=filter_producer&producer=asus"><img src="./FE/image/Asus44-b_1.png" alt="Asus"></a>
                 </div>
                 <div class="card">
-                    <a href="#"><img src="./FE/image/Dell44-b_2.jpg" alt=""></a>
+                    <a href="index.php?action=filter_producer&producer=dell"><img src="./FE/image/Dell44-b_2.jpg" alt="Dell"></a>
                 </div>
                 <div class="card">
-                    <a href="#"><img src="./FE/image/HP44-b_27.jpg" alt=""></a>
+                    <a href="index.php?action=filter_producer&producer=hp"><img src="./FE/image/HP44-b_27.jpg" alt="HP"></a>
                 </div>
                 <div class="card">
-                    <a href="#"><img src="./FE/image/Huawei44-b_7.jpg" alt=""></a>
+                    <a href="index.php?action=filter_producer&producer=huawei"><img src="./FE/image/Huawei44-b_7.jpg" alt="Huawei"></a>
                 </div>
                 <div class="card">
-                    <a href="#"><img src="./FE/image/Lenovo44-b_35.png" alt=""></a>
+                    <a href="index.php?action=filter_producer&producer=lenovo"><img src="./FE/image/Lenovo44-b_35.png" alt="Lenovo"></a>
                 </div>
                 <div class="card">
-                    <a href="#"><img src="./FE/image/LG44-b_32.jpg" alt=""></a>
+                    <a href="index.php?action=filter_producer&producer=lg"><img src="./FE/image/LG44-b_32.jpg" alt="LG"></a>
                 </div>
                 <div class="card">
-                    <a href="#"><img src="./FE/image/MSI44-b_17.png" alt=""></a>
+                    <a href="index.php?action=filter_producer&producer=msi"><img src="./FE/image/MSI44-b_17.png" alt="MSI"></a>
                 </div>
             </div>
-            <div class="row">
-                <div class="dropdown">
-                    <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        RAM
-                    </a>
-                    <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                        <a class="dropdown-item" href="index.php?action=filter_ram&ram=1">1GB</a>
-                        <a class="dropdown-item" href="index.php?action=filter_ram&ram=2">2GB</a>
-                        <a class="dropdown-item" href="index.php?action=filter_ram&ram=4">4GB</a>
-                        <a class="dropdown-item" href="index.php?action=filter_ram&ram=8">8GB</a>
-                        <a class="dropdown-item" href="index.php?action=filter_ram&ram=16">16GB</a>
-                        <a class="dropdown-item" href="index.php?action=filter_ram&ram=32">32GB</a>
-                    </div>
-                </div>
-                <div class="dropdown">
-                    <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        Vi xử lý
-                    </a>
-
-                    <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                        <a class="dropdown-item" href="index.php?action=filter_cpu&cpu=i3">i3</a>
-                        <a class="dropdown-item" href="index.php?action=filter_cpu&cpu=i5">i5</a>
-                        <a class="dropdown-item" href="index.php?action=filter_cpu&cpu=i7">i7</a>
-                        <a class="dropdown-item" href="index.php?action=filter_cpu&cpu=i9">i9</a>
-                    </div>
-                </div>
-                <div class="dropdown">
-                    <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        Màn hình
-                    </a>
-
-                    <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                        <a class="dropdown-item" href="#"> Nhỏ hơn 13 inch</a>
-                        <a class="dropdown-item" href="#">13 inch</a>
-                        <a class="dropdown-item" href="#">14 inch</a>
-                        <a class="dropdown-item" href="#">15 inch</a>
-                        <a class="dropdown-item" href="#"> Lớn hơn 15 inch</a>
-                    </div>
-                </div>
-                <div class="dropdown">
-                    <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        Giá
-                    </a>
-                    <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                        <a class="dropdown-item" href="#">Dưới 10 triệu</a>
-                        <a class="dropdown-item" href="#">Từ 10 triệu đến 15 triệu</a>
-                        <a class="dropdown-item" href="#">Từ 15 triệu đến 20 triệu</a>
-                        <a class="dropdown-item" href="#">Từ 20 triệu đến 25 triệu</a>
-                        <a class="dropdown-item" href="#">Hơn 20 triệu</a>
-                    </div>
-                </div>
-            </div>
+            <?php include('includes/filter.php') ?>
         </div>
     </section>
     <!-- New Item -->
@@ -141,8 +90,7 @@ require_once('./includes/product.php');
                 include './includes/filter_screen.php';
                 break;
         }
-    ?>
-    <?php include('./includes/item.php') ?>
+     ?>
     <!-- bestseller  -->
     <section class="bestseller" id="bestseller">
         <div class="container">
@@ -173,7 +121,7 @@ require_once('./includes/product.php');
                     ?>
                         <div class='card-group col-md-3 col-sm-6'>
                             <div class='card card-laptop-item'>
-                                <a href='./view_product.php'>
+                                <a href='./view_product.php?masp=<?php echo $masp ?>'>
                                     <div class='card-header'>
                                         <img src='./admin/product_images/<?php echo $hinh ?>' class='card-img-top' alt=''>
                                     </div>
@@ -232,7 +180,7 @@ require_once('./includes/product.php');
                     ?>
                         <div class='card-group col-md-3 col-sm-6'>
                             <div class='card card-laptop-item'>
-                                <a href='./view.html'>
+                                <a href='./view_product.php?masp=<?php echo $masp ?>'>
                                     <div class='card-header'>
                                         <img src='./admin/product_images/<?php echo $hinh ?>' class='card-img-top' alt=''>
                                     </div>
