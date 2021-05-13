@@ -51,7 +51,6 @@ function View_Discount_Of_Product($masp)
                             $masp = $row['MASP'];
                             $tensp = $row['TENSP'];
                             $gia = $row['GIA'];
-                            $soluongcon=$row['SOLUONGCON'];
                             $phantram = View_Discount_Of_Product($masp);
                             if ($gia - $gia * $phantram / 100 < $gia) {
                                 $gia = $gia - $gia * $phantram / 100;
@@ -73,7 +72,7 @@ function View_Discount_Of_Product($masp)
                                     </td>
                                     <td><?php echo $gia ?></td>
                                     <td>
-                                        <input type="number" name="soluonggio" value='<?php echo $soluonggio ?>' min="1" max='<?php echo $soluongcon ?>'>
+                                        <input type="number" name="soluonggio" value='<?php echo $soluonggio ?>' min="1">
                                     </td>
                                     <td class="tongTienSP">
                                         <?php echo $gia * $soluonggio;
