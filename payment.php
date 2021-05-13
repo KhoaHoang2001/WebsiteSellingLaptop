@@ -5,7 +5,6 @@ require_once('./includes/product.php');
 require_once('./includes/config.php');
 require_once('./includes/order.php');
 $taikhoan = $_SESSION['taikhoan'];
-// $taikhoan = 'vinh7';
 $thongtin = Get_Info_Account($taikhoan);
 $tennd = $thongtin['tennd'];
 $sdt = $thongtin['sdt'];
@@ -61,7 +60,7 @@ $diachi = $thongtin['diachi'];
                     <tr>
                       <td>
                         <a href="#" class="cartItem__product">
-                          <img src="./image/laptop.jpg" alt="">
+                          <img src="./FE/image/laptop.jpg" alt="">
                         </a>
                       </td>
                       <td>
@@ -137,7 +136,7 @@ $diachi = $thongtin['diachi'];
                             <label for="diachi">Địa chỉ:</label>
                           </th>
                           <td>
-                            <input type="text" name="diachi" id="" value="<?php echo $diachi ?>" required />
+                            <input type="text" name="diachi" id="diachi" value="<?php echo $diachi ?>" required />
                           </td>
                           <td>
                             <input style="display: none" type="text" name="tongtien" id="tongtien" value="<?php echo $tongtien; ?>">
@@ -151,14 +150,10 @@ $diachi = $thongtin['diachi'];
                     Hình thức thanh toán:
                   </th>
                   <td style="text-align: center;">
-                    <form action="">
-                      <script id="scriptStripe" src="https://checkout.stripe.com/checkout.js" class="stripe-button" data-key="<?php echo $stripe['publishable_key']; ?>" data-description="Thanh toán" data-locale="auto"></script>
-                    </form>
+                    <script id="scriptStripe" src="https://checkout.stripe.com/checkout.js" class="stripe-button" data-key="<?php echo $stripe['publishable_key']; ?>" data-description="Thanh toán" data-locale="auto"></script>
                   </td>
                   <td style="text-align: center;">
-                    <button id="codPayment">
-                      <a href="./payment.php">Cash on delivery</a>
-                    </button>
+                      <a href="./payment.php"><input type="button" value="Cash on delivery" style="padding: 5px 8px"></a>
                   </td>
                 </tr>
               </tfoot>
@@ -175,9 +170,6 @@ $diachi = $thongtin['diachi'];
   <!-- script -->
   <?php include('./includes/script.php') ?>
   <!-- active -->
-  <script type="text/javascript">
-
-  </script>
 </body>
 
 </html>

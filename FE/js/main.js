@@ -192,7 +192,6 @@ function CapNhatTT() {
   return false;
 }
 
-
 function KiemTraDauVaoRong(ID, value) {
   if (validate.KiemTraRong(value) == true) {
     DomID(ID).style.borderColor = "red";
