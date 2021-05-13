@@ -26,6 +26,7 @@ require_once('./includes/product.php');
                     </div>
                 </div>
             </div>
+        </div>
     </section>
     <!-- filter -->
     <?php include('includes/filter.php') ?>
@@ -99,7 +100,6 @@ require_once('./includes/product.php');
                                     </div>
                                     <div class='card-footer'>
                                         <?php
-<<<<<<< HEAD
                                         if ($giamoi == "") {
                                             echo " <span>$" . $gia . "</span>";
                                         } else {
@@ -112,21 +112,8 @@ require_once('./includes/product.php');
 
                                     </div>
                                 </a>
-=======
-                                            if ($giamoi == "") {
-                                                echo " <span>" . $gia . "</span>";
-                                            } else {
-                                                echo "<s>
-                                                    <span>" . $gia . "</span>
-                                                </s>
-                                                <span class='giaMoi'>" . $giamoi . "</span>";
-                                            }
-                                            ?>
-                                        </div>
-                                    </a>
-                                </div>
->>>>>>> a2d7476b3d83de99e1b1f12a39cbfe6a000eab17
                             </div>
+                        </div>
                         <?php
                         }
                     ?>
@@ -186,14 +173,12 @@ require_once('./includes/product.php');
                                         </div>
                                     </a>
                                 </div>
-                                </a>
                             </div>
                         <?php
                         }
                     }
                     else {
                         ?> <div class="row searchItem-content justify-content-center flex-column align-items-center">
-                            <!-- <div class="row"> -->
                                 <div class="row" style="padding: 15px">
                                     <img src='./hinhanh/Out_of_stock.jpg' width="70%" height="70%">
                                 </div>
@@ -201,9 +186,9 @@ require_once('./includes/product.php');
                                     <h3>Rất tiếc cửa hàng tạm hết mặt hàng này</h3>
                                 </div>
                             </div>
-                            <?php
+                    <?php
                     }
-                            ?>
+                    ?>
                 </div>
             </div>
         </div>
@@ -215,16 +200,3 @@ require_once('./includes/product.php');
 </body>
 
 </html>
-<?php
-// function View_Discount_Of_Product($masp)
-// {
-//     $sql_discount = "SELECT * FROM giamgia WHERE MAGIAMGIA = (SELECT MAGIAMGIA FROM sanpham WHERE MASP = '$masp');";
-//     $res_discount = Check_db($sql_discount);
-//     if (mysqli_num_rows($res_discount) > 0) {
-//         $row_discount = mysqli_fetch_assoc($res_discount);
-//         return $row_discount['PHANTRAM'];
-//     } else {
-//         return;
-//     }
-// }
-?>

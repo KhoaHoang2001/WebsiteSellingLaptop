@@ -14,8 +14,7 @@
                     <th>Số điện thoại</th>
                     <th>Địa chỉ</th>
                     <th>Email</th>
-                    <th>Ngày sinh</th>
-                    <th class="text-center">Xóa</th>
+                    <th class="text-center">Ngày sinh</th>
                 </tr>
             </thead>
             <?php
@@ -39,13 +38,6 @@
                     <td><?php echo $diachi ?></td>
                     <td><?php echo $email ?></td>
                     <td><?php echo $ngaysinh ?></td>
-                    <form method="post">
-                        <td class="text-center">
-                            <input class="btn btn-danger btn-sm" style="padding: 4px 15px 4px 15px;"
-                                type="submit" name="delete_customer" id="delete_customer" value="Xóa">
-                            <input style="display: none" type="text" name="taikhoan" id="taikhoan" value="<?php echo $taikhoan; ?>">
-                        </td>
-                    </form>
                 </tr>
             </tbody>
             <?php
@@ -58,18 +50,18 @@
 </div>
 
 <?php 
-    if(isset($_POST['delete_customer'])){
-        $taikhoan = $_POST['taikhoan'];
-        $sql_del_cus = "DELETE FROM NGUOIDUNG WHERE taikhoan = '$taikhoan';";
-        echo $sql_del_cus;
-        $res_del_cus = Check_db($sql_del_cus);
-        if($res_del_cus){
-            echo "<script>alert('Tài khoản được xóa thành công!')</script>";
-            echo "<script>window.open('index.php?action=view_customer','_self')</script>";
-        }
-        else {
-            echo "<script>alert('xóa tài khoản không thành công!')</script>";
-        }
+    // if(isset($_POST['delete_customer'])){
+    //     $taikhoan = $_POST['taikhoan'];
+    //     $sql_del_cus = "DELETE FROM NGUOIDUNG WHERE taikhoan = '$taikhoan';";
+    //     echo $sql_del_cus;
+    //     $res_del_cus = Check_db($sql_del_cus);
+    //     if($res_del_cus){
+    //         echo "<script>alert('Tài khoản được xóa thành công!')</script>";
+    //         echo "<script>window.open('index.php?action=view_customer','_self')</script>";
+    //     }
+    //     else {
+    //         echo "<script>alert('xóa tài khoản không thành công!')</script>";
+    //     }
         
-    }
+    // }
 ?>
