@@ -47,7 +47,7 @@
                     <td><?php echo $magiamgia; ?></td>
                     <td><?php echo $mansx; ?></td>
                     <td><?php echo $tensp; ?></td>
-                    <td><?php echo $gia; ?></td>
+                    <td>$<?php echo $gia; ?></td>
                     <td><?php echo $soluongcon; ?></td>
                     <td><?php echo $ngaysx; ?></td>
                     <form method="post">

@@ -32,7 +32,7 @@
                     <td class="text-center"><?php echo $masp; ?></td>
                     <td><?php echo $tensp; ?></td>
                     <td><?php echo $soluongdat; ?></td>
-                    <td class="text-center"><?php echo $gia; ?></td>
+                    <td class="text-center">$<?php echo $gia; ?></td>
                 </tr>
             </tbody>
             <?php

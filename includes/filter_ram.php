@@ -47,12 +47,12 @@
                                     <div class='card-footer'>
                                         <?php
                                         if ($giamoi == "") {
-                                            echo " <span>" . $gia . "</span>";
+                                            echo " <span>$" . $gia . "</span>";
                                         } else {
                                             echo "<s>
-                                                        <span>" . $gia . "</span>
+                                                        <span>$" . $gia . "</span>
                                                 </s>
-                                                <span class='giaMoi'>" . $giamoi . "</span>";
+                                                <span class='giaMoi'>$" . $giamoi . "</span>";
                                         }
                                         ?>
                                     </div>

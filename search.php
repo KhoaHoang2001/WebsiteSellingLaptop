@@ -57,12 +57,12 @@ $timkiem = $_GET['timkiem'];
                                         <div class='card-footer'>
                                             <?php
                                                 if ($giamoi == "") {
-                                                    echo " <span>" . $gia . "</span>";
+                                                    echo " <span>$" . $gia . "</span>";
                                                 } else {
                                                     echo "<s>
-                                                        <span>" . $gia . "</span>
+                                                        <span>$" . $gia . "</span>
                                                     </s>
-                                                    <span class='giaMoi'>" . $giamoi . "</span>";
+                                                    <span class='giaMoi'>$" . $giamoi . "</span>";
                                                 }
                                                 ?>
                                             </div>
@@ -76,18 +76,20 @@ $timkiem = $_GET['timkiem'];
                     </div>
                 <?php
                 }
-            } else {
+                 else {
                 ?> <div class="row searchItem-content justify-content-center flex-column align-items-center">
                     <!-- <div class="row"> -->
-                    <div class="row" style="padding: 15px">
-                        <img src='https://fptshop.com.vn/Content/v4/images/noti-search.png'>
+                        <div class="row" style="padding: 15px">
+                            <img src='https://fptshop.com.vn/Content/v4/images/noti-search.png'>
+                        </div>
+                        <div>
+                            <h3>Rất tiếc không tìm thấy kết quả của "<strong><?php echo $timkiem ?></strong>"</h3>
+                        </div>
                     </div>
-                    <div>
-                        <h3>Rất tiếc không tìm thấy kết quả của "<strong><?php echo $timkiem ?></strong>"</h3>
                     <?php
                 }
+            }
                     ?>
-                    </div>
     </section>
     <!-- footer -->
     <?php include('./includes/footer.php') ?>
