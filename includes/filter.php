@@ -29,11 +29,12 @@
                         Màn hình
                     </a>
                     <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                        <a class="dropdown-item" href="index.php?action=filter_screen&screen=duoi-13-inch"> Nhỏ hơn 13 inch</a>
-                        <a class="dropdown-item" href="index.php?action=filter_screen&screen=13-inch">13 inch</a>
-                        <a class="dropdown-item" href="index.php?action=filter_screen&screen=14-inch">14 inch</a>
-                        <a class="dropdown-item" href="index.php?action=filter_screen&screen=15-inch">15 inch</a>
-                        <a class="dropdown-item" href="index.php?action=filter_screen&screen=tren-15-inch"> Lớn hơn 15 inch</a>
+                        <a class="dropdown-item" href="index.php?action=filter_screen&screen=10.1-inch">10.1 inch</a>
+                        <a class="dropdown-item" href="index.php?action=filter_screen&screen=11.6-inch">11.6 inch</a>
+                        <a class="dropdown-item" href="index.php?action=filter_screen&screen=13.3-inch">13.3 inch</a>
+                        <a class="dropdown-item" href="index.php?action=filter_screen&screen=14 -inch">14 inch</a>
+                        <a class="dropdown-item" href="index.php?action=filter_screen&screen=14.1-inch">14.1 inch</a>
+                        <a class="dropdown-item" href="index.php?action=filter_screen&screen=15.6-inch">15.6 inch</a>
                     </div>
                 </div>
                 <div class="dropdown">
