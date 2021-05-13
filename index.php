@@ -121,7 +121,7 @@ require_once('./includes/product.php');
                     ?>
                         <div class='card-group col-md-3 col-sm-6'>
                             <div class='card card-laptop-item'>
-                                <a href='./view_product.php'>
+                                <a href='./view_product.php?masp=<?php echo $masp ?>'>
                                     <div class='card-header'>
                                         <img src='./admin/product_images/<?php echo $hinh ?>' class='card-img-top' alt=''>
                                     </div>
@@ -180,7 +180,7 @@ require_once('./includes/product.php');
                     ?>
                         <div class='card-group col-md-3 col-sm-6'>
                             <div class='card card-laptop-item'>
-                                <a href='./view.html'>
+                                <a href='./view_product.php?masp=<?php echo $masp ?>'>
                                     <div class='card-header'>
                                         <img src='./admin/product_images/<?php echo $hinh ?>' class='card-img-top' alt=''>
                                     </div>
@@ -214,7 +214,6 @@ require_once('./includes/product.php');
     <?php include('./includes/footer.php') ?>
     <!-- script -->
     <?php include('./includes/script.php') ?>
-    
 </body>
 
 </html>
