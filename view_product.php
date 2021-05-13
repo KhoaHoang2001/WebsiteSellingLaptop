@@ -11,7 +11,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $MASP = $_GET['masp'];
         include('./cart/tsx_SP_gio.php');
         themSP_gio($MASP);
-        header('Location: view_product.php?masp=' . $MASP);
+        
+       // header('Location: view_product.php?masp=' . $MASP);
     } else header('Location: login.php');
 }
 $MASP = $_GET['masp'];
