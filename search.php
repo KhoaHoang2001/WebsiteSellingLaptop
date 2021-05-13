@@ -12,40 +12,7 @@ $timkiem = $_GET['timkiem'];
     <!-- header -->
     <?php include('./includes/header.php') ?>
     <!-- filter -->
-    <section id="laptop" class="filter">
-        <div class="container">
-            <div class="row">
-                <div class="card">
-                    <a href="#"><img src="./FE/image/MacBook44-b_27.png" alt=""></a>
-                </div>
-                <div class="card">
-                    <a href="#"><img src="./FE/image/Acer44-b_25.jpg" alt=""></a>
-                </div>
-                <div class="card">
-                    <a href="#"><img src="./FE/image/Asus44-b_1.png" alt=""></a>
-                </div>
-                <div class="card">
-                    <a href="#"><img src="./FE/image/Dell44-b_2.jpg" alt=""></a>
-                </div>
-                <div class="card">
-                    <a href="#"><img src="./FE/image/HP44-b_27.jpg" alt=""></a>
-                </div>
-                <div class="card">
-                    <a href="#"><img src="./FE/image/Huawei44-b_7.jpg" alt=""></a>
-                </div>
-                <div class="card">
-                    <a href="#"><img src="./FE/image/Lenovo44-b_35.png" alt=""></a>
-                </div>
-                <div class="card">
-                    <a href="#"><img src="./FE/image/LG44-b_32.jpg" alt=""></a>
-                </div>
-                <div class="card">
-                    <a href="#"><img src="./FE/image/MSI44-b_17.png" alt=""></a>
-                </div>
-            </div>
-            <?php include('includes/filter.php') ?>
-        </div>
-    </section>
+    <?php include('includes/filter.php') ?>
     <!-- search item -->
     <section class="searchItem" id="searchItem">
         <div class="container">
@@ -59,7 +26,6 @@ $timkiem = $_GET['timkiem'];
                 if (mysqli_num_rows($res) > 0) {
             ?>
                     <div class="row searchItem-content">
-                        <!-- <div class="row"> -->
                         <div class="row" style="padding: 15px">
                             <?php
                             while ($row = mysqli_fetch_assoc($res)) {

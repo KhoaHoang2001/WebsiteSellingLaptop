@@ -1,4 +1,35 @@
-<div class="row">
+<section id="laptop" class="filter">
+        <div class="container">
+            <div class="row" style="margin-bottom: 10px;">
+                <div class="card">
+                    <a href="#"><img src="./FE/image/MacBook44-b_27.png" alt=""></a>
+                </div>
+                <div class="card">
+                    <a href="#"><img src="./FE/image/Acer44-b_25.jpg" alt=""></a>
+                </div>
+                <div class="card">
+                    <a href="#"><img src="./FE/image/Asus44-b_1.png" alt=""></a>
+                </div>
+                <div class="card">
+                    <a href="#"><img src="./FE/image/Dell44-b_2.jpg" alt=""></a>
+                </div>
+                <div class="card">
+                    <a href="#"><img src="./FE/image/HP44-b_27.jpg" alt=""></a>
+                </div>
+                <div class="card">
+                    <a href="#"><img src="./FE/image/Huawei44-b_7.jpg" alt=""></a>
+                </div>
+                <div class="card">
+                    <a href="#"><img src="./FE/image/Lenovo44-b_35.png" alt=""></a>
+                </div>
+                <div class="card">
+                    <a href="#"><img src="./FE/image/LG44-b_32.jpg" alt=""></a>
+                </div>
+                <div class="card">
+                    <a href="#"><img src="./FE/image/MSI44-b_17.png" alt=""></a>
+                </div>
+            </div>
+            <div class="row">
                 <div class="dropdown">
                     <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         RAM
@@ -50,3 +81,5 @@
                     </div>
                 </div>
             </div>
+        </div>
+    </section>
