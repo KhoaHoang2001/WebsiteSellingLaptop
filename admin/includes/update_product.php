@@ -93,7 +93,7 @@
                 </td>
             </tr>
             <tr>
-                <td valign="top"><b>Mã nhàsss sản xuất:</b></td>
+                <td valign="top"><b>Mã nhàs sản xuất:</b></td>
                 <td>
                     <select id="mansx" name="mansx" onchange="check_nsx()">
                         <?php
@@ -118,20 +118,41 @@
             </tr>
 
             <tr>
-                <td valign="top"><b>Ram:</b></td>
-                <td>
-                    <input type="text" name="ram" id="ram"value="<?php echo $ram ?>" required/>
-                     </td>
-            </tr>
+            <td valign="top"><b>Ram:</b></td>
+            <td>
+                <select id="ram" name="ram" >
+                <option><?php echo $ram?></option>
+                <option>1</option>
+                <option>2</option>
+                <option>4</option>
+                <option>8</option>
+                <option>16</option>
+                <option>32</option>
+                <option>64</option>
+                </select>
+            </td>
+        </tr>
 
             <tr>
                 <td valign="top"><b>Vi xử lý:</b></td>
                 <td><input type="text" name="vixuly" id="vixuly"value="<?php echo $vixuly ?>" required/></td>
             </tr>
             <tr>
-                <td valign="top"><b>Kích thước màn hình:</b></td>
-                <td><input type="text" name="kichthuocmh" id="kichthuocmh"value="<?php echo $kichthuocmh ?>"></td>
-            </tr>
+            <td valign="top"><b>Kích thước màn hình:</b></td>
+                        
+                <td>
+
+                <select id="kichthuocmh" name="kichthuocmh">
+                    <option><?php echo $maloaisp?></option>
+                    <option>10.1 inch</option>
+                    <option>11.6 inch</option>
+                    <option>13.3 inch</option>
+                    <option>14 inch</option>
+                    <option>14.1 inch</option>
+                    <option>15.6 inch</option>
+                </select>
+                </td>
+            </tr>>
 
             <tr>
                 <td valign="top"><b>Giá:</b></td>
