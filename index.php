@@ -65,12 +65,12 @@ require_once('./includes/product.php');
                         RAM
                     </a>
                     <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                        <a class="dropdown-item" href="#">1GB</a>
-                        <a class="dropdown-item" href="#">2GB</a>
+                        <a class="dropdown-item" href="index.php?action=filter_ram&ram=1">1GB</a>
+                        <a class="dropdown-item" href="index.php?action=filter_ram&ram=2">2GB</a>
                         <a class="dropdown-item" href="index.php?action=filter_ram&ram=4">4GB</a>
-                        <a class="dropdown-item" href="#">8GB</a>
-                        <a class="dropdown-item" href="#">16GB</a>
-                        <a class="dropdown-item" href="#">32GB</a>
+                        <a class="dropdown-item" href="index.php?action=filter_ram&ram=8">8GB</a>
+                        <a class="dropdown-item" href="index.php?action=filter_ram&ram=16">16GB</a>
+                        <a class="dropdown-item" href="index.php?action=filter_ram&ram=32">32GB</a>
                     </div>
                 </div>
                 <div class="dropdown">
