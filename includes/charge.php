@@ -2,6 +2,7 @@
   require_once('./config.php');
   require_once('./include.php');
   $tongtien = $_POST['tongtien'];
+  $amount = $tongtien*100;
   $token  = $_POST['stripeToken'];
   $email  = $_POST['stripeEmail'];
   $madh = uniqid();
@@ -17,7 +18,7 @@
 
   $charge = \Stripe\Charge::create([
       'customer' => $customer->id,
-      'amount'   => $tongtien,
+      'amount'   => $amount,
       'currency' => 'usd',
       'metadata' => ['order_id' => $madh]
   ]);
@@ -33,7 +34,7 @@
     $ngaysinh = $row['NGAYSINH'];
     $thongtin = array('tennd'=>$tennd, 'sdt'=>$sdt, 'diachi'=>$diachi, 'email'=>$email, 'ngaysinh'=>$ngaysinh);
     return $thongtin;
-}
+  }
 
 function Del_Cart($taikhoan){
     $sql = "DELETE FROM SANPHAMGIOHANG WHERE taikhoan = '$taikhoan'";
