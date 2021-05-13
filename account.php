@@ -52,6 +52,7 @@ if (isset($_POST['capnhat_tt'])) {
         </div>
         <div id="account__right">
           <div id="myAccount">
+          <!-- PHP cap nhat thong tin tai khoan -->
             <div id="thongTinTaiKhoan" align="center">
               <?php
               $sql_account = "SELECT * FROM nguoidung where taikhoan = '$taikhoan'";

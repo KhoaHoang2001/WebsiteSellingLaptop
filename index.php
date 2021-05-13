@@ -30,7 +30,7 @@ require_once('./includes/product.php');
     <!-- filter -->
     <section id="laptop" class="filter">
         <div class="container">
-            <div class="row">
+            <div class="row" style="margin-bottom: 10px;">
                 <div class="card">
                     <a href="index.php?action=filter_producer&producer=macbook"><img src="./FE/image/MacBook44-b_27.png" alt="Macbook"></a>
                 </div>

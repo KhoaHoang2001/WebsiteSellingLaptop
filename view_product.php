@@ -46,10 +46,8 @@ if ($gia - $gia * $phantram / 100 != $gia) {
     <section class="url">
         <div class="container">
             <div class="row">
-                <a href="./index.html">Trang chủ ></a>
-
-                <a href="#" name="TenNSX">&nbsp;<?php echo $mansx ?>></a>
-
+                <a href="./index.php">Trang chủ ></a>
+                <a href="#" name="TenNSX">&nbsp;<?php echo $mansx ?>&nbsp;></a>
                 <a href="#" name="TenLoaiSP">&nbsp;<?php echo $tensp ?></a>
             </div>
         </div>

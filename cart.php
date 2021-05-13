@@ -109,7 +109,7 @@ function View_Discount_Of_Product($masp)
                     <tr>
                         <td colspan="5"></td>
                         <td>
-                            <button><a href="./payment.php">MUA NGAY</a></button>
+                            <a href="./payment.php"><input type="button" style="padding: 5px 10px;" value="MUA NGAY"></a>
                         </td>
                     </tr>
                 </tfoot>
