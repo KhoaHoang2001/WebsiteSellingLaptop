@@ -2,6 +2,7 @@
 require_once('./includes/include.php');
 require_once('./includes/conn.php');
 $masp = tao_id();
+$sel
 ?>
 
 <div class="form_box">
@@ -168,33 +169,27 @@ $masp = tao_id();
 
 </div>
 <?php
-    function tao_id(){
-        $ktra = "SELECT masp FROM sanpham";
-        $res = Check_db($ktra);
-        if(mysqli_num_rows($res)>0){
-        $sql = "SELECT MAX(masp) FROM sanpham";
-        $res = Check_db($sql);
-        $row = mysqli_fetch_array($res);
-        $sosp =(intval(substr(($row['MAX(masp)']),2))+1);
-        $masp = 'MT'.strval($sosp);
-        }else{
-            $masp = "MT1";
-        }
-        return $masp;
-    }
-    function tao_id_hinh(){
-        $ktra = "SELECT mahinh from hinhanh";
-        $res = Check_db($ktra);
-        if(mysqli_num_rows($res)>0){
-            $sql = "SELECT MAX(mahinh) FROM hinhanh";
+    // function tao_id(){
+    //     $ktra = "SELECT masp FROM sanpham";
+    //     $res = Check_db($ktra);
+    //     if(mysqli_num_rows($res)>0){
+    //         $sosp = mysqli_num_rows($res)+1;
+    //         $masp = 'MT'.strval($sosp);
+    //     }else{
+    //         $masp = "MT1";
+    //     }
+    //     return $masp;
+    // }
+    function lay_masp(){
+            $sql = "SELECT MAX(masp) FROM sanpham";
             $res = Check_db($sql);
-            $row = mysqli_fetch_array($res);
-            $sohinh =(intval(substr(($row['MAX(mahinh)']),1))+1);
-            $mahinh = 'H'.strval($sohinh);
+            if(mysqli_num_rows($res)>0){
+                $row = mysqli_fetch_array($res);
+                $masp = $row['MASP']+1;
             }else{
-                $mahinh = "H1";
+                return 1;
             }
-            return $mahinh;
+            return $masp;
     }
     if (isset($_POST['themsanpham'])){
             //$masp = Get_value($_POST["masp"]);
@@ -218,17 +213,12 @@ $masp = tao_id();
         }
     } 
     if($temp==0){
-        $sql = "INSERT INTO `sanpham` (`MASP`, `MALOAISP`, `MANSX`, `TENSP`, `MOTASP`, `RAM`, `VIXULY`, `KICHTHUOCMH`, `GIA`, `SOLUONGCON`, `NGAYSX`) 
-            VALUES ('$masp', '$maloaisp','$mansx', '$tensp', '$motasp', '$ram', '$vixuly', '$kichthuocmh', $gia, '$soluongcon', '$ngaysx');";
-        
         if($magiamgia==""){
-        $sql = "INSERT INTO `sanpham` (`MASP`, `MALOAISP`, `MANSX`, `TENSP`, `MOTASP`, `RAM`, `VIXULY`, `KICHTHUOCMH`, `GIA`, `SOLUONGCON`, `NGAYSX`) 
-            VALUES ('$masp', '$maloaisp','$mansx', '$tensp', '$motasp', '$ram', '$vixuly', '$kichthuocmh', $gia, '$soluongcon', '$ngaysx');";
-            echo "<script>alert('76t7t676$sql');</script>";                   
+        $sql = "INSERT INTO `sanpham` (`MALOAISP`, `MANSX`, `TENSP`, `MOTASP`, `RAM`, `VIXULY`, `KICHTHUOCMH`, `GIA`, `SOLUONGCON`, `NGAYSX`) 
+            VALUES ('$maloaisp','$mansx', '$tensp', '$motasp', '$ram', '$vixuly', '$kichthuocmh', $gia, '$soluongcon', '$ngaysx');";
         }else{
-            $sql = "INSERT INTO `sanpham` (`MASP`, `MALOAISP`, `MAGIAMGIA`, `MANSX`, `TENSP`, `MOTASP`, `RAM`, `VIXULY`, `KICHTHUOCMH`, `GIA`, `SOLUONGCON`, `NGAYSX`) 
-            VALUES ('$masp', '$maloaisp', '$magiamgia','$mansx', '$tensp', '$motasp', '$ram', '$vixuly', '$kichthuocmh', $gia, '$soluongcon', '$ngaysx');";       
-            echo "<script>alert('$sql');</script>";
+            $sql = "INSERT INTO `sanpham` (`MALOAISP`, `MAGIAMGIA`, `MANSX`, `TENSP`, `MOTASP`, `RAM`, `VIXULY`, `KICHTHUOCMH`, `GIA`, `SOLUONGCON`, `NGAYSX`) 
+            VALUES ('$maloaisp', '$magiamgia','$mansx', '$tensp', '$motasp', '$ram', '$vixuly', '$kichthuocmh', $gia, '$soluongcon', '$ngaysx');";       
         }
             $conn = Connect();
             $res = mysqli_query($conn, $sql);
@@ -238,8 +228,8 @@ $masp = tao_id();
                     $tmp_name = $_FILES["files"]["tmp_name"][$key];
                     $name = basename($_FILES["files"]["name"][$key]);
                     move_uploaded_file($tmp_name, "product_images/$name");
-                    $mahinh =tao_id_hinh();
-                    $sql_hinh = "INSERT INTO HINHANH (mahinh,masp, link) VALUES ('$mahinh','$masp', '$name');";
+                    $masp =lay_masp();
+                    $sql_hinh = "INSERT INTO HINHANH (masp, link) VALUES ('$masp', '$name');";
                     $conn = Connect();
                     $themhinh= mysqli_query($conn, $sql_hinh);
                     mysqli_close($conn);
