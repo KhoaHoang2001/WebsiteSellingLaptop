@@ -28,70 +28,36 @@ require_once('./includes/product.php');
             </div>
     </section>
     <!-- filter -->
-    <section id="laptop" class="filter">
-        <div class="container">
-            <div class="row" style="margin-bottom: 10px;">
-                <div class="card">
-                    <a href="index.php?action=filter_producer&producer=Apple"><img src="./FE/image/MacBook44-b_27.png" alt="Macbook"></a>
-                </div>
-                <div class="card">
-                    <a href="index.php?action=filter_producer&producer=Acer"><img src="./FE/image/Acer44-b_25.jpg" alt="Acer"></a>
-                </div>
-                <div class="card">
-                    <a href="index.php?action=filter_producer&producer=ASUS"><img src="./FE/image/Asus44-b_1.png" alt="Asus"></a>
-                </div>
-                <div class="card">
-                    <a href="index.php?action=filter_producer&producer=DELL"><img src="./FE/image/Dell44-b_2.jpg" alt="Dell"></a>
-                </div>
-                <div class="card">
-                    <a href="index.php?action=filter_producer&producer=HP"><img src="./FE/image/HP44-b_27.jpg" alt="HP"></a>
-                </div>
-                <div class="card">
-                    <a href="index.php?action=filter_producer&producer=HUAWEI"><img src="./FE/image/Huawei44-b_7.jpg" alt="Huawei"></a>
-                </div>
-                <div class="card">
-                    <a href="index.php?action=filter_producer&producer=Lenovo"><img src="./FE/image/Lenovo44-b_35.png" alt="Lenovo"></a>
-                </div>
-                <div class="card">
-                    <a href="index.php?action=filter_producer&producer=LG"><img src="./FE/image/LG44-b_32.jpg" alt="LG"></a>
-                </div>
-                <div class="card">
-                    <a href="index.php?action=filter_producer&producer=MSI"><img src="./FE/image/MSI44-b_17.png" alt="MSI"></a>
-                </div>
-            </div>
-            <?php include('includes/filter.php') ?>
-        </div>
-    </section>
+    <?php include('includes/filter.php') ?>
     <!-- New Item -->
     <?php
-        if (isset($_GET['action'])) {
-            $action = $_GET['action'];
-            switch ($action) {
-                case 'filter_ram';
-                    include './includes/filter_ram.php';
-                    break;
+    if (isset($_GET['action'])) {
+        $action = $_GET['action'];
+        switch ($action) {
+            case 'filter_ram';
+                include './includes/filter_ram.php';
+                break;
 
-                case 'filter_cpu';
-                    include './includes/filter_cpu.php';
-                    break;
-                
-                case 'filter_producer';
-                    include './includes/filter_producer.php';
-                    break;
+            case 'filter_cpu';
+                include './includes/filter_cpu.php';
+                break;
 
-                case 'filter_price';
-                    include './includes/filter_price.php';
-                    break;
-                    
-                case 'filter_screen';
-                    include './includes/filter_screen.php';
-                    break;
-            }
+            case 'filter_producer';
+                include './includes/filter_producer.php';
+                break;
+
+            case 'filter_price';
+                include './includes/filter_price.php';
+                break;
+
+            case 'filter_screen';
+                include './includes/filter_screen.php';
+                break;
         }
-        else{
-            include './includes/item.php';
-        }
-     ?>
+    } else {
+        include './includes/item.php';
+    }
+    ?>
     <!-- bestseller  -->
     <section class="bestseller" id="bestseller">
         <div class="container">
@@ -144,7 +110,7 @@ require_once('./includes/product.php');
                                     </div>
                                 </a>
                             </div>
-                            
+
                         </div>
                     <?php
                     }
@@ -189,17 +155,17 @@ require_once('./includes/product.php');
                                         <h4 class='card-title'><?php echo $tensp ?></h4>
                                     </div>
                                     <div class='card-footer'>
-                                            <?php
-                                            if ($giamoi == "") {
-                                                echo " <span>" . $gia . "</span>";
-                                            } else {
-                                                echo "<s>
+                                        <?php
+                                        if ($giamoi == "") {
+                                            echo " <span>" . $gia . "</span>";
+                                        } else {
+                                            echo "<s>
                                                         <span>" . $gia . "</span>
                                                     </s>
                                                     <span>" . $giamoi . "</span>";
-                                            }
-                                            ?>
-                                        </div>
+                                        }
+                                        ?>
+                                    </div>
                                 </a>
                             </div>
                             </a>
