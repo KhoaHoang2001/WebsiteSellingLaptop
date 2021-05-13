@@ -36,6 +36,19 @@
                                 </div>
                                 <div class='card-footer'>
                                     <?php
+<<<<<<< HEAD
+                                    if ($giamoi == "") {
+                                        echo " <span>$" . $gia . "</span>";
+                                    } else {
+                                        echo "<s>
+                                                        <span>$" . $gia . "</span>
+                                                    </s>
+                                                    <span class='giaMoi'>$" . $giamoi . "</span>";
+                                    }
+                                    ?>
+                                </div>
+                            </a>
+=======
                                         if ($giamoi == "") {
                                             echo " <span>" . $gia . "</span>";
                                         } else {
@@ -48,6 +61,7 @@
                                     </div>
                                 </a>
                             </div>
+>>>>>>> a2d7476b3d83de99e1b1f12a39cbfe6a000eab17
                         </div>
                     <?php
                     }//end loop

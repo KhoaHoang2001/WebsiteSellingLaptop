@@ -4,9 +4,8 @@
       echo "<script>window.open('../login.php','_self')</script>";
     }
     else{
-      $usernanme = $_SESSION['taikhoan'];
+      $taikhoan = $_SESSION['taikhoan'];
     }
-    echo $_SESSION['maquyen'];
 ?>
 
 <!DOCTYPE html>
@@ -38,7 +37,7 @@
 
     <div class="sidenav">
         <div class="dropdown-btn">
-            <p>Admin</p>
+            <p>Admin: <?php echo $taikhoan ?></p>
         </div>
         <button class="dropdown-btn">Loại sản phẩm<i class="fa fa-caret-down"></i></button>
         <div class="dropdown-container">
