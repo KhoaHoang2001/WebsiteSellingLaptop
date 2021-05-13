@@ -53,6 +53,7 @@
                         <a class="dropdown-item" href="index.php?action=filter_cpu&cpu=i5">i5</a>
                         <a class="dropdown-item" href="index.php?action=filter_cpu&cpu=i7">i7</a>
                         <a class="dropdown-item" href="index.php?action=filter_cpu&cpu=i9">i9</a>
+                        <a class="dropdown-item" href="index.php?action=filter_cpu&cpu=AMD">AMD ryzen </a>
                     </div>
                 </div>
                 <div class="dropdown">

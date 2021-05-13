@@ -87,8 +87,7 @@ require_once('./includes/product.php');
                         $res_img = Get_image($masp);
                         $row_img = mysqli_fetch_assoc($res_img);
                         $hinh = $row_img['LINK'];
-                        
-                    ?>
+            ?>
                         <div class='card-group col-md-3 col-sm-6'>
                             <div class='card card-laptop-item'>
                                 <a href='./view_product.php?masp=<?php echo $masp ?>'>
@@ -100,6 +99,7 @@ require_once('./includes/product.php');
                                     </div>
                                     <div class='card-footer'>
                                         <?php
+<<<<<<< HEAD
                                         if ($giamoi == "") {
                                             echo " <span>$" . $gia . "</span>";
                                         } else {
@@ -112,11 +112,23 @@ require_once('./includes/product.php');
 
                                     </div>
                                 </a>
+=======
+                                            if ($giamoi == "") {
+                                                echo " <span>" . $gia . "</span>";
+                                            } else {
+                                                echo "<s>
+                                                    <span>" . $gia . "</span>
+                                                </s>
+                                                <span class='giaMoi'>" . $giamoi . "</span>";
+                                            }
+                                            ?>
+                                        </div>
+                                    </a>
+                                </div>
+>>>>>>> a2d7476b3d83de99e1b1f12a39cbfe6a000eab17
                             </div>
-
-                        </div>
-                    <?php
-                    }
+                        <?php
+                        }
                     ?>
                 </div>
             </div>
