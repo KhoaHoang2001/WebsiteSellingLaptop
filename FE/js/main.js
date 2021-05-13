@@ -102,9 +102,9 @@ function DoiMK() {
   var oldPassword = DomID("oldPassword").value;
   var newPassword = DomID("newPassword").value;
   var confirmNewPassword = DomID("confirmNewPassword").value;
-  var erroroldPassword = DomID("erroroldPassword");
-  var errornewPassword = DomID("errornewPassword");
-  var errorconfirmNewPassword = DomID("errorconfirmNewPassword");
+  var erroroldPassword = DomID("errorOldPassword");
+  var errorNewPassword = DomID("errorNewPassword");
+  var errorConfirmNewPassword = DomID("errorConfirmNewPassword");
   var loi = 0;
   if (KiemTraDauVaoRong("oldPassword", oldPassword) == true) {
     loi++;
@@ -114,21 +114,21 @@ function DoiMK() {
   }
   if (validate.KiemTraMatKhau(newPassword) == false) {
     loi++;
-    DomID("oldPassword").style.borderColor = "red";
-    errornewPassword.style.display = "block";
-    errornewPassword.innerHTML = "Phải có chữ và số <br> Độ dài từ 8 -> 20 ký tự";
+    DomID("newPassword").style.borderColor = "red";
+    errorNewPassword.style.display = "block";
+    errorNewPassword.innerHTML = "Phải có chữ và số <br> Độ dài từ 8 -> 20 ký tự";
   } else {
-    DomID("oldPassword").style.borderColor = "green";
-    errornewPassword.style.display = "none";
+    DomID("newPassword").style.borderColor = "green";
+    errorNewPassword.style.display = "none";
   }
   if (KiemTraDauVaoRong("confirmNewPassword", confirmNewPassword) == true) {
     loi++;
   }
   if (newPassword == confirmNewPassword) {
-    errorconfirmNewPassword.style.display = "none";
+    errorConfirmNewPassword.style.display = "none";
   } else {
-    errorconfirmNewPassword.style.display = "block";
-    errorconfirmNewPassword.innerHTML = "không trùng khớp";
+    errorConfirmNewPassword.style.display = "block";
+    errorConfirmNewPassword.innerHTML = "không trùng khớp";
     DomID("confirmNewPassword").style.borderColor = "red";
     loi++;
   }
