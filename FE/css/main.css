@@ -580,26 +580,26 @@ footer .bottom p {
   display: none;
 }
 
-#account .container .row #account__right #lichSuMuaHang #tblItem {
+#account .container .row #account__right #lichSuMuaHang .lichSuMuaHang #tblItem {
   width: 100%;
   text-align: center;
   border-spacing: 10px;
 }
 
-#account .container .row #account__right #lichSuMuaHang #tblItem #tblHead tr {
+#account .container .row #account__right #lichSuMuaHang .lichSuMuaHang #tblItem #lichSuMuaHang_tblHead tr {
   width: 100%;
 }
 
-#account .container .row #account__right #lichSuMuaHang #tblItem #tblBody tr td:nth-child(1) img {
+#account .container .row #account__right #lichSuMuaHang .lichSuMuaHang #tblItem #lichSuMuaHang_tblBody tr td:nth-child(1) img {
   width: 150px;
   height: 150px;
 }
 
-#account .container .row #account__right #lichSuMuaHang #tblItem #tblBody tr td:nth-child(4) {
+#account .container .row #account__right #lichSuMuaHang .lichSuMuaHang #tblItem #lichSuMuaHang_tblBody tr td:nth-child(4) {
   color: orangered;
 }
 
-#account .container .row #account__right #lichSuMuaHang #tblItem #tblBody tr td:nth-child(6) {
+#account .container .row #account__right #lichSuMuaHang .lichSuMuaHang #tblItem #lichSuMuaHang_tblBody tr td:nth-child(6) {
   color: orangered;
 }
 
