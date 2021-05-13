@@ -39,8 +39,13 @@
                     <td><?php echo $diachi ?></td>
                     <td><?php echo $email ?></td>
                     <td><?php echo $ngaysinh ?></td>
-                    <td class="text-center"><a class="btn btn-danger btn-submit btn-sm"
-                            href="index.php?action=view_staff&delete_staff=<?php echo $taikhoan; ?>">Xóa</a></td>
+                    <td class="text-center">
+                        <form method="post">
+                            <input class="btn btn-danger btn-sm" style="padding: 4px 15px 4px 15px;"
+                                type="submit" name="delete_staff" id="delete_staff" value="Xóa">
+                            <input style="display: none" type="text" name="taikhoan" id="taikhoan" value="<?php echo $taikhoan; ?>">          
+                        </form>
+                    </td>
                 </tr>
             </tbody>
             <?php
@@ -63,12 +68,9 @@
             }
         }
     }
-
-    echo isset($_SESSION['taikhoan']);
-    echo $_SESSION['taikhoan'];
-    echo $_SESSION['maquyen'];
-    if(isset($_GET['delete_staff']) && isset($_SESSION['taikhoan']) && $_SESSION['maquyen'] == 'AM'){
-        $taikhoan = $_GET['delete_staff'];
+    
+    if(isset($_POST['delete_staff'])){
+        $taikhoan = $_POST['taikhoan'];
         $sql_del_staff = "DELETE FROM NGUOIDUNG WHERE taikhoan = '$taikhoan';";
         echo $sql_del_staff;
         $res_del_staff = Check_db($sql_del_staff);

@@ -77,7 +77,7 @@
                             $ram = $row['RAM'];
                             $res_img = Get_image($masp);
                             $row_img = mysqli_fetch_assoc($res_img);
-                            $hinhanh = $row_img['LINK'];
+                            $hinh = $row_img['LINK'];
                 ?>
                             <div class='card-group col-md-3 col-sm-6'>
                                 <div class='card card-laptop-item'>
