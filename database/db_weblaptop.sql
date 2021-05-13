@@ -44,10 +44,6 @@ INSERT INTO `capquyen` (`MAQUYEN`, `TENQUYEN`, `MOTAQUYEN`) VALUES
 
 -- --------------------------------------------------------
 
---
--- Table structure for table `donhang`
---
-
 CREATE TABLE `donhang` (
   `MADH` varchar(11) NOT NULL,
   `TAIKHOAN` varchar(30) NOT NULL,
@@ -159,7 +155,7 @@ INSERT INTO `monhang` (`MADH`,`MASP`,`SOLUONGDAT`) VALUES
 ('609cca17d5c24','SP3','3'),
 ('609cca2fba27c','SP4','2'),
 ('609cca2fba27c','SP2','5'),
-('609cca3bee0ae','SP10','1'),
+('609cca3bee0ae','SP10','1');
 
 
 -- --------------------------------------------------------
