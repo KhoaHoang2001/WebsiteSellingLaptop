@@ -205,7 +205,6 @@
             if($themhinh){
                 if($magiamgia_update==''){
                     $sql = " UPDATE SANPHAM SET  MALOAISP = '$maloaisp_update',MAGIAMGIA =NULL, MANSX = '$mansx_update', TENSP = '$tensp_update', MOTASP = '$motasp_update', RAM ='$ram_update', VIXULY = '$vixuly_update', KICHTHUOCMH = '$kichthuocmh_update', GIA= '$gia_update', SOLUONGCON ='$soluongcon_update', NGAYSX = '$ngaysx_update'WHERE MASP = '$masp'";
-                    echo $sql;
                     $conn = Connect();
                     $ngon= mysqli_query($conn, $sql);
                     mysqli_close($conn);
