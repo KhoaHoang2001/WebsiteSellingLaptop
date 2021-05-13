@@ -62,7 +62,7 @@
                 </td>
             </tr>
             <tr>
-                <td valign="top"><b>Mã giảm giá:<?php echo $magiamgia?>  </b></td>
+                <td valign="top"><b>Mã giảm giá:  </b></td>
                 <td>
                     <select id="magiamgia" name="magiamgia">
                         <option value=''></option>

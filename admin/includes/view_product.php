@@ -2,6 +2,7 @@
     require_once('./includes/include.php');
     require_once('./includes/conn.php');
 ?>
+
 <div class="view_product_box">
     <h2>Danh sách sản phẩm</h2>
     <div class="border_bottom"></div>
@@ -38,6 +39,7 @@
                 $gia = $row['GIA'];
                 $soluongcon = $row['SOLUONGCON'];
                 $ngaysx = $row['NGAYSX'];
+                
                 
             ?>
             <tbody>
