@@ -23,26 +23,6 @@
             }
           }
         }
-        &:hover {
-          #xemSP {
-            display: block;
-          }
-          .card-body {
-            opacity: 0.5;
-          }
-        }
-        #xemSP {
-          display: none;
-          position: absolute;
-          bottom: 20%;
-          left: 15%;
-          font-size: $fs-3 + 5px;
-          background-color: $color-blue-0;
-          padding: 5px;
-          border: 1px solid transparent;
-          border-radius: 3px;
-          z-index: 2;
-        }
       }
       .card-laptop-item {
         margin: 0;
