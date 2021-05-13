@@ -1,13 +1,13 @@
 <header id="header">
     <div class="container">
         <div class="row header-banner">
-            <img src="./FE/image/banner_TOP.png" alt="">
+            <img height="70%" src="./FE/image/banner.png" alt="">
         </div>
         <div class="row header-navbar">
             <nav class="navbar navbar-expand-lg navbar-light bg-light col-12">
                 <div class="container nav-left-right">
                     <a class="navbar-brand" href="./index.php">
-                        <img src="./FE/image/logo-fix.png" alt="">
+                        <img src="./FE/image/logo.png" alt="">
                     </a>
                     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                         <span class="navbar-toggler-icon"></span>

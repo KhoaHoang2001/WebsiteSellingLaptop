@@ -1,6 +1,22 @@
-<!DOCTYPE html>
 <?php
-require_once('./includes/conn.php'); ?>
+  require_once('./includes/conn.php');
+  if(isset($_SESSION['taikhoan'])){
+    switch ($_SESSION['maquyen']) {
+      case "NV":
+        echo "<script>window.open('./staff/index.php','_self')</script>";
+        break;
+      case "KH":
+        echo "<script>window.open('./index.php','_self')</script>";
+        break;
+      case "AM":
+        echo "<script>window.open('./admin/index.php','_self')</script>";
+        break;
+    }
+  }
+?>
+
+
+<!DOCTYPE html>
 <html lang="en">
 <?php include('./includes/head.php') ?>
 

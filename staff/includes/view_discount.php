@@ -28,7 +28,7 @@
                 <tr>
                     <td class="text-center"><?php echo $magiamgia; ?></td>
                     <td><?php echo $tengiamgia; ?></td>
-                    <td><?php echo $phantram; ?></td>
+                    <td><?php echo $phantram; ?>%</td>
                     <form method="post">
                         <td>
                             <input class="btn btn-sm btn-danger" style="padding: 4px 15px 4px 15px;"

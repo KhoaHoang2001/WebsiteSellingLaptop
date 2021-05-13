@@ -6,13 +6,12 @@
         <div class="row item-content">
             <div class="row" style="padding: 15px">
                 <?php
-                $sql_all_product = "SELECT * ,LINK FROM sanpham,hinhanh where sanpham.MASP=hinhanh.MASP";
+                $sql_all_product = "SELECT * FROM sanpham" ;
                 $res_all_product = Check_db($sql_all_product);
                 while ($row = mysqli_fetch_assoc($res_all_product)) {
                     $masp = $row['MASP'];
                     $tensp = $row['TENSP'];
                     $gia = $row['GIA'];
-                    $hinh = $row['LINK'];
                     $phantram = View_Discount_Of_Product($masp);
                     if ($gia - $gia * $phantram / 100 != $gia) {
                         $giamoi = $gia - $gia * $phantram / 100;
@@ -22,8 +21,11 @@
                     $kichthuocmh = $row['KICHTHUOCMH'];
                     $vixuly = $row['VIXULY'];
                     $ram = $row['RAM'];
+                    $res_img = Get_image($masp);
+                    $row_img = mysqli_fetch_assoc($res_img);
+                    $hinh = $row_img['LINK'];
                 ?>
-                    <div class="card-group col-md-3 col-sm-6">
+                    <div class='card-group col-md-3 col-sm-6'>
                         <div class='card card-laptop-item'>
                             <a href='./view_product.php?masp=<?php echo $masp ?>'>
                                 <div class='card-header'>
@@ -35,20 +37,20 @@
                                 <div class='card-footer'>
                                     <?php
                                     if ($giamoi == "") {
-                                        echo " <span>" . $gia . "</span>";
+                                        echo " <span>$" . $gia . "</span>";
                                     } else {
                                         echo "<s>
-                                                        <span>" . $gia . "</span>
+                                                        <span>$" . $gia . "</span>
                                                     </s>
-                                                    <span class='giaMoi'>" . $giamoi . "</span>";
+                                                    <span class='giaMoi'>$" . $giamoi . "</span>";
                                     }
                                     ?>
                                 </div>
                             </a>
                         </div>
                     </div>
-                <?php
-                } //end loop
+                    <?php
+                }//end loop
                 ?>
             </div>
         </div>

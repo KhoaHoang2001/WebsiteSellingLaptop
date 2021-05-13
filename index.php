@@ -26,6 +26,7 @@ require_once('./includes/product.php');
                     </div>
                 </div>
             </div>
+        </div>
     </section>
     <!-- filter -->
     <?php include('includes/filter.php') ?>
@@ -87,8 +88,7 @@ require_once('./includes/product.php');
                         $res_img = Get_image($masp);
                         $row_img = mysqli_fetch_assoc($res_img);
                         $hinh = $row_img['LINK'];
-                        
-                    ?>
+            ?>
                         <div class='card-group col-md-3 col-sm-6'>
                             <div class='card card-laptop-item'>
                                 <a href='./view_product.php?masp=<?php echo $masp ?>'>
@@ -101,22 +101,21 @@ require_once('./includes/product.php');
                                     <div class='card-footer'>
                                         <?php
                                         if ($giamoi == "") {
-                                            echo " <span>" . $gia . "</span>";
+                                            echo " <span>$" . $gia . "</span>";
                                         } else {
                                             echo "<s>
-                                                        <span>" . $gia . "</span>
+                                                        <span>$" . $gia . "</span>
                                                     </s>
-                                                    <span class='giaMoi'>" . $giamoi . "</span>";
+                                                    <span class='giaMoi'>$" . $giamoi . "</span>";
                                         }
                                         ?>
 
                                     </div>
                                 </a>
                             </div>
-
                         </div>
-                    <?php
-                    }
+                        <?php
+                        }
                     ?>
                 </div>
             </div>
@@ -133,48 +132,60 @@ require_once('./includes/product.php');
                     <?php
                     $sql = "SELECT * FROM sanpham where MAGIAMGIA IS NOT NULL";
                     $res = Check_db($sql);
-                    while ($row = mysqli_fetch_assoc($res)) {
-                        $masp = $row['MASP'];
-                        $tensp = $row['TENSP'];
-                        $gia = $row['GIA'];
-                        $phantram = View_Discount_Of_Product($masp);
-                        if ($gia - $gia * $phantram / 100 != $gia) {
-                            $giamoi = $gia - $gia * $phantram / 100;
-                        } else {
-                            $giamoi = "";
-                        }
-                        $kichthuocmh = $row['KICHTHUOCMH'];
-                        $vixuly = $row['VIXULY'];
-                        $ram = $row['RAM'];
-                        $res_img = Get_image($masp);
-                        $row_img = mysqli_fetch_assoc($res_img);
-                        $hinh = $row_img['LINK'];
-                    ?>
-                        <div class='card-group col-md-3 col-sm-6'>
-                            <div class='card card-laptop-item'>
-                                <a href='./view_product.php?masp=<?php echo $masp ?>'>
-                                    <div class='card-header'>
-                                        <img src='./admin/product_images/<?php echo $hinh ?>' class='card-img-top' alt=''>
-                                    </div>
-                                    <div class='card-body'>
-                                        <h4 class='card-title'><?php echo $tensp ?></h4>
-                                    </div>
-                                    <div class='card-footer'>
-                                        <?php
-                                        if ($giamoi == "") {
-                                            echo " <span>" . $gia . "</span>";
-                                        } else {
-                                            echo "<s>
-                                                        <span>" . $gia . "</span>
-                                                    </s>
-                                                    <span>" . $giamoi . "</span>";
-                                        }
-                                        ?>
-                                    </div>
-                                </a>
+                    if(mysqli_num_rows($res)){
+                        while ($row = mysqli_fetch_assoc($res)) {
+                            $masp = $row['MASP'];
+                            $tensp = $row['TENSP'];
+                            $gia = $row['GIA'];
+                            $phantram = View_Discount_Of_Product($masp);
+                            if ($gia - $gia * $phantram / 100 != $gia) {
+                                $giamoi = $gia - $gia * $phantram / 100;
+                            } else {
+                                $giamoi = "";
+                            }
+                            $kichthuocmh = $row['KICHTHUOCMH'];
+                            $vixuly = $row['VIXULY'];
+                            $ram = $row['RAM'];
+                            $res_img = Get_image($masp);
+                            $row_img = mysqli_fetch_assoc($res_img);
+                            $hinh = $row_img['LINK'];
+                        ?>
+                            <div class='card-group col-md-3 col-sm-6'>
+                                <div class='card card-laptop-item'>
+                                    <a href='./view_product.php?masp=<?php echo $masp ?>'>
+                                        <div class='card-header'>
+                                            <img src='./admin/product_images/<?php echo $hinh ?>' class='card-img-top' alt=''>
+                                        </div>
+                                        <div class='card-body'>
+                                            <h4 class='card-title'><?php echo $tensp ?></h4>
+                                        </div>
+                                        <div class='card-footer'>
+                                            <?php
+                                            if ($giamoi == "") {
+                                                echo " <span>$" . $gia . "</span>";
+                                            } else {
+                                                echo "<s>
+                                                            <span>$" . $gia . "</span>
+                                                        </s>
+                                                        <span>$" . $giamoi . "</span>";
+                                            }
+                                            ?>
+                                        </div>
+                                    </a>
+                                </div>
                             </div>
-                            </a>
-                        </div>
+                        <?php
+                        }
+                    }
+                    else {
+                        ?> <div class="row searchItem-content justify-content-center flex-column align-items-center">
+                                <div class="row" style="padding: 15px">
+                                    <img src='./hinhanh/Out_of_stock.jpg' width="70%" height="70%">
+                                </div>
+                                <div>
+                                    <h3>Rất tiếc cửa hàng tạm hết mặt hàng này</h3>
+                                </div>
+                            </div>
                     <?php
                     }
                     ?>
@@ -189,16 +200,3 @@ require_once('./includes/product.php');
 </body>
 
 </html>
-<?php
-// function View_Discount_Of_Product($masp)
-// {
-//     $sql_discount = "SELECT * FROM giamgia WHERE MAGIAMGIA = (SELECT MAGIAMGIA FROM sanpham WHERE MASP = '$masp');";
-//     $res_discount = Check_db($sql_discount);
-//     if (mysqli_num_rows($res_discount) > 0) {
-//         $row_discount = mysqli_fetch_assoc($res_discount);
-//         return $row_discount['PHANTRAM'];
-//     } else {
-//         return;
-//     }
-// }
-?>

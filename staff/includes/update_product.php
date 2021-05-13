@@ -28,10 +28,25 @@
             }
         }
 
-        const Check_all = () => {
-            let percent = document.getElementById('phantram').value;
-            if(isNaN(percent)){
-                alert("Phần trăm bắt buộc phải là số!");
+        const check_so = function (so, loi) {
+            let ktra = document.getElementById(so).value;
+            if(!isNaN(ktra)){
+                document.getElementById(loi).innerHTML = '';
+            } else {
+                document.getElementById(loi).style.color = 'red';
+                document.getElementById(loi).innerHTML = 'Phải là số';
+
+            }
+        }
+
+        const Check_all = function () {
+            let gia = document.getElementById('gia').value;
+            let soluongcon = document.getElementById('soluongcon').value;
+            if(isNaN(gia)){
+                alert("giá bắt buộc phải là số!");
+                return false;
+            }else if(isNaN(soluongcon)){
+                alert("só lượng còn bắt buộc phải là số!");
                 return false;
             }
         }
@@ -49,7 +64,7 @@
                 <td valign="top"><b>Mã loại sản phẩm:</b></td>
                 <td>
                     <select id="maloaisp" name="maloaisp">
-                        <option value="loaisp" ></option>
+                        <option ><?php echo $maloaisp?></option>
                         <?php
                         $sql_all_cat = "SELECT * FROM  LOAISP";
                         $res_all_cat = Check_db($sql_all_cat);
@@ -62,10 +77,10 @@
                 </td>
             </tr>
             <tr>
-                <td valign="top"><b>Mã giảm giá:<?php echo $magiamgia?>  </b></td>
+                <td valign="top"><b>Mã giảm giá:  </b></td>
                 <td>
                     <select id="magiamgia" name="magiamgia">
-                        <option value=''></option>
+                        <option value=''><?php echo $magiamgia?></option>
                         <?php 
                             $sql_all_discount = "SELECT * FROM GIAMGIA";
                             $res_all_discount = Check_db($sql_all_discount);
@@ -78,21 +93,18 @@
                 </td>
             </tr>
             <tr>
-            <tr>
-                <td valign="top"><b>Mã nhà sản xuất: <?php echo $mansx ?> </b></td>
+                <td valign="top"><b>Mã nhàsss sản xuất:</b></td>
                 <td>
-                    <select id="mansx" name="mansx">
-                        <option value="masnx"> </option>
+                    <select id="mansx" name="mansx" onchange="check_nsx()">
                         <?php
-                            $sql_all_nsx = "SELECT * FROM NHASANXUAT";
-                            $res_all_nsx = Check_db($sql_all_nsx);
-                            while ($row = mysqli_fetch_array($res_all_nsx)) {
-                            $mansx = $row['MANSX'];
-                            echo "<option>$mansx<option>";
-                            }
-                        
+                        $sql_all_nsx = "SELECT * FROM  nhasanxuat";
+                        $res_all_nsx = Check_db($sql_all_nsx);
+                        while ($row = mysqli_fetch_assoc($res_all_nsx)) {
+                        $mansx = $row['MANSX'];
+                        echo "<option>$mansx</option>";    
+                        }       
                         ?>
-                    </select> 
+                    </select>
                 </td>
             </tr>
             <tr>
@@ -135,7 +147,7 @@
             </tr>
             <tr>
                 <td><b>Hình ảnh: </b></td>
-                <td><input type="file" name="files[]"  multiple require /></td>
+                <td><input type="file" name="files[]"  multiple required /></td>
             </tr>
 
             <tr>
@@ -170,35 +182,44 @@
             $conn = Connect();
             $deletehinh= mysqli_query($conn, $sql_deletehinh);
             mysqli_close($conn);
+            $temp =0;
+            foreach($_FILES['files']['type'] as $key => $value){
+                $value = substr($value, 0, 5);
+                if($value!= "image"){
+                    $temp++;
+                }
+            } 
+            if($temp==0){
             $uploads_dir = '/uploads';
-            foreach ($_FILES["files"]["error"] as $key => $error) {
-                if ($error == UPLOAD_ERR_OK) {
-                    $tmp_name = $_FILES["files"]["tmp_name"][$key];
-                    $name = basename($_FILES["files"]["name"][$key]);
-                    move_uploaded_file($tmp_name, "product_images/$name");
-                    $sql=  "INSERT INTO HINHANH (masp, link) VALUES ('$masp', '$name');";
-                    $conn = Connect();
-                    mysqli_query($conn, $sql);
-                    mysqli_close($conn);
+            foreach($_FILES["files"]["error"] as $key => $error) {
+                if($error == UPLOAD_ERR_OK) {
+                        $tmp_name = $_FILES["files"]["tmp_name"][$key];
+                        $name = basename($_FILES["files"]["name"][$key]);
+                        move_uploaded_file($tmp_name, "../admin/product_images/$name");
+                        $sql_hinh = "INSERT INTO HINHANH (masp, link) VALUES ('$masp', '$name');";
+                        $conn = Connect();
+                        $themhinh= mysqli_query($conn, $sql_hinh);
+                        mysqli_close($conn);
                 }
             }
-            if($magiamgia_update==''){
-                $sql = " UPDATE SANPHAM SET  MALOAISP = '$maloaisp_update',MAGIAMGIA =NULL, MANSX = '$mansx_update', TENSP = '$tensp_update', MOTASP = '$motasp_update', RAM ='$ram_update', VIXULY = '$vixuly_update', KICHTHUOCMH = '$kichthuocmh_update', GIA= '$gia_update', SOLUONGCON ='$soluongcon_update', NGAYSX = '$ngaysx_update'WHERE MASP = '$masp'";
-                echo $sql;
+            if($themhinh){
+                if($magiamgia_update==''){
+                    $sql = " UPDATE SANPHAM SET  MALOAISP = '$maloaisp_update',MAGIAMGIA =NULL, MANSX = '$mansx_update', TENSP = '$tensp_update', MOTASP = '$motasp_update', RAM ='$ram_update', VIXULY = '$vixuly_update', KICHTHUOCMH = '$kichthuocmh_update', GIA= '$gia_update', SOLUONGCON ='$soluongcon_update', NGAYSX = '$ngaysx_update'WHERE MASP = '$masp'";
+                    $conn = Connect();
+                    $ngon= mysqli_query($conn, $sql);
+                    mysqli_close($conn);
+                }else{
                 $conn = Connect();
+                $sql = " UPDATE SANPHAM SET  MALOAISP = '$maloaisp_update', MAGIAMGIA = '$magiamgia_update', MANSX = '$mansx_update', TENSP = '$tensp_update', MOTASP = '$motasp_update', RAM ='$ram_update', VIXULY = '$vixuly_update', KICHTHUOCMH = '$kichthuocmh_update', GIA= '$gia_update', SOLUONGCON ='$soluongcon_update', NGAYSX = '$ngaysx_update'WHERE MASP = '$masp'";
                 $ngon= mysqli_query($conn, $sql);
                 mysqli_close($conn);
-            }else{
-            $conn = Connect();
-            $sql = " UPDATE SANPHAM SET  MALOAISP = '$maloaisp_update', MAGIAMGIA = '$magiamgia_update', MANSX = '$mansx_update', TENSP = '$tensp_update', MOTASP = '$motasp_update', RAM ='$ram_update', VIXULY = '$vixuly_update', KICHTHUOCMH = '$kichthuocmh_update', GIA= '$gia_update', SOLUONGCON ='$soluongcon_update', NGAYSX = '$ngaysx_update'WHERE MASP = '$masp'";
-            echo $sql;
-            $ngon= mysqli_query($conn, $sql);
-            mysqli_close($conn);}
-            if($ngon){
-                echo "<script>alert('Sản phẩm đã được chỉnh sửa thành công!')</script>";
-                echo "<script>window.open(window.location.href,'_self')</script>";
-            }else{
-            echo "<script>alert('!!!')</script>";}
+            
+            }
+            echo "<script>alert('Sửa sản phẩm thành công');</script>";       
+            }
+        }else{
+            echo "<script>alert('Định dạng hình không đúng');</script>";
+    }
         
 
     
