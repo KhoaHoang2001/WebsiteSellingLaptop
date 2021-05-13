@@ -31,7 +31,7 @@
                           <td><?php echo $tongtien ?></td>
                           <td><?php echo $trangthai ?></td>
                           <td>
-                            <a class="btn btn-danger btn-submit btn-sm" style="margin: 0" href="./account_viewIDB.php?madh=<?php echo $madh ?>">Chi tiết</a>
+                            <a class="btn btn-danger btn-submit btn-sm" style="margin: 0" href="./account_viewHIS.php?madh=<?php echo $madh ?>">Chi tiết</a>
                           </td>
                         </tr>
                     <?php
