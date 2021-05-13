@@ -2,7 +2,7 @@
         <div class="container">
             <div class="row" style="margin-bottom: 10px;">
                 <div class="card">
-                    <a href="index.php?action=filter_producer&producer=MacBook"><img src="./FE/image/MacBook44-b_27.png" alt=""></a>
+                    <a href="index.php?action=filter_producer&producer=Apple"><img src="./FE/image/MacBook44-b_27.png" alt=""></a>
                 </div>
                 <div class="card">
                     <a href="index.php?action=filter_producer&producer=Acer"><img src="./FE/image/Acer44-b_25.jpg" alt=""></a>
