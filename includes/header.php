@@ -16,7 +16,7 @@
                     <form class="" action="./../search.php">
                         <div class="input-group navbar-search">
                             <div class="input-group-prepend">
-                                <button class="btn btn-outline-secondary" type="button"><i class="fa fa-search"></i></button>
+                                <button class="btn btn-outline-secondary" type="submit"><i class="fa fa-search"></i></button>
                             </div>
                             <input type="text" class="form-control" placeholder="" aria-label="" aria-describedby="basic-addon1" style="border-radius: 0 5px 5px 0;">
                         </div>

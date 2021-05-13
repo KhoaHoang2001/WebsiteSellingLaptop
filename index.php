@@ -32,31 +32,31 @@ require_once('./includes/product.php');
         <div class="container">
             <div class="row" style="margin-bottom: 20px;">
                 <div class="card">
-                    <a href="index.php?action=filter_producer&producer=macbook"><img src="./FE/image/MacBook44-b_27.png" alt=""></a>
+                    <a href="index.php?action=filter_producer&producer=macbook"><img src="./FE/image/MacBook44-b_27.png" alt="Macbook"></a>
                 </div>
                 <div class="card">
-                    <a href="index.php?action=filter_producer&producer=acer"><img src="./FE/image/Acer44-b_25.jpg" alt=""></a>
+                    <a href="index.php?action=filter_producer&producer=acer"><img src="./FE/image/Acer44-b_25.jpg" alt="Acer"></a>
                 </div>
                 <div class="card">
-                    <a href="index.php?action=filter_producer&producer=asus"><img src="./FE/image/Asus44-b_1.png" alt=""></a>
+                    <a href="index.php?action=filter_producer&producer=asus"><img src="./FE/image/Asus44-b_1.png" alt="Asus"></a>
                 </div>
                 <div class="card">
-                    <a href="index.php?action=filter_producer&producer=dell"><img src="./FE/image/Dell44-b_2.jpg" alt=""></a>
+                    <a href="index.php?action=filter_producer&producer=dell"><img src="./FE/image/Dell44-b_2.jpg" alt="Dell"></a>
                 </div>
                 <div class="card">
-                    <a href="index.php?action=filter_producer&producer=hp"><img src="./FE/image/HP44-b_27.jpg" alt=""></a>
+                    <a href="index.php?action=filter_producer&producer=hp"><img src="./FE/image/HP44-b_27.jpg" alt="HP"></a>
                 </div>
                 <div class="card">
-                    <a href="index.php?action=filter_producer&producer=huawei"><img src="./FE/image/Huawei44-b_7.jpg" alt=""></a>
+                    <a href="index.php?action=filter_producer&producer=huawei"><img src="./FE/image/Huawei44-b_7.jpg" alt="Huawei"></a>
                 </div>
                 <div class="card">
-                    <a href="index.php?action=filter_producer&producer=lenovo"><img src="./FE/image/Lenovo44-b_35.png" alt=""></a>
+                    <a href="index.php?action=filter_producer&producer=lenovo"><img src="./FE/image/Lenovo44-b_35.png" alt="Lenovo"></a>
                 </div>
                 <div class="card">
-                    <a href="index.php?action=filter_producer&producer=lg"><img src="./FE/image/LG44-b_32.jpg" alt=""></a>
+                    <a href="index.php?action=filter_producer&producer=lg"><img src="./FE/image/LG44-b_32.jpg" alt="LG"></a>
                 </div>
                 <div class="card">
-                    <a href="index.php?action=filter_producer&producer=msi"><img src="./FE/image/MSI44-b_17.png" alt=""></a>
+                    <a href="index.php?action=filter_producer&producer=msi"><img src="./FE/image/MSI44-b_17.png" alt="MSI"></a>
                 </div>
             </div>
             <div class="row">
@@ -141,8 +141,6 @@ require_once('./includes/product.php');
         } else {
             include('./includes/item.php');
         }
-
-        
      ?>
     <!-- bestseller  -->
     <section class="bestseller" id="bestseller" style="margin-top: 30px;">
@@ -267,6 +265,7 @@ require_once('./includes/product.php');
     <?php include('./includes/footer.php') ?>
     <!-- script -->
     <?php include('./includes/script.php') ?>
+    
 </body>
 
 </html>
