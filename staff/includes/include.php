@@ -1,5 +1,8 @@
 <?php
     require_once('conn.php');
+    if(!isset($_SESSION['taikhoan'])){
+        
+    }
     
     function Pr($arr){
         echo "<pre>";
@@ -47,4 +50,10 @@
                 break;
         }
 }
+    function Check_f5($refresh){
+        $pageWasRefreshed = isset($_SERVER['HTTP_CACHE_CONTROL']) && $_SERVER['HTTP_CACHE_CONTROL'] === 'max-age=0';
+        if($pageWasRefreshed ) {
+            unset($refresh);
+        }
+    }
 ?>

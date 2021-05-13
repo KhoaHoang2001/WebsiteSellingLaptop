@@ -3,12 +3,9 @@
     require_once('./includes/conn.php');
 ?>
 <div class="view_product_box">
-    <h2>Danh sách mã nhân viên</h2>
+    <h2>Giảm giá</h2>
     <div class="border_bottom"></div>
     <form action="" method="post" enctype="multipart/form-data">
-        <div class="search_bar">
-            <input type="text" id="search" placeholder="Type to search..." />
-        </div>
         <table width="100%">
             <thead>
                 <tr>
@@ -32,10 +29,16 @@
                     <td class="text-center"><?php echo $magiamgia; ?></td>
                     <td><?php echo $tengiamgia; ?></td>
                     <td><?php echo $phantram; ?></td>
-                    <td><a class="btn btn-danger btn-submit btn-sm" 
-                            href="index.php?action=view_discount&delete_discount=<?php echo $magiamgia; ?>">Xóa</a></td>
-                    <td class="text-center"><a class="btn btn-primary btn-submit btn-sm"
-                        href="index.php?action=update_discount&discount_id=<?php echo $magiamgia; ?>">Chỉnh sửa</a></td>
+                    <form method="post">
+                        <td>
+                            <input class="btn btn-sm btn-danger" style="padding: 4px 15px 4px 15px;"
+                                type="submit" name="delete_discount" id="delete_discount" value="Xóa">
+                            <input style="display: none" type="text" name="magiamgia" id="magiamgia" value="<?php echo $magiamgia; ?>">
+                        </td>
+                        <td class="text-center"><a class="btn btn-primary btn-submit btn-sm"
+                            href="index.php?action=update_discount&discount_id=<?php echo $magiamgia; ?>">Chỉnh sửa</a>
+                        </td>
+                    </form>
                 </tr>
             </tbody>
             <?php
@@ -58,8 +61,8 @@
         }
     }
 
-    if(isset($_GET['delete_discount'])){
-        $magiamgia = $_GET['delete_discount'];
+    if(isset($_POST['delete_discount'])){
+        $magiamgia = $_POST['magiamgia'];
         $sql_del_discount = "DELETE FROM GIAMGIA WHERE magiamgia = '$magiamgia'";
         $res_del_discount = Check_db($sql_del_discount);
         if($res_del_discount){
@@ -67,7 +70,7 @@
             echo "<script>window.open('index.php?action=view_discount','_self')</script>";
         }
         else {
-            echo "<script>alert('xóa tài khoản không thành công!')</script>";
+            echo "<script>alert('xóa giảm giá không thành công!')</script>";
         }
     }
 

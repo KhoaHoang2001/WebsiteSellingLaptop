@@ -1,6 +1,19 @@
 <?php
-require_once('./includes/include.php');
-require_once('./includes/conn.php');
+  require_once('./includes/include.php');
+  require_once('./includes/conn.php');
+  if(isset($_SESSION['maquyen'])){
+    switch ($_SESSION['maquyen']) {
+      case "NV":
+        echo "<script>window.open('./staff/index.php','_self')</script>";
+        break;
+      case "KH":
+        echo "<script>window.open('./index.php','_self')</script>";
+        break;
+      case "AM":
+        echo "<script>window.open('./admin/index.php','_self')</script>";
+        break;
+    }
+  }
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -89,10 +102,14 @@ if (isset($_POST['submit_login'])) {
       case "KH":
         echo "<script>window.open('./index.php','_self')</script>";
         break;
-      case "AD":
+      case "AM":
         echo "<script>window.open('./admin/index.php','_self')</script>";
         break;
     }
+  }
+  else{
+    echo "<script>alert('Tài khoản mật khẩu không trùng khớp')</script>";
+
   }
 }
 ?>

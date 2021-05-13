@@ -1,14 +1,12 @@
-<!-- 
-<?php include './includes/include.php';
-  ?> -->
 <?php
-    // include_once('./includes/include.php');
-    // if(isset($_SESSION['taikhoan']) == ""){
-    //   echo "<script>window.open('../login.php','_self')</script>";
-    // }
-    // else{
-    //   $usernanme = $_SESSION['taikhoan'];
-    // }
+    include_once('./includes/include.php');
+    if($_SESSION['maquyen'] != "AM"){
+      echo "<script>window.open('../login.php','_self')</script>";
+    }
+    else{
+      $usernanme = $_SESSION['taikhoan'];
+    }
+    echo $_SESSION['maquyen'];
 ?>
 
 <!DOCTYPE html>
@@ -169,23 +167,18 @@
           case 'update_producer';
             include './includes/update_producer.php';
             break;
-            
-              
-          case 'test';
-          include './includes/test.php';
-          break;
 
           case 'check_order';
-          include './includes/check_order.php';
-          break;
+            include './includes/check_order.php';
+            break;
 
           case 'view_order';
-          include './includes/view_order.php';
-          break;
+            include './includes/view_order.php';
+            break;
 
           case 'history_order';
-          include './includes/history_order.php';
-          break;
+            include './includes/history_order.php';
+            break;
         }
           ?>
         </div>

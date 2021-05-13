@@ -1,38 +1,33 @@
+<?php
+require_once('./includes/include.php');
+require_once('./includes/conn.php');
+$masp = tao_id();
+?>
 
 <div class="form_box">
     <script>
-        const check_password = function () {
-            let password = document.getElementById('matkhau').value;
-            let confirm_password = document.getElementById('xacnhanmk').value;
-            if (password == confirm_password) {
-                document.getElementById('kiemtramk').style.color = 'green';
-                document.getElementById('kiemtramk').innerHTML = 'Trùng khớp';
-            } else {
-                document.getElementById('kiemtramk').style.color = 'red';
-                document.getElementById('kiemtramk').innerHTML = 'Không trùng khớp';
-            }
-        }
 
-        const check_number_phone = function () {
-            let phone = document.getElementById('sdt').value;
-            if(!isNaN(phone)){
-                document.getElementById('kiemtrasdt').innerHTML = '';
+
+
+        const check_so = function (so, loi) {
+            let ktra = document.getElementById(so).value;
+            if(!isNaN(ktra)){
+                document.getElementById(loi).innerHTML = '';
             } else {
-                document.getElementById('kiemtrasdt').style.color = 'red';
-                document.getElementById('kiemtrasdt').innerHTML = 'Phải là số';
+                document.getElementById(loi).style.color = 'red';
+                document.getElementById(loi).innerHTML = 'Phải là số';
+
             }
         }
 
         const Check_all = function () {
-            let password = document.getElementById('matkhau').value;
-            let confirm_password = document.getElementById('xacnhanmk').value;
-            let phone = document.getElementById('sdt').value;
-            if(password != confirm_password){
-                alert("Mật khẩu và xác nhận mật khẩu bắt buộc phải giống nhau!");
+            let gia = document.getElementById('gia').value;
+            let soluongcon = document.getElementById('soluongcon').value;
+            if(isNaN(gia)){
+                alert("giá bắt buộc phải là số!");
                 return false;
-            }
-            else if(isNaN(phone)){
-                alert("Số điện thoại bắt buộc phải là số!");
+            }else if(isNaN(soluongcon)){
+                alert("só lượng còn bắt buộc phải là số!");
                 return false;
             }
         }
@@ -45,13 +40,20 @@
         <table align="center" width="100%">
             <tr>
                 <td valign="top"><b>Mã sản phẩm:</b></td>
-                <td><input type="text" name="masp" id="masp"  required /></td>
+                <td><input type="text" name="masp" id="masp" value="<?php echo $masp ?>"  disabled /></td>
             </tr>
             <tr>
                 <td valign="top"><b>Mã loại sản phẩm:</b></td>
                 <td>
                     <select id="maloaisp" name="maloaisp">
-                        <option value="loaisp">loaisp</option>
+                        <?php
+                        $sql_all_cat = "SELECT * FROM  LOAISP";
+                        $res_all_cat = Check_db($sql_all_cat);
+                        while ($row = mysqli_fetch_assoc($res_all_cat)) {
+                        $maloaisp = $row['MALOAISP'];
+                        echo "<option>$maloaisp</option>";    
+                        }       
+                        ?>
                     </select>
                 </td>
             </tr>
@@ -60,16 +62,31 @@
                 <td valign="top"><b>Mã giảm giá: </b></td>
                 <td>
                     <select id="magiamgia" name="magiamgia">
-                        <option value="giamgia">giamgia</option>
+                        <option value=''>Không </option>
+                        <?php 
+                            $sql_all_discount = "SELECT * FROM GIAMGIA";
+                            $res_all_discount = Check_db($sql_all_discount);
+                            while ($row = mysqli_fetch_array($res_all_discount)) {
+                            $magiamgia = $row['MAGIAMGIA'];
+                            echo "<option value= '$magiamgia' >$magiamgia</option>";
+                            }
+                        ?>
                     </select> 
                 </td>
             </tr>
             <tr>
-                <td valign="top"><b>Mã nhà sản xuất: </b></td>
+                <td valign="top"><b>Mã nhà sản xuất:</b></td>
                 <td>
-                    <select id="mansx" name="mansx">
-                        <option value="masnx">nha nsx</option>
-                    </select> 
+                    <select id="mansx" name="mansx" onchange="check_nsx()">
+                        <?php
+                        $sql_all_nsx = "SELECT * FROM  nhasanxuat";
+                        $res_all_nsx = Check_db($sql_all_nsx);
+                        while ($row = mysqli_fetch_assoc($res_all_nsx)) {
+                        $mansx = $row['MANSX'];
+                        echo "<option>$mansx</option>";    
+                        }       
+                        ?>
+                    </select>
                 </td>
             </tr>
             <tr>
@@ -85,7 +102,15 @@
             <tr>
                 <td valign="top"><b>Ram:</b></td>
                 <td>
-                    <input type="text" name="ram" id="ram" required/>
+                    <select id="ram" name="ram" >
+                    <option>1</option>
+                    <option>2</option>
+                    <option>4</option>
+                    <option>8</option>
+                    <option>16</option>
+                    <option>32</option>
+                    <option>64</option>
+                    </select>
                 </td>
             </tr>
 
@@ -94,38 +119,87 @@
                 <td><input type="text" name="vixuly" id="vixuly" required/></td>
             </tr>
             <tr>
-                <td valign="top"><b>Kích thước màn hình:</b></td>
-                <td><input type="text" name="kichthuocmh" id="kichthuocmh"></td>
+            <td valign="top"><b>Kích thước màn hình:</b></td>
+            
+                <td>
+                <select id="kichthuocmh" name="kichthuocmh">
+                    <option>10.1 inch</option>
+                    <option>11.6 inch</option>
+                    <option>13.3 inch</option>
+                    <option>14 inch</option>
+                    <option>14.1 inch</option>
+                    <option>15.6 inch</option>
+                </select>
+                </td>
             </tr>
 
             <tr>
                 <td valign="top"><b>Giá:</b></td>
-                <td><input type="text" name="gia" id="gia"></td>
+                <td><input type="text" name="gia" id="gia" onkeyup="check_so('gia','ktragia')" required >
+                <span id="ktragia"></span>
+                </td>
+                
             </tr>
             <tr>
                 <td valign="top"><b>Số lượng còn:</b></td>
-                <td><input type="text" name="soluongcon" id="soluongcon"></td>
+                <td><input type="text" name="soluongcon" id="soluongcon" onkeyup="check_so('soluongcon', 'ktrasl')">
+                <span id= "ktrasl"></span>
+                </td>
             </tr>
             <tr>
                 <td valign="top"><b>Ngày sản xuất:</b></td>
-                <td><input type="date" name="ngaysx" id="ngaysx"></td>
+                <td><input type="date" name="ngaysx" id="ngaysx" required></td>
             </tr>
+
+            <tr>
+                <td><b>Hình ảnh: </b></td>
+                <td><input type="file" name="files[]"  multiple required /></td>
+            </tr>
+                            
             <tr>
 
-                <td colspan="12" class="text-center"> 
-                    <input type="submit" class="btn-submit" name="insert_post" value="Thêm Sản Phẩm">
+                <td colspan="13" class="text-center"> 
+                    <input type="submit" class="btn-submit" name="themsanpham" value="Thêm Sản Phẩm">
                 </td>
             </tr>
+            
         </table>
     </form>
 
 </div>
 <?php
-
-    function Add_Product(){
-        if (isset($_POST['submit'])){
-            $masp = Get_value($_POST["masp"]);
+    function tao_id(){
+        $ktra = "SELECT masp FROM sanpham";
+        $res = Check_db($ktra);
+        if(mysqli_num_rows($res)>0){
+        $sql = "SELECT MAX(masp) FROM sanpham";
+        $res = Check_db($sql);
+        $row = mysqli_fetch_array($res);
+        $sosp =(intval(substr(($row['MAX(masp)']),2))+1);
+        $masp = 'MT'.strval($sosp);
+        }else{
+            $masp = "MT1";
+        }
+        return $masp;
+    }
+    function tao_id_hinh(){
+        $ktra = "SELECT mahinh from hinhanh";
+        $res = Check_db($ktra);
+        if(mysqli_num_rows($res)>0){
+            $sql = "SELECT MAX(mahinh) FROM hinhanh";
+            $res = Check_db($sql);
+            $row = mysqli_fetch_array($res);
+            $sohinh =(intval(substr(($row['MAX(mahinh)']),1))+1);
+            $mahinh = 'H'.strval($sohinh);
+            }else{
+                $mahinh = "H1";
+            }
+            return $mahinh;
+    }
+    if (isset($_POST['themsanpham'])){
+            //$masp = Get_value($_POST["masp"]);
             $maloaisp = Get_value($_POST["maloaisp"]);
+            $magiamgia = Get_value($_POST["magiamgia"]);
             $mansx = Get_value($_POST["mansx"]);
             $tensp = Get_value($_POST["tensp"]);
             $motasp = Get_value($_POST["motasp"]);
@@ -135,14 +209,53 @@
             $gia = Get_value($_POST["gia"]);
             $soluongcon = Get_value($_POST["soluongcon"]);
             $ngaysx = Get_value($_POST["ngaysx"]);
-            //thieu ham check masp
-            $conn = Connect();
-            $sql = "INSERT INTO `sanpham` (`MASP`, `MALOAISP`, `MAGIAMGIA`, `MANSX`, `TENSP`, `MOTASP`, `RAM`, `VIXULY`, `KICHTHUOCMH`, `GIA`, `SOLUONGCON`, `NGAYSX`) VALUES ('$masp', '$maloaisp', null,'$mansx', '$tensp', '$motasp', '$ram', '$vixuly', '$kichthuocmh', '$gia', '$soluongcon', '$ngaysx');";       
-            mysqli_query($conn, $sql);
-            mysqli_close($conn);
-            echo "dang ky tai khoan thanh cong";
-        } else {
-            echo ("ketnoithatbai");
+    $uploads_dir = '/uploads';
+    $temp = 0;
+    foreach($_FILES['files']['type'] as $key => $value){
+        $value = substr($value, 0, 5);
+        if($value!= "image"){
+            $temp++;
         }
+    } 
+    if($temp==0){
+        $sql = "INSERT INTO `sanpham` (`MASP`, `MALOAISP`, `MANSX`, `TENSP`, `MOTASP`, `RAM`, `VIXULY`, `KICHTHUOCMH`, `GIA`, `SOLUONGCON`, `NGAYSX`) 
+            VALUES ('$masp', '$maloaisp','$mansx', '$tensp', '$motasp', '$ram', '$vixuly', '$kichthuocmh', $gia, '$soluongcon', '$ngaysx');";
+        
+        if($magiamgia==""){
+        $sql = "INSERT INTO `sanpham` (`MASP`, `MALOAISP`, `MANSX`, `TENSP`, `MOTASP`, `RAM`, `VIXULY`, `KICHTHUOCMH`, `GIA`, `SOLUONGCON`, `NGAYSX`) 
+            VALUES ('$masp', '$maloaisp','$mansx', '$tensp', '$motasp', '$ram', '$vixuly', '$kichthuocmh', $gia, '$soluongcon', '$ngaysx');";
+            echo "<script>alert('76t7t676$sql');</script>";                   
+        }else{
+            $sql = "INSERT INTO `sanpham` (`MASP`, `MALOAISP`, `MAGIAMGIA`, `MANSX`, `TENSP`, `MOTASP`, `RAM`, `VIXULY`, `KICHTHUOCMH`, `GIA`, `SOLUONGCON`, `NGAYSX`) 
+            VALUES ('$masp', '$maloaisp', '$magiamgia','$mansx', '$tensp', '$motasp', '$ram', '$vixuly', '$kichthuocmh', $gia, '$soluongcon', '$ngaysx');";       
+            echo "<script>alert('$sql');</script>";
+        }
+            $conn = Connect();
+            $res = mysqli_query($conn, $sql);
+            mysqli_close($conn);
+        foreach($_FILES["files"]["error"] as $key => $error) {
+            if($error == UPLOAD_ERR_OK) {
+                    $tmp_name = $_FILES["files"]["tmp_name"][$key];
+                    $name = basename($_FILES["files"]["name"][$key]);
+                    move_uploaded_file($tmp_name, "product_images/$name");
+                    $mahinh =tao_id_hinh();
+                    $sql_hinh = "INSERT INTO HINHANH (mahinh,masp, link) VALUES ('$mahinh','$masp', '$name');";
+                    $conn = Connect();
+                    $themhinh= mysqli_query($conn, $sql_hinh);
+                    mysqli_close($conn);
+            }
+        }
+        if($themhinh){
+            echo "<script>alert('Thêm sản phẩm thành công');</script>";      
+        } else {
+            echo "<script>alert('Thêm sản phẩm thất bại');</script>"; 
+        }
+    }else{
+        echo "<script>alert('Định dạng hình không đúng');</script>";
     }
+}
+// $pageWasRefreshed = isset($_SERVER['HTTP_CACHE_CONTROL']) && $_SERVER['HTTP_CACHE_CONTROL'] === 'max-age=0';
+// if($pageWasRefreshed ) {
+//     unset($refresh);
+// }
 ?>

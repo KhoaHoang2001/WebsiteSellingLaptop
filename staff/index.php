@@ -1,11 +1,11 @@
 <?php
-// session_start();
-    require_once('./includes/include.php');
-    require_once('./includes/conn.php');
-// if (isset($_SESSION['usernamenv']) == '') {
-//   echo "<script>window.open('login.php','_self')</script>";
-// } else {
-//   $usernanme = $_SESSION['usernamenv'];
+    include_once('./includes/include.php');
+    if($_SESSION['maquyen'] != "NV"){
+      echo "<script>window.open('../login.php','_self')</script>";
+    }
+    else{
+      $usernanme = $_SESSION['taikhoan'];
+    }
 ?>
 
 <!DOCTYPE html>
@@ -37,7 +37,7 @@
 
     <div class="sidenav">
         <div class="dropdown-btn">
-            <p>Nhân viên:</p>
+            <p>Nhân viên: <?php echo $_SESSION['taikhoan'] ?></p>
         </div>
         <button class="dropdown-btn">Loại sản phẩm<i class="fa fa-caret-down"></i></button>
         <div class="dropdown-container">
@@ -68,6 +68,7 @@
         <button class="dropdown-btn">Đơn hàng<i class="fa fa-caret-down"></i></button>
         <div class="dropdown-container">
             <a href="index.php?action=check_cart">Duyệt đơn hàng</a>
+            <a href="index.php?action=history_order">Xem lịch sử đơn hàng</a>
         </div>
         <button class="dropdown-btn "><a href="logout.php">Đăng xuất</a></button>
     </div> <!-- /.End sidenav -->
@@ -160,6 +161,18 @@
               
           case 'update_producer';
             include './includes/update_producer.php';
+            break;
+          
+          case 'check_order';
+            include './includes/check_order.php';
+            break;
+
+          case 'view_order';
+            include './includes/view_order.php';
+            break;
+
+          case 'history_order';
+            include './includes/history_order.php';
             break;
         }
           ?>
