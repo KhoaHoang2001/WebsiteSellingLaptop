@@ -82,7 +82,7 @@ CREATE TABLE `giamgia` (
 
 INSERT INTO `giamgia` (`MAGIAMGIA`, `TENGIAMGIA`, `PHANTRAM`) VALUES
 ('GG01', 'Lễ giỗ tổ', 20),
-('GG02', 'Lễ 30/4', 10)
+('GG02', 'Lễ 30/4', 10),
 ('GG03', 'Lễ 8/3', 10);
 
 
