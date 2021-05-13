@@ -15,9 +15,6 @@
     </script>
     <h2>Duyệt đơn hàng</h2>
     <div class="border_bottom"></div>
-        <div class="search_bar">
-            <input type="text" id="search" placeholder="Type to search..." />
-        </div>
         <table width="100%">
             <thead>
                 <tr>

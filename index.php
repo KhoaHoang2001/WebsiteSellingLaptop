@@ -79,10 +79,10 @@ require_once('./includes/product.php');
                     </a>
 
                     <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                        <a class="dropdown-item" href="#">i3</a>
-                        <a class="dropdown-item" href="#">i5</a>
-                        <a class="dropdown-item" href="#">i7</a>
-                        <a class="dropdown-item" href="#">i9</a>
+                        <a class="dropdown-item" href="index.php?action=filter_cpu&cpu=i3">i3</a>
+                        <a class="dropdown-item" href="index.php?action=filter_cpu&cpu=i5">i5</a>
+                        <a class="dropdown-item" href="index.php?action=filter_cpu&cpu=i7">i7</a>
+                        <a class="dropdown-item" href="index.php?action=filter_cpu&cpu=i9">i9</a>
                     </div>
                 </div>
                 <div class="dropdown">
@@ -122,8 +122,24 @@ require_once('./includes/product.php');
           }
         switch ($action) {
             case 'filter_ram';
-              include './includes/filter_ram.php';
-              break;
+                include './includes/filter_ram.php';
+                break;
+
+            case 'filter_cpu';
+                include './includes/filter_cpu.php';
+                break;
+            
+            case 'filter_producer';
+                include './includes/filter_producer.php';
+                break;
+
+            case 'filter_price';
+                include './includes/filter_price.php';
+                break;
+                
+            case 'filter_screen';
+                include './includes/filter_screen.php';
+                break;
         }
     ?>
     <?php include('./includes/item.php') ?>
