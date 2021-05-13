@@ -61,11 +61,11 @@
                         ?>
                                 <td>
                                     <input class="btn btn-sm btn-primary" style="padding: 4px 15px 8px 15px; background: #007BFF; border: #007BFF;" type="submit" name="accept_order" value="Xác nhận">
-                                    <input style="display: none" type="text" name="madh" id="madh" value="$madh">
+                                    <input style="display: none" type="text" name="madh" id="madh" value="<?php echo $madh; ?>">
                                 </td>
                                 <td>
                                     <input class="btn btn-sm btn-danger" style="padding: 4px 15px 8px 15px; background: #red; border: #red;" type="submit" name="cancel_order" value="Từ chối">
-                                    <input  style="display: none" type="text" name="madh" id="madh" value="$madh">
+                                    <input  style="display: none" type="text" name="madh" id="madh" value="<?php echo $madh; ?>">
                                 </td>
                         <?php 
                             }
@@ -73,11 +73,11 @@
                         ?>
                                 <td>
                                     <input class="btn btn-sm btn-primary" style="padding: 4px 15px 8px 15px; background: #007BFF; border: #007BFF;" type="submit" name="delivered_order" value="Đã giao">
-                                    <input style="display: none" type="text" name="madh" id="madh" value="$madh">
+                                    <input style="display: none" type="text" name="madh" id="madh" value="<?php echo $madh; ?>">
                                 </td>
                                 <td>
                                     <input class="btn btn-sm btn-danger" style="padding: 4px 15px 8px 15px; background: gray; border: gray;" type="submit" name="cancel_order" value="Từ chối" disabled>
-                                    <input  style="display: none" type="text" name="madh" id="madh" value="$madh">
+                                    <input  style="display: none" type="text" name="madh" id="madh" value="<?php echo $madh; ?>">
                                 </td>
                         <?php
                             }
@@ -85,11 +85,11 @@
                         ?>
                                 <td>
                                     <input class="btn btn-sm btn-primary" style="padding: 4px 15px 8px 15px; background: gray; border: gray;" type="submit" name="accept_order" value="Xác nhận" disabled>
-                                    <input style="display: none" type="text" name="madh" id="madh" value="$madh">
+                                    <input style="display: none" type="text" name="madh" id="madh" value="<?php echo $madh; ?>">
                                 </td>
                                 <td>
                                     <input class="btn btn-sm btn-danger" style="padding: 4px 15px 8px 15px; background: gray; border: gray;" type="submit" name="cancel_order" value="Từ chối" disabled>
-                                    <input  style="display: none" type="text" name="madh" id="madh" value="$madh">
+                                    <input  style="display: none" type="text" name="madh" id="madh" value="<?php echo $madh; ?>">
                                 </td>
                             <?php 
                             }
@@ -115,7 +115,6 @@
 
     if(isset($_POST['accept_order'])){
         $madh = $_POST['madh'];
-        echo $_POST['madh'];
         $sql = "UPDATE DONHANG SET trangthai = 'Đã xác nhận' WHERE MADH = '$madh'";
         $res = Check_db($sql);
         if($res){
@@ -126,7 +125,6 @@
 
     if(isset($_POST['cancel_order'])){
         $madh = $_POST['madh'];
-        echo $_POST['madh'];
         $sql = "UPDATE DONHANG SET trangthai = 'Đã từ chối' WHERE MADH = '$madh'";
         $res = Check_db($sql);
         if($res){
@@ -137,7 +135,6 @@
 
     if(isset($_POST['delivered_order'])){
         $madh = $_POST['madh'];
-        echo $_POST['madh'];
         $sql = "UPDATE DONHANG SET trangthai = 'Đã giao hàng' WHERE MADH = '$madh'";
         $res = Check_db($sql);
         if($res){

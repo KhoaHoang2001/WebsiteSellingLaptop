@@ -47,10 +47,8 @@ if ($gia - $gia * $phantram / 100 != $gia) {
     <section class="url">
         <div class="container">
             <div class="row">
-                <a href="./index.html">Trang chủ ></a>
-
-                <a href="#" name="TenNSX">&nbsp;<?php echo $mansx ?>></a>
-
+                <a href="./index.php">Trang chủ ></a>
+                <a href="#" name="TenNSX">&nbsp;<?php echo $mansx ?>&nbsp;></a>
                 <a href="#" name="TenLoaiSP">&nbsp;<?php echo $tensp ?></a>
             </div>
         </div>
@@ -106,6 +104,9 @@ if ($gia - $gia * $phantram / 100 != $gia) {
                             &nbsp;&nbsp;
                             <span style='color: red; font-size: 1.5rem;'>" . $giamoi . " </span>
                             <sup style='font-size: 1.2rem; color: white; background-color: red; border: 1px solid transparent; border-radius: 50%'>-" . $phantram . "%</sup></p>";
+                        } else {
+                            echo "
+                                <p class='Gia' style='font-size: 1.5rem'>" . $gia . "</p>";
                         }
                         ?>
                     </p>

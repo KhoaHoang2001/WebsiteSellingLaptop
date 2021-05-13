@@ -5,7 +5,6 @@ require_once('./includes/product.php');
 require_once('./includes/config.php');
 require_once('./includes/order.php');
 $taikhoan = $_SESSION['taikhoan'];
-// $taikhoan = 'vinh7';
 $thongtin = Get_Info_Account($taikhoan);
 $tennd = $thongtin['tennd'];
 $sdt = $thongtin['sdt'];
@@ -60,7 +59,7 @@ $diachi = $thongtin['diachi'];
                     <tr>
                       <td>
                         <a href="#" class="cartItem__product">
-                          <img src="./image/laptop.jpg" alt="">
+                          <img src="./FE/image/laptop.jpg" alt="">
                         </a>
                       </td>
                       <td>

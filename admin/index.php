@@ -71,7 +71,7 @@
         <button class="dropdown-btn">Đơn hàng<i class="fa fa-caret-down"></i></button>
         <div class="dropdown-container">
             <a href="index.php?action=check_order">Duyệt đơn hàng</a>
-            <a href="index.php?action=test">themhinh</a>
+            <a href="index.php?action=history_order">Xem lịch sử đơn hàng</a>
         </div>
         <button class="dropdown-btn "><a href="logout.php">Đăng xuất</a></button>
     </div> <!-- /.End sidenav -->
@@ -181,6 +181,10 @@
 
           case 'view_order';
           include './includes/view_order.php';
+          break;
+
+          case 'history_order';
+          include './includes/history_order.php';
           break;
         }
           ?>
