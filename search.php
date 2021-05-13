@@ -1,7 +1,6 @@
 <?php
 require_once('./includes/include.php');
 require_once('./includes/product.php');
-//Check_role_in_site($_SESSION['maquyen']);
 $timkiem = $_GET['timkiem'];
 ?>
 <!DOCTYPE html>
