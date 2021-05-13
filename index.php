@@ -66,29 +66,30 @@ require_once('./includes/product.php');
     <?php
         if (isset($_GET['action'])) {
             $action = $_GET['action'];
-          } else {
-            $action = '';
-          }
-        switch ($action) {
-            case 'filter_ram';
-                include './includes/filter_ram.php';
-                break;
+            switch ($action) {
+                case 'filter_ram';
+                    include './includes/filter_ram.php';
+                    break;
 
-            case 'filter_cpu';
-                include './includes/filter_cpu.php';
-                break;
-            
-            case 'filter_producer';
-                include './includes/filter_producer.php';
-                break;
-
-            case 'filter_price';
-                include './includes/filter_price.php';
-                break;
+                case 'filter_cpu';
+                    include './includes/filter_cpu.php';
+                    break;
                 
-            case 'filter_screen';
-                include './includes/filter_screen.php';
-                break;
+                case 'filter_producer';
+                    include './includes/filter_producer.php';
+                    break;
+
+                case 'filter_price';
+                    include './includes/filter_price.php';
+                    break;
+                    
+                case 'filter_screen';
+                    include './includes/filter_screen.php';
+                    break;
+            }
+        }
+        else{
+            include './includes/item.php';
         }
      ?>
     <!-- bestseller  -->
