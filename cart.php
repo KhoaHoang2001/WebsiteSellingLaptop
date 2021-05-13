@@ -5,8 +5,7 @@ if(!isset($_SESSION['taikhoan'])){
     header('Location: login.php');
 }
 $taikhoan = $_SESSION['taikhoan'];
-function View_Discount_Of_Product($masp)
-{
+function View_Discount_Of_Product($masp){
     $sql_discount = "SELECT * FROM giamgia WHERE MAGIAMGIA = (SELECT MAGIAMGIA FROM sanpham WHERE MASP = '$masp');";
     $res_discount = Check_db($sql_discount);
     if (mysqli_num_rows($res_discount) > 0) {

@@ -68,14 +68,13 @@ require_once('./includes/product.php');
                 <!-- <div class="row"> -->
                 <div class="row" style="padding: 15px">
                     <?php
-                    $sql = "SELECT * , SUM(SOLUONGDAT), LINK FROM sanpham,monhang,hinhanh where sanpham.MASP=monhang.MASP 
-                        AND hinhanh.MASP=monhang.MASP GROUP BY monhang.MASP ORDER BY SUM(SOLUONGDAT) DESC LIMIT 4";
+                    $sql = "SELECT * , SUM(SOLUONGDAT) FROM sanpham,monhang where sanpham.MASP=monhang.MASP 
+                        GROUP BY monhang.MASP ORDER BY SUM(SOLUONGDAT) DESC LIMIT 4";
                     $res = Check_db($sql);
                     while ($row = mysqli_fetch_assoc($res)) {
                         $masp = $row['MASP'];
                         $tensp = $row['TENSP'];
                         $gia = $row['GIA'];
-                        $hinh = $row['LINK'];
                         $phantram = View_Discount_Of_Product($masp);
                         if ($gia - $gia * $phantram / 100 != $gia) {
                             $giamoi = $gia - $gia * $phantram / 100;
@@ -85,6 +84,10 @@ require_once('./includes/product.php');
                         $kichthuocmh = $row['KICHTHUOCMH'];
                         $vixuly = $row['VIXULY'];
                         $ram = $row['RAM'];
+                        $res_img = Get_image($masp);
+                        $row_img = mysqli_fetch_assoc($res_img);
+                        $hinh = $row_img['LINK'];
+                        
                     ?>
                         <div class='card-group col-md-3 col-sm-6'>
                             <div class='card card-laptop-item'>
@@ -128,13 +131,12 @@ require_once('./includes/product.php');
             <div class="row sales-content">
                 <div class="row" style="padding: 15px">
                     <?php
-                    $sql = "SELECT * ,LINK FROM sanpham,hinhanh where sanpham.MASP=hinhanh.MASP and MAGIAMGIA IS NOT NULL";
+                    $sql = "SELECT * FROM sanpham where MAGIAMGIA IS NOT NULL";
                     $res = Check_db($sql);
                     while ($row = mysqli_fetch_assoc($res)) {
                         $masp = $row['MASP'];
                         $tensp = $row['TENSP'];
                         $gia = $row['GIA'];
-                        $hinh = $row['LINK'];
                         $phantram = View_Discount_Of_Product($masp);
                         if ($gia - $gia * $phantram / 100 != $gia) {
                             $giamoi = $gia - $gia * $phantram / 100;
@@ -144,6 +146,9 @@ require_once('./includes/product.php');
                         $kichthuocmh = $row['KICHTHUOCMH'];
                         $vixuly = $row['VIXULY'];
                         $ram = $row['RAM'];
+                        $res_img = Get_image($masp);
+                        $row_img = mysqli_fetch_assoc($res_img);
+                        $hinh = $row_img['LINK'];
                     ?>
                         <div class='card-group col-md-3 col-sm-6'>
                             <div class='card card-laptop-item'>

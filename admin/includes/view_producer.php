@@ -26,9 +26,11 @@
                     <td class="text-center"><?php echo $mansx; ?></td>
                     <td><?php echo $tennsx; ?></td>
                     <td>
+                    <form method="post">
                         <input class="btn btn-danger btn-sm" style="padding: 4px 15px 4px 15px;"
                             type="submit" name="delete_producer" id="delete_producer" value="Xóa">
                         <input style="display: none" type="text" name="mansx" id="mansx" value="<?php echo $mansx; ?>">    
+                    </form>
                     </td>
                 </tr>
             </tbody>

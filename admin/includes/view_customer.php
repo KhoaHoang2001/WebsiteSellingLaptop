@@ -39,11 +39,13 @@
                     <td><?php echo $diachi ?></td>
                     <td><?php echo $email ?></td>
                     <td><?php echo $ngaysinh ?></td>
-                    <td class="text-center">
-                        <input class="btn btn-danger btn-sm" style="padding: 4px 15px 4px 15px;"
-                             type="submit" name="delete_customer" id="delete_customer" value="Xóa">
-                        <input style="display: none" type="text" name="taikhoan" id="taikhoan" value="<?php echo $taikhoan; ?>">
-                    </td>
+                    <form method="post">
+                        <td class="text-center">
+                            <input class="btn btn-danger btn-sm" style="padding: 4px 15px 4px 15px;"
+                                type="submit" name="delete_customer" id="delete_customer" value="Xóa">
+                            <input style="display: none" type="text" name="taikhoan" id="taikhoan" value="<?php echo $taikhoan; ?>">
+                        </td>
+                    </form>
                 </tr>
             </tbody>
             <?php
