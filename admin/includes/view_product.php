@@ -74,6 +74,7 @@
 if(isset($_POST['delete_product'])){
     $masp = $_POST['masp'];
     echo $masp;
+    
     $sql_del_img = "DELETE FROM HINHANH WHERE masp = '$masp';";
     $delete = Check_db($sql_del_img);
     if($delete){

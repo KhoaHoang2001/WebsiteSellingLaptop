@@ -168,18 +168,6 @@ $masp = tao_id();
 
 </div>
 <?php
-
-
-    function Check_product($masp){
-        $sql = "SELECT * FROM SANPHAM WHERE masp = '$masp';";
-        $res = Check_db($sql);
-        if(mysqli_num_rows($res) > 0){
-            return true;
-        }
-        else{
-            return false;
-        }
-    }
     function tao_id(){
         $ktra = "SELECT masp FROM sanpham";
         $res = Check_db($ktra);
@@ -193,6 +181,20 @@ $masp = tao_id();
             $masp = "MT1";
         }
         return $masp;
+    }
+    function tao_id_hinh(){
+        $ktra = "SELECT mahinh from hinhanh";
+        $res = Check_db($ktra);
+        if(mysqli_num_rows($res)>0){
+            $sql = "SELECT MAX(mahinh) FROM hinhanh";
+            $res = Check_db($sql);
+            $row = mysqli_fetch_array($res);
+            $sohinh =(intval(substr(($row['MAX(mahinh)']),1))+1);
+            $mahinh = 'H'.strval($sohinh);
+            }else{
+                $mahinh = "H1";
+            }
+            return $mahinh;
     }
     if (isset($_POST['themsanpham'])){
             //$masp = Get_value($_POST["masp"]);
@@ -211,34 +213,37 @@ $masp = tao_id();
     $temp = 0;
     foreach($_FILES['files']['type'] as $key => $value){
         $value = substr($value, 0, 5);
-        echo "<script>alert('$value');</script>";
         if($value!= "image"){
             $temp++;
         }
     } 
     if($temp==0){
-        if(!Check_product($masp)){
-            if($magiamgia==''){
-                $sql = "INSERT INTO `sanpham` (`MASP`, `MALOAISP`, `MANSX`, `TENSP`, `MOTASP`, `RAM`, `VIXULY`, `KICHTHUOCMH`, `GIA`, `SOLUONGCON`, `NGAYSX`) 
-                VALUES ('$masp', '$maloaisp','$mansx', '$tensp', '$motasp', '$ram', '$vixuly', '$kichthuocmh', '$gia', '$soluongcon', '$ngaysx');";                     
-            }else{
-                $sql = "INSERT INTO `sanpham` (`MASP`, `MALOAISP`, `MAGIAMGIA`, `MANSX`, `TENSP`, `MOTASP`, `RAM`, `VIXULY`, `KICHTHUOCMH`, `GIA`, `SOLUONGCON`, `NGAYSX`) 
-                VALUES ('$masp', '$maloaisp', '$magiamgia','$mansx', '$tensp', '$motasp', '$ram', '$vixuly', '$kichthuocmh', '$gia', '$soluongcon', '$ngaysx');";       
-                }
-                $conn = Connect();
-                $res = mysqli_query($conn, $sql);
-                mysqli_close($conn);
+        $sql = "INSERT INTO `sanpham` (`MASP`, `MALOAISP`, `MANSX`, `TENSP`, `MOTASP`, `RAM`, `VIXULY`, `KICHTHUOCMH`, `GIA`, `SOLUONGCON`, `NGAYSX`) 
+            VALUES ('$masp', '$maloaisp','$mansx', '$tensp', '$motasp', '$ram', '$vixuly', '$kichthuocmh', $gia, '$soluongcon', '$ngaysx');";
+        
+        if($magiamgia==""){
+        $sql = "INSERT INTO `sanpham` (`MASP`, `MALOAISP`, `MANSX`, `TENSP`, `MOTASP`, `RAM`, `VIXULY`, `KICHTHUOCMH`, `GIA`, `SOLUONGCON`, `NGAYSX`) 
+            VALUES ('$masp', '$maloaisp','$mansx', '$tensp', '$motasp', '$ram', '$vixuly', '$kichthuocmh', $gia, '$soluongcon', '$ngaysx');";
+            echo "<script>alert('76t7t676$sql');</script>";                   
+        }else{
+            $sql = "INSERT INTO `sanpham` (`MASP`, `MALOAISP`, `MAGIAMGIA`, `MANSX`, `TENSP`, `MOTASP`, `RAM`, `VIXULY`, `KICHTHUOCMH`, `GIA`, `SOLUONGCON`, `NGAYSX`) 
+            VALUES ('$masp', '$maloaisp', '$magiamgia','$mansx', '$tensp', '$motasp', '$ram', '$vixuly', '$kichthuocmh', $gia, '$soluongcon', '$ngaysx');";       
+            echo "<script>alert('$sql');</script>";
         }
+            $conn = Connect();
+            $res = mysqli_query($conn, $sql);
+            mysqli_close($conn);
         foreach($_FILES["files"]["error"] as $key => $error) {
             if($error == UPLOAD_ERR_OK) {
                     $tmp_name = $_FILES["files"]["tmp_name"][$key];
                     $name = basename($_FILES["files"]["name"][$key]);
                     move_uploaded_file($tmp_name, "product_images/$name");
-                    $sql_hinh = "INSERT INTO HINHANH (masp, link) VALUES ('$masp', '$name');";
+                    $mahinh =tao_id_hinh();
+                    $sql_hinh = "INSERT INTO HINHANH (mahinh,masp, link) VALUES ('$mahinh','$masp', '$name');";
                     $conn = Connect();
                     $themhinh= mysqli_query($conn, $sql_hinh);
                     mysqli_close($conn);
-            } 
+            }
         }
         if($themhinh){
             echo "<script>alert('Thêm sản phẩm thành công');</script>";      
@@ -249,8 +254,8 @@ $masp = tao_id();
         echo "<script>alert('Định dạng hình không đúng');</script>";
     }
 }
-$pageWasRefreshed = isset($_SERVER['HTTP_CACHE_CONTROL']) && $_SERVER['HTTP_CACHE_CONTROL'] === 'max-age=0';
-if($pageWasRefreshed ) {
-    unset($refresh);
-}
+// $pageWasRefreshed = isset($_SERVER['HTTP_CACHE_CONTROL']) && $_SERVER['HTTP_CACHE_CONTROL'] === 'max-age=0';
+// if($pageWasRefreshed ) {
+//     unset($refresh);
+// }
 ?>

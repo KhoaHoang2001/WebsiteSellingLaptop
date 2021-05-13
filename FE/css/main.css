@@ -178,27 +178,6 @@ input:focus {
   width: 100%;
 }
 
-.item .item-content .card-group .card:hover #xemSP {
-  display: block;
-}
-
-.item .item-content .card-group .card:hover .card-body {
-  opacity: 0.5;
-}
-
-.item .item-content .card-group .card #xemSP {
-  display: none;
-  position: absolute;
-  bottom: 20%;
-  left: 15%;
-  font-size: 23px;
-  background-color: #007791;
-  padding: 5px;
-  border: 1px solid transparent;
-  border-radius: 3px;
-  z-index: 2;
-}
-
 .item .item-content .card-group .card-laptop-item {
   margin: 0;
   padding: 0;
@@ -265,27 +244,6 @@ input:focus {
 
 .bestseller .bestseller-content .card-group .card a .card-header img {
   width: 100%;
-}
-
-.bestseller .bestseller-content .card-group .card:hover #xemSP {
-  display: block;
-}
-
-.bestseller .bestseller-content .card-group .card:hover .card-body {
-  opacity: 0.5;
-}
-
-.bestseller .bestseller-content .card-group .card #xemSP {
-  display: none;
-  position: absolute;
-  bottom: 20%;
-  left: 15%;
-  font-size: 23px;
-  background-color: #007791;
-  padding: 5px;
-  border: 1px solid transparent;
-  border-radius: 3px;
-  z-index: 2;
 }
 
 .bestseller .bestseller-content .card-group .card-laptop-item {
@@ -358,27 +316,6 @@ input:focus {
 
 .sales .sales-content .card-group .card a .card-header img {
   width: 100%;
-}
-
-.sales .sales-content .card-group .card:hover #xemSP {
-  display: block;
-}
-
-.sales .sales-content .card-group .card:hover .card-body {
-  opacity: 0.5;
-}
-
-.sales .sales-content .card-group .card #xemSP {
-  display: none;
-  position: absolute;
-  bottom: 20%;
-  left: 15%;
-  font-size: 23px;
-  background-color: #007791;
-  padding: 5px;
-  border: 1px solid transparent;
-  border-radius: 3px;
-  z-index: 2;
 }
 
 .sales .sales-content .card-group .card-laptop-item {
@@ -783,5 +720,73 @@ footer .bottom p {
 #payment .container #codPayment a {
   color: white;
   font-weight: 600;
+}
+
+.searchItem .searchItem-title {
+  padding-left: 15px;
+}
+
+.searchItem .searchItem-content {
+  padding: 15px 15px 0 15px;
+  border: 1px solid black;
+}
+
+.searchItem .searchItem-content .card-group {
+  padding-bottom: 30px;
+}
+
+.searchItem .searchItem-content .card-group .card {
+  padding: 0;
+  border: 1px solid black;
+  border-radius: 5px;
+}
+
+.searchItem .searchItem-content .card-group .card a {
+  text-decoration: none;
+  color: black;
+  display: block;
+}
+
+.searchItem .searchItem-content .card-group .card a .card-header {
+  padding: 0;
+}
+
+.searchItem .searchItem-content .card-group .card a .card-header img {
+  width: 100%;
+}
+
+.searchItem .searchItem-content .card-group .card-laptop-item {
+  margin: 0;
+  padding: 0;
+}
+
+.searchItem .searchItem-content .card-group .card-laptop-item a {
+  display: block;
+  height: 100%;
+}
+
+.searchItem .searchItem-content .card-group .card-laptop-item a .card-header {
+  height: 50%;
+}
+
+.searchItem .searchItem-content .card-group .card-laptop-item a .card-header img {
+  width: 100%;
+  height: 100%;
+}
+
+.searchItem .searchItem-content .card-group .card-laptop-item a .card-body {
+  height: 35%;
+}
+
+.searchItem .searchItem-content .card-group .card-laptop-item a .card-footer {
+  height: 15%;
+  display: flex;
+  justify-content: space-around;
+  font-size: 1.2rem;
+}
+
+.searchItem .searchItem-content .card-group .card-laptop-item a .card-footer span:nth-child(2) {
+  font-size: 1.4rem;
+  color: red;
 }
 /*# sourceMappingURL=main.css.map */

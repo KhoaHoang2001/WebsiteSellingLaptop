@@ -34,7 +34,22 @@
         <td><?php echo $trangthai ?></td>
         <td>
           <a class="btn btn-danger btn-submit btn-sm" style="margin: 0" href="./account_viewIDB.php?madh=<?php echo $madh ?>">Chi tiết</a>
-          <a class="btn btn-danger btn-submit btn-sm" style="margin: 0" href="#">Hủy</a>
+          <?php 
+            if($trangthai == "Chưa xác nhận"){
+              echo "<td  >
+                  <a href='./includes/huy_order.php?madh=$madh' class=\"btn btn-sm btn-primary\" style=\"padding: 4px 15px 8px 15px; background: #007BFF; border: #007BFF;\" type=\"submit\" name=\"accept_order\" >Hủy</a>
+                  
+              </td>
+              ";
+          }
+          else{
+              echo "<td  >
+                  <a href='#' class=\"btn btn-sm btn-primary\" style=\"padding: 4px 15px 8px 15px; background: gray; border: gray;\" type=\"submit\" name=\"accept_order\"  disabled>Hủy</a>
+                  
+              </td>
+             ";
+          }
+          ?>
         </td>
       </tr>
   <?php

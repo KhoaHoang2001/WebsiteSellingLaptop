@@ -1,8 +1,7 @@
 <?php
-    require_once('./includes/include.php');
-    require_once('./includes/product.php');
-//Check_role_in_site($_SESSION['maquyen']);
-    $timkiem = $_GET['timkiem'];
+require_once('./includes/include.php');
+require_once('./includes/product.php');
+$timkiem = $_GET['timkiem'];
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -12,51 +11,18 @@
     <!-- header -->
     <?php include('./includes/header.php') ?>
     <!-- filter -->
-    <section id="laptop" class="filter">
-        <div class="container">
-            <div class="row">
-                <div class="card">
-                    <a href="#"><img src="./FE/image/MacBook44-b_27.png" alt=""></a>
-                </div>
-                <div class="card">
-                    <a href="#"><img src="./FE/image/Acer44-b_25.jpg" alt=""></a>
-                </div>
-                <div class="card">
-                    <a href="#"><img src="./FE/image/Asus44-b_1.png" alt=""></a>
-                </div>
-                <div class="card">
-                    <a href="#"><img src="./FE/image/Dell44-b_2.jpg" alt=""></a>
-                </div>
-                <div class="card">
-                    <a href="#"><img src="./FE/image/HP44-b_27.jpg" alt=""></a>
-                </div>
-                <div class="card">
-                    <a href="#"><img src="./FE/image/Huawei44-b_7.jpg" alt=""></a>
-                </div>
-                <div class="card">
-                    <a href="#"><img src="./FE/image/Lenovo44-b_35.png" alt=""></a>
-                </div>
-                <div class="card">
-                    <a href="#"><img src="./FE/image/LG44-b_32.jpg" alt=""></a>
-                </div>
-                <div class="card">
-                    <a href="#"><img src="./FE/image/MSI44-b_17.png" alt=""></a>
-                </div>
-            </div>
-            <?php include('includes/filter.php') ?>
-        </div>
-    </section>
+    <?php include('includes/filter.php') ?>
     <!-- search item -->
     <section class="searchItem" id="searchItem">
         <div class="container">
             <div class="row searchItem-title">
                 <h2>Kết quả sản phẩm tìm kiếm với từ khóa "<strong><?php echo $timkiem ?></strong>"</h2>
             </div>
-            <?php 
-                if (isset($_GET['timkiem'])) {
-                    $sql = "SELECT * FROM SANPHAM WHERE TENSP LIKE '%$timkiem%'";
-                    $res = Check_db($sql);
-                    if (mysqli_num_rows($res) > 0) {
+            <?php
+            if (isset($_GET['timkiem'])) {
+                $sql = "SELECT * FROM SANPHAM WHERE TENSP LIKE '%$timkiem%'";
+                $res = Check_db($sql);
+                if (mysqli_num_rows($res) > 0) {
             ?>
             <div class="row searchItem-content">
                 <!-- <div class="row"> -->
@@ -98,29 +64,30 @@
                                                     </s>
                                                     <span class='giaMoi'>" . $giamoi . "</span>";
                                                 }
-                                            ?>
-                                        </div>
-                                    </a>
+                                                ?>
+                                            </div>
+                                        </a>
+                                    </div>
                                 </div>
-                            </div>
-                </div>
-            </div>
+                            <?php
+                            }
+                            ?>
+                        </div>
+                    </div>
+                <?php
+                }
+            } else {
+                ?> <div class="row searchItem-content justify-content-center flex-column align-items-center">
+                    <!-- <div class="row"> -->
+                    <div class="row" style="padding: 15px">
+                        <img src='https://fptshop.com.vn/Content/v4/images/noti-search.png'>
+                    </div>
+                    <div>
+                        <h3>Rất tiếc không tìm thấy kết quả của "<strong><?php echo $timkiem ?></strong>"</h3>
                     <?php
-                                }
-                            }
-                            else{
-                    ?>      <div class="row searchItem-content justify-content-center flex-column align-items-center">
-                                <!-- <div class="row"> -->
-                                <div class="row" style="padding: 15px">
-                                    <img src='https://fptshop.com.vn/Content/v4/images/noti-search.png'>
-                                </div>
-                            <div>
-                            <h3>Rất tiếc không tìm thấy kết quả của "<strong><?php echo $timkiem ?></strong>"</h3>
-                    <?php 
-                            }
-                        }
+                }
                     ?>
-        </div>
+                    </div>
     </section>
     <!-- footer -->
     <?php include('./includes/footer.php') ?>
