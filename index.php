@@ -59,58 +59,7 @@ require_once('./includes/product.php');
                     <a href="index.php?action=filter_producer&producer=msi"><img src="./FE/image/MSI44-b_17.png" alt=""></a>
                 </div>
             </div>
-            <div class="row">
-                <div class="dropdown">
-                    <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        RAM
-                    </a>
-                    <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                        <a class="dropdown-item" href="index.php?action=filter_ram&ram=1">1GB</a>
-                        <a class="dropdown-item" href="index.php?action=filter_ram&ram=2">2GB</a>
-                        <a class="dropdown-item" href="index.php?action=filter_ram&ram=4">4GB</a>
-                        <a class="dropdown-item" href="index.php?action=filter_ram&ram=8">8GB</a>
-                        <a class="dropdown-item" href="index.php?action=filter_ram&ram=16">16GB</a>
-                        <a class="dropdown-item" href="index.php?action=filter_ram&ram=32">32GB</a>
-                    </div>
-                </div>
-                <div class="dropdown">
-                    <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        Vi xử lý
-                    </a>
-
-                    <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                        <a class="dropdown-item" href="index.php?action=filter_cpu&cpu=i3">i3</a>
-                        <a class="dropdown-item" href="index.php?action=filter_cpu&cpu=i5">i5</a>
-                        <a class="dropdown-item" href="index.php?action=filter_cpu&cpu=i7">i7</a>
-                        <a class="dropdown-item" href="index.php?action=filter_cpu&cpu=i9">i9</a>
-                    </div>
-                </div>
-                <div class="dropdown">
-                    <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        Màn hình
-                    </a>
-
-                    <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                        <a class="dropdown-item" href="index.php?action=filter_screen&screen="> Nhỏ hơn 13 inch</a>
-                        <a class="dropdown-item" href="index.php?action=filter_screen&screen=13 inch">13 inch</a>
-                        <a class="dropdown-item" href="index.php?action=filter_screen&screen=14 inch">14 inch</a>
-                        <a class="dropdown-item" href="index.php?action=filter_screen&screen=15 inch">15 inch</a>
-                        <a class="dropdown-item" href="index.php?action=filter_screen&screen="> Lớn hơn 15 inch</a>
-                    </div>
-                </div>
-                <div class="dropdown">
-                    <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        Giá
-                    </a>
-                    <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                        <a class="dropdown-item" href="index.php?action=filter_price&price=">Dưới 10 triệu</a>
-                        <a class="dropdown-item" href="index.php?action=filter_price&price=">Từ 10 triệu đến 15 triệu</a>
-                        <a class="dropdown-item" href="index.php?action=filter_price&price=">Từ 15 triệu đến 20 triệu</a>
-                        <a class="dropdown-item" href="index.php?action=filter_price&price=">Từ 20 triệu đến 25 triệu</a>
-                        <a class="dropdown-item" href="#">Hơn 20 triệu</a>
-                    </div>
-                </div>
-            </div>
+            <?php include('includes/filter.php') ?>
         </div>
     </section>
     <!-- New Item -->
