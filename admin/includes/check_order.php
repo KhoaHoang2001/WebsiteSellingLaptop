@@ -31,7 +31,7 @@
                 </tr>
             </thead>
             <?php
-                $sql_all_oder = "SELECT * FROM DONHANG";
+                $sql_all_oder = "SELECT * FROM DONHANG WHERE trangthai = 'Đã xác nhận' OR trangthai = 'Chưa xác nhận'";
                 $res_all_oder = Check_db($sql_all_oder);
                 while ($row = mysqli_fetch_array($res_all_oder)) {    
                     $madh = $row['MADH'];
@@ -58,27 +58,42 @@
                         <!-- KHI CLICK VAO DOI MAU BUTTON -->
                         <?php  
                             if($trangthai == "Chưa xác nhận"){
-                                echo "<td  >
-                                    <input class=\"btn btn-sm btn-primary\" style=\"padding: 4px 15px 8px 15px; background: #007BFF; border: #007BFF;\" type=\"submit\" name=\"accept_order\" value=\"Xác nhận\">
-                                    <input style=\"display: none\" type=\"text\" name=\"madh\" id=\"madh\" value=\"$madh\">
+                        ?>
+                                <td>
+                                    <input class="btn btn-sm btn-primary" style="padding: 4px 15px 8px 15px; background: #007BFF; border: #007BFF;" type="submit" name="accept_order" value="Xác nhận">
+                                    <input style="display: none" type="text" name="madh" id="madh" value="$madh">
                                 </td>
                                 <td>
-                                    <input class=\"btn btn-sm btn-danger\" style=\"padding: 4px 15px 8px 15px; background: #red; border: #red;\" type=\"submit\" name=\"cancel_order\" value=\"Từ chối\">
-                                    <input  style=\"display: none\" type=\"text\" name=\"madh\" id=\"madh\" value=\"$madh\">
-                                </td>";
+                                    <input class="btn btn-sm btn-danger" style="padding: 4px 15px 8px 15px; background: #red; border: #red;" type="submit" name="cancel_order" value="Từ chối">
+                                    <input  style="display: none" type="text" name="madh" id="madh" value="$madh">
+                                </td>
+                        <?php 
+                            }
+                            else if($trangthai == "Đã xác nhận"){
+                        ?>
+                                <td>
+                                    <input class="btn btn-sm btn-primary" style="padding: 4px 15px 8px 15px; background: #007BFF; border: #007BFF;" type="submit" name="delivered_order" value="Đã giao">
+                                    <input style="display: none" type="text" name="madh" id="madh" value="$madh">
+                                </td>
+                                <td>
+                                    <input class="btn btn-sm btn-danger" style="padding: 4px 15px 8px 15px; background: gray; border: gray;" type="submit" name="cancel_order" value="Từ chối" disabled>
+                                    <input  style="display: none" type="text" name="madh" id="madh" value="$madh">
+                                </td>
+                        <?php
                             }
                             else{
-                                echo "<td  >
-                                    <input class=\"btn btn-sm btn-primary\" style=\"padding: 4px 15px 8px 15px; background: gray; border: gray;\" type=\"submit\" name=\"accept_order\" value=\"Xác nhận\" disabled>
-                                    <input style=\"display: none\" type=\"text\" name=\"madh\" id=\"madh\" value=\"$madh\">
+                        ?>
+                                <td>
+                                    <input class="btn btn-sm btn-primary" style="padding: 4px 15px 8px 15px; background: gray; border: gray;" type="submit" name="accept_order" value="Xác nhận" disabled>
+                                    <input style="display: none" type="text" name="madh" id="madh" value="$madh">
                                 </td>
                                 <td>
-                                    <input class=\"btn btn-sm btn-danger\" style=\"padding: 4px 15px 8px 15px; background: gray; border: gray;\" type=\"submit\" name=\"cancel_order\" value=\"Từ chối\" disabled>
-                                    <input  style=\"display: none\" type=\"text\" name=\"madh\" id=\"madh\" value=\"$madh\">
-                                </td>";
+                                    <input class="btn btn-sm btn-danger" style="padding: 4px 15px 8px 15px; background: gray; border: gray;" type="submit" name="cancel_order" value="Từ chối" disabled>
+                                    <input  style="display: none" type="text" name="madh" id="madh" value="$madh">
+                                </td>
+                            <?php 
                             }
-                        ?>
-                        
+                            ?>
                     </form>
                 </tr>
             </tbody>
@@ -116,6 +131,17 @@
         $res = Check_db($sql);
         if($res){
             echo "<script>alert('Đã từ chối đơn hàng')</script>";
+            echo "<script>window.open(window.location.href,'_self');</script>";
+        }
+    }
+
+    if(isset($_POST['delivered_order'])){
+        $madh = $_POST['madh'];
+        echo $_POST['madh'];
+        $sql = "UPDATE DONHANG SET trangthai = 'Đã giao hàng' WHERE MADH = '$madh'";
+        $res = Check_db($sql);
+        if($res){
+            echo "<script>alert('Đã hoàn thành đơn hàng')</script>";
             echo "<script>window.open(window.location.href,'_self');</script>";
         }
     }

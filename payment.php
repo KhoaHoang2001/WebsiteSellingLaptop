@@ -29,7 +29,6 @@ $diachi = $thongtin['diachi'];
       </h2>
       <section class="cartItem">
         <div class="container">
-          <form action="./includes/charge.php" method="POST">
             <table id="tblItem" class="table">
               <thead id="tblHead">
                 <tr>
@@ -104,6 +103,7 @@ $diachi = $thongtin['diachi'];
                   <!-- tong tien don hang-->
                   <td id="tongtien" name="tongtien">$<?php echo $tongtien; ?></td>
                 </tr>
+              <form action="./includes/charge.php" method="POST">
                 <tr>
                   <td colspan="2" style="padding: 0;">
                     <div id="thongTinTaiKhoan">
@@ -121,7 +121,7 @@ $diachi = $thongtin['diachi'];
                             <label for="email">Email:</label>
                           </th>
                           <td>
-                            <input type="email" name="email" id="userEmail" value="<?php echo $email ?>" />
+                            <input type="email" name="email" id="userEmail" value="<?php echo $email ?>" required/>
                           </td>
                         </tr>
                         <tr>
@@ -137,7 +137,7 @@ $diachi = $thongtin['diachi'];
                             <label for="diachi">Địa chỉ:</label>
                           </th>
                           <td>
-                            <input type="text" name="diachi" id="" value="<?php echo $diachi ?>" required />
+                            <input type="text" name="diachi" id="diachi" value="<?php echo $diachi ?>" required />
                           </td>
                           <td>
                             <input style="display: none" type="text" name="tongtien" id="tongtien" value="<?php echo $tongtien; ?>">
@@ -151,19 +151,20 @@ $diachi = $thongtin['diachi'];
                     Hình thức thanh toán:
                   </th>
                   <td style="text-align: center;">
-                    <form action="">
                       <script id="scriptStripe" src="https://checkout.stripe.com/checkout.js" class="stripe-button" data-key="<?php echo $stripe['publishable_key']; ?>" data-description="Thanh toán" data-locale="auto"></script>
-                    </form>
                   </td>
+                </form>
                   <td style="text-align: center;">
-                    <button id="codPayment">
-                      <a href="./payment.php">Cash on delivery</a>
-                    </button>
+                      <form action="./COD.php" method="POST">
+                        <input style="display: none" type="text" name="tongtien_offline" id="tongtien_offline" value="<?php echo $tongtien; ?>">
+                        <input style="display: none" type="text" name="diachi_offline" id="diachi_offline" value="<?php echo $diachi; ?>"/>
+                        <input type="submit" name="COD" onclick="Get_Address()" value="Cash On Delivery">
+                      </form>
                   </td>
                 </tr>
               </tfoot>
             </table>
-          </form>
+          
         </div>
       </section>
 
@@ -176,7 +177,9 @@ $diachi = $thongtin['diachi'];
   <?php include('./includes/script.php') ?>
   <!-- active -->
   <script type="text/javascript">
-
+    function Get_Address() {
+      document.getElementById('diachi_offline').value = document.getElementById('diachi').value;
+  }
   </script>
 </body>
 

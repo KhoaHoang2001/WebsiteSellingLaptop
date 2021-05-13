@@ -78,24 +78,20 @@
     require_once('./includes/include.php');
     // function Change_Pw($taikhoan){
         if (isset(($_POST['doimatkhau']))){
-
             $matkhaucu = Get_value($_POST['matkhaucu']);
             $matkhaumoi = Get_value($_POST['matkhaumoi']);
-            $rematkhaumoi = Get_value($_POST['rematkhaumoi']);
             $matkhaucu = md5($matkhaucu);
             $matkhaumoi = md5($matkhaumoi);
-            $rematkhaumoi = md5($rematkhaumoi);
 
             $sql = "SELECT * FROM NGUOIDUNG WHERE taikhoan = '$taikhoan' AND matkhau = '$matkhaucu'";
             $res = Check_db($sql);
             if(mysqli_num_rows($res) > 0){
-            $sqlupdate =  "UPDATE table NGUOIDUNG SET taikhoan = '$taikhoan' AND matkhau = '$matkhaumoi' ";
-            $res = Check_db($sqlupdate);
-            echo "cập nhật mật khẩu ok";
-
-        }else{
-            echo "sai rồi";
-        }
-    
+              $sqlupdate =  "UPDATE table NGUOIDUNG SET taikhoan = '$taikhoan' AND matkhau = '$matkhaumoi' ";
+              $res = Check_db($sqlupdate);
+                echo "<script>alert(\"Đổi mật khẩu thành công\")</script>";
+            }
+            else{
+              echo "<script>alert(\"Mật khẩu cũ không trùng khớp\")</script>";
+            }
 }
 ?>

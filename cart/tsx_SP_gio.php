@@ -23,12 +23,17 @@
         if($row_SPGH!=null){
             $SOLUONGGIO=$row_SPGH['SOLUONGGIO']+1;
             update("UPDATE sanphamgiohang SET SOLUONGGIO='$SOLUONGGIO' WHERE TAIKHOAN='$TAIKHOAN' AND MASP='$MASP'");
+            echo "<script>
+                    alert('Thêm thành công!');
+                    </script>";
         }else{
             include('connectDB.php');
             $sql="INSERT INTO sanphamgiohang VALUES('$MASP','$TAIKHOAN','1')";
             if($conn->query($sql)!=true){
                 echo "error: ".$sql."<br>".$conn->error;
-            }else echo $sql;
+            }else echo "<script>
+            alert('Thêm thành công!');
+            </script>";
             $conn->close();
         }
     }
