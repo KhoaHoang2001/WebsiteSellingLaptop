@@ -13,12 +13,12 @@
                         <span class="navbar-toggler-icon"></span>
                     </button>
                     <div class="collapse navbar-collapse header-navbar--content col-sm-10" id="navbarSupportedContent">
-                    <form class="" action="./../search.php">
+                    <form class="" action="./search.php" method="GET">
                         <div class="input-group navbar-search">
                             <div class="input-group-prepend">
                                 <button class="btn btn-outline-secondary" type="submit"><i class="fa fa-search"></i></button>
                             </div>
-                            <input type="text" class="form-control" placeholder="" aria-label="" aria-describedby="basic-addon1" style="border-radius: 0 5px 5px 0;">
+                            <input type="text" name="timkiem" class="form-control" placeholder="" aria-label="" aria-describedby="basic-addon1" style="border-radius: 0 5px 5px 0;">
                         </div>
                     </form>
                         <div class="navbar-select">
