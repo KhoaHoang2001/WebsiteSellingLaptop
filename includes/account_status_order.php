@@ -11,7 +11,7 @@
 </thead>
 <tbody id="trangThaiDonHang_tblBody">
   <?php
-  $sql_order = "SELECT * FROM `donhang` WHERE TAIKHOAN='$taikhoan' and TRANGTHAI !='đã giao'";
+  $sql_order = "SELECT * FROM `donhang` WHERE TAIKHOAN='$taikhoan' and TRANGTHAI !='Đã từ chối' and TRANGTHAI !='Đã hủy' and TRANGTHAI!='Đã giao'";
   $res_order = Check_db($sql_order);
   if (mysqli_num_rows($res_order)) {
     while ($row = mysqli_fetch_assoc($res_order)) {
