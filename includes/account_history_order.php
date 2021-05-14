@@ -4,7 +4,7 @@
     <th>Ngày đặt</th>
     <th>Địa chỉ nhận</th>
     <th>Tổng tiền</th>
-    <th>Trạng thái</th>
+    <th colspan="2">Trạng thái</th>
   </tr>
 </thead>
 <tbody id="tblBody">
