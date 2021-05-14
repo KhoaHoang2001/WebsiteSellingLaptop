@@ -4,12 +4,12 @@
     <th>Ngày đặt</th>
     <th>Địa chỉ nhận</th>
     <th>Tổng tiền</th>
-    <th>Trạng thái</th>
+    <th colspan="2">Trạng thái</th>
   </tr>
 </thead>
 <tbody id="tblBody">
   <?php
-  $sql_order = "SELECT * FROM `donhang` WHERE TAIKHOAN='$taikhoan' and TRANGTHAI ='đã giao'";
+  $sql_order = "SELECT * FROM `donhang` WHERE TAIKHOAN='$taikhoan' and TRANGTHAI !='Đã xác nhận' and TRANGTHAI !='Chưa xác nhận'";
   $res_order = Check_db($sql_order);
   if (mysqli_num_rows($res_order)) {
     while ($row = mysqli_fetch_assoc($res_order)) {

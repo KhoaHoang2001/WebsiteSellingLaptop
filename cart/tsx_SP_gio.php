@@ -19,13 +19,21 @@
     }
     function themSP_gio($MASP){
         $TAIKHOAN=$_SESSION['taikhoan'];
-        $row_SPGH=test("SELECT*FROM sanphamgiohang WHERE TAIKHOAN='$TAIKHOAN' AND MASP='$MASP'");
+        $row_SPGH=test("SELECT*FROM sanphamgiohang,sanpham WHERE sanphamgiohang.MASP=sanpham.MASP and TAIKHOAN='$TAIKHOAN' AND sanphamgiohang.MASP='$MASP'");
         if($row_SPGH!=null){
-            $SOLUONGGIO=$row_SPGH['SOLUONGGIO']+1;
-            update("UPDATE sanphamgiohang SET SOLUONGGIO='$SOLUONGGIO' WHERE TAIKHOAN='$TAIKHOAN' AND MASP='$MASP'");
-            echo "<script>
+            $SOLUONGGIO=$row_SPGH['SOLUONGGIO'];
+            $SOLUONGCON=$row_SPGH['SOLUONGCON'];
+            if($SOLUONGGIO<$SOLUONGCON){
+                $SOLUONGGIO=$row_SPGH['SOLUONGGIO']+1;
+                update("UPDATE sanphamgiohang SET SOLUONGGIO='$SOLUONGGIO' WHERE TAIKHOAN='$TAIKHOAN' AND MASP='$MASP'");
+                echo "<script>
                     alert('Thêm thành công!');
                     </script>";
+            }else {
+                echo "<script>
+                    alert('Thêm không thành công!');
+                    </script>";
+            }
         }else{
             include('connectDB.php');
             $sql="INSERT INTO sanphamgiohang VALUES('$MASP','$TAIKHOAN','1')";
