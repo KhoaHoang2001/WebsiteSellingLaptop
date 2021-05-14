@@ -1,6 +1,9 @@
 <?php
     require_once('./includes/include.php');
     require_once('./includes/conn.php');
+    if(isset($_POST['update_discount'])){
+        Check_f5($_POST['update_discount']);
+    }
     $magiamgia = $_GET['discount_id'];
     $update_discount = Check_db("SELECT * from GIAMGIA where magiamgia ='$magiamgia';");
     $row = mysqli_fetch_array($update_discount);

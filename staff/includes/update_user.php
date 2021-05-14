@@ -1,6 +1,10 @@
 <?php 
     require_once('./includes/include.php');
     require_once('./includes/conn.php');
+    $taikhoan = $_SESSION['taikhoan'];
+    // if(isset($_POST['update_user'])){
+    //     Check_f5($_POST['update_user']);
+    // }
 ?>
 
 <div class="form_box">
@@ -29,7 +33,7 @@
         <table align="center" width="100%">
             <tr>
                 <td valign="top"><b>Tài khoản:</b></td>
-                <td><input type="text" name="taikhoan" id="taikhoan" disabled/></td>
+                <td><input type="text" name="taikhoan" id="taikhoan" value="<?php echo $taikhoan ?>" disabled/></td>
             </tr>
             <tr>
                 <td valign="top"><b>Họ và tên:</b></td>
@@ -74,7 +78,14 @@
 
 <?php 
     if(isset($_POST['update_user'])){
-        $sql_update_user = "UPDATE TAIKHOAN SET TENND = '$tennd', GIOITINH = $gioitinh, DIACHI = '$diachi', SDT = '$sdt', EMAIL = '$email', NGAYSINH = '$ngaysinh' WHERE `nguoidung`.`TAIKHOAN` = '$taikhoan';";
+        $tennd = $_POST['tennd'];
+        $gioitinh = $_POST['gioitinh'];
+        $diachi = $_POST['diachi'];
+        $sdt = $_POST['sdt'];
+        $email = $_POST['email'];
+        $ngaysinh = $_POST['ngaysinh'];
+        $sql_update_user = "UPDATE NGUOIDUNG SET TENND = '$tennd', GIOITINH = $gioitinh, DIACHI = '$diachi', SDT = '$sdt', EMAIL = '$email', NGAYSINH = '$ngaysinh' 
+                            WHERE `nguoidung`.`TAIKHOAN` = '$taikhoan';";
         $res_update_user = Check_db($sql_update_user);
         if($res_update_user){
             echo "<script>alert('Thông tin đã được chỉnh sửa thành công!')</script>";

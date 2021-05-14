@@ -1,7 +1,9 @@
 <?php
 require_once('./includes/include.php');
 require_once('./includes/conn.php');
-
+if(isset($_POST['themsanpham'])){
+    Check_f5($_POST['themsanpham']);
+}
 ?>
 
 <div class="form_box">

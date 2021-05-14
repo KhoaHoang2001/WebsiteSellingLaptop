@@ -31,7 +31,7 @@
         <h2 style="text-align: center; margin-bottom: 50px">
           Đăng ký tài khoản
         </h2>
-        <form method="" action="" onsubmit="return DangKy()">
+        <form method="POST" action="" onsubmit="return DangKy()">
           <table style="padding: 10px; text-align: left">
             <tr>
               <th>Họ và tên:</th>

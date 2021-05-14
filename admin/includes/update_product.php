@@ -1,6 +1,9 @@
 <?php
     require_once('./includes/include.php');
     require_once('./includes/conn.php');
+    if(isset($_POST['update_product'])){
+        Check_f5($_POST['update_product']);
+    }
     $masp = $_GET['product_id'];
     $update_product = Check_db("SELECT * from sanpham where masp='$masp'");
     $fetch_update = mysqli_fetch_array($update_product);
