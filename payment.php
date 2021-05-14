@@ -157,7 +157,7 @@ $diachi = $thongtin['diachi'];
                       <form action="./COD.php" method="POST">
                         <input style="display: none" type="text" name="tongtien_offline" id="tongtien_offline" value="<?php echo $tongtien; ?>">
                         <input style="display: none" type="text" name="diachi_offline" id="diachi_offline" value="<?php echo $diachi; ?>"/>
-                        <input type="submit" name="COD" onclick="Get_Address()" value="Cash On Delivery">
+                        <input type="submit" name="COD" onclick="Get_Address()" style="padding: 5px 10px; background-image: linear-gradient(#28a0e5,#015e94);background-color: #1275ff; border: 0px solid transparent; color: white; font-weight: 600" value="Cash On Delivery">
                       </form>
                   </td>
                 </tr>
