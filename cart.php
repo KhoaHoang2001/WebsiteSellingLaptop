@@ -82,7 +82,7 @@ function View_Discount_Of_Product($masp){
                                     <td>
                                         <input type="text" value="<?php echo $masp ?>" name="masp" style="display: none;">
                                         <a href="xoa.php?masp=<?php echo $masp ?>" style="padding: 10px;"><i class="fa fa-trash-alt"></i></a>
-                                        <input type="submit" value="Lưu" style="padding: 5px 10px;">
+                                        <button type="submit" style="padding: 0; border: 0px solid transparent; background-color:transparent"><i class="fa fa-retweet"></i></button>
                                     </td>
                                 </tr>
                             </form>
