@@ -6,7 +6,7 @@
     <th>Địa chỉ nhận</th>
     <th>Tổng tiền</th>
     <th>Trạng thái</th>
-    <th>Thao tác</th>
+    <th colspan="2">Thao tác</th>
   </tr>
 </thead>
 <tbody id="trangThaiDonHang_tblBody">
