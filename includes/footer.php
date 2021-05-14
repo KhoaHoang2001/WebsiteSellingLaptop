@@ -26,11 +26,8 @@
         </div>
         <div class="col-md-3">
           <ul>
-            <li>Lorem ipsum dolor sit amet.</li>
-            <li>Lorem ipsum dolor sit amet.</li>
-            <li>Lorem ipsum dolor sit amet.</li>
-            <li>Lorem ipsum dolor sit amet.</li>
-            <li>Lorem ipsum dolor sit amet.</li>
+            <li><i class="fab fa-cc-visa" style="font-size: 3rem;margin-right: 5px;"></i><i class="fa fa-credit-card" style="font-size: 3rem;margin-right: 5px;"></i><i class="fab fa-cc-mastercard" style="font-size: 3rem;margin-right: 5px;"></i><i class="fab fa-cc-jcb"  style="font-size: 3rem;margin-right: 5px;"></i></li>
+            <li><span style="border: 1px solid black; border-radius:2px; font-size:1.4rem; color: white; background-color: #29303b; padding: 2px">COD</span></li>
           </ul>
         </div>
       </div>

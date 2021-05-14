@@ -117,7 +117,7 @@ if ($gia - $gia * $phantram / 100 != $gia) {
                     </form>
                 </div>
             </div>
-            <div class="row about_item-info">
+            <div class="row about_item-info" style="margin-top: 50px;">
                 <div class="col-md-8">
                     <p><?php echo $motasp ?></p>
                 </div>
