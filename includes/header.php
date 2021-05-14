@@ -1,7 +1,7 @@
 <header id="header">
     <div class="container">
         <div class="row header-banner">
-            <img height="70%" src="./FE/image/banner.png" alt="">
+            <img height="50%" src="./FE/image/banner.png" alt="">
         </div>
         <div class="row header-navbar">
             <nav class="navbar navbar-expand-lg navbar-light bg-light col-12">

@@ -16,13 +16,13 @@ require_once('./includes/product.php');
             <div id="carouselExampleSlidesOnly" class="carousel slide" data-ride="carousel">
                 <div class="carousel-inner" role="listbox">
                     <div class="carousel-item active">
-                        <img src="./FE/image/Slide-Galaxy-Buds-Live-2.jpg" class="d-block w-100" alt="...">
+                        <img src="./FE/image/banner-1143x357-1.jpg" class="d-block w-100" alt="...">
                     </div>
                     <div class="carousel-item">
-                        <img src="./FE/image/Slide-Mi-11-5G-1.jpg" class="d-block w-100" alt="...">
+                        <img src="./FE/image/banner2.jpg" class="d-block w-100" alt="...">
                     </div>
                     <div class="carousel-item">
-                        <img src="./FE/image/Slide-oppo-reno5.jpg" class="d-block w-100" alt="...">
+                        <img src="./FE/image/banner-laptop-800x300.png" class="d-block w-100" alt="...">
                     </div>
                 </div>
             </div>
