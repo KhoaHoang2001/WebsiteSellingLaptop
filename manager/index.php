@@ -43,6 +43,7 @@ if ($_SESSION['chucvu'] != "QLNS") {
     <div class="dropdown-container">
       <a href="index.php?action=update_user">Cập nhật thông tin tài khoản</a>
       <a href="index.php?action=change_password">Đổi mật khẩu</a>
+      <a href="index.php?action=my_salary">Lương cá nhân</a>
     </div>
         <button class="dropdown-btn">Nhân viên<i class="fa fa-caret-down"></i></button>
         <div class="dropdown-container">
@@ -85,6 +86,14 @@ if ($_SESSION['chucvu'] != "QLNS") {
 
         case 'change_password';
           include './includes/change_password.php';
+          break;
+
+        case 'my_salary';
+          include './includes/my_salary.php';
+          break;
+
+        case 'add_staff';
+          include './includes/add_staff.php';
           break;
 
         case 'view_staff';

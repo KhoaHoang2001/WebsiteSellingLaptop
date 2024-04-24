@@ -58,19 +58,6 @@
 
 <?php
 
-    function Check_Staff($taikhoan){
-        if(isset($_POST['submit'])){
-            $sql = "SELECT * FROM NGUOIDUNG WHERE taikhoan = '$taikhoan';";
-            $res = Check_db($sql);
-            if(mysqli_num_rows($res) > 0){
-                return true;
-            }
-            else{
-                return false;
-            }
-        }
-    }
-
     if(isset($_POST['approve_leave'])){
         $taikhoan = $_POST['taikhoan'];
         $sql_update_leave = "UPDATE DONNGHI SET TRANGTHAI='Chấp thuận' WHERE MADON = '$madon';";
@@ -86,15 +73,15 @@
     }
     if(isset($_POST['deny_leave'])){
         $taikhoan = $_POST['taikhoan'];
-        $sql_update_leave = "DELETE FROM NGUOIDUNG WHERE taikhoan = '$taikhoan';";
+        $sql_update_leave = "UPDATE DONNGHI SET TRANGTHAI='Từ chối' WHERE MADON = '$madon';";
         echo $sql_update_leave;
         $res_update_leave = Check_db($sql_update_leave);
         if($res_update_leave){
-            echo "<script>alert('Tài khoản được xóa thành công!')</script>";
-            echo "<script>window.open('index.php?action=view_staff','_self')</script>";
+            echo "<script>alert('Đơn nghỉ việc bị từ chối!')</script>";
+            echo "<script>window.open('index.php?action=approve_leave','_self')</script>";
         }
         else {
-            echo "<script>alert('xóa tài khoản không thành công!')</script>";
+            echo "<script>alert('Đã xảy ra lỗi!')</script>";
         }
     }
 

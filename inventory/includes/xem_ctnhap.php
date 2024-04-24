@@ -15,126 +15,19 @@
     <h2>Phiếu nhập <?php echo $maphieu; ?></h2>
     <div class="border_bottom"></div>
     <!--/.border_bottom -->
-    <form method="post" onsubmit="return Check_all()" enctype="multipart/form-data">
+    <form method="post" enctype="multipart/form-data">
         <table align="center" width="100%">
             <tr>
-                <td><b>Mã sản phẩm:</b></td>
-                <td><input type="text" name="magiamgia" value="<?php echo $masp;?>" size="60" disabled/></td>
+                <td><b>Ngày lập:</b></td>
+                <td><input type="date" value="<?php echo $ngaylap;?>" disabled/></td>
             </tr>
             <tr>
-                <td valign="top"><b>Mã loại sản phẩm:</b></td>
-                <td>
-                    <select id="maloaisp" name="maloaisp">
-                        <option ><?php echo $maloaisp?></option>
-                        <?php
-                        $sql_all_cat = "SELECT * FROM  LOAISP";
-                        $res_all_cat = Check_db($sql_all_cat);
-                        while ($row = mysqli_fetch_assoc($res_all_cat)) {
-                        $maloaisp = $row['MALOAISP'];
-                        echo "<option>$maloaisp</option>";    
-                        }       
-                        ?>
-                    </select>
-                </td>
+                <td><b>Nhà cung cấp:</b></td>
+                <td><input type="text" value="<?php echo $diachi;?>" disabled/></td>
             </tr>
             <tr>
-                <td valign="top"><b>Mã giảm giá:  </b></td>
-                <td>
-                    <select id="magiamgia" name="magiamgia">
-                        <option value=''><?php echo $magiamgia?></option>
-                        <?php 
-                            $sql_all_discount = "SELECT * FROM GIAMGIA";
-                            $res_all_discount = Check_db($sql_all_discount);
-                            while ($row = mysqli_fetch_array($res_all_discount)) {
-                            $magiamgia = $row['MAGIAMGIA'];
-                            echo "<option>$magiamgia</option>";
-                            }
-                        ?>
-                    </select> 
-                </td>
-            </tr>
-            <tr>
-                <td valign="top"><b>Mã nhàs sản xuất:</b></td>
-                <td>
-                    <select id="mansx" name="mansx" onchange="check_nsx()">
-                        <?php
-                        $sql_all_nsx = "SELECT * FROM  nhasanxuat";
-                        $res_all_nsx = Check_db($sql_all_nsx);
-                        while ($row = mysqli_fetch_assoc($res_all_nsx)) {
-                        $mansx = $row['MANSX'];
-                        echo "<option>$mansx</option>";    
-                        }       
-                        ?>
-                    </select>
-                </td>
-            </tr>
-            <tr>
-                <td valign="top"><b>Tên sản phẩm:</b></td>
-                <td><input type="text" name="tensp" id="tensx" size = 60 value="<?php echo $tensp ?>" required/>
-                </td>
-            </tr>
-            <tr>
-                <td valign="top"><b>Mô tả sản phẩm: </b></td>
-                <td><input type="text" name="motasp" id="motasp" size = 60 value="<?php echo $motasp ?>" required/></td>
-            </tr>
-
-            <tr>
-            <td valign="top"><b>Ram:</b></td>
-            <td>
-                <select id="ram" name="ram" >
-                <option><?php echo $ram?></option>
-                <option>1</option>
-                <option>2</option>
-                <option>4</option>
-                <option>8</option>
-                <option>16</option>
-                <option>32</option>
-                <option>64</option>
-                </select>
-            </td>
-        </tr>
-
-            <tr>
-                <td valign="top"><b>Vi xử lý:</b></td>
-                <td><input type="text" name="vixuly" id="vixuly"value="<?php echo $vixuly ?>" required/></td>
-            </tr>
-            <tr>
-            <td valign="top"><b>Kích thước màn hình:</b></td>
-                        
-                <td>
-
-                <select id="kichthuocmh" name="kichthuocmh">
-                    <option><?php echo $maloaisp?></option>
-                    <option>10.1 inch</option>
-                    <option>11.6 inch</option>
-                    <option>13.3 inch</option>
-                    <option>14 inch</option>
-                    <option>14.1 inch</option>
-                    <option>15.6 inch</option>
-                </select>
-                </td>
-            </tr>>
-
-            <tr>
-                <td valign="top"><b>Giá:</b></td>
-                <td><input type="text" name="gia" id="gia"value="<?php echo $gia ?>" required></td>
-            </tr>
-            <tr>
-                <td valign="top"><b>Số lượng còn:</b></td>
-                <td><input type="text" name="soluongcon" id="soluongcon" value="<?php echo $soluongcon ?>"></td>
-            </tr>
-            <tr>
-                <td valign="top"><b>Ngày sản xuất:</b></td>
-                <td><input type="date" name="ngaysx" id="ngaysx" value="<?php echo $ngaysx ?>"></td>
-            </tr>
-            <tr>
-                <td><b>Hình ảnh: </b></td>
-                <td><input type="file" name="files[]"  multiple required /></td>
-            </tr>
-
-            <tr>
-                <td colspan="13" class="text-center"><input class="btn btn-primary btn-submit" type="submit"
-                        name="update_product" value="Lưu" /></td>
+                <td><b>Địa chỉ kho:</b></td>
+                <td><input type="text" value="<?php echo $ncc;?>" disabled/></td>
             </tr>
         </table>
     </form>

@@ -54,7 +54,7 @@
                     <td><?php echo $ngaysx; ?></td>
                     <form method="post">
                         <td class="text-center"><a class="btn btn-primary btn-submit btn-sm"
-                                href="index.php?action=update_product&product_id=<?php echo $masp; ?>">chi tiết</a>
+                                href="index.php?action=update_product&product_id=<?php echo $masp; ?>">Chi tiết</a>
                             </td>
                         <td class="text-center">
                             <input class="btn btn-sm btn-danger" style="padding: 4px 15px 4px 15px;"
@@ -150,7 +150,7 @@ if(isset($_POST['delete_product'])){
             }
         }
         else{
-            echo "khong tim duoc san pham nao";
+            echo "Không tìm được sản phẩm nào";
         }
     }
     
@@ -162,7 +162,7 @@ if(isset($_POST['delete_product'])){
                 $maloaisp = $row_loai['maloaisp'];
             }
         } else{
-            echo "khong co loai nao";
+            echo "Không có loại nào";
         }
     }
     
@@ -174,7 +174,7 @@ if(isset($_POST['delete_product'])){
                 $maNSX = $row_NSX['maNSX'];
             }
         } else{
-            echo "khong co NSX nao";
+            echo "Không có nhà sản xuất nào";
         }
     }
 

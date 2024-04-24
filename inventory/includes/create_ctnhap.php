@@ -74,6 +74,9 @@ if (isset($_POST['insert_post'])) {
         $sql = "INSERT INTO CHITIETNHAP (STT, MAPHIEU, MASP, SOLUONG, DONGIA) 
                 VALUES ('$stt', $maphieu, '$masp', '$sl', '$dongia');";
         $res = Check_db($sql);
+        $sql = "UPDATE san 
+                VALUES ('$stt', $maphieu, '$masp', '$sl', '$dongia');";
+        $res = Check_db($sql);
         if($res){
             echo "<script>alert(\"Thêm hàng nhập thành công\");</script>";
         }

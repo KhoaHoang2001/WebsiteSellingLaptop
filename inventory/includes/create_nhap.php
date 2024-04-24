@@ -37,9 +37,6 @@
                 <td valign="top"><b>Ngày lập phiếu:</b></td>
                 <td><input type="date" name="ngaylap" id="ngaylap" required /></td>
             </tr>
-            <tr>
-                <td colspan=2 valign="top"><b>Hàng nhập: </b></td>
-            </tr>
             <!--<tr>
                 <td colspan=2><table width="100%">
                     <thead>

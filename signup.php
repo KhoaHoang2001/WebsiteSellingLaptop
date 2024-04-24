@@ -105,9 +105,9 @@
               <th>Giới tính:</th>
               <td></td>
               <td id="gioiTinh">
-                <input type="radio" name="GIOITINH" value="Nam" checked />
+                <input type="radio" name="GIOITINH" value="0" checked />
                 <label for="nam">Nam</label>
-                <input type="radio" name="GIOITINH" value="Nữ" />
+                <input type="radio" name="GIOITINH" value="1" />
                 <label for="nu">Nữ</label>
               </td>
               <td></td>
@@ -123,6 +123,34 @@
               <td></td>
               <td>
                 <input type="email" name="EMAIL" id="Email" placeholder="email@email.com" />
+              </td>
+              <td></td>
+            </tr>
+            <tr>
+              <th style="height: 15px;"></th>
+              <td></td>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr>
+              <th>Địa chỉ:</th>
+              <td></td>
+              <td>
+                <input type="text" name="diachi" id="diachi" />
+              </td>
+              <td></td>
+            </tr>
+            <tr>
+              <th style="height: 15px;"></th>
+              <td></td>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr>
+              <th>Ngày sinh:</th>
+              <td></td>
+              <td>
+                <input type="date" name="ngaysinh" id="ngaysinh" />
               </td>
               <td></td>
             </tr>
@@ -183,21 +211,22 @@
     $TAIKHOAN = $_POST["TAIKHOAN"];
     $MATKHAU = $_POST["MATKHAU"];
     $TENND = ($_POST["TENND"]);
-    $NHAPLAIMK = ($_POST["NHAPLAIMK"]);
-    $GIOITINH = ($_POST['GIOITINH']);
+    $NHAPLAIMK = $_POST["NHAPLAIMK"];
+    $GIOITINH = $_POST['GIOITINH'];
     $EMAIL = $_POST['EMAIL'];
+    $diachi = $_POST['diachi'];
+    $ngaysinh = $_POST['ngaysinh'];
     $SDT = $_POST['SDT'];
-    // echo $GIOITINH . "" . $EMAIL . "" . $SDT;
     $conn = Connect();
     $sql1 = "SELECT * FROM nguoidung WHERE TAIKHOAN='$TAIKHOAN'";
     $request = $conn->query($sql1);
 
     if (mysqli_num_rows($request) > 0) {
-      echo "<script>alert('tai khoan da ton tai!')</script>";
+      echo "<script>alert('Tài khoản đã tồn tại!')</script>";
       echo "<script>window.open('signup.php','_self')</script>";
     } else {
       $MATKHAU = md5($MATKHAU);
-      $sql = "INSERT INTO nguoidung(TAIKHOAN,MAQUYEN,MATKHAU,TENND,GIOITINH,SDT,EMAIL,KICHHOAT) VALUE ('$TAIKHOAN','KHONG','$MATKHAU','$TENND','$GIOITINH','$SDT','$EMAIL',1)";
+      $sql = "INSERT INTO nguoidung VALUES ('$TAIKHOAN','KHONG','$MATKHAU','$TENND','$GIOITINH','$SDT','$diachi', '$EMAIL', '$ngaysinh',1)";
       if ($conn->query($sql) == true) {
         echo "<script>alert('Đăng ký thành công!')</script>";
         echo "<script>window.open('login.php','_self')</script>"; //link toi site dang nhap

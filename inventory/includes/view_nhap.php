@@ -25,7 +25,7 @@
             while ($row = mysqli_fetch_assoc($res_all_nhap)) {
                 $maphieu = $row['MAPHIEU'];
                 $ngaylap = $row['NGAYLAP'];
-                $nhacc = $row['NHACC'];
+                $nhacc = $row['NCC'];
                 $diachi = $row['DIACHI'];
                 
             ?>
@@ -53,90 +53,3 @@
     </form>
 
 </div>
-<?php
-if(isset($_POST['delete_product'])){
-    $masp = $_POST['masp'];
-    echo $masp;
-    
-    $sql_del_img = "DELETE FROM HINHANH WHERE masp = '$masp';";
-    $delete = Check_db($sql_del_img);
-    if($delete){
-    $sql_del_product = "DELETE FROM SANPHAM WHERE masp = '$masp';";
-    Check_db($sql_del_product);
-    echo "<script>alert('xóa sản phẩm thành công!')</script>";
-    echo "<script>window.open('index.php?action=view_product','_self')</script>";
-    }else {
-        echo "<script>alert('xóa  sản phẩm thất bại!')</script>";
-    }
-    
-}
-?>
-
-<?php 
-
-    function View_Product_Sellest(){
-        $sql = "SELECT * FROM sanpham where Masp = (select max(soluongdat) FROM monhang);";
-        $res = Check_db($sql);
-        if(mysqli_num_rows($res) > 0){
-            while ($row = mysqli_fetch_assoc($res)) {
-                $masp = $row['MASP'];
-                $tensp = $row['TENSP'];
-                $gia = $row['GIA'];
-                $phantram = View_Discount_Of_Product($masp);
-                $kichthuocmh = $row['KICHTHUOCMH'];
-                $vixuly = $row['VIXULY'];
-                $ram = $row['RAM'];
-                $motasp = $row['MOTASP'];
-                $ngaysx = $row['NGAYSX'];
-            }
-        }
-        else{
-            echo "khong tin duoc san pham ban chay nhat";
-        }
-    }
-
-    function View_Full_Product(){
-        $sql = "SELECT * FROM sanpham";
-        $res = Check_db($sql);
-        if(mysqli_num_rows($res) > 0){
-            while ($row = mysqli_fetch_assoc($res)) {
-                $masp = $row['MASP'];
-                $tensp = $row['TENSP'];
-                $gia = $row['GIA'];
-                $phantram = View_Discount_Of_Product($masp);
-                $phantram = $row['PHANTRAM'];
-                $kichthuocmh = $row['KICHTHUOCMH'];
-                $vixuly = $row['VIXULY'];
-                $ram = $row['RAM'];
-            }
-        }
-        else{
-            echo "khong tim duoc san pham nao";
-        }
-    }
-    
-    function View_full_loai_Of_Product($masp){
-        $sql_loai = "SELECT * FROM SANPHAM WHERE MALOAISP = (SELECT MALOAISP FROM SANPHAM WHERE MASP = '$masp')";
-        $res_loai = Check_db($sql_loai);
-        if(mysqli_num_rows($res_loai) > 0){
-            while($row_loai = mysqli_fetch_assoc($res_loai)){
-                $maloaisp = $row_loai['maloaisp'];
-            }
-        } else{
-            echo "khong co loai nao";
-        }
-    }
-    
-    function View_full_MaNSX_Of_Product($masp){
-        $sql_NSX = "SELECT * FROM SANPHAM WHERE MANSX = (SELECT MANSX FROM SANPHAM WHERE MASP = '$masp')";
-        $res_NSX = Check_db($sql_NSX);
-        if(mysqli_num_rows($res_NSX) > 0){
-            while($row_NSX = mysqli_fetch_assoc($res_NSX)){
-                $maNSX = $row_NSX['maNSX'];
-            }
-        } else{
-            echo "khong co NSX nao";
-        }
-    }
-
-?>

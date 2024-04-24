@@ -346,7 +346,7 @@ INSERT INTO `nhasanxuat` (`MANSX`, `TENNSX`) VALUES
 CREATE TABLE `phieunhap` (
   `MAPHIEU` varchar(10) NOT NULL,
   `NGAYLAP` date DEFAULT NULL,
-  `NCC` varchar(50) DEFAULT NULL,
+  `NCC` varchar(11) DEFAULT NULL,
   `DIACHI` varchar(200) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 

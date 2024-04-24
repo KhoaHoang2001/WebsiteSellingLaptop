@@ -59,10 +59,13 @@
             <a href="index.php?action=add_producer">Thêm nhà sản xuất</a>
             <a href="index.php?action=view_producer">Xem nhà sản xuất</a>
         </div>
-        <button class="dropdown-btn">Tài khoản<i class="fa fa-caret-down"></i></button>
+        <button class="dropdown-btn">Nhân viên<i class="fa fa-caret-down"></i></button>
         <div class="dropdown-container">
             <a href="index.php?action=add_staff">Thêm nhân viên</a>
             <a href="index.php?action=view_staff">Danh sách nhân viên</a>
+        </div>
+        <button class="dropdown-btn">Khách hàng<i class="fa fa-caret-down"></i></button>
+        <div class="dropdown-container">
             <a href="index.php?action=view_customer">Danh sách khách hàng</a>
         </div>
         <button class="dropdown-btn">Đơn hàng<i class="fa fa-caret-down"></i></button>

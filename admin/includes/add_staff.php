@@ -43,7 +43,7 @@
             }
         }
     </script>
-    <h2>Thêm tài khoản nhân viên</h2>
+    <h2>Thêm nhân viên</h2>
     <div class="border_bottom"></div>
     <!--/.border_bottom -->
     <form onsubmit="return Check_all()" method="post" enctype="multipart/form-data">
@@ -113,7 +113,7 @@
             <tr>
 
                 <td colspan="9" class="text-center"> 
-                    <input type="submit" class="btn-submit" name="insert_post" value="Thêm tài khoản">
+                    <input type="submit" class="btn-submit" name="insert_post" value="Thêm nhân viên">
                 </td>
             </tr>
         </table>
@@ -124,7 +124,7 @@
 <?php
 
     function Check_Staff($taikhoan){
-        $sql = "SELECT * FROM NGUOIDUNG WHERE taikhoan = '$taikhoan';";
+        $sql = "SELECT * FROM NGUOIDUNG WHERE TAIKHOAN = '$taikhoan';";
         $res = Check_db($sql);
         if(mysqli_num_rows($res) > 0){
             return true;
@@ -136,24 +136,23 @@
 
 if (isset($_POST['insert_post'])) {
 
-    function tao_id(){
-        $ktra = "SELECT MANV FROM NHANVIEN";
+    function gen_manv($chucvu){
+        $ktra = "SELECT MANV FROM NHANVIEN WHERE MANV LIKE '$chucvu%'";
         $res = Check_db($ktra);
         if(mysqli_num_rows($res)>0){
-            $sql = "SELECT MAX(MANV) FROM NHANVIEN";
+            $sql = "SELECT MAX(MANV) FROM NHANVIEN' WHERE MANV LIKE '$chucvu%'";
             $res = Check_db($sql);
             $row = mysqli_fetch_array($res);
-            $sonv =(intval($row['MAX(MANV)'])+1);
-            $manv = strval($sonv);
+            $sonv = (int) substr($row['MAX(MANV)'], 4) + 1;
+            $manv = $chucvu.($sonv>999?"":($sonv>99?"0":($sonv>9?"00":"000"))).$sonv;
         }else{
-        $manv = "NV001";
+        $manv = $chucvu."0001";
         }
         return $manv;
     }
 
     $taikhoan = Get_value($_POST['taikhoan']);
     $matkhau = Get_value(md5($_POST['matkhau']));
-    $manv = tao_id();
     $tennd = Get_value($_POST['tennd']);
     $ngayvl = Get_value($_POST['ngayvl']);
     $chucvu = Get_value($_POST['chucvu']);
@@ -162,23 +161,25 @@ if (isset($_POST['insert_post'])) {
     $diachi = Get_value($_POST['diachi']);
     $email = Get_value($_POST['email']);
     $ngaysinh = $_POST['ngaysinh'];
+    $manv = gen_manv($chucvu);
+
     if(!Check_Staff($taikhoan)){
         $matkhau = md5($matkhau);
-        $sql = "INSERT INTO `nguoidung` (`TAIKHOAN`, `MAQUYEN`, `MATKHAU`, `TENND`, `GIOITINH`, `SDT`, `DIACHI`, `EMAIL`, `NGAYSINH`) 
-                VALUES ('$taikhoan', $chucvu, '$matkhau', '$tennd', $gioitinh, '$sdt', '$diachi', '$email', '$ngaysinh');";
+        $sql = "INSERT INTO NGUOIDUNG (TAIKHOAN, CHUCVU, MATKHAU, TENND, GIOITINH, SDT, DIACHI, EMAIL, NGAYSINH) 
+                VALUES ('$taikhoan', '$chucvu', '$matkhau', '$tennd', $gioitinh, '$sdt', '$diachi', '$email', '$ngaysinh');";
         $res = Check_db($sql);
-        $sql = "INSERT INTO `nhanvien` (`MANV`, `TAIKHOAN`, `NGAYVL`) 
-        VALUES ('$manv', $taikhoan, '$ngayvl');";
+        $sql = "INSERT INTO NHANVIEN (MANV, TAIKHOAN, NGAYVL) VALUES ('$manv', '$taikhoan', '$ngayvl');";
+        $res = Check_db($sql);
         if($res){
-            echo "<script>alert(\"Đăng ký tài khoản thành công\");</script>";
+            echo "<script>alert(\"Thêm nhân viên thành công\");</script>";
         }
         else{
-            echo "<script>alert(\"Đăng ký tài khoản thất bại\");</script>";
+            echo "<script>alert(\"Thêm nhân viên thất bại\");</script>";
         }
         
     }
     else{
-        echo "<script>alert(\"Tài khoản đã tồn tại\");</script>";
+        echo "<script>alert(\"Nhân viên đã tồn tại\");</script>";
     }
 }
 

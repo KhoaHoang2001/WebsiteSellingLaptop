@@ -43,11 +43,17 @@ if ($_SESSION['chucvu'] != "QLTK") {
     <div class="dropdown-container">
       <a href="index.php?action=update_user">Cập nhật thông tin tài khoản</a>
       <a href="index.php?action=change_password">Đổi mật khẩu</a>
+      <a href="index.php?action=my_salary">Lương cá nhân</a>
     </div>
     <button class="dropdown-btn">Sản phẩm <i class="fa fa-caret-down"></i></button>
     <div class="dropdown-container">
         <a href="index.php?action=add_product">Thêm sản phẩm</a>
         <a href="index.php?action=view_product">Xem sản phẩm</a>
+    </div>
+    <button class="dropdown-btn">Loại sản phẩm<i class="fa fa-caret-down"></i></button>
+    <div class="dropdown-container">
+        <a href="index.php?action=add_category">Thêm loại sản phẩm</a>
+        <a href="index.php?action=view_category">Xem loại sản phẩm</a>
     </div>
     <button class="dropdown-btn">Nhà sản xuất <i class="fa fa-caret-down"></i></button>
     <div class="dropdown-container">
@@ -94,6 +100,10 @@ if ($_SESSION['chucvu'] != "QLTK") {
           include './includes/change_password.php';
           break;
 
+        case 'my_salary';
+          include './includes/my_salary.php';
+          break;
+
         case 'add_product';
           include './includes/add_product.php';
           break;
@@ -104,6 +114,14 @@ if ($_SESSION['chucvu'] != "QLTK") {
 
         case 'update_product';
           include './includes/update_product.php';
+          break;
+
+        case 'add_category';
+          include './includes/add_category.php';
+          break;
+
+        case 'view_category';
+          include './includes/view_category.php';
           break;
 
         case 'view_producer';

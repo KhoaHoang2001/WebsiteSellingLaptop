@@ -35,7 +35,7 @@
         <table align="center" width="100%">
             <tr>
                 <td><b>Mật khẩu cũ:</b></td>
-                <td><input type="password" name="matkhaucu" id="matkhaucu" size="60" required/></td>
+                <td><input type="password" name="matkhaucu" id="matkhaucu" required/></td>
             </tr>
             <tr>
                 <td><b>Mật khẩu mới:</b></td>

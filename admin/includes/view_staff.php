@@ -71,8 +71,9 @@
     
     if(isset($_POST['delete_staff'])){
         $taikhoan = $_POST['taikhoan'];
+        $sql_update_leave = "DELETE FROM NHANVIEN WHERE taikhoan = '$taikhoan';";
+        $res_update_leave = Check_db($sql_update_leave);
         $sql_update_leave = "DELETE FROM NGUOIDUNG WHERE taikhoan = '$taikhoan';";
-        echo $sql_update_leave;
         $res_update_leave = Check_db($sql_update_leave);
         if($res_update_leave){
             echo "<script>alert('Tài khoản được xóa thành công!')</script>";

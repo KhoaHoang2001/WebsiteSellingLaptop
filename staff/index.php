@@ -39,15 +39,11 @@
         <div class="dropdown-btn">
             <p>Nhân viên: <?php echo $_SESSION['taikhoan'] ?></p>
         </div>
-        <button class="dropdown-btn">Giảm giá <i class="fa fa-caret-down"></i></button>
-        <div class="dropdown-container">
-            <a href="index.php?action=add_discount">Thêm giảm giá</a>
-            <a href="index.php?action=view_discount">Xem giảm giá</a>
-        </div>
         <button class="dropdown-btn">Tài khoản<i class="fa fa-caret-down"></i></button>
         <div class="dropdown-container">
             <a href="index.php?action=update_user">Cập nhật thông tin tài khoản</a>
             <a href="index.php?action=change_password">Đổi mật khẩu</a>
+            <a href="index.php?action=my_salary">Lương cá nhân</a>
             <a href="index.php?action=view_customer">Danh sách khách hàng</a>
         </div>
         <button class="dropdown-btn">Đơn hàng<i class="fa fa-caret-down"></i></button>
@@ -75,28 +71,9 @@
         }
 
         switch ($action) {
-          case 'add_product';
-            include './includes/add_product.php';
-            break;
-          
+
           case 'view_product';
             include './includes/view_product.php';
-            break;
-
-          case 'update_product';
-            include './includes/update_product.php';
-            break;
-
-          case 'add_category';
-            include './includes/add_category.php';
-            break;
-
-          case 'view_category';
-            include './includes/view_category.php';
-            break;
-
-          case 'update_category';
-            include './includes/update_category.php';
             break;
 
           case 'view_customer';
@@ -110,39 +87,9 @@
           case 'change_password';
             include './includes/change_password.php';
             break;
-          
-          case 'view_discount';
-            include './includes/view_discount.php';
-            break;
 
-          case 'add_discount';
-            include './includes/add_discount.php';
-            break;
-
-          case 'update_discount';
-            include './includes/update_discount.php';
-            break;
-
-          case 'view_producer';
-            include './includes/view_producer.php';
-            break;
-  
-          case 'add_producer';
-            include './includes/add_producer.php';
-            break;
-
-          case 'add_producer';
-            include './includes/delete_producer.php';
-            break;
-
-
-          case 'delete_producer';
-            include './includes/delete_producer.php';
-            break;
-
-              
-          case 'update_producer';
-            include './includes/update_producer.php';
+          case 'my_salary';
+            include './includes/my_salary.php';
             break;
           
           case 'check_order';
