@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 24, 2024 at 02:43 AM
+-- Generation Time: Apr 24, 2024 at 03:01 PM
 -- Server version: 10.4.27-MariaDB
 -- PHP Version: 8.2.0
 
@@ -34,6 +34,15 @@ CREATE TABLE `chitietnhap` (
   `SOLUONG` int(10) DEFAULT NULL,
   `DONGIA` int(10) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `chitietnhap`
+--
+
+INSERT INTO `chitietnhap` (`STT`, `MAPHIEU`, `MASP`, `SOLUONG`, `DONGIA`) VALUES
+(1, '1', 27, 3, 12000),
+(1, '5', 27, 44, 12000),
+(2, '1', 27, 15, 12000);
 
 -- --------------------------------------------------------
 
@@ -81,7 +90,13 @@ CREATE TABLE `donhang` (
 --
 
 INSERT INTO `donhang` (`MADH`, `TAIKHOAN`, `TRANGTHAI`, `NGAYDAT`, `HTTHANHTOAN`, `DIACHINHAN`, `TONGTIEN`) VALUES
-('6625c6b4463', 'ngoclinh123', 'Đã giao hàng', '2024-04-22', 'Offline', 'TP.HCM', 4499);
+('6625c6b4463', 'ngoclinh123', 'Đã giao hàng', '2024-04-22', 'Offline', 'TP.HCM', 4499),
+('6628fb2639d', 'ngoclinh123', 'Chưa xác nhận', '2024-04-24', 'Offline', 'TP.HCM', 3299),
+('6628fd6dcf7', 'ngoclinh123', 'Chưa xác nhận', '2024-04-24', 'Offline', 'TP.HCM', 1599),
+('6628fde574e', 'ngoclinh123', 'Chưa xác nhận', '2024-04-24', 'Offline', 'TP.HCM', 1599),
+('6628fe93112', 'ngoclinh123', 'Chưa xác nhận', '2024-04-24', 'Offline', 'TP.HCM', 1999),
+('6628fe93178', 'ngoclinh123', 'Chưa xác nhận', '2024-04-24', 'Offline', 'TP.HCM', 1999),
+('6628ff2551b', 'ngoclinh123', 'Đã xác nhận', '2024-04-24', 'Offline', 'TP.HCM', 10);
 
 -- --------------------------------------------------------
 
@@ -173,7 +188,8 @@ INSERT INTO `hinhanh` (`MAHINH`, `MASP`, `LINK`) VALUES
 (56, 25, 'hp.PNG'),
 (57, 25, 'hp2.PNG'),
 (58, 26, 'huawei.PNG'),
-(59, 26, 'huawei2.PNG');
+(59, 26, 'huawei2.PNG'),
+(60, 27, 'carreff.png');
 
 -- --------------------------------------------------------
 
@@ -217,7 +233,10 @@ CREATE TABLE `luongthang` (
 --
 
 INSERT INTO `luongthang` (`MANV`, `THANG`, `NAM`, `SONGAYLAM`, `SONGAYNGHI`, `THUONG`) VALUES
-('NV001', 3, 2024, 16, 2, 0);
+('NV001', 3, 2024, 16, 2, 0),
+('NV002', 1, 2024, 20, 0, 1000000),
+('NV002', 2, 2024, 20, 0, 1000000),
+('NV002', 3, 2024, 18, 2, 0);
 
 -- --------------------------------------------------------
 
@@ -236,7 +255,11 @@ CREATE TABLE `monhang` (
 --
 
 INSERT INTO `monhang` (`MADH`, `MASP`, `SOLUONGDAT`) VALUES
-('6625c6b4463', 2, 1);
+('6625c6b4463', 2, 1),
+('6628fb2639d', 8, 1),
+('6628fd6dcf7', 1, 1),
+('6628fe93112', 22, 1),
+('6628ff2551b', 27, 1);
 
 -- --------------------------------------------------------
 
@@ -263,14 +286,18 @@ CREATE TABLE `nguoidung` (
 
 INSERT INTO `nguoidung` (`TAIKHOAN`, `CHUCVU`, `MATKHAU`, `TENND`, `GIOITINH`, `SDT`, `DIACHI`, `EMAIL`, `NGAYSINH`, `KICHHOAT`) VALUES
 ('987_mai_lan', 'QTHT', 'e19d5cd5af0378da05f63f891c7467af', 'Võ Thị Mai', 1, '0123456789', 'TP.HCM', 'adminmai@email.com', NULL, 1),
+('congchua_hangnga', 'KHONG', 'e19d5cd5af0378da05f63f891c7467af', 'Nguyễn Thị Hằng Nga', 0, '0123456789', NULL, 'email@email.com', NULL, 1),
 ('DongDuong', 'QTHT', 'e19d5cd5af0378da05f63f891c7467af', 'Dương Bắc Đông', 0, '0123456789', 'TP.HCM', 'email123@email.com', NULL, 0),
 ('ha_tran_thi', 'QLTK', 'e19d5cd5af0378da05f63f891c7467af', 'Trần Thị Hà', 1, '0123456789', 'TP.HCM', 'ha_tran@email.com', NULL, 1),
+('huuDucTrinh', 'QLBH', '0369d98a00ba1ca13f51239278d7c2ce', 'Trịnh Hữu Đức', 1, '0123456789', 'TP.HCM', 'abcd@gmail.com', '1997-08-15', 0),
 ('khoa_admin', 'QTHT', '85469ebac3a963ecc8ce2832eb366fe8', 'Hoàng Đăng Khoa', 0, '0123456789', 'TP.HCM', 'email@email.com', NULL, 1),
 ('minh_quan', 'QLBH', 'e19d5cd5af0378da05f63f891c7467af', 'Nguyễn Minh Quân', 0, '0123456789', 'TP.HCM', 'minh_quan@email.com', NULL, 1),
 ('missThuBui', 'QLBH', 'e19d5cd5af0378da05f63f891c7467af', 'Bùi Thị Thu', 1, '0126452369', 'TP.HCM', 'thuemail@email.com', NULL, 1),
 ('ngaBanHang', 'QLBH', 'e19d5cd5af0378da05f63f891c7467af', 'Phạm Thị Nga', 1, '0125532964', 'TP.HCM', 'phamthinga12@email.com', NULL, 1),
 ('ngoclinh123', 'KHONG', 'e19d5cd5af0378da05f63f891c7467af', 'Hoàng Ngọc Linh', 1, '0123456789', 'TP.HCM', 'ngoclinh123@email.com', NULL, 1),
+('racer9000', 'QLBH', '0369d98a00ba1ca13f51239278d7c2ce', 'Trần Thiên Phúc', 1, '0123456789', 'TP.HCM', 'abcd@email.com', '1998-03-18', 0),
 ('shino_osaka_45', 'KHONG', 'e19d5cd5af0378da05f63f891c7467af', 'Nguyễn Hoàng Khánh', 0, '0123456789', 'TP.HCM', 'shinoOsaka@email.com', NULL, 1),
+('vandongQL', 'QLNS', '0369d98a00ba1ca13f51239278d7c2ce', 'Lưu Văn Đồng', 1, '0123456789', 'TP.HCM', 'admin@email.com', '1993-08-18', 0),
 ('vanducQL', 'QLNS', 'e19d5cd5af0378da05f63f891c7467af', 'Lê Văn Đức', 0, '0123456789', 'TP.HCM', 'vanduc@email.com', NULL, 1);
 
 -- --------------------------------------------------------
@@ -302,14 +329,15 @@ CREATE TABLE `nhanvien` (
 --
 
 INSERT INTO `nhanvien` (`MANV`, `TAIKHOAN`, `NGAYVL`) VALUES
-('AM001', 'khoa_admin', '2021-05-05'),
-('AM002', '987_mai_lan', '2021-06-12'),
 ('AM003', 'DongDuong', '2021-05-15'),
 ('NV001', 'ha_tran_thi', '2022-03-03'),
 ('NV002', 'minh_quan', '2023-09-21'),
 ('NV003', 'ngaBanHang', '2023-08-05'),
 ('NV004', 'missThuBui', '2022-10-21'),
-('QL001', 'vanducQL', '2020-01-10');
+('QL001', 'vanducQL', '2020-01-10'),
+('QLNS0003', 'vandongQL', '2023-05-06'),
+('QTHT0001', 'khoa_admin', '2021-05-05'),
+('QTHT0002', '987_mai_lan', '2021-06-12');
 
 -- --------------------------------------------------------
 
@@ -355,8 +383,11 @@ CREATE TABLE `phieunhap` (
 --
 
 INSERT INTO `phieunhap` (`MAPHIEU`, `NGAYLAP`, `NCC`, `DIACHI`) VALUES
-('1', '0000-00-00', '', 'TP.HCM'),
-('2', '0000-00-00', 'ASUS', 'TP.HCM');
+('1', '0000-00-00', 'ASUS', 'TP.HCM'),
+('2', '0000-00-00', 'ASUS', 'TP.HCM'),
+('3', '0000-00-00', 'Acer', 'TP.HCM'),
+('4', '0000-00-00', 'Acer', 'TP.HCM'),
+('5', '2024-04-24', 'Lenovo', 'TP.HCM');
 
 -- --------------------------------------------------------
 
@@ -384,7 +415,7 @@ CREATE TABLE `sanpham` (
 --
 
 INSERT INTO `sanpham` (`MASP`, `MALOAISP`, `MAGIAMGIA`, `MANSX`, `TENSP`, `MOTASP`, `RAM`, `VIXULY`, `KICHTHUOCMH`, `GIA`, `SOLUONGCON`, `NGAYSX`) VALUES
-(1, 'HT-VP', NULL, 'ASUS', 'Asus VivoBook X415EA', 'Laptop Asus VivoBook X415EA i5 (EK033T) đi theo xu hướng thiết kế hiện đại, tối giản, chú trọng vào độ linh hoạt và cơ động để người dùng dễ di chuyển hằng ngày. Chiếc máy này sở hữu bộ vi xử lí gen 11 đến từ nhà Intel cho hiệu suất làm việc cao, ổn định. Thiết kế tối giản, gọn gàng với trọng lượng chỉ 1.55 kg.', 8, 'Intel Core i5 Tiger Lake, 1135G7, 2.40 GHz', '14 inch', 1599, 10, '2020-05-11'),
+(1, 'HT-VP', NULL, 'ASUS', 'Asus VivoBook X415EA', 'Laptop Asus VivoBook X415EA i5 (EK033T) đi theo xu hướng thiết kế hiện đại, tối giản, chú trọng vào độ linh hoạt và cơ động để người dùng dễ di chuyển hằng ngày. Chiếc máy này sở hữu bộ vi xử lí gen 11 đến từ nhà Intel cho hiệu suất làm việc cao, ổn định. Thiết kế tối giản, gọn gàng với trọng lượng chỉ 1.55 kg.', 8, 'Intel Core i5 Tiger Lake, 1135G7, 2.40 GHz', '14 inch', 1599, 13, '2020-05-11'),
 (2, 'CC-ST', NULL, 'Apple', 'Macbook Pro M1 2020 (Z11C)', 'Apple Macbook Pro M1 2020 (Z11C) được nâng cấp với bộ vi xử lý mới cực kỳ mạnh mẽ, con laptop này sẽ phục vụ tốt cho công việc của bạn, đặc biệt bên lĩnh vực đồ họa, kỹ thuật. Chip Apple M1 là một bộ vi xử lý mạnh mẽ, được ra mắt lần đầu tiên trên MAC. Đây là con chip với bộ xử lý 5 nm, tích hợp CPU 8 lõi với 4 lõi CPU tốc độ và và 4 lõi tiết kiệm năng lượng. Nhờ vậy, thời lượng pin của laptop được kéo dài đến tận 10 tiếng đồng hồ, giúp cho bạn thoải mái làm việc với một hiệu suất cực kỳ cao.', 16, 'Apple M1', '13.3 inch', 4499, 3, '2020-03-16'),
 (3, 'HT-VP', NULL, 'Lenovo', 'Lenovo IdeaPad S145 15IIL', 'Laptop Lenovo IdeaPad S145 15IIL i3 (81W8001XVN) thuộc phân khúc laptop học tập văn phòng cơ bản với mức giá tốt. Máy có cấu hình ổn, đủ chạy các ứng dụng văn phòng phổ biến, điểm nổi bật của Lenovo IdeaPad S145 là ổ cứng SSD siêu nhanh, thiết kế mỏng gọn, tinh tế. Laptop  mang thiết kế cơ bản của dòng Lenovo IdeaPad S145 có ngoại hình đẹp mắt, lớp vỏ được làm bằng nhựa phủ sơn màu xám sang trọng với logo Lenovo được đặt gọn gàng sang một bên trên nắp lưng. Độ dày 17.9 mm, cân nặng 1.79 kg phù hợp với các bạn học sinh sinh viên, người thường xuyên di chuyển.', 4, 'Intel Core i3 Ice Lake, 1005G1, 1.20 GHz', '15.6 inch', 1049, 7, '2019-07-15'),
 (4, 'HT-VP', NULL, 'HP', 'HP 15s fq2028TU', 'Đặc điểm nổi bật của HP 15s fq2028TU i5 1135G7/8GB/512GB/Win10 (2Q5Y5PA) HP 15s fq2028TU i5 (2Q5Y5PA) có vẻ ngoài nổi bật với màu bạc thời trang, viền màn hình siêu mỏng. Cấu hình bên trong của máy mới thực sự làm bạn bất ngờ khi đây là chiếc laptop có hiệu năng cực mạnh trong tầm giá. Bộ vi xử lý mạnh mẽ, đáp ứng hoàn hảo công việc văn phòng', 8, 'Intel Core i5 Tiger Lake, 1135G7, 2.40 GHz', '15.6 inch', 1699, 5, '2020-05-16'),
@@ -402,7 +433,8 @@ INSERT INTO `sanpham` (`MASP`, `MALOAISP`, `MAGIAMGIA`, `MANSX`, `TENSP`, `MOTAS
 (23, 'DH-KT', NULL, 'DELL', 'Laptop Dell Vostro 3405 ', 'CPU: AMD R5 3500U RAM: 8GB Ổ cứng: 512GB SSD VGA: Onboard Màn hình: 14 inch FHD HĐH: Win 10 Màu: Đen', 8, ' AMD R5 3500U', '14 inch', 500, 100, '2019-07-18'),
 (24, 'CC-ST', NULL, 'ASUS', 'Laptop Asus X44H VX061', 'rẻ tốt', 2, 'i3', '10.1 inch', 300, 50, '2018-05-03'),
 (25, 'CC-ST', NULL, 'HP', 'Laptop HP 15s', 'mỏng nhẹ, kết nối tiên tiến hàng đầu, thoải mái làm việc ở bất cứ đâu', 4, 'i3', '10.1 inch', 399, 6, '2020-10-14'),
-(26, 'HT-VP', NULL, 'HUAWEI', 'Huawei MateBook', 'Siêu phẩm laptop 13 inch Huawei MateBook 13 cho bạn nhiều hơn cả những điều mong đợi. Một màn hình 2K cảm ứng tuyệt đẹp tối ưu cho công việc; một thiết kế di động và cứng cáp cùng một cấu hình đột phá sẽ giúp bạn nhanh chóng biến ý tưởng thành hiện thực.', 16, 'i5', '13.3 inch', 1600, 10, '2020-02-14');
+(26, 'HT-VP', NULL, 'HUAWEI', 'Huawei MateBook', 'Siêu phẩm laptop 13 inch Huawei MateBook 13 cho bạn nhiều hơn cả những điều mong đợi. Một màn hình 2K cảm ứng tuyệt đẹp tối ưu cho công việc; một thiết kế di động và cứng cáp cùng một cấu hình đột phá sẽ giúp bạn nhanh chóng biến ý tưởng thành hiện thực.', 16, 'i5', '13.3 inch', 1600, 10, '2020-02-14'),
+(27, 'CC-ST', NULL, 'Acer', 'Laptop abc', 'Laptop abc', 4, 'KHONG', '10.1 inch', 10, 56, '2024-05-02');
 
 -- --------------------------------------------------------
 
@@ -517,7 +549,8 @@ ALTER TABLE `nhasanxuat`
 -- Indexes for table `phieunhap`
 --
 ALTER TABLE `phieunhap`
-  ADD PRIMARY KEY (`MAPHIEU`);
+  ADD PRIMARY KEY (`MAPHIEU`),
+  ADD KEY `phieunhap_ibfk_1` (`NCC`);
 
 --
 -- Indexes for table `sanpham`
@@ -543,13 +576,13 @@ ALTER TABLE `sanphamgiohang`
 -- AUTO_INCREMENT for table `hinhanh`
 --
 ALTER TABLE `hinhanh`
-  MODIFY `MAHINH` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=60;
+  MODIFY `MAHINH` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=61;
 
 --
 -- AUTO_INCREMENT for table `sanpham`
 --
 ALTER TABLE `sanpham`
-  MODIFY `MASP` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
+  MODIFY `MASP` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
 
 --
 -- Constraints for dumped tables
@@ -605,6 +638,12 @@ ALTER TABLE `nhamchuc`
 --
 ALTER TABLE `nhanvien`
   ADD CONSTRAINT `nhanvien_ibfk_1` FOREIGN KEY (`TAIKHOAN`) REFERENCES `nguoidung` (`TAIKHOAN`);
+
+--
+-- Constraints for table `phieunhap`
+--
+ALTER TABLE `phieunhap`
+  ADD CONSTRAINT `phieunhap_ibfk_1` FOREIGN KEY (`NCC`) REFERENCES `nhasanxuat` (`MANSX`);
 
 --
 -- Constraints for table `sanphamgiohang`
