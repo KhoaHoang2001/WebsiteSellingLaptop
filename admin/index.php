@@ -172,7 +172,7 @@
             include './includes/add_producer.php';
             break;
 
-          case 'add_producer';
+          case 'delete_producer';
             include './includes/delete_producer.php';
             break;
 
@@ -180,11 +180,6 @@
             include './includes/check_cart.php';
             break;
 
-          case 'delete_producer';
-            include './includes/delete_producer.php';
-            break;
-
-              
           case 'update_producer';
             include './includes/update_producer.php';
             break;

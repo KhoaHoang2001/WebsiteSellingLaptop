@@ -25,14 +25,26 @@
       }
     }
     
+    function Dec_Product($madon) {
+      $sql = "SELECT * FROM MONHANG WHERE MADH = '$madon'";
+      $res = Check_db($sql);
+      while ($row = mysqli_fetch_assoc($res)) {
+          $masp = $row['MASP'];
+          $soluong = $row['SOLUONGDAT'];
+          $sql_dec = "UPDATE SANPHAM SET SOLUONGCON = (SOLUONGCON - $soluong) WHERE MASP = '$masp';";
+          $res_dec = Check_db($sql_dec);
+      }
+    }
+
     if(isset($_POST['COD'])){
       $htthanhtoan = 'Offline';
-      $sql_create_order = "INSERT INTO `donhang` (`MADH`, `TAIKHOAN`, `TRANGTHAI`, `NGAYDAT`, `HTTHANHTOAN`, `DIACHINHAN`, `TONGTIEN`) 
+      $sql_create_order = "INSERT INTO DONHANG (`MADH`, `TAIKHOAN`, `TRANGTHAI`, `NGAYDAT`, `HTTHANHTOAN`, `DIACHINHAN`, `TONGTIEN`) 
                           VALUES ('$madon', '$taikhoan', '$trangthai', '$ngaydat', '$htthanhtoan', '$diachi', '$tongtien');";
       $res_create_order = Check_db($sql_create_order);
       if($res_create_order){
           Add_Product($madon, $taikhoan);
           Del_Cart($taikhoan);
+          Dec_Product($madon);
           echo "<script>alert('Thanh toán offline thành công')</script>";
           echo "<script>window.open('account.php','_self')</script>";
       }

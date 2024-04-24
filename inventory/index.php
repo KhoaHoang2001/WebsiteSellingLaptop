@@ -64,7 +64,6 @@ if ($_SESSION['chucvu'] != "QLTK") {
     <div class="dropdown-container">
       <a href="index.php?action=create_nhap">Lập phiếu nhập</a>
       <a href="index.php?action=view_nhap">Danh sách phiếu nhập</a>
-      <a href="index.php?action=thongke_nhap">Thống kê</a>
     </div>
     <button class="dropdown-btn">Nghỉ phép<i class="fa fa-caret-down"></i></button>
     <div class="dropdown-container">
@@ -148,10 +147,6 @@ if ($_SESSION['chucvu'] != "QLTK") {
           
         case 'xem_ctnhap';
           include './includes/xem_ctnhap.php';
-          break;
-
-        case 'thongke_nhap';
-          include './includes/thongke_nhap.php';
           break;
 
         case 'create_leave';

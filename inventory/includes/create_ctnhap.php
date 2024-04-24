@@ -54,7 +54,7 @@
 
 <?php
 
-function Check_Chitiet($maphieu){
+function Check_Phieunhap($maphieu){
     $sql = "SELECT * FROM PHIEUNHAP WHERE MAPHIEU ='$maphieu';";
     $res = Check_db($sql);
     if(mysqli_num_rows($res) > 0){
@@ -70,21 +70,17 @@ if (isset($_POST['insert_post'])) {
     $sanpham = Get_value($_POST['sanpham']);
     $sl = Get_value($_POST['soluong']);
     $dongia = Get_value($_POST['dongia']);
-    if(!Check_Chitiet($maphieu)){
-        $sql = "INSERT INTO CHITIETNHAP (STT, MAPHIEU, MASP, SOLUONG, DONGIA) 
-                VALUES ('$stt', $maphieu, '$masp', '$sl', '$dongia');";
-        $res = Check_db($sql);
-        $sql = "UPDATE san 
-                VALUES ('$stt', $maphieu, '$masp', '$sl', '$dongia');";
-        $res = Check_db($sql);
-        if($res){
-            echo "<script>alert(\"Thêm hàng nhập thành công\");</script>";
-        }
-        else{
-            echo "<script>alert(\"Thêm hàng nhập thất bại\");</script>";
-        }
-        
+    $sql = "INSERT INTO CHITIETNHAP VALUES ('$stt', $maphieu, '$masp', '$sl', '$dongia');";
+    $res = Check_db($sql);
+    $sql = "UPDATE SANPHAM SET SOLUONGCON = (SOLUONGCON + $sl) WHERE MASP = '$masp';";
+    $res = Check_db($sql);
+    if($res){
+        echo "<script>alert(\"Thêm hàng nhập thành công\");</script>";
     }
+    else{
+        echo "<script>alert(\"Thêm hàng nhập thất bại\");</script>";
+    }
+    
 }
 
 ?>
