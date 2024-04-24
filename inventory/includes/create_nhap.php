@@ -117,7 +117,7 @@ if (isset($_POST['insert_post'])) {
     $ngaylap = Get_value($_POST['ngaylap']);
     if(!Check_Nhap($maphieu)){
         $sql = "INSERT INTO PHIEUNHAP (MAPHIEU, NGAYLAP, NCC, DIACHI) 
-                VALUES ('$maphieu', $ngaylap, '$ncc', '$diachi');";
+                VALUES ('$maphieu', '$ngaylap', '$ncc', '$diachi');";
         $res = Check_db($sql);
         if($res){
             echo "<script>alert(\"Lập phiếu thành công\");</script>";

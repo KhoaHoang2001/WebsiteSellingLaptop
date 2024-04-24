@@ -140,6 +140,16 @@ if ($_SESSION['chucvu'] != "QLTK") {
           include './includes/view_nhap.php';
           break;
         
+
+        case 'create_ctnhap';
+          include './includes/create_ctnhap.php';
+          break;
+
+          
+        case 'xem_ctnhap';
+          include './includes/xem_ctnhap.php';
+          break;
+
         case 'thongke_nhap';
           include './includes/thongke_nhap.php';
           break;

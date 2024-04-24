@@ -39,6 +39,12 @@
         <div class="dropdown-btn">
             <p>Quản Trị Viên: <?php echo $taikhoan ?></p>
         </div>
+        <button class="dropdown-btn">Tài khoản<i class="fa fa-caret-down"></i></button>
+        <div class="dropdown-container">
+          <a href="index.php?action=update_user">Cập nhật thông tin tài khoản</a>
+          <a href="index.php?action=change_password">Đổi mật khẩu</a>
+          <a href="index.php?action=my_salary">Lương cá nhân</a>
+        </div>
         <button class="dropdown-btn">Loại sản phẩm<i class="fa fa-caret-down"></i></button>
         <div class="dropdown-container">
             <a href="index.php?action=add_category">Thêm loại sản phẩm</a>
@@ -93,6 +99,19 @@
         }
 
         switch ($action) {
+
+          case 'change_password';
+            include './includes/change_password.php';
+            break;
+
+          case 'update_user';
+            include './includes/update_user.php';
+            break;
+
+          case 'my_salary';
+            include './includes/my_salary.php';
+            break;
+
           case 'add_product';
             include './includes/add_product.php';
             break;

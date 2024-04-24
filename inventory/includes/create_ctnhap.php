@@ -68,7 +68,7 @@ function Check_Chitiet($maphieu){
 if (isset($_POST['insert_post'])) {
     $stt = Get_value($_POST['stt']);
     $sanpham = Get_value($_POST['sanpham']);
-    $sl = Get_value($_POST['sl']);
+    $sl = Get_value($_POST['soluong']);
     $dongia = Get_value($_POST['dongia']);
     if(!Check_Chitiet($maphieu)){
         $sql = "INSERT INTO CHITIETNHAP (STT, MAPHIEU, MASP, SOLUONG, DONGIA) 
