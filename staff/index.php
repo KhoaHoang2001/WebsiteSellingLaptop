@@ -39,25 +39,10 @@
         <div class="dropdown-btn">
             <p>Nhân viên: <?php echo $_SESSION['taikhoan'] ?></p>
         </div>
-        <button class="dropdown-btn">Loại sản phẩm<i class="fa fa-caret-down"></i></button>
-        <div class="dropdown-container">
-            <a href="index.php?action=add_category">Thêm loại sản phẩm</a>
-            <a href="index.php?action=view_category">Xem loại sản phẩm</a>
-        </div>
-        <button class="dropdown-btn">Sản phẩm <i class="fa fa-caret-down"></i></button>
-        <div class="dropdown-container">
-            <a href="index.php?action=add_product">Thêm sản phẩm</a>
-            <a href="index.php?action=view_product">Xem sản phẩm</a>
-        </div>
         <button class="dropdown-btn">Giảm giá <i class="fa fa-caret-down"></i></button>
         <div class="dropdown-container">
             <a href="index.php?action=add_discount">Thêm giảm giá</a>
             <a href="index.php?action=view_discount">Xem giảm giá</a>
-        </div>
-        <button class="dropdown-btn">Nhà sản xuất <i class="fa fa-caret-down"></i></button>
-        <div class="dropdown-container">
-            <a href="index.php?action=add_producer">Thêm nhà sản xuất</a>
-            <a href="index.php?action=view_producer">Xem nhà sản xuất</a>
         </div>
         <button class="dropdown-btn">Tài khoản<i class="fa fa-caret-down"></i></button>
         <div class="dropdown-container">

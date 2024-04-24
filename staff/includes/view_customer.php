@@ -18,7 +18,7 @@
                 </tr>
             </thead>
             <?php
-            $sql_all_cus = "SELECT * FROM NGUOIDUNG WHERE MAQUYEN = 'KH'";
+            $sql_all_cus = "SELECT * FROM NGUOIDUNG WHERE CHUCVU = 'KHONG'";
             $res_all_cus = Check_db($sql_all_cus);
             while ($row = mysqli_fetch_array($res_all_cus)) {
                 $taikhoan = $row['TAIKHOAN'];
@@ -48,20 +48,3 @@
     </form>
 
 </div>
-
-<?php 
-    // if(isset($_POST['delete_customer'])){
-    //     $taikhoan = $_POST['taikhoan'];
-    //     $sql_del_cus = "DELETE FROM NGUOIDUNG WHERE taikhoan = '$taikhoan';";
-    //     echo $sql_del_cus;
-    //     $res_del_cus = Check_db($sql_del_cus);
-    //     if($res_del_cus){
-    //         echo "<script>alert('Tài khoản được xóa thành công!')</script>";
-    //         echo "<script>window.open('index.php?action=view_customer','_self')</script>";
-    //     }
-    //     else {
-    //         echo "<script>alert('xóa tài khoản không thành công!')</script>";
-    //     }
-        
-    // }
-?>

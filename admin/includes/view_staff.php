@@ -19,7 +19,7 @@
                 </tr>
             </thead>
             <?php
-            $sql_all_staff = "SELECT * FROM NGUOIDUNG WHERE MAQUYEN = 'NV'";
+            $sql_all_staff = "SELECT * FROM NGUOIDUNG WHERE CHUCVU != 'KHONG'";
             $res_all_staff = Check_db($sql_all_staff);
             while ($row = mysqli_fetch_array($res_all_staff)) {
                 $taikhoan = $row['TAIKHOAN'];
