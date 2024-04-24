@@ -13,7 +13,7 @@
   $res_order = Check_db($sql_order);
   if (mysqli_num_rows($res_order)) {
     while ($row = mysqli_fetch_assoc($res_order)) {
-      $madh = $row['MADH'];
+      $madon = $row['MADH'];
       $ngaydat = $row['NGAYDAT'];
       $trangthai = $row['TRANGTHAI'];
       $httt = $row['HTTHANHTOAN'];
@@ -21,7 +21,7 @@
       $tongtien = $row['TONGTIEN'];
   ?>
       <tr>
-        <td><?php echo $madh ?></td>
+        <td><?php echo $madon ?></td>
         <td>
           <div class="cartItem__product--intro">
             <p><?php echo $ngaydat ?></p>
@@ -31,7 +31,7 @@
         <td><?php echo $tongtien ?></td>
         <td><?php echo $trangthai ?></td>
         <td>
-          <a class="btn btn-danger btn-submit btn-sm" style="margin: 0" href="./account_viewHIS.php?madh=<?php echo $madh ?>">Chi tiết</a>
+          <a class="btn btn-danger btn-submit btn-sm" style="margin: 0" href="./account_viewHIS.php?madh=<?php echo $madon ?>">Chi tiết</a>
         </td>
       </tr>
   <?php

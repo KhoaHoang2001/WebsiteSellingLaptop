@@ -1,15 +1,24 @@
 <?php
   require_once('./includes/conn.php');
   if(isset($_SESSION['taikhoan'])){
-    switch ($_SESSION['maquyen']) {
-      case "NV":
-        echo "<script>window.open('./staff/index.php','_self')</script>";
-        break;
-      case "KH":
+    switch ($_SESSION['chucvu']) {
+      case "KHONG":
         echo "<script>window.open('./index.php','_self')</script>";
         break;
-      case "AM":
+      case "QLBH":
+        echo "<script>window.open('./staff/index.php','_self')</script>";
+        break;
+      case "QTHT":
         echo "<script>window.open('./admin/index.php','_self')</script>";
+        break;
+      case "QLNS":
+        echo "<script>window.open('./manager/index.php','_self')</script>";
+        break;
+      case "QLTK":
+        echo "<script>window.open('./inventory/index.php','_self')</script>";
+        break;
+      case "QLKD":
+        echo "<script>window.open('./sales/index.php','_self')</script>";
         break;
     }
   }
@@ -188,7 +197,7 @@
       echo "<script>window.open('signup.php','_self')</script>";
     } else {
       $MATKHAU = md5($MATKHAU);
-      $sql = "INSERT INTO nguoidung(TAIKHOAN,MAQUYEN,MATKHAU,TENND,GIOITINH,SDT,EMAIL) VALUE ('$TAIKHOAN','KH','$MATKHAU','$TENND','$GIOITINH','$SDT','$EMAIL')";
+      $sql = "INSERT INTO nguoidung(TAIKHOAN,MAQUYEN,MATKHAU,TENND,GIOITINH,SDT,EMAIL,KICHHOAT) VALUE ('$TAIKHOAN','KHONG','$MATKHAU','$TENND','$GIOITINH','$SDT','$EMAIL',1)";
       if ($conn->query($sql) == true) {
         echo "<script>alert('Đăng ký thành công!')</script>";
         echo "<script>window.open('login.php','_self')</script>"; //link toi site dang nhap

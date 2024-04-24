@@ -1,6 +1,6 @@
 <?php
     include_once('./includes/include.php');
-    if($_SESSION['maquyen'] != "AM"){
+    if($_SESSION['chucvu'] != "QTHT"){
       echo "<script>window.open('../login.php','_self')</script>";
     }
     else{
@@ -37,7 +37,7 @@
 
     <div class="sidenav">
         <div class="dropdown-btn">
-            <p>Admin: <?php echo $taikhoan ?></p>
+            <p>Quản Trị Viên: <?php echo $taikhoan ?></p>
         </div>
         <button class="dropdown-btn">Loại sản phẩm<i class="fa fa-caret-down"></i></button>
         <div class="dropdown-container">

@@ -29,10 +29,10 @@
                 </tr>
             </thead>
             <?php
-                $sql_all_oder = "SELECT * FROM DONHANG WHERE trangthai != 'Đã xác nhận' AND trangthai != 'Chưa xác nhận'";
-                $res_all_oder = Check_db($sql_all_oder);
-                while ($row = mysqli_fetch_array($res_all_oder)) {    
-                    $madh = $row['MADH'];
+                $sql_all_leave = "SELECT * FROM DONHANG WHERE trangthai != 'Đã xác nhận' AND trangthai != 'Chưa xác nhận'";
+                $res_all_leave = Check_db($sql_all_leave);
+                while ($row = mysqli_fetch_array($res_all_leave)) {    
+                    $madon = $row['MADH'];
                     $taikhoan = $row['TAIKHOAN'];
                     $ngaydat = $row['NGAYDAT'];
                     $trangthai = $row['TRANGTHAI'];
@@ -42,7 +42,7 @@
             ?>
             <tbody>
                 <tr>
-                    <td class="text-center"><?php echo $madh; ?></td>
+                    <td class="text-center"><?php echo $madon; ?></td>
                     <td><?php echo $taikhoan; ?></td>
                     <td><?php echo $trangthai; ?></td>
                     <td><?php echo $ngaydat; ?></td>
@@ -51,7 +51,7 @@
                     <td><?php echo $tongtien; ?></td>
                     <form method="post">
                         <td><a class="btn btn-danger btn-submit btn-sm" style="margin: 0"
-                                href="index.php?action=view_order&order_detail=<?php echo $madh; ?>">Chi tiết</a>
+                                href="index.php?action=view_order&order_detail=<?php echo $madon; ?>">Chi tiết</a>
                         <!-- KHI CLICK VAO DOI MAU BUTTON -->
                     </form>
                 </tr>

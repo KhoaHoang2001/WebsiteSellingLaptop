@@ -15,7 +15,7 @@
   $res_order = Check_db($sql_order);
   if (mysqli_num_rows($res_order)) {
     while ($row = mysqli_fetch_assoc($res_order)) {
-      $madh = $row['MADH'];
+      $madon = $row['MADH'];
       $ngaydat = $row['NGAYDAT'];
       $trangthai = $row['TRANGTHAI'];
       $httt = $row['HTTHANHTOAN'];
@@ -23,7 +23,7 @@
       $tongtien = $row['TONGTIEN'];
   ?>
       <tr>
-        <td><?php echo $madh ?></td>
+        <td><?php echo $madon ?></td>
         <td>
           <div class="trangThaiDonHang_product--intro">
             <p><?php echo $ngaydat ?></p>
@@ -33,11 +33,11 @@
         <td><?php echo $tongtien ?></td>
         <td><?php echo $trangthai ?></td>
         <td>
-          <a class="btn btn-danger btn-submit btn-sm" style="margin: 0" href="./account_viewIDB.php?madh=<?php echo $madh ?>">Chi tiết</a>
+          <a class="btn btn-danger btn-submit btn-sm" style="margin: 0" href="./account_viewIDB.php?madh=<?php echo $madon ?>">Chi tiết</a>
           <?php 
             if($trangthai == "Chưa xác nhận"){
               echo "<td  >
-                  <a href='./includes/huy_order.php?madh=$madh' class=\"btn btn-sm btn-primary\" style=\"padding: 4px 15px 8px 15px; background: #007BFF; border: #007BFF;\" type=\"submit\" name=\"accept_order\" >Hủy</a>
+                  <a href='./includes/huy_order.php?madh=$madon' class=\"btn btn-sm btn-primary\" style=\"padding: 4px 15px 8px 15px; background: #007BFF; border: #007BFF;\" type=\"submit\" name=\"accept_order\" >Hủy</a>
                   
               </td>
               ";

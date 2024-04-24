@@ -35,44 +35,33 @@
                 <td valign="top"><b>Tài khoản:</b></td>
                 <td><input type="text" name="taikhoan" id="taikhoan" value="<?php echo $taikhoan ?>" disabled/></td>
             </tr>
-            <?php
-            $sql_all_staff = "SELECT * FROM NGUOIDUNG WHERE TAIKHOAN = '$taikhoan'";
-            $res_all_staff = Check_db($sql_all_staff);
-            $row = mysqli_fetch_array($res_all_staff);
-            $gioitinh = $row['GIOITINH'];
-            $tennd = $row['TENND'];
-            $sdt = $row['SDT'];
-            $diachi = $row['DIACHI'];
-            $email = $row['EMAIL'];
-            $ngaysinh = $row['NGAYSINH']; 
-            ?>
             <tr>
                 <td valign="top"><b>Họ và tên:</b></td>
-                <td><input type="text" name="tennd" id="tennd" value="<?php echo $tennd ?>" size = 60 required /></td>
+                <td><input type="text" name="tennd" id="tennd" size = 60 required /></td>
             </tr>
             <tr>
                 <td valign="top"><b>Giới tính:</b></td>
                 <td>
-                    <b>Nam </b><input type="radio" name="gioitinh" id="gioitinh" <?php if($gioitinh == 0) echo "checked"; ?>>
-                    <b>Nữ </b><input type="radio" name="gioitinh" id="gioitinh" <?php if($gioitinh == 1) echo "checked"; ?>>
+                    <b>Nam </b><input type="radio" name="gioitinh" id="gioitinh" value="1">
+                    <b>Nữ </b><input type="radio" name="gioitinh" id="gioitinh" value="0">
                 </td>
             </tr>
             <tr>
                 <td valign="top"><b>Địa chỉ: </b></td>
-                <td><input type="text" name="diachi" id="diachi"  value="<?php echo $diachi ?>" required/></td>
+                <td><input type="text" name="diachi" id="diachi" required/></td>
             </tr>
 
             <tr>
                 <td valign="top"><b>Số điện thoại:</b></td>
                 <td>
-                    <input type="text" name="sdt" id="sdt" value="<?php echo $sdt ?>" onkeyup="check_number_phone()" required/>
+                    <input type="text" name="sdt" id="sdt" onkeyup="check_number_phone()" required/>
                     <span id="kiemtrasdt"></span>
                 </td>
             </tr>
 
             <tr>
                 <td valign="top"><b>Email:</b></td>
-                <td><input type="email" name="email" id="email" value="<?php echo $email ?>" required/></td>
+                <td><input type="email" name="email" id="email" required/></td>
             </tr>
             <tr>
                 <td valign="top"><b>Ngày sinh:</b></td>

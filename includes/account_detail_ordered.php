@@ -8,8 +8,8 @@
 </thead>
 <tbody id="lichSuMuaHang_tblBody">
   <?php
-  $madh = $_GET['madh'];
-  $sql_order = "SELECT * FROM `monhang`,hinhanh,sanpham WHERE monhang.MASP=hinhanh.MASP and monhang.MASP=sanpham.MASP and MADH='$madh'";
+  $madon = $_GET['madh'];
+  $sql_order = "SELECT * FROM `monhang`,hinhanh,sanpham WHERE monhang.MASP=hinhanh.MASP and monhang.MASP=sanpham.MASP and MADH='$madon'";
   $res_order = Check_db($sql_order);
   if (mysqli_num_rows($res_order) > 0) {
     while ($row = mysqli_fetch_assoc($res_order)) {

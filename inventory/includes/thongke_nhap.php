@@ -4,57 +4,40 @@
 ?>
 
 <div class="view_product_box">
-    <h2>Danh sách sản phẩm</h2>
+    <h2>Thống kê</h2>
     <div class="border_bottom"></div>
     <form action="" method="post" enctype="multipart/form-data">
         <table width="100%">
             <thead>
                 <tr>
-                    <th class="text-center">Mã sản phẩm</th>
-                    <th>Mã loại sản phẩm</th>
-                    <th>Mã giảm giá</th>
-                    <th>Mã nhà sản xuất</th>
-                    <th>Tên sản phẩm</th>
-                    <th>Giá</th>
-                    <th>Số lượng còn</th>
-                    <th>Ngày sản xuất</th>
+                    <th class="text-center">Mã phiếu</th>
+                    <th>Ngày lập</th>
+                    <th>Nhà cung cấp</th>
+                    <th>Địa chỉ kho</th>
                     <th class="text-center">Xem</th>
                     <th class="text-center">Xóa</th>
                 </tr>
             </thead>
             <?php
-            $sql_all_product = "SELECT * FROM SANPHAM";
-            $res_all_product = Check_db($sql_all_product);
+            $sql_all_nhap = "SELECT * FROM PHIEUNHAP";
+            $res_all_nhap = Check_db($sql_all_nhap);
 
-            while ($row = mysqli_fetch_assoc($res_all_product)) {
-                $masp = $row['MASP'];
-                $maloaisp = $row['MALOAISP'];
-                $magiamgia = $row['MAGIAMGIA'];
-                $mansx = $row['MANSX'];
-                $tensp = $row['TENSP'];
-                $motasp = $row['MOTASP'];
-                $ram = $row['RAM'];
-                $vixuly = $row['VIXULY'];
-                $kichthuocmh = $row['KICHTHUOCMH'];
-                $gia = $row['GIA'];
-                $soluongcon = $row['SOLUONGCON'];
-                $ngaysx = $row['NGAYSX'];
-                
+            while ($row = mysqli_fetch_assoc($res_all_nhap)) {
+                $maphieu = $row['MAPHIEU'];
+                $ngaylap = $row['NGAYLAP'];
+                $nhacc = $row['NHACC'];
+                $diachi = $row['DIACHI'];
                 
             ?>
             <tbody>
                 <tr>
-                    <td class="text-center"><?php echo $masp; ?></td>
-                    <td><?php echo $maloaisp; ?></td>
-                    <td><?php echo $magiamgia; ?></td>
-                    <td><?php echo $mansx; ?></td>
-                    <td><?php echo $tensp; ?></td>
-                    <td>$<?php echo $gia; ?></td>
-                    <td><?php echo $soluongcon; ?></td>
-                    <td><?php echo $ngaysx; ?></td>
+                    <td class="text-center"><?php echo $maphieu; ?></td>
+                    <td><?php echo $ngaylap; ?></td>
+                    <td><?php echo $nhacc; ?></td>
+                    <td><?php echo $diachi; ?></td>
                     <form method="post">
                         <td class="text-center"><a class="btn btn-primary btn-submit btn-sm"
-                                href="index.php?action=update_product&product_id=<?php echo $masp; ?>">chi tiết</a>
+                                href="index.php?action=update_product&product_id=<?php echo $masp; ?>">Chi tiết</a>
                             </td>
                         <td class="text-center">
                             <input class="btn btn-sm btn-danger" style="padding: 4px 15px 4px 15px;"
@@ -92,26 +75,6 @@ if(isset($_POST['delete_product'])){
 ?>
 
 <?php 
-
-    function Img_product($masp){
-        $sql_img = "SELECT * FROM HINHANH WHERE MASP = '$masp';";
-        $res_img = Check_db($sql_img);
-        return $res_img;
-    }
-
-    function Check_Product($masp){
-        if(isset($_POST['checksp'])){
-            $sql = "SELECT * FROM SANPHAM WHERE MASP = '$masp';";
-            $res = Check_db($sql); 
-            if(mysqli_num_rows($res)>0){
-                return true;
-            }
-            else{
-                return false;
-            }
-        }
-
-    }
 
     function View_Product_Sellest(){
         $sql = "SELECT * FROM sanpham where Masp = (select max(soluongdat) FROM monhang);";

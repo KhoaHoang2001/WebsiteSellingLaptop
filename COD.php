@@ -2,7 +2,7 @@
     require_once('./includes/include.php');
     require_once('./includes/conn.php');
     $tongtien = $_POST['tongtien_offline'];
-    $madh = uniqid();
+    $madon = uniqid();
     $taikhoan = $_SESSION['taikhoan'];
     $diachi = $_POST['diachi_offline'];
     $ngaydat = date("Y-m-d");
@@ -28,10 +28,10 @@
     if(isset($_POST['COD'])){
       $htthanhtoan = 'Offline';
       $sql_create_order = "INSERT INTO `donhang` (`MADH`, `TAIKHOAN`, `TRANGTHAI`, `NGAYDAT`, `HTTHANHTOAN`, `DIACHINHAN`, `TONGTIEN`) 
-                          VALUES ('$madh', '$taikhoan', '$trangthai', '$ngaydat', '$htthanhtoan', '$diachi', '$tongtien');";
+                          VALUES ('$madon', '$taikhoan', '$trangthai', '$ngaydat', '$htthanhtoan', '$diachi', '$tongtien');";
       $res_create_order = Check_db($sql_create_order);
       if($res_create_order){
-          Add_Product($madh, $taikhoan);
+          Add_Product($madon, $taikhoan);
           Del_Cart($taikhoan);
           echo "<script>alert('Thanh toán offline thành công')</script>";
           echo "<script>window.open('account.php','_self')</script>";

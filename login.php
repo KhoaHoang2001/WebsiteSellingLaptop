@@ -1,19 +1,7 @@
 <?php
   require_once('./includes/include.php');
   require_once('./includes/conn.php');
-  if(isset($_SESSION['maquyen'])){
-    switch ($_SESSION['maquyen']) {
-      case "NV":
-        echo "<script>window.open('./staff/index.php','_self')</script>";
-        break;
-      case "KH":
-        echo "<script>window.open('./index.php','_self')</script>";
-        break;
-      case "AM":
-        echo "<script>window.open('./admin/index.php','_self')</script>";
-        break;
-    }
-  }
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -94,17 +82,31 @@ if (isset($_POST['submit_login'])) {
   if (mysqli_num_rows($res) > 0) {
     $row = mysqli_fetch_assoc($res);
     $_SESSION['taikhoan'] = $row['TAIKHOAN'];
-    $_SESSION['maquyen'] = $row['MAQUYEN'];
-    switch ($_SESSION['maquyen']) {
-      case "NV":
-        echo "<script>window.open('./staff/index.php','_self')</script>";
-        break;
-      case "KH":
-        echo "<script>window.open('./index.php','_self')</script>";
-        break;
-      case "AM":
-        echo "<script>window.open('./admin/index.php','_self')</script>";
-        break;
+    $_SESSION['chucvu'] = $row['CHUCVU'];
+    if($row['KICHHOAT']) {
+      switch ($_SESSION['chucvu']) {
+        case "KHONG":
+          echo "<script>window.open('./index.php','_self')</script>";
+          break;
+        case "QLBH":
+          echo "<script>window.open('./staff/index.php','_self')</script>";
+          break;
+        case "QTHT":
+          echo "<script>window.open('./admin/index.php','_self')</script>";
+          break;
+        case "QLNS":
+          echo "<script>window.open('./manager/index.php','_self')</script>";
+          break;
+        case "QLTK":
+          echo "<script>window.open('./inventory/index.php','_self')</script>";
+          break;
+        case "QLKD":
+          echo "<script>window.open('./sales/index.php','_self')</script>";
+          break;
+      }
+    }
+    else {
+      echo "<script>alert('Tài khoản đã bị vô hiệu hóa!')</script>";
     }
   }
   else{

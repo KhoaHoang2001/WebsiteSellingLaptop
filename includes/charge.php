@@ -5,7 +5,7 @@
   $amount = $tongtien*100;
   $token  = $_POST['stripeToken'];
   $email  = $_POST['stripeEmail'];
-  $madh = uniqid();
+  $madon = uniqid();
   $taikhoan = $_POST['taikhoan'];
   $diachi = $_POST['diachi'];
   $ngaydat = date("Y-m-d");
@@ -20,7 +20,7 @@
       'customer' => $customer->id,
       'amount'   => $amount,
       'currency' => 'usd',
-      'metadata' => ['order_id' => $madh]
+      'metadata' => ['order_id' => $madon]
   ]);
   
   function Get_Info_Account($taikhoan){
@@ -57,10 +57,10 @@ function Add_Product($madh, $taikhoan){
 if($charge->status == "succeeded"){
   $htthanhtoan = 'Online';
   $sql_create_order = "INSERT INTO `donhang` (`MADH`, `TAIKHOAN`, `TRANGTHAI`, `NGAYDAT`, `HTTHANHTOAN`, `DIACHINHAN`, `TONGTIEN`) 
-                      VALUES ('$madh', '$taikhoan', '$trangthai', '$ngaydat', '$htthanhtoan', '$diachi', '$tongtien');";
+                      VALUES ('$madon', '$taikhoan', '$trangthai', '$ngaydat', '$htthanhtoan', '$diachi', '$tongtien');";
   $res_create_order = Check_db($sql_create_order);
   if($res_create_order){
-      Add_Product($madh, $taikhoan);
+      Add_Product($madon, $taikhoan);
       Del_Cart($taikhoan);
       echo "<script>alert('Thanh toán online thành công')</script>";
       header('location: ../account.php');

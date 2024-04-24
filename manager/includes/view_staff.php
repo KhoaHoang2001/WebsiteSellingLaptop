@@ -9,36 +9,38 @@
         <table width="100%">
             <thead>
                 <tr>
-                    <th class="text-center">Tài khoản</th>
                     <th>Họ và tên</th>
                     <th>Số điện thoại</th>
                     <th>Địa chỉ</th>
                     <th>Email</th>
                     <th>Ngày sinh</th>
+                    <th>Chức vụ</th>
+                    <th>Lương</th>
                     <th class="text-center">Xóa</th>
                 </tr>
             </thead>
             <?php
-            $sql_all_staff = "SELECT * FROM NGUOIDUNG WHERE MAQUYEN = 'NV'";
+            $sql_all_staff = "SELECT * FROM NGUOIDUNG,NHANVIEN,CHUCVU WHERE NGUOIDUNG.TAIKHOAN = NHANVIEN.TAIKHOAN AND NGUOIDUNG.CHUCVU = CHUCVU.MACV AND CHUCVU != 'KHONG'";
             $res_all_staff = Check_db($sql_all_staff);
             while ($row = mysqli_fetch_array($res_all_staff)) {
-                $taikhoan = $row['TAIKHOAN'];
-                $matkhau = $row['MATKHAU'];
-                $gioitinh = $row['GIOITINH'];
                 $tennd = $row['TENND'];
                 $sdt = $row['SDT'];
                 $diachi = $row['DIACHI'];
                 $email = $row['EMAIL'];
                 $ngaysinh = $row['NGAYSINH']; 
+                $chucvu = $row['TENCV'];
+                $luong = $row['LUONG'];
+                $kichhoat = $row['KICHHOAT'];
             ?>
             <tbody>
                 <tr>
-                    <td class="text-center"><?php echo $taikhoan; ?></td>
                     <td><?php echo $tennd; ?></td>
                     <td><?php echo $sdt; ?></td>
                     <td><?php echo $diachi ?></td>
                     <td><?php echo $email ?></td>
                     <td><?php echo $ngaysinh ?></td>
+                    <td><?php echo $chucvu ?></td>
+                    <td><?php echo $luong ?></td>
                     <td class="text-center">
                         <form method="post">
                             <input class="btn btn-danger btn-sm" style="padding: 4px 15px 4px 15px;"
@@ -71,11 +73,11 @@
     
     if(isset($_POST['delete_staff'])){
         $taikhoan = $_POST['taikhoan'];
-        $sql_update_leave = "DELETE FROM NGUOIDUNG WHERE taikhoan = '$taikhoan';";
-        echo $sql_update_leave;
-        $res_update_leave = Check_db($sql_update_leave);
-        if($res_update_leave){
-            echo "<script>alert('Tài khoản được xóa thành công!')</script>";
+        $sql_delete_staff = "UPDATE NGUOIDUNG SET KICHHOAT = 0 WHERE TAIKHOAN = '$taikhoan';";
+        echo $sql_delete_staff;
+        $res_delete_staff = Check_db($sql_delete_staff);
+        if($res_delete_staff){
+            echo "<script>alert('Tài khoản được xóa thành công!')$res_delete_staff</script>";
             echo "<script>window.open('index.php?action=view_staff','_self')</script>";
         }
         else {

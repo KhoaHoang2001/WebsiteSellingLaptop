@@ -34,8 +34,6 @@
     </div>
     <hr />
     <div class="bottom">
-      <p>© 2017 - Công ty Cổ Phần viễn thông Di Động Thông Minh - 119 phố Thái Thịnh, phường Thịnh Quang, quận Đống Đa, thành phố Hà Nội, Việt Nam
-        MST:0105815899 (Số giấy chứng nhận đăng ký kinh doanh thương nhân) - Ngày cấp lần đầu: 12/03/2012
-        Đăng ký thay đổi lần 2: 04/11/2013 - Nơi cấp: Sở kế hoạch và đầu tư thành phố Hà Nội</p>
+      <p>© 2024 - Nhóm 24 - Hệ thống thông tin doanh nghiệp - Trường Đại học Sài Gòn</p>
     </div>
   </footer>

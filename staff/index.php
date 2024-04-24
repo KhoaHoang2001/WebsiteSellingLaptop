@@ -1,6 +1,6 @@
 <?php
     include_once('./includes/include.php');
-    if($_SESSION['maquyen'] != "NV"){
+    if($_SESSION['chucvu'] != "QLBH"){
       echo "<script>window.open('../login.php','_self')</script>";
     }
     else{
